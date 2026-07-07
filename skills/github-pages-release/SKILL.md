@@ -5,7 +5,7 @@ description: Validar que el sitio estático del repositorio esté listo para pub
 
 # Skill: GitHub Pages Release
 
-Usa esta skill cuando cambien `index.html`, `index.css`, `index.js` o documentos cargados por la página.
+Usa esta skill cuando cambien `index.html`, archivos bajo `assets/` o `pages/`, o documentos cargados por la página.
 
 ## Procedimiento
 
@@ -26,9 +26,9 @@ python -m http.server 8026 --bind 127.0.0.1
 ## Criterios de Aceptación
 
 - `index.html` responde `200`.
-- `index.css` responde `200`.
-- `index.js` responde `200`.
-- No hay errores de sintaxis en `index.js`.
+- Los recursos de `assets/css/` y `assets/js/` cargan sin fallos `404` ni errores en consola.
+- Las páginas parciales en `pages/` cargan dinámicamente según la pestaña activa.
+- No hay errores de ejecución JS.
 - El contenido público describe el estándar actual.
 
 ## Resultado Esperado

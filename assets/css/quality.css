@@ -1,0 +1,63 @@
+/* Agents First Repo Docs — quality.css
+   Pestaña de Prompts de Validación Interna.
+   ======================================================= */
+
+.quality-layout {
+    display: flex;
+    gap: 16px;
+    height: min(72vh, 700px);
+    min-height: 480px;
+    overflow: hidden;
+}
+
+.quality-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 220px;
+    max-width: 240px;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+.quality-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    background: var(--surface);
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-family: inherit;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.18s, color 0.18s, border-color 0.18s;
+}
+
+.quality-item:hover {
+    background: var(--surface-muted);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+}
+
+.quality-item.active {
+    background: var(--accent-soft);
+    color: var(--accent);
+    border-color: var(--accent);
+    font-weight: 600;
+}
+
+.quality-item i {
+    width: 16px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.quality-layout .prompt-viewer-container {
+    flex: 1;
+    max-height: none;
+    overflow: auto;
+}

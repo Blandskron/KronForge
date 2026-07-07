@@ -1,0 +1,31 @@
+<div class="glass-card model-selector-card">
+    <h3>Uso por Agente</h3>
+    <p class="subtitle">Selecciona una plataforma para ver recomendaciones de uso sin romper la universalidad del prompt.</p>
+    
+    <div class="tabs-control">
+        <button class="tab-btn active" data-model="claude">
+            <i class="fa-solid fa-brain"></i> Anthropic Claude
+        </button>
+        <button class="tab-btn" data-model="gemini">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> Google Gemini
+        </button>
+        <button class="tab-btn" data-model="copilot">
+            <i class="fa-solid fa-rocket"></i> GitHub Copilot
+        </button>
+    </div>
+
+    <div class="model-content-area">
+        <div class="model-desc" id="model-intro-text">
+            Recomendaciones para usar el prompt maestro con Claude.
+        </div>
+        <div class="code-preview-box">
+            <div class="code-header">
+                <span id="model-file-path">CLAUDE.md</span>
+                <button class="btn btn-sm btn-secondary copy-model-content">
+                    <i class="fa-solid fa-copy"></i> Copiar Plantilla
+                </button>
+            </div>
+            <pre><code id="model-code-display">Cargando plantilla...</code></pre>
+        </div>
+    </div>
+</div>

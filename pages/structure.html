@@ -1,0 +1,114 @@
+<div class="split-layout">
+    <!-- Left Panel: Interactive File Tree -->
+    <div class="glass-card tree-card">
+        <h3>Estructura Recomendada</h3>
+        <p class="subtitle">Haz clic en cualquier archivo para ver su propósito y contenido plantilla.</p>
+        
+        <div class="file-tree">
+            <div class="tree-node directory expanded">
+                <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                <i class="fa-solid fa-folder tree-icon"></i>
+                <span>proyecto/</span>
+            </div>
+            <div class="tree-children">
+                <div class="tree-node file" data-file="agents-md">
+                    <i class="fa-solid fa-file-lines tree-icon txt-yellow"></i>
+                    <span>AGENTS.md</span>
+                </div>
+                <div class="tree-node directory expanded">
+                    <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                    <i class="fa-solid fa-folder tree-icon txt-blue"></i>
+                    <span>docs/</span>
+                </div>
+                <div class="tree-children">
+                    <div class="tree-node directory expanded">
+                        <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                        <i class="fa-solid fa-folder tree-icon txt-purple"></i>
+                        <span>agent/</span>
+                    </div>
+                    <div class="tree-children">
+                        <div class="tree-node file" data-file="permissions-md">
+                            <i class="fa-solid fa-file-code tree-icon txt-cyan"></i>
+                            <span>PERMISSIONS.md</span>
+                        </div>
+                        <div class="tree-node file" data-file="runbook-md">
+                            <i class="fa-solid fa-file-code tree-icon txt-cyan"></i>
+                            <span>RUNBOOK.md</span>
+                        </div>
+                        <div class="tree-node file" data-file="tests-md">
+                            <i class="fa-solid fa-file-code tree-icon txt-cyan"></i>
+                            <span>TESTS.md</span>
+                        </div>
+                        <div class="tree-node file" data-file="security-md">
+                            <i class="fa-solid fa-file-code tree-icon txt-cyan"></i>
+                            <span>SECURITY.md</span>
+                        </div>
+                        <div class="tree-node file" data-file="config-md">
+                            <i class="fa-solid fa-file-code tree-icon txt-cyan"></i>
+                            <span>CONFIG.md</span>
+                        </div>
+                        <div class="tree-node file" data-file="data-schema-md">
+                            <i class="fa-solid fa-file-code tree-icon txt-cyan"></i>
+                            <span>DATA_SCHEMA.md</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="tree-node directory">
+                    <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                    <i class="fa-solid fa-folder tree-icon txt-yellow"></i>
+                    <span>skills/</span>
+                </div>
+                <div class="tree-children">
+                    <div class="tree-node directory">
+                        <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                        <i class="fa-solid fa-folder tree-icon txt-yellow"></i>
+                        <span>prompt-update/</span>
+                    </div>
+                    <div class="tree-children">
+                        <div class="tree-node file" data-file="skill-prompt-update-md">
+                            <i class="fa-solid fa-file-code tree-icon txt-cyan"></i>
+                            <span>SKILL.md</span>
+                        </div>
+                    </div>
+                    <div class="tree-node directory">
+                        <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                        <i class="fa-solid fa-folder tree-icon txt-yellow"></i>
+                        <span>documentation-audit/</span>
+                    </div>
+                    <div class="tree-children">
+                        <div class="tree-node file" data-file="skill-documentation-audit-md">
+                            <i class="fa-solid fa-file-code tree-icon txt-cyan"></i>
+                            <span>SKILL.md</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="tree-node file" data-file="readme-md">
+                    <i class="fa-solid fa-file-lines tree-icon txt-green"></i>
+                    <span>README.md</span>
+                </div>
+                <div class="tree-node file" data-file="claude-md">
+                    <i class="fa-solid fa-file-lines tree-icon txt-green"></i>
+                    <span>CLAUDE.md</span>
+                </div>
+                <div class="tree-node file" data-file="gemini-md">
+                    <i class="fa-solid fa-file-lines tree-icon txt-green"></i>
+                    <span>GEMINI.md</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Right Panel: File Preview -->
+    <div class="glass-card preview-card">
+        <div class="preview-header">
+            <h4 id="file-title">AGENTS.md</h4>
+            <span class="badge badge-outline" id="file-status">Requerido</span>
+        </div>
+        <div class="preview-content">
+            <p id="file-description">Selecciona un archivo del árbol a la izquierda para ver su propósito y contenido plantilla.</p>
+            <div class="code-preview-box">
+                <pre><code id="file-code-preview">Elige un archivo.</code></pre>
+            </div>
+        </div>
+    </div>
+</div>

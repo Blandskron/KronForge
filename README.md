@@ -1,10 +1,10 @@
 # Agents First Repo Docs
 
-Repositorio profesional para convertir cualquier proyecto de software en un repositorio **agents-first** y **human-friendly**.
+Repositorio profesional de prompts para documentar, auditar y validar repositorios de software con agentes de IA.
 
-La idea es simple: **Copiar -> Pegar -> Auditar -> Aprobar -> Aplicar**. Un dev entra, copia el prompt maestro, lo pega en el agente que use y el agente queda con una misión clara para auditar, limpiar y reconstruir la documentación del repositorio objetivo sin asumir stack, herramienta ni arquitectura.
+La idea es simple: **Copiar -> Pegar -> Auditar -> Aprobar -> Aplicar**. Un dev entra, copia el prompt que necesita, lo pega en el agente que use y el agente queda con una misión clara: auditar, limpiar, reconstruir documentación o ejecutar procesos de validación interna de calidad, sin asumir stack, herramienta ni arquitectura.
 
-El producto de este repositorio es el prompt. El repositorio completo funciona como ejemplo vivo de cómo debería verse un proyecto avanzado, profesional y fácil de mantener cuando está preparado para agentes y para humanos.
+El producto de este repositorio son los prompts. El repositorio completo funciona como ejemplo vivo de cómo debería verse un proyecto avanzado, profesional y fácil de mantener cuando está preparado para agentes y para humanos.
 
 > [!TIP]
 > **Sitio GitHub Pages:** usa la versión visual para leer, navegar y copiar el prompt desde [blandskron.github.io/agents-first-repo-docs](https://blandskron.github.io/agents-first-repo-docs/).
@@ -12,8 +12,9 @@ El producto de este repositorio es el prompt. El repositorio completo funciona c
 ## Qué Entrega Este Repo
 
 - Un prompt maestro universal en [prompts/agents-first-documentation-review.prompt.md](prompts/agents-first-documentation-review.prompt.md).
+- Una biblioteca de prompts especializados para validación interna de calidad en [prompts/quality/](prompts/quality/).
 - Una estructura documental que sirve como ejemplo real del estándar agents-first.
-- Guías de permisos, validación y versionado para mantener el prompt como producto.
+- Guías de permisos, validación y versionado para mantener los prompts como producto.
 - Un set completo de documentos `docs/agent/` como referencia profesional, incluso cuando una dimensión no aplique.
 - Ejemplos de skills reutilizables para tareas repetibles.
 - Un ejemplo de uso en [examples/usage-example.md](examples/usage-example.md).
@@ -79,10 +80,48 @@ agents-first-repo-docs/
 ├── GEMINI.md
 ├── PROMPT_VERSIONING.md
 ├── index.html
-├── index.css
-├── index.js
+├── assets/
+│   ├── css/
+│   │   ├── base.css
+│   │   ├── layout.css
+│   │   ├── components.css
+│   │   ├── quality.css
+│   │   └── responsive.css
+│   └── js/
+│       ├── config.js
+│       ├── loader.js
+│       ├── navigation.js
+│       ├── sidebar.js
+│       ├── tree.js
+│       ├── quality.js
+│       ├── models.js
+│       ├── copy.js
+│       ├── theme.js
+│       └── app.js
+├── pages/
+│   ├── welcome.html
+│   ├── prompt.html
+│   ├── quality.html
+│   ├── structure.html
+│   ├── models.html
+│   ├── example.html
+│   └── versioning.html
 ├── prompts/
-│   └── agents-first-documentation-review.prompt.md
+│   ├── agents-first-documentation-review.prompt.md
+│   └── quality/
+│       ├── README.md
+│       ├── unit-tests.prompt.md
+│       ├── integration-tests.prompt.md
+│       ├── functional-qa.prompt.md
+│       ├── regression-qa.prompt.md
+│       ├── security-audit.prompt.md
+│       ├── dependency-vulnerability-audit.prompt.md
+│       ├── docker-image-security-audit.prompt.md
+│       ├── code-quality-review.prompt.md
+│       ├── architecture-validation.prompt.md
+│       ├── performance-basic-validation.prompt.md
+│       ├── definition-of-done-review.prompt.md
+│       └── release-readiness-review.prompt.md
 ├── examples/
 │   └── usage-example.md
 ├── docs/
@@ -107,6 +146,27 @@ agents-first-repo-docs/
 │       └── SKILL.md
 └── LICENSE
 ```
+
+## Biblioteca de Prompts de Validación Interna
+
+Además del prompt maestro de documentación, este repositorio incluye prompts especializados para procesos de validación interna de calidad de software:
+
+| Prompt | Propósito |
+|---|---|
+| [unit-tests.prompt.md](prompts/quality/unit-tests.prompt.md) | Tests unitarios |
+| [integration-tests.prompt.md](prompts/quality/integration-tests.prompt.md) | Tests de integración |
+| [functional-qa.prompt.md](prompts/quality/functional-qa.prompt.md) | QA funcional |
+| [regression-qa.prompt.md](prompts/quality/regression-qa.prompt.md) | QA de regresión |
+| [security-audit.prompt.md](prompts/quality/security-audit.prompt.md) | Auditoría de ciberseguridad |
+| [dependency-vulnerability-audit.prompt.md](prompts/quality/dependency-vulnerability-audit.prompt.md) | Auditoría de vulnerabilidades en dependencias |
+| [docker-image-security-audit.prompt.md](prompts/quality/docker-image-security-audit.prompt.md) | Auditoría de seguridad de imágenes Docker |
+| [code-quality-review.prompt.md](prompts/quality/code-quality-review.prompt.md) | Revisión de calidad de código |
+| [architecture-validation.prompt.md](prompts/quality/architecture-validation.prompt.md) | Validación de arquitectura |
+| [performance-basic-validation.prompt.md](prompts/quality/performance-basic-validation.prompt.md) | Validación básica de performance |
+| [definition-of-done-review.prompt.md](prompts/quality/definition-of-done-review.prompt.md) | Revisión de Definition of Done |
+| [release-readiness-review.prompt.md](prompts/quality/release-readiness-review.prompt.md) | Revisión de release readiness |
+
+Estos prompts no reemplazan el criterio humano. Su objetivo es guiar al agente para trabajar con evidencia local, producir checklists verificables y dejar trazabilidad de la validación realizada.
 
 ## Resultado Esperado en un Repo Objetivo
 
@@ -155,9 +215,9 @@ Un repo convertido con este prompt debe poder responder tres preguntas sin oblig
 
 La página estática vive en:
 
-- [index.html](index.html)
-- [index.css](index.css)
-- [index.js](index.js)
+- [index.html](index.html) (punto de entrada en la raíz)
+- [assets/](assets/) (archivos CSS y JS modulares)
+- [pages/](pages/) (vistas HTML dinámicas)
 
 Está pensada para desplegarse directamente desde la raíz del repositorio en GitHub Pages. No requiere build system.
 

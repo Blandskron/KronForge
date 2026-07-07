@@ -21,19 +21,21 @@ http://127.0.0.1:8026/index.html
 
 ## Archivos de Entrada del Sitio
 
-- `index.html`: estructura de la página.
-- `index.css`: diseño visual responsive.
-- `index.js`: navegación, carga de documentos y acciones de copiado.
+- `index.html`: estructura de la página (shell).
+- `assets/css/`: diseño visual responsive modular (`base.css`, `layout.css`, `components.css`, `quality.css`, `responsive.css`).
+- `assets/js/`: lógica en ES modules nativos (`app.js` orquestador, `navigation.js`, etc.).
+- `pages/`: vistas HTML dinámicas de cada tab (`welcome.html`, `prompt.html`, etc.).
 
 ## Validación Operativa
 
 Antes de publicar cambios:
 
 1. Servir la raíz del repositorio por HTTP local.
-2. Confirmar que `index.html`, `index.css` e `index.js` respondan `200`.
+2. Confirmar que `index.html` cargue correctamente y los recursos de `assets/` devuelvan `200` en consola.
 3. Verificar que la pestaña del prompt cargue `prompts/agents-first-documentation-review.prompt.md`.
-4. Verificar que el botón de copiar use el contenido visible del prompt.
-5. Confirmar navegación por hash: `#prompt`, `#structure`, `#models`, `#example`, `#versioning`.
+4. Verificar que la pestaña "Prompts de Calidad" muestre el índice y permita navegar a los prompts individuales.
+5. Verificar que el botón de copiar use el contenido visible del prompt activo.
+6. Confirmar navegación por hash: `#prompt`, `#quality`, `#structure`, `#models`, `#example`, `#versioning`.
 
 ## Problemas Frecuentes
 

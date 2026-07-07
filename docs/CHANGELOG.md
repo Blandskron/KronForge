@@ -4,6 +4,90 @@ Todos los cambios notables en este proyecto serán documentados en este archivo.
 
 ---
 
+## [1.5.5] - 2026-07-07
+
+### Modificado
+- **Resolución de Bugs en Layout:**
+  - Corregido error de desbordamiento horizontal y desencuadre del contenido en `.main-content` al colapsar el sidebar en desktop. Se removieron los estilos en línea aplicados mediante JavaScript en `sidebar.js`, permitiendo que el margen izquierdo del área principal se controle enteramente por la variable CSS `--active-sidebar-width` y sus transiciones fluidas de forma nativa.
+
+---
+
+## [1.5.4] - 2026-07-07
+
+### Modificado
+- **Limpieza de Interfaz y Enlaces de Contacto:**
+  - Removido el botón "Copiar Prompt" de la parte superior derecha de la cabecera en `index.html` (dejando la barra superior oculta en desktop y mostrando únicamente el botón del menú móvil en resoluciones menores).
+  - Rediseñado el footer principal (`.app-footer`) de sticky a **fijo en pantalla** (`position: fixed`) de 56px de altura, con layout horizontal (`flex-direction: row; justify-content: space-between`), fondo traslúcido y desenfoque por hardware. Se añadió un margen inferior de lectura (`padding-bottom: 96px`) al `.main-content` para evitar solapamientos con el scroll de código.
+  - Añadido el botón de **Consultas** en el *sidebar-footer* (justo debajo del botón de GitHub) que enlaza directamente al perfil de LinkedIn de Blandskron, adaptándose estéticamente al colapsado lateral del sidebar.
+
+---
+
+## [1.5.3] - 2026-07-07
+
+### Modificado
+- **Cabecera y Navegación:** Depurado de componentes no funcionales y optimización de controles:
+  - Removido por completo el buscador estático del *top-bar* en `index.html`, eliminando también el módulo `search.js` y las definiciones CSS asociadas en `layout.css` y `responsive.css`.
+  - Reubicado el botón de cambio de tema (claro/oscuro) desde la cabecera hacia la parte inferior de la barra lateral (justo encima del botón de GitHub), rediseñándolo como `.theme-btn` para comportarse igual a un item de navegación (con soporte responsivo y cambio dinámico de icono y texto de "Modo Oscuro" a "Modo Claro").
+
+---
+
+## [1.5.2] - 2026-07-07
+
+### Modificado
+- **Personalización Estética y Marca:** Actualizados los iconos y logotipos del sitio con soporte nativo de tema claro/oscuro (sin uso de JavaScript para la alternancia):
+  - Integrado el favicon (`assets/img/favicon.png`) en la cabecera del sitio.
+  - Reemplazado el icono de robot genérico en el sidebar por el logotipo de cara del agente de Blandskron, mostrando automáticamente `ico-black.png` en modo claro e `ico-white.png` en modo oscuro.
+  - Añadido un footer de tipo *sticky* al final del contenido principal que integra el logo de marca (`logo-black.png` en modo claro y `logo-white.png` en modo oscuro) junto con créditos interactivos y una animación de latido de corazón en el icono de agradecimiento que enlaza a `blandskron.com`.
+
+---
+
+## [1.5.1] - 2026-07-07
+
+### Modificado
+- **Reorganización del Sitio Estático:** Reducción del tamaño de los archivos base del sitio web mediante una separación limpia de responsabilidades compatible con GitHub Pages y sin usar frameworks ni build system:
+  - `index.html` en la raíz actúa ahora como un shell HTML delgado que realiza carga diferida (lazy loading) de las secciones dinámicas.
+  - Creación de carpetas `assets/css/` para modularizar los estilos: `base.css` (variables/reset), `layout.css` (estructura/sidebar), `components.css` (UI/cards/inputs), `quality.css` (visores de prompts de calidad) y `responsive.css` (media queries).
+  - Creación de carpetas `assets/js/` para dividir la lógica utilizando ES Modules nativos: `config.js` (datos locales), `loader.js` (fetcher de archivos), `navigation.js` (enrutamiento de tabs), `sidebar.js` (comportamiento del sidebar), `tree.js` (árbol de archivos), `quality.js` (Prompts de Calidad), `models.js` (guías de modelos), `copy.js` (clipboard/toast), `theme.js` (claro/oscuro), `search.js` (búsqueda) y `app.js` (orquestador principal).
+  - Creación de carpeta `pages/` con los archivos HTML dinámicos para cada sección de la app: `welcome.html`, `prompt.html`, `quality.html`, `structure.html`, `models.html`, `example.html` y `versioning.html`.
+- **Documentación del Repositorio:** Actualizadas todas las referencias a `index.css` e `index.js` en `.github/copilot-instructions.md`, `README.md`, `AGENTS.md`, `docs/agent/CONFIG.md`, `docs/agent/DATA_SCHEMA.md`, `docs/agent/PERMISSIONS.md`, `docs/agent/RUNBOOK.md`, `skills/documentation-audit/SKILL.md` y `skills/github-pages-release/SKILL.md`.
+
+---
+
+## [1.5.0] - 2026-07-07
+
+### Añadido
+- **Biblioteca de Prompts de Calidad:** Creación de `prompts/quality/` con 12 prompts especializados para validación interna de software:
+  - `unit-tests.prompt.md`: detección de stack y creación de tests unitarios sobre lógica verificable.
+  - `integration-tests.prompt.md`: revisión y creación de tests de integración entre módulos o servicios.
+  - `functional-qa.prompt.md`: QA funcional basado en flujos y criterios de aceptación reales.
+  - `regression-qa.prompt.md`: mapeo de impacto de cambios y checklist de regresión.
+  - `security-audit.prompt.md`: auditoría de ciberseguridad responsable (detectar, clasificar, reportar).
+  - `dependency-vulnerability-audit.prompt.md`: auditoría de vulnerabilidades en dependencias por gestor de paquetes.
+  - `docker-image-security-audit.prompt.md`: revisión estática de Dockerfiles y docker-compose.
+  - `code-quality-review.prompt.md`: revisión de duplicación, deuda técnica, acoplamiento y mantenibilidad.
+  - `architecture-validation.prompt.md`: validación de estructura real versus documentación arquitectónica.
+  - `performance-basic-validation.prompt.md`: identificación de riesgos de performance por análisis estático.
+  - `definition-of-done-review.prompt.md`: checklist de DoD con veredicto claro basado en evidencia.
+  - `release-readiness-review.prompt.md`: checklist multidimensional de preparación para release.
+- **Índice de Biblioteca:** Creación de `prompts/quality/README.md` con filosofía, tabla de prompts y checklist de validación de prompts nuevos.
+- **Ejemplo de QA Funcional:** Agregado Ejemplo 2 en `examples/usage-example.md` mostrando diagnóstico, plan, checklist y evidencia de un proceso de QA.
+
+### Modificado
+- **README.md:** Nueva descripción del repositorio como biblioteca de prompts para documentar, auditar y validar. Árbol de estructura actualizado. Nueva sección "Biblioteca de Prompts de Validación Interna" con tabla enlazada.
+- **AGENTS.md:** Propósito actualizado. `prompts/quality/README.md` agregado a Lectura Prioritaria. Superficie editable actualizada con `prompts/quality/**`. Reglas operativas ampliadas para prompts de calidad.
+- **docs/agent/TESTS.md:** Expandido con checklist de validación de prompts de calidad y validación operativa del sitio estático.
+- **docs/agent/SECURITY.md:** Ampliado con reglas de seguridad para prompts de auditoría: prohibición de exploits, reglas de reporte responsable y criterios de clasificación de hallazgos.
+- **PROMPT_VERSIONING.md:** Ampliado con sección de versionado de la biblioteca `prompts/quality/` y tabla de clasificación de cambios por tipo.
+- **examples/usage-example.md:** Agregado segundo ejemplo completo de uso de un prompt de QA funcional.
+- **index.html:** Nueva pestaña "Prompts de Calidad" en la barra de navegación lateral.
+- **index.js:** Datos de prompts de calidad agregados a `docsDatabase`. Lógica de nueva pestaña y búsqueda ampliada.
+- **docs/agent/RUNBOOK.md:** Validación operativa actualizada para incluir los nuevos prompts.
+
+### Versión SemVer
+Clasificada como **MINOR** (v1.5.0): agrega nueva biblioteca de prompts de validación interna sin romper la estructura existente ni alterar el prompt maestro.
+
+---
+
 ## [1.4.0] - 2026-06-25
 
 ### Modificado

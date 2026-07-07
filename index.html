@@ -3,43 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agents First Repo Docs - Prompt Universal</title>
-    <meta name="description" content="Copia un prompt maestro universal para convertir cualquier repositorio en un proyecto agents-first y human-friendly.">
-    <!-- Google Fonts -->
+    <title>Agents First - Repositorio Preparado para Agentes de IA</title>
+    <meta name="description" content="Prompt maestro universal y biblioteca de validaciones internas para auditar y documentar repositorios de software con agentes de IA de forma segura.">
+    
+    <!-- Google Fonts: Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Main CSS -->
-    <link rel="stylesheet" href="index.css?v=1.4.0">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    
+    <!-- CSS modular (Sin build step) -->
+    <link rel="stylesheet" href="assets/css/base.css?v=1.5.5">
+    <link rel="stylesheet" href="assets/css/layout.css?v=1.5.5">
+    <link rel="stylesheet" href="assets/css/components.css?v=1.5.5">
+    <link rel="stylesheet" href="assets/css/quality.css?v=1.5.5">
+    <link rel="stylesheet" href="assets/css/responsive.css?v=1.5.5">
 </head>
 <body>
     <div class="app-container">
+        
+        <!-- Sidebar Backdrop (Mobile overlay) -->
         <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+
         <!-- Sidebar Navigation -->
         <aside class="sidebar" id="sidebar">
             <div class="sidebar-brand">
                 <div class="brand-logo">
-                    <i class="fa-solid fa-robot brand-icon"></i>
+                    <img src="assets/img/ico-black.png" alt="Agents First" class="brand-logo-img light-only">
+                    <img src="assets/img/ico-white.png" alt="Agents First" class="brand-logo-img dark-only">
                 </div>
                 <div class="brand-details">
                     <h1>Agents First</h1>
-                    <span>v1.4.0 Standard</span>
+                    <span>v1.5.5 Standard</span>
                 </div>
                 <button class="sidebar-close" id="sidebar-close" type="button" aria-label="Colapsar navegación" title="Colapsar navegación">
                     <i class="fa-solid fa-chevron-left"></i>
                 </button>
             </div>
-            
+
             <nav class="sidebar-nav">
                 <a href="#welcome" class="nav-item active" data-tab="welcome">
-                    <i class="fa-solid fa-house-chimney"></i>
+                    <i class="fa-solid fa-house"></i>
                     <span>Inicio</span>
                 </a>
                 <a href="#prompt" class="nav-item" data-tab="prompt">
                     <i class="fa-solid fa-code"></i>
                     <span>Prompt Principal</span>
+                </a>
+                <a href="#quality" class="nav-item" data-tab="quality">
+                    <i class="fa-solid fa-shield-check"></i>
+                    <span>Prompts de Calidad</span>
                 </a>
                 <a href="#structure" class="nav-item" data-tab="structure">
                     <i class="fa-solid fa-sitemap"></i>
@@ -47,7 +65,7 @@
                 </a>
                 <a href="#models" class="nav-item" data-tab="models">
                     <i class="fa-solid fa-wand-magic-sparkles"></i>
-                    <span>Instrucciones por Modelo</span>
+                    <span>Uso por Agente</span>
                 </a>
                 <a href="#example" class="nav-item" data-tab="example">
                     <i class="fa-solid fa-book-open"></i>
@@ -60,293 +78,64 @@
             </nav>
 
             <div class="sidebar-footer">
+                <button class="theme-btn" id="theme-toggle-btn" title="Alternar tema">
+                    <i class="fa-solid fa-moon"></i>
+                    <span>Modo Oscuro</span>
+                </button>
                 <a href="https://github.com/blandskron/agents-first-repo-docs" target="_blank" class="github-btn" rel="noopener">
                     <i class="fa-brands fa-github"></i>
                     <span>Ver en GitHub</span>
+                </a>
+                <a href="https://www.linkedin.com/in/blandskron/" target="_blank" class="linkedin-btn" rel="noopener" title="Consultas profesionales en LinkedIn">
+                    <i class="fa-brands fa-linkedin"></i>
+                    <span>Consultas</span>
                 </a>
             </div>
         </aside>
 
         <!-- Main Content Area -->
         <main class="main-content">
-            <!-- Header/Top Bar -->
             <header class="top-bar">
                 <button class="mobile-menu-btn" id="mobile-menu-btn" type="button" aria-label="Abrir navegación">
                     <i class="fa-solid fa-bars"></i>
                 </button>
-                <div class="search-box">
-                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
-                    <input type="text" id="search-input" placeholder="Buscar en la documentación...">
-                </div>
-                <div class="header-actions">
-                    <button class="action-btn theme-toggle" id="theme-toggle-btn" title="Alternar tema">
-                        <i class="fa-solid fa-moon"></i>
-                    </button>
-                    <button class="action-btn copy-prompt-trigger" id="quick-copy-prompt" title="Copiar Prompt Principal">
-                        <i class="fa-solid fa-copy"></i>
-                        <span>Copiar Prompt</span>
-                    </button>
-                </div>
             </header>
 
-            <!-- Content Cards -->
-            <div class="content-wrapper">
-                
-                <!-- WELCOME TAB -->
+            <!-- Content Cards Container (Lazy loaded HTML pages via JS) -->
+            <div class="content-wrapper" id="tab-container">
                 <section id="welcome" class="tab-pane active">
-                    <div class="hero-card">
-                        <div class="hero-overlay"></div>
-                        <div class="hero-content">
-                            <span class="badge">Prompt Maestro Universal</span>
-                            <h2>Copiar, pegar y convertir cualquier repo</h2>
-                            <p>Un prompt maestro universal para que cualquier agente audite, ordene y reconstruya la documentación de un proyecto sin asumir stack, herramienta ni arquitectura.</p>
-                            <div class="hero-buttons">
-                                <button class="btn btn-primary" onclick="switchTab('prompt')">
-                                    <i class="fa-solid fa-play"></i> Ver Prompt Principal
-                                </button>
-                                <button class="btn btn-secondary" onclick="switchTab('structure')">
-                                    <i class="fa-solid fa-sitemap"></i> Explorar Estructura
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="grid-layout">
-                        <div class="glass-card feature-box">
-                            <div class="feature-icon bg-cyan">
-                                <i class="fa-solid fa-clipboard-check"></i>
-                            </div>
-                            <h3>Flujo Simple</h3>
-                            <p>Copiar -> Pegar -> Auditar -> Aprobar -> Aplicar. Sin onboarding largo, sin framework y sin estudiar una metodología completa.</p>
-                        </div>
-                        <div class="glass-card feature-box">
-                            <div class="feature-icon bg-purple">
-                                <i class="fa-solid fa-shield-halved"></i>
-                            </div>
-                            <h3>Seguro por Diseño</h3>
-                            <p>El agente debe leer primero, pedir aprobación antes de cambios sensibles y evitar secretos, comandos inventados o arquitectura ficticia.</p>
-                        </div>
-                        <div class="glass-card feature-box">
-                            <div class="feature-icon bg-blue">
-                                <i class="fa-solid fa-code-compare"></i>
-                            </div>
-                            <h3>Universal</h3>
-                            <p>Sirve para Claude, Gemini, Copilot, ChatGPT, Codex o cualquier agente moderno, en repositorios nuevos, heredados o multi-stack.</p>
-                        </div>
-                    </div>
+                    <div class="page-loading"><i class="fa-solid fa-spinner fa-spin"></i> Cargando Inicio...</div>
                 </section>
-
-                <!-- PROMPT TAB -->
                 <section id="prompt" class="tab-pane">
-                    <div class="glass-card full-page-card">
-                        <div class="card-header">
-                            <div class="header-left">
-                                <i class="fa-solid fa-code icon-title"></i>
-                                <div>
-                                    <h3>Prompt Principal de Auditoría</h3>
-                                    <p>Copia este prompt en tu agente de IA para convertir un repositorio en agents-first.</p>
-                                </div>
-                            </div>
-                            <button class="btn btn-accent copy-prompt-trigger">
-                                <i class="fa-solid fa-copy"></i> Copiar Prompt
-                            </button>
-                        </div>
-                        <div class="prompt-viewer-container">
-                            <pre><code id="prompt-code-display">Cargando prompt...</code></pre>
-                        </div>
-                    </div>
+                    <div class="page-loading"><i class="fa-solid fa-spinner fa-spin"></i> Cargando Prompt Principal...</div>
                 </section>
-
-                <!-- STRUCTURE TAB -->
+                <section id="quality" class="tab-pane">
+                    <div class="page-loading"><i class="fa-solid fa-spinner fa-spin"></i> Cargando Prompts de Calidad...</div>
+                </section>
                 <section id="structure" class="tab-pane">
-                    <div class="split-layout">
-                        <!-- Left Panel: Interactive File Tree -->
-                        <div class="glass-card tree-card">
-                            <h3>Estructura Recomendada</h3>
-                            <p class="subtitle">Haz clic en cualquier archivo para ver su propósito y contenido plantilla.</p>
-                            
-                            <div class="file-tree">
-                                <div class="tree-node directory expanded">
-                                    <i class="fa-solid fa-chevron-down toggle-icon"></i>
-                                    <i class="fa-solid fa-folder tree-icon"></i>
-                                    <span>proyecto/</span>
-                                </div>
-                                <div class="tree-children">
-                                    <div class="tree-node file" data-file="agents-md">
-                                        <i class="fa-solid fa-file-lines tree-icon txt-yellow"></i>
-                                        <span>AGENTS.md</span>
-                                    </div>
-                                    <div class="tree-node directory expanded">
-                                        <i class="fa-solid fa-chevron-down toggle-icon"></i>
-                                        <i class="fa-solid fa-folder tree-icon txt-blue"></i>
-                                        <span>docs/</span>
-                                    </div>
-                                    <div class="tree-children">
-                                        <div class="tree-node directory expanded">
-                                            <i class="fa-solid fa-chevron-down toggle-icon"></i>
-                                            <i class="fa-solid fa-folder tree-icon txt-purple"></i>
-                                            <span>agent/</span>
-                                        </div>
-                                        <div class="tree-children">
-                                            <div class="tree-node file" data-file="permissions-md">
-                                                <i class="fa-solid fa-file-code tree-icon txt-cyan"></i>
-                                                <span>PERMISSIONS.md</span>
-                                            </div>
-                                            <div class="tree-node file" data-file="runbook-md">
-                                                <i class="fa-solid fa-file-code tree-icon txt-cyan"></i>
-                                                <span>RUNBOOK.md</span>
-                                            </div>
-                                            <div class="tree-node file" data-file="tests-md">
-                                                <i class="fa-solid fa-file-code tree-icon txt-cyan"></i>
-                                                <span>TESTS.md</span>
-                                            </div>
-                                            <div class="tree-node file" data-file="security-md">
-                                                <i class="fa-solid fa-file-code tree-icon txt-cyan"></i>
-                                                <span>SECURITY.md</span>
-                                            </div>
-                                            <div class="tree-node file" data-file="config-md">
-                                                <i class="fa-solid fa-file-code tree-icon txt-cyan"></i>
-                                                <span>CONFIG.md</span>
-                                            </div>
-                                            <div class="tree-node file" data-file="data-schema-md">
-                                                <i class="fa-solid fa-file-code tree-icon txt-cyan"></i>
-                                                <span>DATA_SCHEMA.md</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tree-node directory">
-                                        <i class="fa-solid fa-chevron-down toggle-icon"></i>
-                                        <i class="fa-solid fa-folder tree-icon txt-yellow"></i>
-                                        <span>skills/</span>
-                                    </div>
-                                    <div class="tree-children">
-                                        <div class="tree-node directory">
-                                            <i class="fa-solid fa-chevron-down toggle-icon"></i>
-                                            <i class="fa-solid fa-folder tree-icon txt-yellow"></i>
-                                            <span>prompt-update/</span>
-                                        </div>
-                                        <div class="tree-children">
-                                            <div class="tree-node file" data-file="skill-prompt-update-md">
-                                                <i class="fa-solid fa-file-code tree-icon txt-cyan"></i>
-                                                <span>SKILL.md</span>
-                                            </div>
-                                        </div>
-                                        <div class="tree-node directory">
-                                            <i class="fa-solid fa-chevron-down toggle-icon"></i>
-                                            <i class="fa-solid fa-folder tree-icon txt-yellow"></i>
-                                            <span>documentation-audit/</span>
-                                        </div>
-                                        <div class="tree-children">
-                                            <div class="tree-node file" data-file="skill-documentation-audit-md">
-                                                <i class="fa-solid fa-file-code tree-icon txt-cyan"></i>
-                                                <span>SKILL.md</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tree-node file" data-file="readme-md">
-                                        <i class="fa-solid fa-file-lines tree-icon txt-green"></i>
-                                        <span>README.md</span>
-                                    </div>
-                                    <div class="tree-node file" data-file="claude-md">
-                                        <i class="fa-solid fa-file-lines tree-icon txt-green"></i>
-                                        <span>CLAUDE.md</span>
-                                    </div>
-                                    <div class="tree-node file" data-file="gemini-md">
-                                        <i class="fa-solid fa-file-lines tree-icon txt-green"></i>
-                                        <span>GEMINI.md</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Right Panel: File Preview -->
-                        <div class="glass-card preview-card">
-                            <div class="preview-header">
-                                <h4 id="file-title">AGENTS.md</h4>
-                                <span class="badge badge-outline" id="file-status">Requerido</span>
-                            </div>
-                            <div class="preview-content">
-                                <p id="file-description">Selecciona un archivo del árbol a la izquierda para ver su contenido.</p>
-                                <div class="code-preview-box">
-                                    <pre><code id="file-code-preview">Elige un archivo.</code></pre>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="page-loading"><i class="fa-solid fa-spinner fa-spin"></i> Cargando Estructura...</div>
                 </section>
-
-                <!-- MODELS TAB -->
                 <section id="models" class="tab-pane">
-                    <div class="glass-card model-selector-card">
-                        <h3>Uso por Agente</h3>
-                        <p class="subtitle">Selecciona una plataforma para ver recomendaciones de uso sin romper la universalidad del prompt.</p>
-                        
-                        <div class="tabs-control">
-                            <button class="tab-btn active" data-model="claude">
-                                <i class="fa-solid fa-brain"></i> Anthropic Claude
-                            </button>
-                            <button class="tab-btn" data-model="gemini">
-                                <i class="fa-solid fa-wand-magic-sparkles"></i> Google Gemini
-                            </button>
-                            <button class="tab-btn" data-model="copilot">
-                                <i class="fa-solid fa-rocket"></i> GitHub Copilot
-                            </button>
-                        </div>
-
-                        <div class="model-content-area">
-                            <div class="model-desc" id="model-intro-text">
-                                Recomendaciones para usar el prompt maestro con Claude.
-                            </div>
-                            <div class="code-preview-box">
-                                <div class="code-header">
-                                    <span id="model-file-path">CLAUDE.md</span>
-                                    <button class="btn btn-sm btn-secondary copy-model-content">
-                                        <i class="fa-solid fa-copy"></i> Copiar Plantilla
-                                    </button>
-                                </div>
-                                <pre><code id="model-code-display">Cargando plantilla...</code></pre>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="page-loading"><i class="fa-solid fa-spinner fa-spin"></i> Cargando Recomendaciones...</div>
                 </section>
-
-                <!-- CASE OF USE TAB -->
                 <section id="example" class="tab-pane">
-                    <div class="glass-card full-page-card">
-                        <div class="card-header">
-                            <div class="header-left">
-                                <i class="fa-solid fa-book-open icon-title"></i>
-                                <div>
-                                    <h3>Ejemplo Práctico de Migración</h3>
-                                    <p>Cómo se aplica este flujo sobre un repositorio Node.js/Express heredado.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="markdown-body" id="example-markdown-content">
-                            Cargando ejemplo...
-                        </div>
-                    </div>
+                    <div class="page-loading"><i class="fa-solid fa-spinner fa-spin"></i> Cargando Caso de Uso...</div>
                 </section>
-
-                <!-- VERSIONING TAB -->
                 <section id="versioning" class="tab-pane">
-                    <div class="glass-card full-page-card">
-                        <div class="card-header">
-                            <div class="header-left">
-                                <i class="fa-solid fa-code-branch icon-title"></i>
-                                <div>
-                                    <h3>Estrategia de Versionado Semántico</h3>
-                                    <p>Reglas para mantener la estabilidad del prompt base y los documentos.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="markdown-body" id="versioning-markdown-content">
-                            Cargando políticas de versión...
-                        </div>
-                    </div>
+                    <div class="page-loading"><i class="fa-solid fa-spinner fa-spin"></i> Cargando Políticas de Versión...</div>
                 </section>
-
             </div>
+
+            <!-- Footer Fijo Abajo -->
+            <footer class="app-footer">
+                <div class="footer-brand">
+                    <img src="assets/img/logo-black.png" alt="Logo Blandskron" class="footer-logo light-only">
+                    <img src="assets/img/logo-white.png" alt="Logo Blandskron" class="footer-logo dark-only">
+                </div>
+                <div class="footer-credits">
+                    Hecho con <i class="fa-solid fa-heart txt-heart"></i> por <a href="https://blandskron.com" target="_blank" rel="noopener">blandskron</a>
+                </div>
+            </footer>
         </main>
     </div>
 
@@ -356,7 +145,7 @@
         <span>Copiado al portapapeles</span>
     </div>
 
-    <!-- App JS -->
-    <script src="index.js?v=1.4.0"></script>
+    <!-- App JS (ES Modules nativos) -->
+    <script type="module" src="assets/js/app.js?v=1.5.5"></script>
 </body>
 </html>

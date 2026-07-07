@@ -25,7 +25,7 @@ Este repositorio no tiene base de datos, API propia ni modelos persistentes. Aun
 
 ### Página Estática
 
-- **Ubicación:** `index.html`, `index.css`, `index.js`.
+- **Ubicación:** `index.html`, carpeta `assets/` (CSS/JS) y carpeta `pages/` (HTML).
 - **Propósito:** presentar el estándar y permitir copiar el prompt.
 - **Regla:** debe funcionar sin build system.
 

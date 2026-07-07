@@ -27,8 +27,7 @@ Usa esta skill cuando se modifiquen documentos, prompts, ejemplos, skills o la p
 
 - Ejecutar validación de enlaces Markdown.
 - Revisar bloques de código Markdown.
-- Ejecutar `node --check index.js` si cambió JavaScript.
-- Servir el sitio por HTTP local si cambiaron `index.html`, `index.css` o `index.js`.
+- Servir el sitio por HTTP local si cambió `index.html` o archivos en `assets/` y `pages/`.
 
 ## Resultado Esperado
 

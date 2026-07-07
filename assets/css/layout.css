@@ -1,0 +1,414 @@
+/* Agents First Repo Docs — layout.css
+   Sidebar, main content, topbar, buscador, tab-pane shell.
+   ======================================================= */
+
+.app-container {
+    min-height: 100vh;
+}
+
+/* ─── Sidebar ─────────────────────────────────────────── */
+
+.sidebar {
+    position: fixed;
+    inset: 0 auto 0 0;
+    z-index: 30;
+    width: var(--sidebar-width);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 18px;
+    background: var(--bg-secondary);
+    border-right: 1px solid var(--border-color);
+    transition: transform 0.24s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+body.sidebar-collapsed .sidebar {
+    width: var(--sidebar-collapsed-width);
+    padding-inline: 14px;
+}
+
+.sidebar-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+    display: none;
+    background: rgba(15, 23, 42, 0.38);
+}
+
+.sidebar-brand {
+    display: grid;
+    grid-template-columns: 40px 1fr auto;
+    align-items: center;
+    gap: 12px;
+    min-height: 44px;
+}
+
+body.sidebar-collapsed .sidebar-brand {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 10px;
+}
+
+.brand-logo {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius);
+    background: var(--accent-soft);
+    color: var(--accent);
+    border: 1px solid color-mix(in srgb, var(--accent) 22%, transparent);
+}
+
+.brand-icon {
+    font-size: 18px;
+}
+
+.brand-details h1 {
+    font-size: 16px;
+    line-height: 1.2;
+    font-weight: 720;
+}
+
+.brand-details span {
+    display: block;
+    margin-top: 2px;
+    color: var(--text-muted);
+    font-size: 11px;
+    font-weight: 650;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+body.sidebar-collapsed .brand-details,
+body.sidebar-collapsed .nav-item span,
+body.sidebar-collapsed .github-btn span {
+    display: none;
+}
+
+body.sidebar-collapsed .nav-item,
+body.sidebar-collapsed .github-btn {
+    justify-content: center;
+    padding-inline: 0;
+}
+
+.sidebar-close,
+.mobile-menu-btn,
+.action-btn {
+    display: inline-grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    background: var(--surface);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+}
+
+body.sidebar-collapsed .sidebar-close {
+    width: 34px;
+    height: 34px;
+}
+
+body.sidebar-collapsed .sidebar-close i {
+    transform: rotate(180deg);
+}
+
+.mobile-menu-btn {
+    display: none;
+    flex: 0 0 auto;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 4px;
+    overflow-y: auto;
+    padding-right: 2px;
+}
+
+.nav-item,
+.github-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 40px;
+    padding: 9px 10px;
+    border-radius: var(--radius);
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 560;
+    border: 1px solid transparent;
+    transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+}
+
+.nav-item i,
+.github-btn i {
+    width: 18px;
+    text-align: center;
+    font-size: 15px;
+}
+
+.nav-item:hover,
+.github-btn:hover,
+.action-btn:hover,
+.mobile-menu-btn:hover,
+.sidebar-close:hover {
+    background: var(--surface-muted);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+}
+
+.nav-item.active {
+    background: var(--accent-soft);
+    color: var(--accent-strong);
+    border-color: color-mix(in srgb, var(--accent) 20%, transparent);
+}
+
+.sidebar-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border-color);
+}
+
+.github-btn {
+    justify-content: center;
+    background: var(--surface-muted);
+    color: var(--text-primary);
+}
+
+/* Botón de tema en el sidebar footer */
+.theme-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    min-height: 40px;
+    padding: 9px 10px;
+    border-radius: var(--radius);
+    color: var(--text-secondary);
+    background: transparent;
+    border: 1px solid transparent;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 560;
+    transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+    text-align: left;
+}
+
+.theme-btn:hover {
+    background: var(--surface-muted);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+}
+
+.theme-btn i {
+    width: 18px;
+    text-align: center;
+    font-size: 15px;
+}
+
+body.sidebar-collapsed .theme-btn {
+    justify-content: center;
+    padding-inline: 0;
+}
+
+body.sidebar-collapsed .theme-btn span {
+    display: none;
+}
+
+/* Botón de LinkedIn en el sidebar footer */
+.linkedin-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    min-height: 40px;
+    padding: 9px 10px;
+    border-radius: var(--radius);
+    color: #ffffff;
+    background: #0077b5;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    border: 1px solid transparent;
+    transition: background-color 0.18s ease;
+}
+
+.linkedin-btn:hover {
+    background: #005a87;
+}
+
+.linkedin-btn i {
+    width: 18px;
+    text-align: center;
+    font-size: 15px;
+}
+
+body.sidebar-collapsed .linkedin-btn {
+    justify-content: center;
+    padding-inline: 0;
+}
+
+body.sidebar-collapsed .linkedin-btn span {
+    display: none;
+}
+
+/* ─── Main Content ────────────────────────────────────── */
+
+.main-content {
+    min-height: 100vh;
+    margin-left: var(--active-sidebar-width);
+    padding: 22px clamp(18px, 4vw, 44px) 96px;
+    transition: margin-left 0.24s ease, transform 0.24s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.top-bar {
+    position: sticky;
+    top: 0;
+    z-index: 15;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 14px;
+    padding: 8px 0 18px;
+    background: color-mix(in srgb, var(--bg-primary) 90%, transparent);
+    backdrop-filter: blur(14px);
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-actions .copy-prompt-trigger {
+    width: auto;
+    min-width: 148px;
+    height: 42px;
+    min-height: 42px;
+    padding-inline: 16px;
+}
+
+/* ─── Tab Pane Shell ──────────────────────────────────── */
+
+.content-wrapper,
+.tab-pane {
+    display: flex;
+    flex-direction: column;
+}
+
+.tab-pane {
+    display: none;
+    gap: 18px;
+    animation: fadeIn 0.22s ease;
+}
+
+.tab-pane.active {
+    display: flex;
+}
+
+/* Loading placeholder inside empty tab panes */
+.page-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    color: var(--text-muted);
+    font-size: 14px;
+    gap: 10px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Soporte para imágenes claro/oscuro e iconos de marca ─── */
+
+.dark-only {
+    display: none !important;
+}
+
+[data-theme="dark"] .dark-only {
+    display: block !important;
+}
+
+[data-theme="dark"] .light-only {
+    display: none !important;
+}
+
+.brand-logo-img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+/* ─── Footer Fijo Abajo (Siempre Visible) ────────────── */
+
+.app-footer {
+    position: fixed;
+    bottom: 0;
+    left: var(--active-sidebar-width);
+    right: 0;
+    height: 56px;
+    background: color-mix(in srgb, var(--bg-primary) 85%, transparent);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: clamp(18px, 4vw, 44px);
+    z-index: 10;
+    transition: left 0.24s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.footer-logo {
+    height: 20px;
+    object-fit: contain;
+    opacity: 0.65;
+    transition: opacity 0.2s ease;
+}
+
+.footer-logo:hover {
+    opacity: 0.95;
+}
+
+.footer-credits {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-weight: 550;
+}
+
+.footer-credits a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.18s ease;
+}
+
+.footer-credits a:hover {
+    color: var(--accent);
+}
+
+.txt-heart {
+    color: #ef4444;
+    animation: heartbeat 1.4s infinite;
+    display: inline-block;
+    margin-inline: 2px;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.18); }
+}

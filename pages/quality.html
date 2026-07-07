@@ -1,0 +1,57 @@
+<div class="glass-card full-page-card">
+    <div class="card-header">
+        <div class="header-left">
+            <i class="fa-solid fa-shield-check icon-title"></i>
+            <div>
+                <h3>Biblioteca de Prompts de Validación Interna</h3>
+                <p>Selecciona un prompt para leerlo y copiarlo. Cada uno es universal y agnóstico al stack.</p>
+            </div>
+        </div>
+        <button class="btn btn-accent" id="copy-quality-prompt" title="Copiar prompt seleccionado">
+            <i class="fa-solid fa-copy"></i> Copiar Prompt
+        </button>
+    </div>
+    <div class="quality-layout">
+        <div class="quality-list">
+            <button class="quality-item active" data-prompt="prompts/quality/unit-tests.prompt.md" data-title="Tests Unitarios">
+                <i class="fa-solid fa-vial"></i> Tests Unitarios
+            </button>
+            <button class="quality-item" data-prompt="prompts/quality/integration-tests.prompt.md" data-title="Tests de Integración">
+                <i class="fa-solid fa-plug"></i> Tests de Integración
+            </button>
+            <button class="quality-item" data-prompt="prompts/quality/functional-qa.prompt.md" data-title="QA Funcional">
+                <i class="fa-solid fa-list-check"></i> QA Funcional
+            </button>
+            <button class="quality-item" data-prompt="prompts/quality/regression-qa.prompt.md" data-title="QA de Regresión">
+                <i class="fa-solid fa-rotate-left"></i> QA de Regresión
+            </button>
+            <button class="quality-item" data-prompt="prompts/quality/security-audit.prompt.md" data-title="Auditoría de Seguridad">
+                <i class="fa-solid fa-shield-halved"></i> Auditoría de Seguridad
+            </button>
+            <button class="quality-item" data-prompt="prompts/quality/dependency-vulnerability-audit.prompt.md" data-title="Vulnerabilidades en Dependencias">
+                <i class="fa-solid fa-triangle-exclamation"></i> Vulnerabilidades en Dependencias
+            </button>
+            <button class="quality-item" data-prompt="prompts/quality/docker-image-security-audit.prompt.md" data-title="Seguridad Docker">
+                <i class="fa-brands fa-docker"></i> Seguridad Docker
+            </button>
+            <button class="quality-item" data-prompt="prompts/quality/code-quality-review.prompt.md" data-title="Calidad de Código">
+                <i class="fa-solid fa-code"></i> Calidad de Código
+            </button>
+            <button class="quality-item" data-prompt="prompts/quality/architecture-validation.prompt.md" data-title="Validación de Arquitectura">
+                <i class="fa-solid fa-sitemap"></i> Validación de Arquitectura
+            </button>
+            <button class="quality-item" data-prompt="prompts/quality/performance-basic-validation.prompt.md" data-title="Validación de Performance">
+                <i class="fa-solid fa-gauge-high"></i> Validación de Performance
+            </button>
+            <button class="quality-item" data-prompt="prompts/quality/definition-of-done-review.prompt.md" data-title="Definition of Done">
+                <i class="fa-solid fa-circle-check"></i> Definition of Done
+            </button>
+            <button class="quality-item" data-prompt="prompts/quality/release-readiness-review.prompt.md" data-title="Release Readiness">
+                <i class="fa-solid fa-rocket"></i> Release Readiness
+            </button>
+        </div>
+        <div class="prompt-viewer-container" style="flex:1;">
+            <pre><code id="quality-prompt-display">Selecciona un prompt para verlo...</code></pre>
+        </div>
+    </div>
+</div>

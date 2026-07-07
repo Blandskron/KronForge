@@ -7,7 +7,7 @@ Este repositorio contiene un prompt maestro, documentación Markdown y una pági
 - El producto principal es `prompts/agents-first-documentation-review.prompt.md`.
 - El README está orientado a humanos.
 - `AGENTS.md` está orientado a agentes.
-- `index.html`, `index.css` e `index.js` presentan el proyecto en GitHub Pages.
+- La página en la raíz (`index.html`), las carpetas `assets/` (CSS/JS) y `pages/` (HTML) presentan el proyecto en GitHub Pages.
 
 ## Reglas de Generación
 

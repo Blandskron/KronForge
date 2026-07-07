@@ -14,8 +14,8 @@ Configuración esperada en GitHub:
 - Path: raíz del repositorio (`/`).
 - Archivos servidos:
   - `index.html`
-  - `index.css`
-  - `index.js`
+  - `assets/` (CSS y JS modulares)
+  - `pages/` (vistas HTML dinámicas)
   - `prompts/agents-first-documentation-review.prompt.md`
   - documentación Markdown enlazada.
 
