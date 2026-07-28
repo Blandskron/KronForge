@@ -1,6 +1,6 @@
 import { switchTab } from './navigation.js';
-import { showToast } from './copy.js';
 import { siteUrl } from './paths.js';
+import { setMarkdownContent } from './markdown.js';
 
 let catalogPromise;
 let catalog;
@@ -205,14 +205,6 @@ export async function renderLibrary() {
         applyType('all');
     });
     document.getElementById('asset-viewer-close')?.addEventListener('click', closeAsset);
-    document.getElementById('copy-asset-content')?.addEventListener('click', async () => {
-        const content = document.getElementById('asset-viewer-content')?.innerText;
-        if (content) {
-            await navigator.clipboard.writeText(content);
-            showToast('Activo copiado');
-        }
-    });
-
     applyType(selectedType);
     if (pendingAssetId) {
         const assetId = pendingAssetId;
@@ -248,12 +240,17 @@ export async function openAsset(assetId) {
         </dl>
         <div class="asset-tags">${(asset.tags || []).map((tag) => `<span>${escapeHtml(tag)}</span>`).join('')}</div>`;
     const content = document.getElementById('asset-viewer-content');
+    const download = document.getElementById('download-asset-content');
+    content.dataset.rawMarkdown = '';
+    content.dataset.sourceName = asset.path.split('/').at(-1);
     content.textContent = 'Cargando...';
+    if (download) download.dataset.downloadName = content.dataset.sourceName;
     try {
         const response = await fetch(siteUrl(`library/${asset.path}`, true));
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        content.textContent = await response.text();
+        setMarkdownContent(content, await response.text());
     } catch {
+        content.classList.remove('markdown-body');
         content.textContent = 'No se pudo cargar el activo. Abre su fuente en el repositorio.';
     }
     viewer.scrollIntoView({behavior: 'smooth', block: 'start'});

@@ -50,10 +50,17 @@
             <span id="asset-viewer-breadcrumb">Biblioteca</span>
             <h3 id="asset-viewer-title">Recurso</h3>
         </div>
-        <button class="btn btn-secondary" id="copy-asset-content"><i class="fa-regular fa-copy"></i> Copiar</button>
+        <div class="file-actions">
+            <button class="btn btn-secondary" id="copy-asset-content" data-copy-target="asset-viewer-content" data-copy-message="Activo copiado">
+                <i class="fa-regular fa-copy"></i> Copiar
+            </button>
+            <button class="btn btn-secondary" id="download-asset-content" data-download-target="asset-viewer-content">
+                <i class="fa-solid fa-download"></i> Descargar
+            </button>
+        </div>
     </div>
     <div class="asset-viewer-layout">
         <aside id="asset-viewer-meta" class="asset-meta"></aside>
-        <pre class="asset-source"><code id="asset-viewer-content">Cargando...</code></pre>
+        <article class="asset-source markdown-body" id="asset-viewer-content">Cargando...</article>
     </div>
 </section>

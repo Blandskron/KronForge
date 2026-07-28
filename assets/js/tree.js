@@ -4,6 +4,7 @@
  */
 
 import { docsDatabase } from './config.js';
+import { setMarkdownContent } from './markdown.js';
 
 /** Enlaza los nodos del árbol de archivos con la previsualización lateral. */
 export function bindTreeView() {
@@ -24,7 +25,10 @@ export function bindTreeView() {
             if (title)   title.innerText   = fileData.title;
             if (status)  status.innerText  = fileData.status;
             if (desc)    desc.innerText    = fileData.description;
-            if (preview) preview.innerText = fileData.code;
+            if (preview) {
+                preview.dataset.sourceName = `${node.getAttribute('data-file').replace(/-md$/, '')}.md`;
+                setMarkdownContent(preview, fileData.code);
+            }
         });
     });
 

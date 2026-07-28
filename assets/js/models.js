@@ -35,9 +35,11 @@ export function bindModelTabs() {
 
             const intro = document.getElementById('model-intro-text');
             const path  = document.getElementById('model-file-path');
+            const download = document.querySelector('[data-download-target="model-code-display"]');
 
             if (intro) intro.innerText = config.intro;
             if (path)  path.innerText  = config.path;
+            if (download) download.dataset.downloadName = config.file.split('/').at(-1);
 
             loadFileContent(config.file, 'model-code-display');
         });

@@ -103,12 +103,16 @@
     <div class="glass-card preview-card">
         <div class="preview-header">
             <h4 id="file-title">AGENTS.md</h4>
-            <span class="badge badge-outline" id="file-status">Requerido</span>
+            <div class="file-actions">
+                <span class="badge badge-outline" id="file-status">Requerido</span>
+                <button class="btn btn-sm btn-secondary" data-copy-target="file-code-preview"><i class="fa-regular fa-copy"></i> Copiar</button>
+                <button class="btn btn-sm btn-secondary" data-download-target="file-code-preview"><i class="fa-solid fa-download"></i> Descargar</button>
+            </div>
         </div>
         <div class="preview-content">
             <p id="file-description">Selecciona un archivo del árbol a la izquierda para ver su propósito y contenido plantilla.</p>
             <div class="code-preview-box">
-                <pre><code id="file-code-preview">Elige un archivo.</code></pre>
+                <article class="markdown-body" id="file-code-preview">Elige un archivo.</article>
             </div>
         </div>
     </div>

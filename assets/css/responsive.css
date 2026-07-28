@@ -130,6 +130,14 @@
         flex-direction: column;
     }
 
+    .file-actions {
+        width: 100%;
+    }
+
+    .file-actions .btn {
+        flex: 1 1 150px;
+    }
+
     .hero-buttons .btn,
     .card-header .btn,
     .tabs-control,
@@ -190,8 +198,7 @@
         min-height: auto;
     }
 
-    .prompt-viewer-container,
-    .markdown-body {
+    .prompt-viewer-container {
         max-height: 62vh;
     }
 

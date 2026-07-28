@@ -22,11 +22,16 @@
         <div class="code-preview-box">
             <div class="code-header">
                 <span id="model-file-path">CLAUDE.md</span>
-                <button class="btn btn-sm btn-secondary copy-model-content">
-                    <i class="fa-solid fa-copy"></i> Copiar Plantilla
-                </button>
+                <div class="file-actions">
+                    <button class="btn btn-sm btn-secondary copy-model-content" data-copy-target="model-code-display" data-copy-message="Plantilla copiada">
+                        <i class="fa-solid fa-copy"></i> Copiar
+                    </button>
+                    <button class="btn btn-sm btn-secondary" data-download-target="model-code-display" data-download-name="CLAUDE.md">
+                        <i class="fa-solid fa-download"></i> Descargar
+                    </button>
+                </div>
             </div>
-            <pre><code id="model-code-display">Cargando plantilla...</code></pre>
+            <article class="markdown-body" id="model-code-display">Cargando plantilla...</article>
         </div>
     </div>
 </div>

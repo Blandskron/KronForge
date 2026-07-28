@@ -4,6 +4,22 @@ Todos los cambios notables en este proyecto serán documentados en este archivo.
 
 ---
 
+## [2.2.0] - 2026-07-28
+
+### Añadido
+
+- Renderizador Markdown nativo y seguro para mostrar prompts, templates, playbooks, documentación y adaptadores como contenido editorial legible.
+- Acciones de copia del Markdown original y descarga del archivo canónico en los visores del portal.
+
+### Modificado
+
+- Barras de desplazamiento visuales ocultas sin deshabilitar el desplazamiento.
+- Visor de biblioteca, prompt principal, documentación, ejemplos, versionado, adaptadores y árbol de estructura alineados con la misma experiencia de lectura.
+
+### Versión SemVer
+
+Clasificada como **MINOR**: incorpora nuevas capacidades de presentación y descarga sin cambiar los activos canónicos.
+
 ## [2.1.2] - 2026-07-28
 
 ### Corregido

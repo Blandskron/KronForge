@@ -8,11 +8,16 @@
                 <p>Copia este prompt en tu agente de IA para convertir un repositorio en agents-first.</p>
             </div>
         </div>
-        <button class="btn btn-accent copy-prompt-trigger">
-            <i class="fa-solid fa-copy"></i> Copiar Prompt
-        </button>
+        <div class="file-actions">
+            <button class="btn btn-accent copy-prompt-trigger" data-copy-target="prompt-code-display" data-copy-message="Prompt copiado correctamente">
+                <i class="fa-solid fa-copy"></i> Copiar Prompt
+            </button>
+            <button class="btn btn-secondary" data-download-target="prompt-code-display" data-download-name="agents-first-documentation-review.prompt.md">
+                <i class="fa-solid fa-download"></i> Descargar
+            </button>
+        </div>
     </div>
     <div class="prompt-viewer-container">
-        <pre><code id="prompt-code-display">Cargando prompt...</code></pre>
+        <article class="markdown-body" id="prompt-code-display">Cargando prompt...</article>
     </div>
 </div>

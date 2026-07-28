@@ -5,6 +5,7 @@
 
 import { docsDatabase, fallbacks } from './config.js';
 import { siteUrl } from './paths.js';
+import { setMarkdownContent } from './markdown.js';
 
 /**
  * Carga el contenido de un archivo remoto y lo escribe en un elemento del DOM.
@@ -18,27 +19,31 @@ export async function loadFileContent(filePath, elementId, fallbackKey = null) {
     const target = document.getElementById(elementId);
     if (!target) return;
 
+    let content = '';
     try {
         const response = await fetch(siteUrl(filePath, true));
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        target.innerText = await response.text();
+        content = await response.text();
     } catch (error) {
         console.warn(`No se pudo cargar ${filePath}. Usando fallback local.`, error);
 
         if (fallbackKey && docsDatabase[fallbackKey]) {
-            target.innerText = docsDatabase[fallbackKey].code;
+            content = docsDatabase[fallbackKey].code;
         } else if (filePath.includes('prompt')) {
-            target.innerText = fallbacks.prompt;
+            content = fallbacks.prompt;
         } else if (filePath.includes('CLAUDE')) {
-            target.innerText = fallbacks.claude;
+            content = fallbacks.claude;
         } else if (filePath.includes('GEMINI')) {
-            target.innerText = fallbacks.gemini;
+            content = fallbacks.gemini;
         } else if (filePath.includes('copilot')) {
-            target.innerText = fallbacks.copilot;
+            content = fallbacks.copilot;
         } else if (filePath.includes('usage-example')) {
-            target.innerText = fallbacks.usage;
+            content = fallbacks.usage;
         } else if (filePath.includes('PROMPT_VERSIONING')) {
-            target.innerText = fallbacks.versioning;
+            content = fallbacks.versioning;
         }
     }
+
+    target.dataset.sourceName = filePath.split('/').at(-1);
+    setMarkdownContent(target, content);
 }

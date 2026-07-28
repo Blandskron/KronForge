@@ -20,6 +20,36 @@ export function showToast(message = "Copiado al portapapeles") {
  */
 export function bindCopyButtons() {
     document.addEventListener('click', async (e) => {
+        const downloadButton = e.target.closest('[data-download-target]');
+        if (downloadButton) {
+            const target = document.getElementById(downloadButton.dataset.downloadTarget);
+            const content = target?.dataset.rawMarkdown || target?.innerText;
+            if (!content) return;
+            const filename = downloadButton.dataset.downloadName
+                || target.dataset.sourceName
+                || 'documento.md';
+            const blob = new Blob([content], {type: 'text/markdown;charset=utf-8'});
+            const url = URL.createObjectURL(blob);
+            const anchor = document.createElement('a');
+            anchor.href = url;
+            anchor.download = filename;
+            anchor.click();
+            URL.revokeObjectURL(url);
+            showToast(`Descarga preparada: ${filename}`);
+            return;
+        }
+
+        const copyButton = e.target.closest('[data-copy-target]');
+        if (copyButton) {
+            const target = document.getElementById(copyButton.dataset.copyTarget);
+            const content = target?.dataset.rawMarkdown || target?.innerText;
+            if (content) {
+                await navigator.clipboard.writeText(content);
+                showToast(copyButton.dataset.copyMessage || 'Markdown copiado');
+            }
+            return;
+        }
+
         /* Botón "Copiar Prompt" del prompt principal */
         if (e.target.closest('.copy-prompt-trigger')) {
             const text = document.getElementById('prompt-code-display')?.innerText;

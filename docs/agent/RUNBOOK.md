@@ -36,10 +36,11 @@ Antes de publicar cambios:
 3. Verificar que la pestaña del prompt cargue `prompts/agents-first-documentation-review.prompt.md`.
 4. Verificar Quick Start, Dominios, Biblioteca, Roadmap, Contribución y Changelog.
 5. Buscar un activo, filtrar por tipo y dominio, abrirlo y copiar su contenido.
-6. Confirmar que breadcrumbs, modo oscuro y navegación móvil funcionen.
-7. Verificar que los botones de copiar usen el contenido visible.
-8. Confirmar navegación por hash: `#welcome`, `#quickstart`, `#domains`, `#library`, `#prompt`, `#roadmap`, `#contributing`, `#example`, `#changelog`, `#versioning`.
-9. Confirmar que `.nojekyll` exista antes de publicar; sin este marcador, GitHub Pages puede transformar los activos Markdown con front matter y romper sus rutas `.md`.
+6. Confirmar que el Markdown se renderice como contenido editorial y que el front matter no sea visible.
+7. Verificar que Copiar y Descargar conserven el Markdown original, no el texto transformado del render.
+8. Confirmar que breadcrumbs, modo oscuro y navegación móvil funcionen.
+9. Confirmar navegación por hash: `#welcome`, `#quickstart`, `#domains`, `#library`, `#prompt`, `#roadmap`, `#contributing`, `#example`, `#changelog`, `#versioning`.
+10. Confirmar que `.nojekyll` exista antes de publicar; sin este marcador, GitHub Pages puede transformar los activos Markdown con front matter y romper sus rutas `.md`.
 
 ## Problemas Frecuentes
 

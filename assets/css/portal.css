@@ -706,12 +706,11 @@ button.asset-card {
     padding: 24px;
     border: 1px solid var(--border-color);
     border-radius: 12px;
-    background: var(--code-bg);
-    color: var(--code-text);
-    white-space: pre-wrap;
+    background: var(--surface);
+    color: var(--text-secondary);
     overflow-wrap: anywhere;
-    font-size: 13px;
-    line-height: 1.7;
+    font-size: 14px;
+    line-height: 1.75;
 }
 
 .roadmap {
@@ -860,9 +859,13 @@ button.asset-card {
         grid-template-columns: auto 1fr;
     }
 
-    .asset-viewer-toolbar .btn {
+    .asset-viewer-toolbar .file-actions {
         grid-column: 1 / -1;
         width: 100%;
+    }
+
+    .asset-viewer-toolbar .file-actions .btn {
+        flex: 1;
     }
 
     .asset-meta {
