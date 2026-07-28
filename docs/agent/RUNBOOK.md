@@ -22,6 +22,7 @@ http://127.0.0.1:8026/index.html
 ## Archivos de Entrada del Sitio
 
 - `index.html`: estructura de la página (shell).
+- `.nojekyll`: obliga a GitHub Pages a publicar Markdown y recursos estáticos sin transformarlos.
 - `assets/css/`: diseño visual responsive modular (`base.css`, `layout.css`, `components.css`, `portal.css`, `responsive.css`).
 - `assets/js/`: lógica en ES modules nativos (`app.js`, `navigation.js`, `catalog.js`, etc.).
 - `pages/`: vistas HTML dinámicas de cada tab (`welcome.html`, `prompt.html`, etc.).
@@ -38,6 +39,7 @@ Antes de publicar cambios:
 6. Confirmar que breadcrumbs, modo oscuro y navegación móvil funcionen.
 7. Verificar que los botones de copiar usen el contenido visible.
 8. Confirmar navegación por hash: `#welcome`, `#quickstart`, `#domains`, `#library`, `#prompt`, `#roadmap`, `#contributing`, `#example`, `#changelog`, `#versioning`.
+9. Confirmar que `.nojekyll` exista antes de publicar; sin este marcador, GitHub Pages puede transformar los activos Markdown con front matter y romper sus rutas `.md`.
 
 ## Problemas Frecuentes
 

@@ -4,6 +4,16 @@ Todos los cambios notables en este proyecto serán documentados en este archivo.
 
 ---
 
+## [2.1.2] - 2026-07-28
+
+### Corregido
+
+- Publicación de los archivos Markdown canónicos sin transformación de Jekyll mediante `.nojekyll`, necesaria para que el visor cargue las rutas `.md` en GitHub Pages.
+
+### Versión SemVer
+
+Clasificada como **PATCH**: corrige la disponibilidad de los activos canónicos en el portal publicado.
+
 ## [2.1.1] - 2026-07-28
 
 ### Corregido
