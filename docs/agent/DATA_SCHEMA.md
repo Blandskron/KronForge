@@ -19,14 +19,22 @@ Este repositorio no tiene base de datos, API propia ni modelos persistentes. Aun
 
 ### Skill
 
-- **Ubicación:** `skills/<nombre>/SKILL.md`
+- **Ubicación:** `library/domains/<dominio>/skills/<nombre>/SKILL.md`
 - **Propósito:** encapsular procedimientos repetibles.
-- **Regla:** una skill debe tener un disparador claro y no ser relleno genérico.
+- **Regla:** una skill define objetivo, uso, entradas, resultado, restricciones, procedimiento y relacionados.
+
+### Activo del Catálogo
+
+- **Ubicación:** `library/domains/<dominio>/<tipo>/`.
+- **Tipos:** prompt, skill, template, checklist, playbook, pattern, anti-pattern y reference.
+- **Identidad:** ID estable `<dominio>.<slug>` en front matter.
+- **Índice:** `library/catalog.json`.
+- **Regla de compatibilidad:** estados y versiones siguen `PROMPT_VERSIONING.md`.
 
 ### Página Estática
 
 - **Ubicación:** `index.html`, carpeta `assets/` (CSS/JS) y carpeta `pages/` (HTML).
-- **Propósito:** presentar el estándar y permitir copiar el prompt.
+- **Propósito:** presentar la biblioteca y permitir copiar activos canónicos.
 - **Regla:** debe funcionar sin build system.
 
 ## Contratos de Contenido

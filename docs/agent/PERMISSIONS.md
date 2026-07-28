@@ -8,7 +8,8 @@ Este documento especifica qué acciones puede realizar un agente de IA en este r
 
 El agente tiene permiso para modificar o crear los siguientes archivos como parte de tareas ordinarias (ej. corrección de estilo, adición de ejemplos, actualización de documentación):
 
-- **Prompts:** `prompts/agents-first-documentation-review.prompt.md`
+- **Prompt maestro:** `prompts/agents-first-documentation-review.prompt.md`
+- **Catálogo:** `library/**`
 - **Ejemplos:** `examples/usage-example.md`
 - **Sitio GitHub Pages:** `index.html`, carpeta `assets/` (CSS/JS) y carpeta `pages/` (HTML)
 - **Historial de Cambios:** `docs/CHANGELOG.md`
@@ -26,5 +27,5 @@ Las siguientes acciones son de alta sensibilidad y **nunca** deben realizarse si
 
 - **Modificación de Licencia:** Cambiar, renombrar o eliminar el archivo `LICENSE`.
 - **Incremento de Versión Mayor (Breaking Change):** Modificar el prompt de forma que rompa la compatibilidad con la estructura documental actual (requiere aprobación del usuario para la nueva estructura propuesta).
-- **Eliminación de Archivos Core:** Eliminar carpetas principales como `prompts/`, `examples/` o `docs/`.
+- **Eliminación de Archivos Core:** Eliminar carpetas principales como `prompts/`, `library/`, `examples/` o `docs/`.
 - **Modificación de Tags o Commits:** Ejecutar comandos de Git destructivos como `git push --force` o borrar tags de versiones en el repositorio remoto.

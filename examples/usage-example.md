@@ -120,7 +120,7 @@ Antes de terminar cualquier tarea de codificación, debes:
 
 # Ejemplo 2: QA Funcional con Prompt Especializado
 
-Este ejemplo muestra cómo aplicar el prompt de QA funcional (`prompts/quality/functional-qa.prompt.md`) sobre el mismo proyecto `legacy-api` después de su documentación.
+Este ejemplo muestra cómo aplicar el prompt de QA funcional (`library/domains/quality-engineering/prompts/functional-qa.prompt.md`) sobre el mismo proyecto `legacy-api` después de su documentación.
 
 ---
 
@@ -132,7 +132,7 @@ El equipo quiere validar si el endpoint `/api/users` funciona correctamente ante
 
 ## Paso 1: Carga del Prompt de QA Funcional
 
-1. Abre `prompts/quality/functional-qa.prompt.md`.
+1. Abre `library/domains/quality-engineering/prompts/functional-qa.prompt.md`.
 2. Copia todo el contenido.
 3. Pégalo en tu agente junto con acceso al repositorio.
 

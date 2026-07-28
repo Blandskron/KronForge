@@ -4,6 +4,34 @@ Todos los cambios notables en este proyecto serán documentados en este archivo.
 
 ---
 
+## [2.0.0] - 2026-07-28
+
+### Añadido
+
+- Arquitectura por dominios en `library/`, con once dominios estables y un manifiesto `catalog.json`.
+- Propuesta arquitectónica completa en `docs/REPOSITORY_EVOLUTION.md`.
+- Contrato y proceso de contribución para ocho tipos de activos en `docs/CONTRIBUTING_ASSETS.md`.
+- Primer conjunto transversal de template ADR, checklist pre-merge, playbook agents-first, patrón, anti-patrón y referencias.
+- Metadatos estables para descubrimiento, estado, versión y relaciones.
+
+### Modificado
+
+- Reposicionamiento del proyecto como biblioteca de ingeniería asistida por IA y framework documental liviano, agnóstico al modelo.
+- Migración de los doce prompts especializados desde la carpeta plana `prompts/quality/` a arquitectura, calidad, seguridad, entrega y confiabilidad.
+- Migración y normalización de las tres skills junto a sus dominios.
+- README, AGENTS, versionado, ejemplos, documentación operativa y sitio alineados con el catálogo.
+- Web estática actualizada a v2.0.0 y rutas canónicas del catálogo.
+
+### Compatibilidad
+
+- El prompt maestro conserva `prompts/agents-first-documentation-review.prompt.md`.
+- `docs/skills/README.md` se conserva como índice de transición.
+- No se modificó `LICENSE` ni se eliminó documentación operativa de `docs/agent/`.
+
+### Versión SemVer
+
+Clasificada como **MAJOR**: cambia la arquitectura pública del catálogo y las rutas de los prompts especializados.
+
 ## [1.5.5] - 2026-07-07
 
 ### Modificado

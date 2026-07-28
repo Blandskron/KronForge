@@ -17,6 +17,7 @@ Configuración esperada en GitHub:
   - `assets/` (CSS y JS modulares)
   - `pages/` (vistas HTML dinámicas)
   - `prompts/agents-first-documentation-review.prompt.md`
+  - `library/` (catálogo y activos por dominio)
   - documentación Markdown enlazada.
 
 ## Desarrollo Local

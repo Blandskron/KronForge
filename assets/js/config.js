@@ -143,7 +143,7 @@ El producto debe ser entendible sin estudiar una metodología: qué es, cómo em
 > Los agentes deben leer [AGENTS.md](AGENTS.md) antes de trabajar.`
     },
     "skill-prompt-update-md": {
-        title: "skills/prompt-update/SKILL.md",
+        title: "ai-agent-engineering / prompt-update",
         status: "Especializado",
         description: "Skill para actualizar el prompt maestro, aplicar SemVer y registrar cambios.",
         code: `# Skill: Actualización del Prompt
@@ -155,7 +155,7 @@ El producto debe ser entendible sin estudiar una metodología: qué es, cómo em
 4. Validar enlaces, Markdown y consistencia del sitio.`
     },
     "skill-documentation-audit-md": {
-        title: "skills/documentation-audit/SKILL.md",
+        title: "documentation-knowledge / documentation-audit",
         status: "Ejemplo",
         description: "Skill de ejemplo para revisar consistencia documental antes de cerrar cambios.",
         code: `# Skill: Documentation Audit

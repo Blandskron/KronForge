@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "domains": [
+    {"id": "architecture", "title": "Arquitectura", "index": "domains/architecture/README.md"},
+    {"id": "software-development", "title": "Desarrollo de software", "index": "domains/software-development/README.md"},
+    {"id": "data", "title": "Datos", "index": "domains/data/README.md"},
+    {"id": "quality-engineering", "title": "Ingeniería de calidad", "index": "domains/quality-engineering/README.md"},
+    {"id": "security", "title": "Seguridad", "index": "domains/security/README.md"},
+    {"id": "delivery-platform", "title": "Entrega y plataforma", "index": "domains/delivery-platform/README.md"},
+    {"id": "reliability-performance", "title": "Confiabilidad y performance", "index": "domains/reliability-performance/README.md"},
+    {"id": "experience-accessibility", "title": "Experiencia y accesibilidad", "index": "domains/experience-accessibility/README.md"},
+    {"id": "ai-agent-engineering", "title": "Ingeniería de IA y agentes", "index": "domains/ai-agent-engineering/README.md"},
+    {"id": "product-technical-management", "title": "Producto y gestión técnica", "index": "domains/product-technical-management/README.md"},
+    {"id": "documentation-knowledge", "title": "Documentación y conocimiento", "index": "domains/documentation-knowledge/README.md"}
+  ],
+  "assets": [
+    {"id": "architecture.architecture-validation", "type": "prompt", "status": "stable", "path": "domains/architecture/prompts/architecture-validation.prompt.md"},
+    {"id": "architecture.adr", "type": "template", "status": "stable", "path": "domains/architecture/templates/adr.template.md"},
+    {"id": "quality-engineering.code-quality-review", "type": "prompt", "status": "stable", "path": "domains/quality-engineering/prompts/code-quality-review.prompt.md"},
+    {"id": "quality-engineering.definition-of-done-review", "type": "prompt", "status": "stable", "path": "domains/quality-engineering/prompts/definition-of-done-review.prompt.md"},
+    {"id": "quality-engineering.functional-qa", "type": "prompt", "status": "stable", "path": "domains/quality-engineering/prompts/functional-qa.prompt.md"},
+    {"id": "quality-engineering.integration-tests", "type": "prompt", "status": "stable", "path": "domains/quality-engineering/prompts/integration-tests.prompt.md"},
+    {"id": "quality-engineering.regression-qa", "type": "prompt", "status": "stable", "path": "domains/quality-engineering/prompts/regression-qa.prompt.md"},
+    {"id": "quality-engineering.unit-tests", "type": "prompt", "status": "stable", "path": "domains/quality-engineering/prompts/unit-tests.prompt.md"},
+    {"id": "quality-engineering.pre-merge", "type": "checklist", "status": "stable", "path": "domains/quality-engineering/checklists/pre-merge.checklist.md"},
+    {"id": "security.security-audit", "type": "prompt", "status": "stable", "path": "domains/security/prompts/security-audit.prompt.md"},
+    {"id": "security.dependency-vulnerability-audit", "type": "prompt", "status": "stable", "path": "domains/security/prompts/dependency-vulnerability-audit.prompt.md"},
+    {"id": "security.docker-image-security-audit", "type": "prompt", "status": "stable", "path": "domains/security/prompts/docker-image-security-audit.prompt.md"},
+    {"id": "delivery-platform.release-readiness-review", "type": "prompt", "status": "stable", "path": "domains/delivery-platform/prompts/release-readiness-review.prompt.md"},
+    {"id": "delivery-platform.github-pages-release", "type": "skill", "status": "stable", "path": "domains/delivery-platform/skills/github-pages-release/SKILL.md"},
+    {"id": "reliability-performance.performance-basic-validation", "type": "prompt", "status": "stable", "path": "domains/reliability-performance/prompts/performance-basic-validation.prompt.md"},
+    {"id": "experience-accessibility.accessibility-standards", "type": "reference", "status": "stable", "path": "domains/experience-accessibility/references/accessibility-standards.references.md"},
+    {"id": "ai-agent-engineering.prompt-update", "type": "skill", "status": "stable", "path": "domains/ai-agent-engineering/skills/prompt-update/SKILL.md"},
+    {"id": "ai-agent-engineering.prepare-agents-first", "type": "playbook", "status": "stable", "path": "domains/ai-agent-engineering/playbooks/prepare-agents-first.playbook.md"},
+    {"id": "documentation-knowledge.documentation-audit", "type": "skill", "status": "stable", "path": "domains/documentation-knowledge/skills/documentation-audit/SKILL.md"},
+    {"id": "documentation-knowledge.documentation-as-code", "type": "pattern", "status": "stable", "path": "domains/documentation-knowledge/patterns/documentation-as-code.pattern.md"},
+    {"id": "documentation-knowledge.invented-commands", "type": "anti-pattern", "status": "stable", "path": "domains/documentation-knowledge/anti-patterns/invented-commands.anti-pattern.md"}
+  ]
+}

@@ -46,7 +46,7 @@ El prompt maestro debe mantener estas reglas:
 
 ## Seguridad en Prompts de Auditoría
 
-Los prompts de la biblioteca `prompts/quality/`, especialmente `security-audit.prompt.md` y `dependency-vulnerability-audit.prompt.md`, deben:
+Los prompts del dominio [`library/domains/security/`](../../library/domains/security/README.md), especialmente `security-audit.prompt.md` y `dependency-vulnerability-audit.prompt.md`, deben:
 
 - **Detectar, clasificar y reportar.** Nunca explotar vulnerabilidades ni entregar instrucciones ofensivas.
 - **No imprimir secretos.** Nunca copiar ni registrar valores reales de credenciales o variables de entorno.

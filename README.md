@@ -1,232 +1,121 @@
 # Agents First Repo Docs
 
-Repositorio profesional de prompts para documentar, auditar y validar repositorios de software con agentes de IA.
+Biblioteca abierta de ingeniería de software asistida por IA: conocimiento reutilizable para analizar, diseñar, construir, modernizar, validar, desplegar y mantener software con agentes.
 
-La idea es simple: **Copiar -> Pegar -> Auditar -> Aprobar -> Aplicar**. Un dev entra, copia el prompt que necesita, lo pega en el agente que use y el agente queda con una misión clara: auditar, limpiar, reconstruir documentación o ejecutar procesos de validación interna de calidad, sin asumir stack, herramienta ni arquitectura.
+Es agnóstica al modelo, proveedor y stack. Funciona con cualquier agente moderno porque sus activos obligan a observar el repositorio real, distinguir evidencia de supuestos y conservar control humano en decisiones sensibles.
 
-El producto de este repositorio son los prompts. El repositorio completo funciona como ejemplo vivo de cómo debería verse un proyecto avanzado, profesional y fácil de mantener cuando está preparado para agentes y para humanos.
+El flujo operativo se mantiene simple: **Copiar -> Pegar -> Auditar -> Aprobar -> Aplicar**.
 
 > [!TIP]
-> **Sitio GitHub Pages:** usa la versión visual para leer, navegar y copiar el prompt desde [blandskron.github.io/agents-first-repo-docs](https://blandskron.github.io/agents-first-repo-docs/).
+> Explora la versión visual en [GitHub Pages](https://blandskron.github.io/agents-first-repo-docs/) o entra directamente al [catálogo por dominios](library/README.md).
 
-## Qué Entrega Este Repo
+## Qué encontrarás
 
-- Un prompt maestro universal en [prompts/agents-first-documentation-review.prompt.md](prompts/agents-first-documentation-review.prompt.md).
-- Una biblioteca de prompts especializados para validación interna de calidad en [prompts/quality/](prompts/quality/).
-- Una estructura documental que sirve como ejemplo real del estándar agents-first.
-- Guías de permisos, validación y versionado para mantener los prompts como producto.
-- Un set completo de documentos `docs/agent/` como referencia profesional, incluso cuando una dimensión no aplique.
-- Ejemplos de skills reutilizables para tareas repetibles.
-- Un ejemplo de uso en [examples/usage-example.md](examples/usage-example.md).
-- Una página estática con HTML, CSS y JS lista para GitHub Pages.
+- un [prompt maestro](prompts/agents-first-documentation-review.prompt.md) para preparar repositorios agents-first;
+- una [biblioteca por dominios](library/README.md) con prompts, skills, templates, checklists, playbooks, patrones, anti-patrones y referencias;
+- contratos de autoría y un [catálogo legible por herramientas](library/catalog.json);
+- documentación operativa en [`docs/agent/`](docs/agent/);
+- ejemplos de uso y un sitio estático sin build.
 
-## Qué No Es
+No es una colección masiva de prompts ni una metodología prescriptiva. Es un framework documental liviano: organiza capacidades reutilizables y deja que cada activo se adapte a la evidencia del proyecto objetivo.
 
-- No es un framework.
-- No es una metodología pesada de documentación.
-- No obliga a usar un agente, modelo, lenguaje o proveedor específico.
-- No reemplaza la revisión humana en cambios sensibles.
-- No inventa arquitectura: obliga al agente a detectar la realidad del repositorio antes de actuar.
+## Inicio rápido
 
-## Uso Rápido
+### Para auditar un repositorio
 
-1. Abre [prompts/agents-first-documentation-review.prompt.md](prompts/agents-first-documentation-review.prompt.md).
-2. Copia todo el contenido.
-3. Pégalo en tu agente de codificación o documentación.
-4. Pide al agente que ejecute primero una auditoría de solo lectura.
-5. Revisa y aprueba el plan antes de aplicar cambios.
+1. Abre el [prompt maestro](prompts/agents-first-documentation-review.prompt.md).
+2. Copia su contenido en el agente que uses.
+3. Entrégale acceso al repositorio objetivo.
+4. Exige primero el diagnóstico y el plan.
+5. Revisa los cambios sensibles antes de autorizar su aplicación.
 
-El prompt está diseñado para funcionar con cualquier agente moderno: no depende de Claude, Gemini, Copilot, ChatGPT, Codex ni de un framework específico.
+### Para una tarea especializada
 
-## Para Quién Es
+1. Navega el [índice de dominios](library/README.md#dominios).
+2. Elige el activo por resultado y revisa sus entradas y restricciones.
+3. Sigue el activo y conserva la evidencia requerida.
 
-- Devs que quieren preparar repositorios para trabajo asistido por agentes sin estudiar una guía larga.
-- Equipos que reciben repositorios heredados con documentación rota, duplicada o contradictoria.
-- Maintainers que necesitan un punto de entrada claro para humanos y agentes.
-- Proyectos nuevos que quieren partir con una estructura documental profesional.
-- Repositorios backend, frontend, fullstack, infraestructura, datos, SDKs, prompts o documentación pública.
+## Dominios
 
-## Para Qué Sirve
+| Dominio | Ejemplos de alcance |
+|---|---|
+| [Arquitectura](library/domains/architecture/README.md) | decisiones, modularidad, DDD y estilos |
+| [Desarrollo de software](library/domains/software-development/README.md) | backend, frontend, APIs y refactoring |
+| [Datos](library/domains/data/README.md) | modelos, migraciones, contratos y pipelines |
+| [Ingeniería de calidad](library/domains/quality-engineering/README.md) | testing, QA, code review y DoD |
+| [Seguridad](library/domains/security/README.md) | AppSec, supply chain, secretos e IAM |
+| [Entrega y plataforma](library/domains/delivery-platform/README.md) | CI/CD, releases, cloud y contenedores |
+| [Confiabilidad y performance](library/domains/reliability-performance/README.md) | observabilidad, incidentes y rendimiento |
+| [Experiencia y accesibilidad](library/domains/experience-accessibility/README.md) | UX, UI, WCAG y usabilidad |
+| [Ingeniería de IA y agentes](library/domains/ai-agent-engineering/README.md) | agents-first, contexto, evaluación y prompts |
+| [Producto y gestión técnica](library/domains/product-technical-management/README.md) | discovery, RFC, planificación y riesgo |
+| [Documentación y conocimiento](library/domains/documentation-knowledge/README.md) | auditoría, runbooks y documentación como código |
 
-Este repositorio ayuda a transformar proyectos con documentación dispersa en proyectos que tienen:
+## Principios
 
-- `AGENTS.md` como punto de entrada para agentes.
-- `README.md` claro para humanos.
-- Documentos especializados en `docs/agent/`.
-- Reglas de permisos, seguridad y validación.
-- Comandos reales, no inventados.
-- Limpieza segura de documentación obsoleta.
-- Skills solo cuando existan tareas repetibles que lo justifiquen.
+- Leer antes de modificar.
+- No inventar comandos, arquitectura, dependencias ni resultados.
+- Ser universal por defecto y específico solo después de detectar evidencia.
+- Planificar antes de cambiar y pedir aprobación para acciones sensibles.
+- No exponer secretos ni relajar pruebas o seguridad para aprobar.
+- Enlazar conocimiento común en vez de duplicarlo.
+- Priorizar calidad y mantenibilidad sobre volumen.
 
-## Casos de Uso
-
-- Microservicios backend.
-- Frontends.
-- Aplicaciones fullstack.
-- Monorepos.
-- Repositorios de infraestructura.
-- Bibliotecas y SDKs.
-- Repositorios de agentes IA.
-- Proyectos heredados con documentación contradictoria.
-- Repositorios de prompts, plantillas o documentación pública.
-
-## Estructura del Repositorio
+## Arquitectura del repositorio
 
 ```txt
 agents-first-repo-docs/
-├── README.md
-├── AGENTS.md
-├── CLAUDE.md
-├── GEMINI.md
-├── PROMPT_VERSIONING.md
+├── prompts/
+│   └── agents-first-documentation-review.prompt.md
+├── library/
+│   ├── README.md
+│   ├── catalog.json
+│   └── domains/<domain>/
+│       ├── README.md
+│       ├── prompts/
+│       ├── skills/
+│       ├── templates/
+│       ├── checklists/
+│       ├── playbooks/
+│       ├── patterns/
+│       ├── anti-patterns/
+│       └── references/
+├── docs/
+│   ├── REPOSITORY_EVOLUTION.md
+│   ├── CONTRIBUTING_ASSETS.md
+│   ├── CHANGELOG.md
+│   └── agent/
+├── examples/
 ├── index.html
 ├── assets/
-│   ├── css/
-│   │   ├── base.css
-│   │   ├── layout.css
-│   │   ├── components.css
-│   │   ├── quality.css
-│   │   └── responsive.css
-│   └── js/
-│       ├── config.js
-│       ├── loader.js
-│       ├── navigation.js
-│       ├── sidebar.js
-│       ├── tree.js
-│       ├── quality.js
-│       ├── models.js
-│       ├── copy.js
-│       ├── theme.js
-│       └── app.js
-├── pages/
-│   ├── welcome.html
-│   ├── prompt.html
-│   ├── quality.html
-│   ├── structure.html
-│   ├── models.html
-│   ├── example.html
-│   └── versioning.html
-├── prompts/
-│   ├── agents-first-documentation-review.prompt.md
-│   └── quality/
-│       ├── README.md
-│       ├── unit-tests.prompt.md
-│       ├── integration-tests.prompt.md
-│       ├── functional-qa.prompt.md
-│       ├── regression-qa.prompt.md
-│       ├── security-audit.prompt.md
-│       ├── dependency-vulnerability-audit.prompt.md
-│       ├── docker-image-security-audit.prompt.md
-│       ├── code-quality-review.prompt.md
-│       ├── architecture-validation.prompt.md
-│       ├── performance-basic-validation.prompt.md
-│       ├── definition-of-done-review.prompt.md
-│       └── release-readiness-review.prompt.md
-├── examples/
-│   └── usage-example.md
-├── docs/
-│   ├── CHANGELOG.md
-│   ├── skills/
-│   │   └── README.md
-│   └── agent/
-│       ├── PERMISSIONS.md
-│       ├── RUNBOOK.md
-│       ├── TESTS.md
-│       ├── SECURITY.md
-│       ├── CONFIG.md
-│       └── DATA_SCHEMA.md
-├── .github/
-│   └── copilot-instructions.md
-├── skills/
-│   ├── prompt-update/
-│   │   └── SKILL.md
-│   ├── documentation-audit/
-│   │   └── SKILL.md
-│   └── github-pages-release/
-│       └── SKILL.md
-└── LICENSE
+└── pages/
 ```
 
-## Biblioteca de Prompts de Validación Interna
+Las subcarpetas de activos se crean solo cuando contienen conocimiento real. El prompt maestro conserva su ruta estable como puerta de entrada.
 
-Además del prompt maestro de documentación, este repositorio incluye prompts especializados para procesos de validación interna de calidad de software:
+## Contribuir
 
-| Prompt | Propósito |
-|---|---|
-| [unit-tests.prompt.md](prompts/quality/unit-tests.prompt.md) | Tests unitarios |
-| [integration-tests.prompt.md](prompts/quality/integration-tests.prompt.md) | Tests de integración |
-| [functional-qa.prompt.md](prompts/quality/functional-qa.prompt.md) | QA funcional |
-| [regression-qa.prompt.md](prompts/quality/regression-qa.prompt.md) | QA de regresión |
-| [security-audit.prompt.md](prompts/quality/security-audit.prompt.md) | Auditoría de ciberseguridad |
-| [dependency-vulnerability-audit.prompt.md](prompts/quality/dependency-vulnerability-audit.prompt.md) | Auditoría de vulnerabilidades en dependencias |
-| [docker-image-security-audit.prompt.md](prompts/quality/docker-image-security-audit.prompt.md) | Auditoría de seguridad de imágenes Docker |
-| [code-quality-review.prompt.md](prompts/quality/code-quality-review.prompt.md) | Revisión de calidad de código |
-| [architecture-validation.prompt.md](prompts/quality/architecture-validation.prompt.md) | Validación de arquitectura |
-| [performance-basic-validation.prompt.md](prompts/quality/performance-basic-validation.prompt.md) | Validación básica de performance |
-| [definition-of-done-review.prompt.md](prompts/quality/definition-of-done-review.prompt.md) | Revisión de Definition of Done |
-| [release-readiness-review.prompt.md](prompts/quality/release-readiness-review.prompt.md) | Revisión de release readiness |
+Lee [cómo contribuir activos](docs/CONTRIBUTING_ASSETS.md). Toda contribución debe:
 
-Estos prompts no reemplazan el criterio humano. Su objetivo es guiar al agente para trabajar con evidencia local, producir checklists verificables y dejar trazabilidad de la validación realizada.
+- ubicarse en un dominio claro;
+- aportar un resultado reusable;
+- seguir el contrato de metadatos;
+- evitar duplicidad y dependencias innecesarias de proveedor;
+- actualizar índices y changelog;
+- pasar las [validaciones documentales](docs/agent/TESTS.md).
 
-## Resultado Esperado en un Repo Objetivo
+La arquitectura y el plan de migración están documentados en [REPOSITORY_EVOLUTION.md](docs/REPOSITORY_EVOLUTION.md).
 
-Después de aplicar el prompt, el repositorio auditado puede quedar con una estructura similar a:
+## Uso con agentes
 
-```txt
-AGENTS.md
-README.md
-docs/
-  agent/
-    PERMISSIONS.md
-    RUNBOOK.md
-    TESTS.md
-    SECURITY.md
-    CONFIG.md
-    DATA_SCHEMA.md
-skills/
-  <tarea-repetible>/
-    SKILL.md
-```
+Los agentes deben leer [AGENTS.md](AGENTS.md) antes de trabajar. `CLAUDE.md`, `GEMINI.md` y `.github/copilot-instructions.md` son adaptadores opcionales; el conocimiento canónico no depende de ellos.
 
-No todos los archivos son obligatorios. El agente debe crear solo lo que tenga sentido según evidencia del repositorio analizado.
+## Sitio estático
 
-## Reglas del Estándar
+GitHub Pages sirve [`index.html`](index.html), [`assets/`](assets/) y [`pages/`](pages/) directamente desde la raíz. No existe build system.
 
-- Leer antes de modificar.
-- No asumir stack tecnológico.
-- No inventar comandos.
-- No inventar arquitectura.
-- No eliminar documentación útil sin migrarla.
-- No exponer secretos.
-- No modificar credenciales.
-- Mantener `AGENTS.md` breve, operativo y enlazado.
-- Mantener `README.md` útil para humanos.
-- Registrar cambios del prompt en [docs/CHANGELOG.md](docs/CHANGELOG.md).
+## Versionado y licencia
 
-## Norte de Calidad
+Los activos siguen [versionado semántico y reglas de deprecación](PROMPT_VERSIONING.md). Los cambios notables se registran en [docs/CHANGELOG.md](docs/CHANGELOG.md).
 
-Un repo convertido con este prompt debe poder responder tres preguntas sin obligar al agente o al dev a investigar desde cero:
-
-- Qué es este proyecto y cómo se trabaja.
-- Qué puede tocar un agente y qué requiere aprobación humana.
-- Qué comandos, validaciones y documentos son reales según evidencia local.
-
-## Página GitHub Pages
-
-La página estática vive en:
-
-- [index.html](index.html) (punto de entrada en la raíz)
-- [assets/](assets/) (archivos CSS y JS modulares)
-- [pages/](pages/) (vistas HTML dinámicas)
-
-Está pensada para desplegarse directamente desde la raíz del repositorio en GitHub Pages. No requiere build system.
-
-## Mantenimiento
-
-Cada mejora relevante del prompt debe seguir [PROMPT_VERSIONING.md](PROMPT_VERSIONING.md) y registrarse en [docs/CHANGELOG.md](docs/CHANGELOG.md).
-
-Para actualizar el prompt, usa la guía especializada en [skills/prompt-update/SKILL.md](skills/prompt-update/SKILL.md).
-
-## Licencia
-
-MIT. Consulta [LICENSE](LICENSE).
+Licencia MIT. Consulta [LICENSE](LICENSE).

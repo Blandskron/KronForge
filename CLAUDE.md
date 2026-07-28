@@ -25,3 +25,5 @@ Esta guía resume cómo usar Claude con el estándar **agents-first** de este re
 ## Resultado Esperado
 
 Claude debería entregar una documentación con `AGENTS.md` como entrada para agentes, `README.md` para humanos y documentos especializados solo cuando aporten valor real.
+
+Para tareas especializadas, selecciona primero un activo desde [`library/README.md`](library/README.md). El catálogo canónico no depende de Claude.

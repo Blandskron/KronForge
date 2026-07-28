@@ -25,3 +25,5 @@ Esta guía resume cómo usar Gemini con el estándar **agents-first** de este re
 ## Resultado Esperado
 
 Gemini debería producir una estructura documental navegable, segura y mantenible, con comandos reales y pendientes explícitos cuando falte información.
+
+Para tareas especializadas, selecciona primero un activo desde [`library/README.md`](library/README.md). El catálogo canónico no depende de Gemini.

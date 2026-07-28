@@ -1,10 +1,10 @@
 # GitHub Copilot Instructions
 
-Este repositorio contiene un prompt maestro, documentación Markdown y una página estática sin build system.
+Este repositorio contiene una biblioteca de ingeniería asistida por IA, documentación Markdown y una página estática sin build system.
 
 ## Contexto del Proyecto
 
-- El producto principal es `prompts/agents-first-documentation-review.prompt.md`.
+- El catálogo principal vive en `library/`; el prompt maestro conserva `prompts/agents-first-documentation-review.prompt.md`.
 - El README está orientado a humanos.
 - `AGENTS.md` está orientado a agentes.
 - La página en la raíz (`index.html`), las carpetas `assets/` (CSS/JS) y `pages/` (HTML) presentan el proyecto en GitHub Pages.
@@ -13,8 +13,9 @@ Este repositorio contiene un prompt maestro, documentación Markdown y una pági
 
 - No asumas frameworks, paquetes ni comandos que no existan en este repositorio.
 - Mantén el prompt maestro universal y agnóstico.
+- Organiza activos por dominio y mantén `library/catalog.json` alineado.
 - Evita duplicar grandes bloques de contenido entre Markdown y JavaScript.
-- Si actualizas el prompt o reglas del estándar, actualiza también `CHANGELOG.md`.
+- Si actualizas un activo o reglas del estándar, actualiza también `docs/CHANGELOG.md`.
 - Conserva HTML, CSS y JS como archivos estáticos simples.
 
 ## Validación

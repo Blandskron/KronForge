@@ -1,6 +1,6 @@
 # Runbook Operativo
 
-Este repositorio no tiene backend, base de datos ni servicios persistentes. Su operación consiste en mantener un sitio estático para GitHub Pages y una biblioteca de prompts Markdown.
+Este repositorio no tiene backend, base de datos ni servicios persistentes. Su operación consiste en mantener un sitio estático para GitHub Pages y una biblioteca de activos Markdown organizada por dominios.
 
 ## Operación Local
 
@@ -33,7 +33,7 @@ Antes de publicar cambios:
 1. Servir la raíz del repositorio por HTTP local.
 2. Confirmar que `index.html` cargue correctamente y los recursos de `assets/` devuelvan `200` en consola.
 3. Verificar que la pestaña del prompt cargue `prompts/agents-first-documentation-review.prompt.md`.
-4. Verificar que la pestaña "Prompts de Calidad" muestre el índice y permita navegar a los prompts individuales.
+4. Verificar que la pestaña "Catálogo de Prompts" permita navegar a los prompts canónicos de varios dominios.
 5. Verificar que el botón de copiar use el contenido visible del prompt activo.
 6. Confirmar navegación por hash: `#prompt`, `#quality`, `#structure`, `#models`, `#example`, `#versioning`.
 

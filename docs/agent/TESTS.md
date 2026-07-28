@@ -1,73 +1,88 @@
-# Pruebas y Validación (TESTS.md)
+# Pruebas y Validación
 
-Al ser este un repositorio de prompts, documentación y sitio estático, no cuenta con una suite de pruebas automatizadas de aplicación. Sin embargo, cada cambio debe validarse mediante los siguientes pasos.
+Este repositorio no tiene suite de aplicación ni build system. La validación combina controles documentales, consistencia del catálogo y prueba HTTP del sitio estático.
 
----
+## 1. Enlaces Markdown
 
-## 1. Validaciones Obligatorias del Repositorio
+Verifica todos los enlaces relativos en archivos Markdown:
 
-### 1.1 Verificación de Enlaces e Integridad de Archivos
+- elimina fragmentos `#...` antes de resolver la ruta;
+- decodifica rutas cuando corresponda;
+- ignora URLs externas para esta prueba;
+- resuelve cada destino desde el directorio del documento;
+- confirma que el archivo o directorio exista.
 
-Cualquier cambio en la estructura documental debe validar que todos los enlaces internos funcionen correctamente:
+Rutas críticas:
 
-- Comprueba que todos los enlaces en Markdown que usan rutas relativas apunten a archivos existentes.
-- **Rutas críticas a verificar:**
-  - Los enlaces desde `AGENTS.md` a `docs/agent/*`, `prompts/quality/README.md` y `README.md`.
-  - Los enlaces desde `README.md` a `prompts/agents-first-documentation-review.prompt.md`, `prompts/quality/`, `examples/usage-example.md`, `PROMPT_VERSIONING.md` y `docs/CHANGELOG.md`.
-  - Los enlaces desde `prompts/quality/README.md` a cada prompt de la biblioteca.
-  - Los enlaces desde `index.html` e `index.js` a archivos que se cargan vía fetch.
+- `README.md`, `AGENTS.md` y `library/README.md`;
+- índices `library/domains/*/README.md`;
+- `docs/agent/*`, `docs/REPOSITORY_EVOLUTION.md` y `docs/CONTRIBUTING_ASSETS.md`;
+- relaciones entre assets y skills.
 
-### 1.2 Validación de Formato Markdown
+## 2. Catálogo
 
-Asegúrate de que el formato Markdown esté limpio y sea compatible con cualquier parser estándar:
+Para `library/catalog.json`:
 
-- Revisa que todos los bloques de código (triple backtick) estén cerrados correctamente.
-- Comprueba la jerarquía de títulos (`#`, `##`, `###`).
-- Verifica que las tablas Markdown estén correctamente formateadas.
-- Verifica que no existan listas con niveles de indentación inconsistentes.
+- [ ] JSON válido.
+- [ ] IDs de dominio y activo únicos.
+- [ ] Cada `path` e `index` existe bajo `library/`.
+- [ ] Cada activo Markdown comienza con front matter.
+- [ ] `id`, `type`, `domain`, `status` y `version` están presentes.
+- [ ] El ID y dominio coinciden con el manifiesto y la ruta.
+- [ ] Los IDs de `related` existen o el pendiente está documentado.
+- [ ] Cada activo aparece en el índice de su dominio.
 
-### 1.3 Consistencia Semántica y de Versión
+## 3. Contratos por tipo
 
-Antes de dar por concluido un cambio:
+### Prompts
 
-- Comprueba que la versión en `docs/CHANGELOG.md` coincide con las reglas de `PROMPT_VERSIONING.md`.
-- Asegura que no se hayan introducido enlaces a archivos inexistentes.
-- Asegura que no haya referencias a plataformas o herramientas específicas que no existan en el repositorio.
+- [ ] Leen antes de modificar.
+- [ ] Detectan stack y comandos reales.
+- [ ] Exigen plan antes de cambios.
+- [ ] No relajan pruebas o seguridad.
+- [ ] Entregan evidencia y pendientes.
 
----
+### Skills
 
-## 2. Validación de Prompts de Calidad (`prompts/quality/`)
+- [ ] Definen objetivo, uso, entradas, resultado y restricciones.
+- [ ] Incluyen procedimiento, buenas prácticas y checklist.
+- [ ] Documentan errores frecuentes y relacionados.
 
-Cada prompt en `prompts/quality/` debe cumplir los siguientes criterios antes de considerarse apto:
+### Otros activos
 
-### Checklist de Validación de Prompts
+- [ ] Templates distinguen instrucciones de contenido final.
+- [ ] Checklists exigen estado y evidencia.
+- [ ] Playbooks incluyen precondiciones, decisiones y salida.
+- [ ] Patrones explican cuándo usar y evitar, ventajas y desventajas.
+- [ ] Anti-patrones incluyen detección, corrección y prevención.
+- [ ] Referencias enlazan fuentes primarias y fecha de revisión.
 
-- [ ] **Universal y agnóstico al stack.** El prompt no menciona lenguajes, frameworks, gestores de paquetes ni herramientas específicas como obligatorios. Solo como ejemplos detectables.
-- [ ] **Lee antes de modificar.** El prompt obliga explícitamente al agente a leer el repositorio en una fase de solo lectura antes de proponer cambios.
-- [ ] **Sin comandos inventados.** El prompt prohíbe explícitamente inventar comandos. Obliga a detectarlos desde manifests, CI, Makefile o documentación existente.
-- [ ] **Plan antes de ejecutar.** El prompt exige presentar un plan con hallazgos y riesgos antes de modificar archivos.
-- [ ] **Aprobación humana para cambios sensibles.** El prompt indica explícitamente cuándo esperar aprobación humana.
-- [ ] **Sin relajar pruebas.** El prompt prohíbe eliminar, desactivar o relajar tests para hacer pasar validaciones.
-- [ ] **Sin secretos.** El prompt prohíbe imprimir o copiar valores reales de secretos, credenciales o variables de entorno.
-- [ ] **Evidencia final.** El prompt exige entregar un resumen con comandos ejecutados, hallazgos, riesgos y pendientes.
-- [ ] **Fases separadas.** El prompt divide claramente: lectura → diagnóstico → plan → ejecución → evidencia.
-- [ ] **Fallback documentado.** Si algo no puede determinarse con evidencia local, el prompt indica usar: `Pendiente de confirmar: ...`
+## 4. Markdown y seguridad
 
-### Consistencia del Índice
+- [ ] Número par de cercas de código por tipo de delimitador.
+- [ ] Sin referencias activas a rutas retiradas.
+- [ ] Sin secretos, tokens, credenciales o datos productivos.
+- [ ] Sin comandos presentados como reales cuando no están definidos.
+- [ ] Cambios semánticos registrados en `docs/CHANGELOG.md`.
 
-- [ ] Cada prompt nuevo está listado en `prompts/quality/README.md`.
-- [ ] Cada prompt nuevo está referenciado en `README.md`.
-- [ ] Los prompts nuevos relevantes están incorporados en `AGENTS.md` o en la documentación del sitio.
+## 5. Sitio estático
 
----
+Cuando cambien `index.html`, `assets/`, `pages/` o contenido cargado:
 
-## 3. Validación Operativa del Sitio Estático
+1. Servir la raíz por HTTP con una herramienta disponible.
+2. Confirmar `200` para `/`, CSS, JS y páginas parciales.
+3. Confirmar `200` para el prompt maestro, `library/catalog.json` y cada prompt mostrado.
+4. Verificar navegación por hash: `#prompt`, `#quality`, `#structure`, `#models`, `#example`, `#versioning`.
+5. Revisar consola, carga inicial, copia y viewport móvil.
 
-Antes de publicar cambios en la página:
+El comando `python -m http.server 8026 --bind 127.0.0.1` puede usarse solo si Python está disponible en el entorno.
 
-1. Servir la raíz del repositorio con un servidor HTTP local.
-2. Confirmar que `index.html` cargue sin errores de consola.
-3. Verificar que la pestaña del prompt cargue `prompts/agents-first-documentation-review.prompt.md`.
-4. Verificar que la nueva sección de prompts de calidad esté visible y funcional.
-5. Confirmar que el botón de copiar use el contenido visible del prompt activo.
-6. Verificar navegación por hash: `#prompt`, `#quality`, `#structure`, `#models`, `#example`, `#versioning`.
+## 6. Cierre
+
+Reporta:
+
+- controles ejecutados;
+- resultado y evidencia;
+- validaciones omitidas con motivo;
+- riesgos o pendientes;
+- confirmación de que el diff permanece dentro del alcance.
