@@ -31,6 +31,8 @@ El HTML carga recursos públicos de CDN:
 - Google Fonts.
 - Font Awesome.
 
+El portal carga `library/catalog.json` mediante `fetch`; por eso debe probarse por HTTP y no solo mediante `file://`.
+
 > [!IMPORTANT]
 > Si el proyecto necesita funcionar completamente offline, reemplaza esas dependencias por assets locales y actualiza este documento.
 

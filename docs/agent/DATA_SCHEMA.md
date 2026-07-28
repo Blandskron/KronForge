@@ -28,7 +28,8 @@ Este repositorio no tiene base de datos, API propia ni modelos persistentes. Aun
 - **Ubicación:** `library/domains/<dominio>/<tipo>/`.
 - **Tipos:** prompt, skill, template, checklist, playbook, pattern, anti-pattern y reference.
 - **Identidad:** ID estable `<dominio>.<slug>` en front matter.
-- **Índice:** `library/catalog.json`.
+- **Índice:** `library/catalog.json`, actualmente schema v2.
+- **Descubrimiento:** título, resumen, dificultad, tags, dominio, tipo y ruta.
 - **Regla de compatibilidad:** estados y versiones siguen `PROMPT_VERSIONING.md`.
 
 ### Página Estática

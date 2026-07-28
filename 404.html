@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>Redirigiendo — Agents First Framework</title>
+</head>
+<body>
+    <p>Redirigiendo al portal…</p>
+    <script>
+        (() => {
+            const parts = window.location.pathname.split('/').filter(Boolean);
+            const isProjectPage = window.location.hostname.endsWith('.github.io') && parts.length > 1;
+            const base = isProjectPage ? `/${parts[0]}/` : '/';
+            const requested = parts.at(-1)?.replace(/\.html$/, '') || 'welcome';
+            const allowed = new Set([
+                'welcome', 'quickstart', 'domains', 'library', 'prompt', 'playbooks',
+                'structure', 'models', 'roadmap', 'contributing', 'example',
+                'changelog', 'versioning'
+            ]);
+            const page = allowed.has(requested) ? requested : 'welcome';
+            window.location.replace(`${window.location.origin}${base}#${page}`);
+        })();
+    </script>
+</body>
+</html>

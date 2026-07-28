@@ -4,6 +4,50 @@ Todos los cambios notables en este proyecto serán documentados en este archivo.
 
 ---
 
+## [2.1.1] - 2026-07-28
+
+### Corregido
+
+- Resolución de rutas de páginas, catálogo y documentos desde la raíz real del sitio mediante `import.meta.url`, compatible con el subdirectorio de GitHub Pages.
+- Navegación con historial funcional para los controles Atrás y Adelante del navegador.
+- Acceso directo a cada `pages/*.html`, que ahora redirige a su sección dentro del portal completo.
+- Página `404.html` para recuperar rutas de secciones conocidas en GitHub Pages.
+- Estado de error visible y acción de reintento cuando una sección no puede cargarse, evitando spinners permanentes.
+- Versionado de recursos estáticos y solicitudes de contenido para reducir inconsistencias de caché después de publicar.
+
+### Versión SemVer
+
+Clasificada como **PATCH**: corrige navegación y publicación sin cambiar los contratos del framework.
+
+## [2.1.0] - 2026-07-28
+
+### Añadido
+
+- Estrategia integral del framework en `docs/AI_ENGINEERING_FRAMEWORK_STRATEGY.md`, con visión, misión, arquitectura, taxonomía, estrategias especializadas, roadmap, riesgos y beneficios.
+- Dominios `context-engineering`, `repository-engineering`, `mcp-integration` y `hooks-workflows`.
+- Architecture notes para capas de contexto, topología MCP y sistemas de subagentes.
+- Patrones de contexto progresivo, delegación por contrato y hooks de validación explícitos.
+- Playbook para diseñar repositorios AI-First y checklist de seguridad MCP.
+- Roadmap público en `docs/ROADMAP.md`.
+- Portal con Quick Start, dominios, biblioteca unificada, búsqueda, filtros, visor de activos, breadcrumbs, roadmap, contribución y changelog.
+- SEO, Open Graph básico, navegación responsive y preferencia persistente de tema.
+- Tarjeta Open Graph propia en `assets/img/og-ai-engineering.png`, alineada con los cuatro pilares del portal.
+
+### Modificado
+
+- `library/catalog.json` elevado a schema v2 con versión del framework, títulos, resúmenes, dificultad y tags para descubrimiento.
+- Contratos editoriales ampliados con dificultad, proyectos, compatibilidad y modelos.
+- Skills ampliadas con problema, dependencias, casos de uso y ejemplo.
+- README, AGENTS, versionado y documentación operativa alineados con la visión de framework abierto de AI Engineering.
+
+### Eliminado
+
+- Visor aislado de prompts de calidad (`pages/quality.html`, `assets/js/quality.js`, `assets/css/quality.css`), reemplazado por la biblioteca unificada.
+
+### Versión SemVer
+
+Clasificada como **MINOR**: incorpora pilares, activos y capacidades de portal compatibles con la arquitectura v2.0.
+
 ## [2.0.0] - 2026-07-28
 
 ### Añadido

@@ -1,9 +1,10 @@
 /**
  * loader.js — Carga de archivos remotos vía fetch con fallback local.
- * Importado por: app.js, navigation.js, quality.js, models.js.
+ * Importado por: app.js, catalog.js y models.js.
  */
 
 import { docsDatabase, fallbacks } from './config.js';
+import { siteUrl } from './paths.js';
 
 /**
  * Carga el contenido de un archivo remoto y lo escribe en un elemento del DOM.
@@ -18,7 +19,7 @@ export async function loadFileContent(filePath, elementId, fallbackKey = null) {
     if (!target) return;
 
     try {
-        const response = await fetch(filePath);
+        const response = await fetch(siteUrl(filePath, true));
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         target.innerText = await response.text();
     } catch (error) {

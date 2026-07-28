@@ -6,6 +6,10 @@ type: pattern
 domain: documentation-knowledge
 status: stable
 version: 1.0.0
+difficulty: foundation
+projects: [any]
+compatibility: tool-agnostic
+models: [any]
 tags: [documentation, governance]
 related: [documentation-knowledge.documentation-audit]
 ---

@@ -6,6 +6,10 @@ type: prompt
 domain: security
 status: stable
 version: 1.0.0
+difficulty: intermediate
+projects: [containerized-application, service, infrastructure]
+compatibility: model-agnostic
+models: [any]
 tags: [containers, docker, supply-chain]
 related: [security.security-audit]
 ---

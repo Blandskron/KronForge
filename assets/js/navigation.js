@@ -10,18 +10,37 @@
  */
 
 import { closeSidebar } from './sidebar.js';
+import { siteUrl } from './paths.js';
 
 /** Tabs ya cargadas en el DOM. */
 const pageCache = new Set();
+const labels = {
+    welcome: 'Inicio',
+    quickstart: 'Quick Start',
+    domains: 'Dominios',
+    library: 'Biblioteca',
+    prompt: 'Prompt principal',
+    roadmap: 'Roadmap',
+    contributing: 'Contribución',
+    changelog: 'Changelog',
+    versioning: 'Versionado',
+    structure: 'Estructura',
+    models: 'Uso por agente',
+    example: 'Caso de uso'
+};
 
 /**
  * Activa una tab: actualiza nav, muestra el pane y carga su contenido si aún no está cacheado.
  * @param {string} tabId
  */
 export async function switchTab(tabId) {
+    const aliases = {playbooks: 'library', skills: 'library', prompts: 'library', templates: 'library', patterns: 'library'};
+    tabId = aliases[tabId] || tabId;
+    if (!document.getElementById(tabId)) tabId = 'welcome';
     /* ── Actualizar nav items ── */
     document.querySelectorAll('.sidebar-nav .nav-item').forEach((item) => {
-        item.classList.toggle('active', item.getAttribute('data-tab') === tabId);
+        const isLibraryShortcut = item.hasAttribute('data-type');
+        item.classList.toggle('active', item.getAttribute('data-tab') === tabId && !isLibraryShortcut);
     });
 
     /* ── Mostrar pane correcto ── */
@@ -29,14 +48,19 @@ export async function switchTab(tabId) {
         pane.classList.toggle('active', pane.id === tabId);
     });
 
-    /* ── Actualizar hash sin disparar hashchange ── */
+    /* ── Registrar la navegación para que Atrás/Adelante funcionen ── */
     if (window.location.hash !== `#${tabId}`) {
-        history.replaceState(null, '', `#${tabId}`);
+        history.pushState(null, '', `#${tabId}`);
     }
 
     /* ── Cargar contenido de la página si no está cacheado ── */
     if (!pageCache.has(tabId)) {
         await loadPage(tabId);
+    }
+
+    const breadcrumb = document.getElementById('breadcrumbs');
+    if (breadcrumb) {
+        breadcrumb.innerHTML = `<a href="#welcome">Framework</a><i class="fa-solid fa-chevron-right" aria-hidden="true"></i><span>${labels[tabId] || tabId}</span>`;
     }
 
     closeSidebar();
@@ -52,18 +76,29 @@ async function loadPage(tabId) {
     if (!section) return;
 
     try {
-        const res = await fetch(`pages/${tabId}.html`);
+        section.setAttribute('aria-busy', 'true');
+        const res = await fetch(siteUrl(`pages/${tabId}.html`, true));
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         section.innerHTML = await res.text();
         pageCache.add(tabId);
         document.dispatchEvent(new CustomEvent('page:loaded', { detail: { tabId } }));
     } catch (err) {
         console.warn(`No se pudo cargar pages/${tabId}.html`, err);
-        /* Si el HTML ya estaba preinyectado (fallback estático), marcar como cacheado */
-        if (section.children.length > 0) {
-            pageCache.add(tabId);
-            document.dispatchEvent(new CustomEvent('page:loaded', { detail: { tabId } }));
-        }
+        const pageSource = siteUrl(`pages/${tabId}.html`);
+        section.innerHTML = `
+            <div class="page-error" role="alert">
+                <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+                <h2>No se pudo cargar esta página</h2>
+                <p>Comprueba la conexión o vuelve a intentarlo. La fuente HTML también está disponible directamente.</p>
+                <div class="page-error-actions">
+                    <button class="btn btn-primary" type="button" data-page-retry="${tabId}">
+                        <i class="fa-solid fa-rotate-right" aria-hidden="true"></i> Reintentar
+                    </button>
+                    <a class="btn btn-secondary" href="${pageSource}">Abrir HTML</a>
+                </div>
+            </div>`;
+    } finally {
+        section.removeAttribute('aria-busy');
     }
 }
 
@@ -80,6 +115,12 @@ export function bindNavigation() {
     window.addEventListener('hashchange', () => {
         const tab = window.location.hash.replace('#', '') || 'welcome';
         switchTab(tab);
+    });
+
+    document.addEventListener('click', (event) => {
+        const retry = event.target.closest('[data-page-retry]');
+        if (!retry) return;
+        loadPage(retry.dataset.pageRetry);
     });
 }
 

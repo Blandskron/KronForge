@@ -6,6 +6,10 @@ type: prompt
 domain: quality-engineering
 status: stable
 version: 1.0.0
+difficulty: foundation
+projects: [any]
+compatibility: model-agnostic
+models: [any]
 tags: [definition-of-done, review]
 related: [quality-engineering.pre-merge]
 ---

@@ -8,6 +8,10 @@ type: skill
 domain: documentation-knowledge
 status: stable
 version: 1.0.0
+difficulty: intermediate
+projects: [any]
+compatibility: tool-agnostic
+models: [any]
 tags: [documentation, audit]
 related: [documentation-knowledge.documentation-as-code]
 ---
@@ -19,6 +23,10 @@ Usa esta skill cuando se modifiquen documentos, prompts, ejemplos, skills o la p
 ## Objetivo
 
 Detectar contradicciones, rutas rotas, contenido duplicado y afirmaciones sin evidencia antes de publicar documentación.
+
+## Problema que resuelve
+
+La documentación puede ser legible y aun así dirigir a archivos inexistentes, repetir fuentes o presentar supuestos como realidad.
 
 ## Cuándo utilizarla
 
@@ -34,6 +42,19 @@ Detectar contradicciones, rutas rotas, contenido duplicado y afirmaciones sin ev
 - Archivos Markdown modificados.
 - Archivos estáticos modificados.
 - Objetivo del cambio.
+
+## Dependencias
+
+- Acceso de lectura a los documentos y rutas referenciadas.
+- Reglas del repositorio.
+- Servidor HTTP cuando la documentación se publica como sitio.
+
+## Casos de uso
+
+- revisión pre-merge;
+- cambio de taxonomía;
+- publicación de documentación;
+- migración de rutas.
 
 ## Resultado esperado
 
@@ -94,3 +115,7 @@ Un reporte con alcance, hallazgos, correcciones, validaciones y pendientes.
 ## Skills relacionadas
 
 - [GitHub Pages release](../../../delivery-platform/skills/github-pages-release/SKILL.md)
+
+## Ejemplo
+
+Resolver cada enlace relativo desde el directorio del documento y devolver archivo, destino y causa para cualquier fallo.

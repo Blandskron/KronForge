@@ -3,8 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agents First - Repositorio Preparado para Agentes de IA</title>
-    <meta name="description" content="Biblioteca abierta y agnóstica de ingeniería de software asistida por IA, organizada por dominios y activos reutilizables.">
+    <title>Agents First Framework — Open AI Engineering</title>
+    <meta name="description" content="Framework documental abierto y agnóstico para diseñar, construir y mantener software AI-First con personas y agentes.">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#2563eb">
+    <link rel="canonical" href="https://blandskron.github.io/agents-first-repo-docs/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Agents First Framework">
+    <meta property="og:description" content="Open AI Engineering. Contexto, agentes, MCP, repositorios y software de calidad.">
+    <meta property="og:url" content="https://blandskron.github.io/agents-first-repo-docs/">
+    <meta property="og:image" content="https://blandskron.github.io/agents-first-repo-docs/assets/img/og-ai-engineering.png">
+    <meta property="og:image:alt" content="Agents First — Open AI Engineering, cuatro pilares conectados">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://blandskron.github.io/agents-first-repo-docs/assets/img/og-ai-engineering.png">
     
     <!-- Google Fonts: Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,11 +29,11 @@
     <link rel="icon" type="image/png" href="assets/img/favicon.png">
     
     <!-- CSS modular (Sin build step) -->
-    <link rel="stylesheet" href="assets/css/base.css?v=2.0.0">
-    <link rel="stylesheet" href="assets/css/layout.css?v=2.0.0">
-    <link rel="stylesheet" href="assets/css/components.css?v=2.0.0">
-    <link rel="stylesheet" href="assets/css/quality.css?v=2.0.0">
-    <link rel="stylesheet" href="assets/css/responsive.css?v=2.0.0">
+    <link rel="stylesheet" href="assets/css/base.css?v=2.1.1">
+    <link rel="stylesheet" href="assets/css/layout.css?v=2.1.1">
+    <link rel="stylesheet" href="assets/css/components.css?v=2.1.1">
+    <link rel="stylesheet" href="assets/css/portal.css?v=2.1.1">
+    <link rel="stylesheet" href="assets/css/responsive.css?v=2.1.1">
 </head>
 <body>
     <div class="app-container">
@@ -39,41 +50,74 @@
                 </div>
                 <div class="brand-details">
                     <h1>Agents First</h1>
-                    <span>v2.0.0 Library</span>
+                    <span>v2.1.1 Framework</span>
                 </div>
                 <button class="sidebar-close" id="sidebar-close" type="button" aria-label="Colapsar navegación" title="Colapsar navegación">
                     <i class="fa-solid fa-chevron-left"></i>
                 </button>
             </div>
 
-            <nav class="sidebar-nav">
+            <div class="sidebar-search">
+                <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                <input id="global-search" type="search" placeholder="Buscar recursos..." autocomplete="off" aria-label="Buscar en el framework">
+                <kbd>/</kbd>
+            </div>
+
+            <nav class="sidebar-nav" aria-label="Navegación principal">
+                <span class="nav-label">Comenzar</span>
                 <a href="#welcome" class="nav-item active" data-tab="welcome">
                     <i class="fa-solid fa-house"></i>
                     <span>Inicio</span>
+                </a>
+                <a href="#quickstart" class="nav-item" data-tab="quickstart">
+                    <i class="fa-solid fa-bolt"></i>
+                    <span>Quick Start</span>
+                </a>
+                <span class="nav-label">Explorar</span>
+                <a href="#domains" class="nav-item" data-tab="domains">
+                    <i class="fa-solid fa-layer-group"></i>
+                    <span>Dominios</span>
+                </a>
+                <a href="#library" class="nav-item" data-tab="library">
+                    <i class="fa-solid fa-book"></i>
+                    <span>Biblioteca</span>
                 </a>
                 <a href="#prompt" class="nav-item" data-tab="prompt">
                     <i class="fa-solid fa-code"></i>
                     <span>Prompt Principal</span>
                 </a>
-                <a href="#quality" class="nav-item" data-tab="quality">
-                    <i class="fa-solid fa-shield-check"></i>
-                    <span>Catálogo de Prompts</span>
+                <a href="#playbooks" class="nav-item" data-tab="library" data-type="playbook">
+                    <i class="fa-solid fa-route"></i>
+                    <span>Playbooks</span>
                 </a>
                 <a href="#structure" class="nav-item" data-tab="structure">
                     <i class="fa-solid fa-sitemap"></i>
-                    <span>Estructura de Archivos</span>
+                    <span>Estructura agents-first</span>
                 </a>
                 <a href="#models" class="nav-item" data-tab="models">
-                    <i class="fa-solid fa-wand-magic-sparkles"></i>
-                    <span>Uso por Agente</span>
+                    <i class="fa-solid fa-puzzle-piece"></i>
+                    <span>Adaptadores de agentes</span>
+                </a>
+                <span class="nav-label">Proyecto</span>
+                <a href="#roadmap" class="nav-item" data-tab="roadmap">
+                    <i class="fa-solid fa-map"></i>
+                    <span>Roadmap</span>
+                </a>
+                <a href="#contributing" class="nav-item" data-tab="contributing">
+                    <i class="fa-solid fa-code-pull-request"></i>
+                    <span>Contribución</span>
                 </a>
                 <a href="#example" class="nav-item" data-tab="example">
-                    <i class="fa-solid fa-book-open"></i>
-                    <span>Caso de Uso</span>
+                    <i class="fa-solid fa-flask"></i>
+                    <span>Ejemplos</span>
+                </a>
+                <a href="#changelog" class="nav-item" data-tab="changelog">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    <span>Changelog</span>
                 </a>
                 <a href="#versioning" class="nav-item" data-tab="versioning">
                     <i class="fa-solid fa-code-branch"></i>
-                    <span>Versionado SemVer</span>
+                    <span>Versionado</span>
                 </a>
             </nav>
 
@@ -99,6 +143,16 @@
                 <button class="mobile-menu-btn" id="mobile-menu-btn" type="button" aria-label="Abrir navegación">
                     <i class="fa-solid fa-bars"></i>
                 </button>
+                <nav class="breadcrumbs" id="breadcrumbs" aria-label="Breadcrumb">
+                    <a href="#welcome">Framework</a>
+                    <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                    <span>Inicio</span>
+                </nav>
+                <a class="top-search-hint" href="#library" data-tab-link="library">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <span>Buscar en la biblioteca</span>
+                    <kbd>/</kbd>
+                </a>
             </header>
 
             <!-- Content Cards Container (Lazy loaded HTML pages via JS) -->
@@ -109,8 +163,23 @@
                 <section id="prompt" class="tab-pane">
                     <div class="page-loading"><i class="fa-solid fa-spinner fa-spin"></i> Cargando Prompt Principal...</div>
                 </section>
-                <section id="quality" class="tab-pane">
-                    <div class="page-loading"><i class="fa-solid fa-spinner fa-spin"></i> Cargando catálogo...</div>
+                <section id="quickstart" class="tab-pane">
+                    <div class="page-loading"><i class="fa-solid fa-spinner fa-spin"></i> Cargando Quick Start...</div>
+                </section>
+                <section id="domains" class="tab-pane">
+                    <div class="page-loading"><i class="fa-solid fa-spinner fa-spin"></i> Cargando dominios...</div>
+                </section>
+                <section id="library" class="tab-pane">
+                    <div class="page-loading"><i class="fa-solid fa-spinner fa-spin"></i> Cargando biblioteca...</div>
+                </section>
+                <section id="roadmap" class="tab-pane">
+                    <div class="page-loading"><i class="fa-solid fa-spinner fa-spin"></i> Cargando roadmap...</div>
+                </section>
+                <section id="contributing" class="tab-pane">
+                    <div class="page-loading"><i class="fa-solid fa-spinner fa-spin"></i> Cargando contribución...</div>
+                </section>
+                <section id="changelog" class="tab-pane">
+                    <div class="page-loading"><i class="fa-solid fa-spinner fa-spin"></i> Cargando changelog...</div>
                 </section>
                 <section id="structure" class="tab-pane">
                     <div class="page-loading"><i class="fa-solid fa-spinner fa-spin"></i> Cargando Estructura...</div>
@@ -146,6 +215,6 @@
     </div>
 
     <!-- App JS (ES Modules nativos) -->
-    <script type="module" src="assets/js/app.js?v=2.0.0"></script>
+    <script type="module" src="assets/js/app.js?v=2.1.1"></script>
 </body>
 </html>

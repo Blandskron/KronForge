@@ -6,6 +6,10 @@ type: prompt
 domain: reliability-performance
 status: stable
 version: 1.0.0
+difficulty: intermediate
+projects: [application, service, library]
+compatibility: model-agnostic
+models: [any]
 tags: [performance, static-analysis]
 related: []
 ---

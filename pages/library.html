@@ -1,0 +1,59 @@
+<script type="module" src="../assets/js/page-entry.js" data-page="library"></script>
+<section class="page-intro library-intro">
+    <div>
+        <span class="eyebrow">Biblioteca</span>
+        <h2>Encuentra una capacidad por objetivo, dominio o tipo.</h2>
+        <p>Todos los resultados apuntan al Markdown canónico del repositorio.</p>
+    </div>
+    <span class="catalog-version" id="catalog-version">schema v2</span>
+</section>
+
+<div class="library-controls glass-card">
+    <label class="library-search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input id="library-search" type="search" placeholder="Buscar por título, resumen, dominio o tag..." autocomplete="off">
+    </label>
+    <select id="library-domain-filter" aria-label="Filtrar por dominio">
+        <option value="all">Todos los dominios</option>
+    </select>
+    <select id="library-difficulty-filter" aria-label="Filtrar por dificultad">
+        <option value="all">Cualquier dificultad</option>
+        <option value="foundation">Foundation</option>
+        <option value="intermediate">Intermediate</option>
+        <option value="advanced">Advanced</option>
+    </select>
+</div>
+
+<div class="type-filters" id="library-type-filters" aria-label="Filtrar por tipo">
+    <button class="filter-chip active" data-type="all">Todos</button>
+    <button class="filter-chip" data-type="prompt">Prompts</button>
+    <button class="filter-chip" data-type="skill">Skills</button>
+    <button class="filter-chip" data-type="playbook">Playbooks</button>
+    <button class="filter-chip" data-type="template">Templates</button>
+    <button class="filter-chip" data-type="checklist">Checklists</button>
+    <button class="filter-chip" data-type="pattern">Patterns</button>
+    <button class="filter-chip" data-type="architecture-note">Architecture notes</button>
+    <button class="filter-chip" data-type="reference">References</button>
+</div>
+
+<div class="library-meta">
+    <span id="library-result-count">Cargando activos...</span>
+    <button class="text-link" id="library-clear-filters">Limpiar filtros</button>
+</div>
+
+<div id="asset-grid" class="asset-grid" aria-live="polite"></div>
+
+<section id="asset-viewer" class="asset-viewer" hidden aria-labelledby="asset-viewer-title">
+    <div class="asset-viewer-toolbar">
+        <button class="icon-btn" id="asset-viewer-close" aria-label="Cerrar recurso"><i class="fa-solid fa-arrow-left"></i></button>
+        <div>
+            <span id="asset-viewer-breadcrumb">Biblioteca</span>
+            <h3 id="asset-viewer-title">Recurso</h3>
+        </div>
+        <button class="btn btn-secondary" id="copy-asset-content"><i class="fa-regular fa-copy"></i> Copiar</button>
+    </div>
+    <div class="asset-viewer-layout">
+        <aside id="asset-viewer-meta" class="asset-meta"></aside>
+        <pre class="asset-source"><code id="asset-viewer-content">Cargando...</code></pre>
+    </div>
+</section>

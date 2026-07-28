@@ -6,6 +6,10 @@ type: template
 domain: architecture
 status: stable
 version: 1.0.0
+difficulty: foundation
+projects: [any]
+compatibility: model-agnostic
+models: [any]
 tags: [adr, decisions]
 related: [architecture.architecture-validation]
 ---

@@ -88,6 +88,14 @@
         display: block;
     }
 
+    body.sidebar-collapsed .sidebar-search {
+        display: flex;
+    }
+
+    body.sidebar-collapsed .nav-label {
+        display: block;
+    }
+
     body.sidebar-collapsed .nav-item,
     body.sidebar-collapsed .github-btn,
     body.sidebar-collapsed .theme-btn,

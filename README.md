@@ -1,6 +1,6 @@
 # Agents First Repo Docs
 
-Biblioteca abierta de ingeniería de software asistida por IA: conocimiento reutilizable para analizar, diseñar, construir, modernizar, validar, desplegar y mantener software con agentes.
+Framework documental abierto de AI Engineering: conocimiento reutilizable para diseñar contexto, repositorios, agentes y software de calidad.
 
 Es agnóstica al modelo, proveedor y stack. Funciona con cualquier agente moderno porque sus activos obligan a observar el repositorio real, distinguir evidencia de supuestos y conservar control humano en decisiones sensibles.
 
@@ -17,7 +17,7 @@ El flujo operativo se mantiene simple: **Copiar -> Pegar -> Auditar -> Aprobar -
 - documentación operativa en [`docs/agent/`](docs/agent/);
 - ejemplos de uso y un sitio estático sin build.
 
-No es una colección masiva de prompts ni una metodología prescriptiva. Es un framework documental liviano: organiza capacidades reutilizables y deja que cada activo se adapte a la evidencia del proyecto objetivo.
+No es una colección masiva de prompts, un runtime ni una metodología prescriptiva. Organiza capacidades reutilizables y deja que cada activo se adapte a la evidencia del proyecto objetivo.
 
 ## Inicio rápido
 
@@ -39,6 +39,11 @@ No es una colección masiva de prompts ni una metodología prescriptiva. Es un f
 
 | Dominio | Ejemplos de alcance |
 |---|---|
+| [IA y agentes](library/domains/ai-agent-engineering/README.md) | agentes, subagentes, memoria, RAG y evaluación |
+| [Context Engineering](library/domains/context-engineering/README.md) | capas, routing, compresión y retrieval |
+| [Repository Engineering](library/domains/repository-engineering/README.md) | repositorios AI-First y contexto mantenible |
+| [MCP e integraciones](library/domains/mcp-integration/README.md) | tools, resources, clientes, servidores y seguridad |
+| [Hooks y workflows](library/domains/hooks-workflows/README.md) | automatización, gates, testing y notificaciones |
 | [Arquitectura](library/domains/architecture/README.md) | decisiones, modularidad, DDD y estilos |
 | [Desarrollo de software](library/domains/software-development/README.md) | backend, frontend, APIs y refactoring |
 | [Datos](library/domains/data/README.md) | modelos, migraciones, contratos y pipelines |
@@ -47,7 +52,6 @@ No es una colección masiva de prompts ni una metodología prescriptiva. Es un f
 | [Entrega y plataforma](library/domains/delivery-platform/README.md) | CI/CD, releases, cloud y contenedores |
 | [Confiabilidad y performance](library/domains/reliability-performance/README.md) | observabilidad, incidentes y rendimiento |
 | [Experiencia y accesibilidad](library/domains/experience-accessibility/README.md) | UX, UI, WCAG y usabilidad |
-| [Ingeniería de IA y agentes](library/domains/ai-agent-engineering/README.md) | agents-first, contexto, evaluación y prompts |
 | [Producto y gestión técnica](library/domains/product-technical-management/README.md) | discovery, RFC, planificación y riesgo |
 | [Documentación y conocimiento](library/domains/documentation-knowledge/README.md) | auditoría, runbooks y documentación como código |
 
@@ -104,7 +108,7 @@ Lee [cómo contribuir activos](docs/CONTRIBUTING_ASSETS.md). Toda contribución 
 - actualizar índices y changelog;
 - pasar las [validaciones documentales](docs/agent/TESTS.md).
 
-La arquitectura y el plan de migración están documentados en [REPOSITORY_EVOLUTION.md](docs/REPOSITORY_EVOLUTION.md).
+La [estrategia integral](docs/AI_ENGINEERING_FRAMEWORK_STRATEGY.md), la [evolución de la biblioteca](docs/REPOSITORY_EVOLUTION.md) y el [roadmap](docs/ROADMAP.md) documentan el rumbo del proyecto.
 
 ## Uso con agentes
 

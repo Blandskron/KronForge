@@ -6,6 +6,10 @@ type: prompt
 domain: architecture
 status: stable
 version: 1.0.0
+difficulty: advanced
+projects: [any]
+compatibility: model-agnostic
+models: [any]
 tags: [architecture, validation]
 related:
   - architecture.adr

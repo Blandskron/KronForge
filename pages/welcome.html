@@ -1,40 +1,83 @@
-<div class="hero-card">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-        <span class="badge">Ingeniería asistida por IA</span>
-        <h2>Conocimiento reusable para cualquier agente</h2>
-        <p>Una biblioteca por dominios para analizar, construir, modernizar y operar software sin asumir modelo, stack ni proveedor.</p>
+<script type="module" src="../assets/js/page-entry.js" data-page="welcome"></script>
+<section class="portal-hero">
+    <div class="hero-copy">
+        <span class="eyebrow"><i class="fa-solid fa-circle-nodes"></i> Open AI Engineering</span>
+        <h2>Construye software preparado para personas y agentes.</h2>
+        <p>Un framework documental abierto para diseñar contexto, repositorios, agentes, integraciones y sistemas de software sin depender de un modelo.</p>
         <div class="hero-buttons">
-            <button class="btn btn-primary" onclick="switchTab('prompt')">
-                <i class="fa-solid fa-play"></i> Ver Prompt Principal
+            <button class="btn btn-primary" onclick="switchTab('quickstart')">
+                Empezar ahora <i class="fa-solid fa-arrow-right"></i>
             </button>
-            <button class="btn btn-secondary" onclick="switchTab('structure')">
-                <i class="fa-solid fa-sitemap"></i> Explorar Estructura
+            <button class="btn btn-secondary" onclick="switchTab('domains')">
+                Explorar dominios
             </button>
         </div>
+        <div class="hero-proof" aria-label="Principios principales">
+            <span>Model agnostic</span>
+            <span>Human friendly</span>
+            <span>Context driven</span>
+            <span>Open source</span>
+        </div>
     </div>
+    <div class="hero-system" aria-label="Flujo del framework">
+        <div class="system-label">Agents First Loop</div>
+        <ol>
+            <li><span>01</span><strong>Copiar</strong><small>Selecciona un activo</small></li>
+            <li><span>02</span><strong>Pegar</strong><small>Entrega contexto real</small></li>
+            <li><span>03</span><strong>Auditar</strong><small>Lee antes de actuar</small></li>
+            <li><span>04</span><strong>Aprobar</strong><small>Control humano</small></li>
+            <li><span>05</span><strong>Aplicar</strong><small>Evidencia verificable</small></li>
+        </ol>
+    </div>
+</section>
+
+<section class="stat-strip" aria-label="Estado del framework">
+    <div><strong id="home-domain-count">15</strong><span>dominios</span></div>
+    <div><strong id="home-asset-count">29</strong><span>activos</span></div>
+    <div><strong>13</strong><span>tipos de conocimiento</span></div>
+    <div><strong>0</strong><span>dependencias de build</span></div>
+</section>
+
+<section class="section-heading">
+    <div>
+        <span class="eyebrow">Pilares</span>
+        <h3>Ingeniería de IA como sistema, no como colección de trucos.</h3>
+    </div>
+    <button class="text-link" onclick="switchTab('domains')">Ver todos los dominios <i class="fa-solid fa-arrow-right"></i></button>
+</section>
+
+<div class="pillar-grid">
+    <button class="pillar-card" data-domain-link="context-engineering">
+        <i class="fa-solid fa-layer-group"></i>
+        <span>01</span>
+        <h3>Context Engineering</h3>
+        <p>Diseña fuentes, routing, compresión, retrieval y entrega de contexto.</p>
+    </button>
+    <button class="pillar-card" data-domain-link="repository-engineering">
+        <i class="fa-solid fa-code-branch"></i>
+        <span>02</span>
+        <h3>Repository Engineering</h3>
+        <p>Crea repositorios sostenibles para colaboración humano-agente.</p>
+    </button>
+    <button class="pillar-card" data-domain-link="ai-agent-engineering">
+        <i class="fa-solid fa-robot"></i>
+        <span>03</span>
+        <h3>Agent Systems</h3>
+        <p>Define autoridad, coordinación, memoria, evaluación y delegación.</p>
+    </button>
+    <button class="pillar-card" data-domain-link="mcp-integration">
+        <i class="fa-solid fa-plug-circle-bolt"></i>
+        <span>04</span>
+        <h3>MCP & Tools</h3>
+        <p>Integra capacidades con límites de confianza y consentimiento explícitos.</p>
+    </button>
 </div>
 
-<div class="grid-layout">
-    <div class="glass-card feature-box">
-        <div class="feature-icon bg-cyan">
-            <i class="fa-solid fa-clipboard-check"></i>
-        </div>
-        <h3>Flujo Simple</h3>
-        <p>Copiar -> Pegar -> Auditar -> Aprobar -> Aplicar. Un framework documental liviano, sin runtime ni onboarding pesado.</p>
+<section class="callout-banner">
+    <div>
+        <span class="eyebrow">Una fuente de verdad</span>
+        <h3>Markdown para el conocimiento. JSON para descubrirlo.</h3>
+        <p>El portal carga los activos canónicos del repositorio; no mantiene una segunda copia del contenido.</p>
     </div>
-    <div class="glass-card feature-box">
-        <div class="feature-icon bg-purple">
-            <i class="fa-solid fa-shield-halved"></i>
-        </div>
-        <h3>Seguro por Diseño</h3>
-        <p>El agente debe leer primero, pedir aprobación antes de cambios sensibles y evitar secretos, comandos inventados o arquitectura ficticia.</p>
-    </div>
-    <div class="glass-card feature-box">
-        <div class="feature-icon bg-blue">
-            <i class="fa-solid fa-code-compare"></i>
-        </div>
-        <h3>Universal</h3>
-        <p>Sirve para Claude, Gemini, Copilot, ChatGPT, Codex o cualquier agente moderno, en repositorios nuevos, heredados o multi-stack.</p>
-    </div>
-</div>
+    <button class="btn btn-secondary" onclick="switchTab('library')">Abrir biblioteca</button>
+</section>

@@ -6,6 +6,10 @@ type: prompt
 domain: quality-engineering
 status: stable
 version: 1.0.0
+difficulty: intermediate
+projects: [application, service, library, monorepo]
+compatibility: model-agnostic
+models: [any]
 tags: [testing, integration-tests]
 related: [quality-engineering.unit-tests]
 ---

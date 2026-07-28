@@ -23,11 +23,13 @@ El proyecto puede presentarse como framework documental liviano, nunca como meto
 2. [prompts/agents-first-documentation-review.prompt.md](prompts/agents-first-documentation-review.prompt.md)
 3. [library/README.md](library/README.md)
 4. [docs/REPOSITORY_EVOLUTION.md](docs/REPOSITORY_EVOLUTION.md)
-5. [docs/CONTRIBUTING_ASSETS.md](docs/CONTRIBUTING_ASSETS.md)
-6. [PROMPT_VERSIONING.md](PROMPT_VERSIONING.md)
-7. [docs/agent/PERMISSIONS.md](docs/agent/PERMISSIONS.md)
-8. [docs/agent/TESTS.md](docs/agent/TESTS.md)
-9. [docs/agent/RUNBOOK.md](docs/agent/RUNBOOK.md)
+5. [docs/AI_ENGINEERING_FRAMEWORK_STRATEGY.md](docs/AI_ENGINEERING_FRAMEWORK_STRATEGY.md)
+6. [docs/ROADMAP.md](docs/ROADMAP.md)
+7. [docs/CONTRIBUTING_ASSETS.md](docs/CONTRIBUTING_ASSETS.md)
+8. [PROMPT_VERSIONING.md](PROMPT_VERSIONING.md)
+9. [docs/agent/PERMISSIONS.md](docs/agent/PERMISSIONS.md)
+10. [docs/agent/TESTS.md](docs/agent/TESTS.md)
+11. [docs/agent/RUNBOOK.md](docs/agent/RUNBOOK.md)
 
 ## Superficie Editable
 
@@ -64,6 +66,8 @@ Pide aprobación antes de:
 - Organiza activos por dominio; no restaures carpetas planas por tipo.
 - No crees subcarpetas o activos de relleno.
 - Mantén `library/catalog.json` y los índices de dominio alineados con los archivos canónicos.
+- Mantén el portal como presentación de `library/catalog.json` y Markdown canónico, no como segunda fuente de verdad.
+- El schema v2 del catálogo requiere título, resumen, dificultad, dominio, tipo, estado, tags y ruta por activo.
 - Toda mejora relevante del prompt o la documentación debe registrarse en `docs/CHANGELOG.md`.
 - No agregues referencias a archivos de instrucciones específicos de una plataforma si esos archivos no existen en el repositorio.
 - Este repositorio es ejemplo profesional del estándar: conserva completo el set de `docs/agent/`, incluso cuando un archivo documente que una dimensión no aplica.

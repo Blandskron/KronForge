@@ -17,6 +17,11 @@ Catálogo de conocimiento reutilizable, agnóstico al modelo y organizado por do
 
 | Dominio | Propósito | Activos actuales |
 |---|---|---|
+| [IA y agentes](domains/ai-agent-engineering/README.md) | Agentes, subagentes, evaluación, memoria e integración LLM | Skill, playbook, architecture note y pattern |
+| [Context Engineering](domains/context-engineering/README.md) | Capas, routing, compresión, retrieval y ventanas | Architecture note y pattern |
+| [Repository Engineering](domains/repository-engineering/README.md) | Repositorios AI-First y contexto mantenible | Playbook |
+| [MCP e integraciones](domains/mcp-integration/README.md) | Clientes, servidores, tools, resources y seguridad | Architecture note y checklist |
+| [Hooks y workflows](domains/hooks-workflows/README.md) | Automatización explícita y observable | Pattern |
 | [Arquitectura](domains/architecture/README.md) | Decisiones, estilos, modularidad y evolución de sistemas | Prompt y template ADR |
 | [Desarrollo de software](domains/software-development/README.md) | Backend, frontend, APIs, integración y refactoring | Índice preparado |
 | [Datos](domains/data/README.md) | Modelos, persistencia, migraciones y contratos | Índice preparado |
@@ -25,7 +30,6 @@ Catálogo de conocimiento reutilizable, agnóstico al modelo y organizado por do
 | [Entrega y plataforma](domains/delivery-platform/README.md) | CI/CD, releases, contenedores, cloud e infraestructura | Prompt y skill |
 | [Confiabilidad y performance](domains/reliability-performance/README.md) | Observabilidad, resiliencia, incidentes y rendimiento | Prompt |
 | [Experiencia y accesibilidad](domains/experience-accessibility/README.md) | UX, UI, accesibilidad y arquitectura de información | Referencias |
-| [Ingeniería de IA y agentes](domains/ai-agent-engineering/README.md) | Agents-first, contexto, evaluación y automatización | Skill y playbook |
 | [Producto y gestión técnica](domains/product-technical-management/README.md) | Discovery, planificación, RFC, riesgo y liderazgo técnico | Índice preparado |
 | [Documentación y conocimiento](domains/documentation-knowledge/README.md) | Documentación como código, auditoría y operación | Skill, patrón y anti-patrón |
 
@@ -41,10 +45,15 @@ Catálogo de conocimiento reutilizable, agnóstico al modelo y organizado por do
 | Pattern | Reutilizar una solución con contexto y trade-offs |
 | Anti-pattern | Detectar y corregir una práctica perjudicial |
 | Reference | Encontrar fuentes primarias con contexto de uso |
+| Example | Mostrar una aplicación mínima y verificable |
+| Case study | Analizar contexto, decisiones y resultados de un caso |
+| Best practice | Recomendar una práctica con alcance y evidencia |
+| Tool integration | Adaptar el núcleo universal a una herramienta concreta |
+| Architecture note | Explicar topología, límites y decisiones de un sistema |
 
 ## Índice para herramientas
 
-[`catalog.json`](catalog.json) declara dominios y activos canónicos. El Markdown sigue siendo la fuente de contenido; el manifiesto existe para descubrimiento y validación.
+[`catalog.json`](catalog.json) usa schema v2 y declara dominios, activos y metadatos de descubrimiento. El Markdown sigue siendo la fuente de contenido; el manifiesto alimenta búsqueda, filtros y validación.
 
 ## Contribuir
 

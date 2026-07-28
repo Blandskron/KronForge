@@ -6,6 +6,10 @@ type: prompt
 domain: delivery-platform
 status: stable
 version: 1.0.0
+difficulty: intermediate
+projects: [any]
+compatibility: model-agnostic
+models: [any]
 tags: [release, delivery]
 related: [quality-engineering.definition-of-done-review]
 ---

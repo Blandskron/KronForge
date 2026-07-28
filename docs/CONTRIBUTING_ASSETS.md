@@ -18,6 +18,10 @@ type: prompt
 domain: domain
 status: draft
 version: 0.1.0
+difficulty: foundation
+projects: [any]
+compatibility: model-agnostic
+models: [any]
 tags: [tag]
 related: []
 ---
@@ -27,6 +31,10 @@ related: []
 - `type` debe ser uno de los tipos documentados en el catálogo.
 - `status` puede ser `draft`, `stable` o `deprecated`.
 - `version` sigue SemVer.
+- `difficulty` puede ser `foundation`, `intermediate` o `advanced`.
+- `projects` describe alcances aplicables sin asumir un stack.
+- `compatibility` expresa el contrato general; las integraciones concretas se aíslan.
+- `models: [any]` declara compatibilidad agnóstica.
 - `related` contiene IDs existentes y relaciones útiles.
 
 ## Reglas de calidad
@@ -34,6 +42,8 @@ related: []
 - Lee antes de modificar y no inventes comandos, arquitectura ni resultados.
 - Mantén el activo agnóstico al modelo; limita tecnologías concretas al alcance declarado.
 - Declara entradas, restricciones, salida y evidencia cuando el activo sea ejecutable.
+- Los prompts deben declarar objetivo, contexto, entradas, salida, dificultad, proyectos, compatibilidad, buenas prácticas y ejemplo.
+- Las skills deben declarar problema, dependencias, casos de uso y ejemplo además de su procedimiento.
 - Enlaza contenido común en lugar de copiarlo.
 - Usa ejemplos mínimos y seguros, sin secretos ni datos reales.
 - No relajes pruebas o controles de seguridad para conseguir un resultado positivo.
@@ -44,6 +54,7 @@ related: []
 
 - [ ] Nombre y ruta siguen las convenciones.
 - [ ] Metadatos completos e ID único.
+- [ ] Dificultad, proyectos y compatibilidad declarados.
 - [ ] Valor reutilizable demostrado.
 - [ ] Sin duplicidad sustancial.
 - [ ] Enlaces internos válidos.

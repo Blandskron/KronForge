@@ -8,6 +8,10 @@ type: skill
 domain: delivery-platform
 status: stable
 version: 1.0.0
+difficulty: intermediate
+projects: [static-site, documentation]
+compatibility: tool-agnostic
+models: [any]
 tags: [github-pages, release, static-site]
 related: [delivery-platform.release-readiness-review]
 ---
@@ -17,6 +21,10 @@ related: [delivery-platform.release-readiness-review]
 ## Objetivo
 
 Producir evidencia de que un sitio estático funciona desde la ruta y configuración que el repositorio declara.
+
+## Problema que resuelve
+
+Una página puede funcionar al abrir un archivo local y fallar en GitHub Pages por rutas, base path, carga dinámica o recursos ausentes.
 
 ## Cuándo utilizarla
 
@@ -32,6 +40,18 @@ Cuando el proyecto no usa GitHub Pages o requiere un pipeline de build diferente
 - configuración de Pages documentada;
 - archivos modificados;
 - comandos reales disponibles.
+
+## Dependencias
+
+- Un servidor HTTP local disponible.
+- Navegador para validación interactiva cuando el alcance lo requiera.
+- Configuración real de publicación.
+
+## Casos de uso
+
+- validar un portal documental;
+- revisar una migración de rutas;
+- preparar un release de assets estáticos.
 
 ## Resultado esperado
 
@@ -89,3 +109,7 @@ Estado `Listo` o `No listo`, con URLs probadas, respuestas, errores y pendientes
 ## Skills relacionadas
 
 - [Auditoría documental](../../../documentation-knowledge/skills/documentation-audit/SKILL.md)
+
+## Ejemplo
+
+Servir la raíz, verificar `200` para el shell, páginas parciales y Markdown cargado, recorrer hashes y reportar cualquier `404` sin desplegar.

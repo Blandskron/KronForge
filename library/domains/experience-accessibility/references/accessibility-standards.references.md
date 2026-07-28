@@ -6,6 +6,10 @@ type: reference
 domain: experience-accessibility
 status: stable
 version: 1.0.0
+difficulty: foundation
+projects: [web-application, website, design-system]
+compatibility: standard-oriented
+models: [any]
 tags: [accessibility, wcag, aria]
 related: []
 ---

@@ -16,7 +16,7 @@ Rutas críticas:
 
 - `README.md`, `AGENTS.md` y `library/README.md`;
 - índices `library/domains/*/README.md`;
-- `docs/agent/*`, `docs/REPOSITORY_EVOLUTION.md` y `docs/CONTRIBUTING_ASSETS.md`;
+- `docs/agent/*`, documentos estratégicos, roadmap y guía de contribución;
 - relaciones entre assets y skills.
 
 ## 2. Catálogo
@@ -27,7 +27,9 @@ Para `library/catalog.json`:
 - [ ] IDs de dominio y activo únicos.
 - [ ] Cada `path` e `index` existe bajo `library/`.
 - [ ] Cada activo Markdown comienza con front matter.
-- [ ] `id`, `type`, `domain`, `status` y `version` están presentes.
+- [ ] Schema v2 y `frameworkVersion` válidos.
+- [ ] `id`, `title`, `summary`, `type`, `domain`, `status`, `difficulty`, `tags` y `path` están presentes en el manifiesto.
+- [ ] Front matter declara versión, compatibilidad, modelos y proyectos cuando aplica.
 - [ ] El ID y dominio coinciden con el manifiesto y la ruta.
 - [ ] Los IDs de `related` existen o el pendiente está documentado.
 - [ ] Cada activo aparece en el índice de su dominio.
@@ -41,12 +43,14 @@ Para `library/catalog.json`:
 - [ ] Exigen plan antes de cambios.
 - [ ] No relajan pruebas o seguridad.
 - [ ] Entregan evidencia y pendientes.
+- [ ] Declaran dificultad, tipos de proyecto, compatibilidad y modelos.
 
 ### Skills
 
 - [ ] Definen objetivo, uso, entradas, resultado y restricciones.
 - [ ] Incluyen procedimiento, buenas prácticas y checklist.
 - [ ] Documentan errores frecuentes y relacionados.
+- [ ] Incluyen problema, dependencias, casos de uso y ejemplo.
 
 ### Otros activos
 
@@ -56,6 +60,7 @@ Para `library/catalog.json`:
 - [ ] Patrones explican cuándo usar y evitar, ventajas y desventajas.
 - [ ] Anti-patrones incluyen detección, corrección y prevención.
 - [ ] Referencias enlazan fuentes primarias y fecha de revisión.
+- [ ] Architecture notes explican componentes, límites y decisiones.
 
 ## 4. Markdown y seguridad
 
@@ -72,8 +77,9 @@ Cuando cambien `index.html`, `assets/`, `pages/` o contenido cargado:
 1. Servir la raíz por HTTP con una herramienta disponible.
 2. Confirmar `200` para `/`, CSS, JS y páginas parciales.
 3. Confirmar `200` para el prompt maestro, `library/catalog.json` y cada prompt mostrado.
-4. Verificar navegación por hash: `#prompt`, `#quality`, `#structure`, `#models`, `#example`, `#versioning`.
-5. Revisar consola, carga inicial, copia y viewport móvil.
+4. Verificar los hashes documentados en `RUNBOOK.md`.
+5. Probar búsqueda, filtros, visor de activos, copia, breadcrumbs y modo oscuro.
+6. Revisar consola, carga inicial y viewports de escritorio y móvil.
 
 El comando `python -m http.server 8026 --bind 127.0.0.1` puede usarse solo si Python está disponible en el entorno.
 

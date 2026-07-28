@@ -6,6 +6,10 @@ type: prompt
 domain: quality-engineering
 status: stable
 version: 1.0.0
+difficulty: intermediate
+projects: [any]
+compatibility: model-agnostic
+models: [any]
 tags: [qa, regression]
 related: [quality-engineering.functional-qa]
 ---

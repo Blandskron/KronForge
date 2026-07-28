@@ -6,6 +6,10 @@ type: checklist
 domain: quality-engineering
 status: stable
 version: 1.0.0
+difficulty: foundation
+projects: [any]
+compatibility: tool-agnostic
+models: [any]
 tags: [merge, quality-gate]
 related: [quality-engineering.definition-of-done-review]
 ---

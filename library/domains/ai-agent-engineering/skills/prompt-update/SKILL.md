@@ -8,6 +8,10 @@ type: skill
 domain: ai-agent-engineering
 status: stable
 version: 1.0.0
+difficulty: intermediate
+projects: [any]
+compatibility: model-agnostic
+models: [any]
 tags: [prompts, versioning]
 related: [documentation-knowledge.documentation-audit]
 ---
@@ -17,6 +21,10 @@ related: [documentation-knowledge.documentation-audit]
 ## Objetivo
 
 Modificar un prompt sin degradar su universalidad, seguridad, contrato ni trazabilidad.
+
+## Problema que resuelve
+
+Los prompts cambian como software: una edición aparentemente pequeña puede alterar autoridad, fases o resultados sin quedar versionada.
 
 ## Cuándo utilizarla
 
@@ -32,6 +40,18 @@ Para crear un activo de otro tipo o hacer cambios editoriales fuera de prompts.
 - prompt actual y activos relacionados;
 - política de versionado;
 - reglas del repositorio.
+
+## Dependencias
+
+- Política de versionado.
+- Changelog.
+- Validaciones documentales del repositorio.
+
+## Casos de uso
+
+- agregar una fase compatible;
+- corregir un contrato ambiguo;
+- deprecar una regla con transición.
 
 ## Resultado esperado
 
@@ -88,3 +108,7 @@ Prompt actualizado, versión clasificada, changelog registrado y validaciones re
 ## Skills relacionadas
 
 - [Auditoría documental](../../../documentation-knowledge/skills/documentation-audit/SKILL.md)
+
+## Ejemplo
+
+Agregar una salida opcional es MINOR; corregir ortografía sin cambiar obligaciones es PATCH. En ambos casos se actualiza versión, changelog y evidencia.

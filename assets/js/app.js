@@ -8,9 +8,9 @@ import { bindNavigation, switchTab } from './navigation.js';
 import { bindCopyButtons } from './copy.js';
 import { bindThemeToggle } from './theme.js';
 import { loadFileContent } from './loader.js';
+import { bindCatalogShell, renderDomains, renderLibrary, syncHomeStats } from './catalog.js';
 
 // Módulos inicializados bajo demanda (lazy-loaded pages)
-import { bindQualityTab } from './quality.js';
 import { bindTreeView } from './tree.js';
 import { bindModelTabs } from './models.js';
 
@@ -22,8 +22,20 @@ document.addEventListener('page:loaded', (event) => {
         case 'prompt':
             loadFileContent('prompts/agents-first-documentation-review.prompt.md', 'prompt-code-display');
             break;
-        case 'quality':
-            bindQualityTab();
+        case 'welcome':
+            syncHomeStats();
+            break;
+        case 'domains':
+            renderDomains();
+            break;
+        case 'library':
+            renderLibrary();
+            break;
+        case 'contributing':
+            loadFileContent('docs/CONTRIBUTING_ASSETS.md', 'contributing-content');
+            break;
+        case 'changelog':
+            loadFileContent('docs/CHANGELOG.md', 'changelog-content');
             break;
         case 'structure':
             bindTreeView();
@@ -42,6 +54,7 @@ document.addEventListener('page:loaded', (event) => {
 
 // Inicialización general al cargar el DOM
 window.addEventListener('DOMContentLoaded', () => {
+    bindCatalogShell();
     bindSidebar();
     bindNavigation();
     bindCopyButtons();

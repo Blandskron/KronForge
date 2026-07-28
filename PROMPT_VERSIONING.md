@@ -48,6 +48,15 @@ El repositorio usa una versión global para releases del catálogo:
 
 La versión de un activo puede avanzar sin obligar a que todos los demás cambien.
 
+## Versionado del catálogo
+
+`library/catalog.json` mantiene `schemaVersion` independiente:
+
+- cambia cuando se agregan, retiran o reinterpretan campos del manifiesto;
+- `frameworkVersion` identifica la release global que publica el catálogo;
+- un cambio incompatible del schema requiere migración documentada;
+- agregar valores compatibles a arrays o nuevos activos no obliga a cambiar el schema.
+
 ## Estados
 
 - `draft`: en diseño; puede cambiar sin compatibilidad.

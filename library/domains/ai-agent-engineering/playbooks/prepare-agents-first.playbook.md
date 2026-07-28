@@ -6,6 +6,10 @@ type: playbook
 domain: ai-agent-engineering
 status: stable
 version: 1.0.0
+difficulty: foundation
+projects: [new, existing, legacy, monorepo]
+compatibility: model-agnostic
+models: [any]
 tags: [agents-first, documentation]
 related: [documentation-knowledge.documentation-audit]
 ---

@@ -6,6 +6,10 @@ type: anti-pattern
 domain: documentation-knowledge
 status: stable
 version: 1.0.0
+difficulty: foundation
+projects: [any]
+compatibility: model-agnostic
+models: [any]
 tags: [documentation, safety]
 related: [documentation-knowledge.documentation-as-code]
 ---

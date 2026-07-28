@@ -6,6 +6,10 @@ type: prompt
 domain: security
 status: stable
 version: 1.0.0
+difficulty: advanced
+projects: [application, service, infrastructure, library]
+compatibility: model-agnostic
+models: [any]
 tags: [appsec, audit]
 related: [security.dependency-vulnerability-audit]
 ---
