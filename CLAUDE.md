@@ -1,29 +1,20 @@
-# Guía para Claude
+# Adaptador para Claude
 
-Esta guía resume cómo usar Claude con el estándar **agents-first** de este repositorio sin acoplar el prompt a un stack específico.
+Este archivo no reemplaza [`AGENTS.md`](AGENTS.md) ni garantiza que una versión concreta de Claude lo descubra automáticamente.
 
-## Uso Recomendado
+## Contexto que debes proporcionar
 
-1. Copia el contenido completo de `prompts/agents-first-documentation-review.prompt.md`.
-2. Pégalo en Claude dentro del contexto del repositorio objetivo.
-3. Pide primero una auditoría de solo lectura.
-4. Revisa el plan de cambios antes de autorizar eliminaciones o cambios sensibles.
+1. `AGENTS.md` y los documentos prioritarios que enlaza.
+2. El activo elegido desde [`library/README.md`](library/README.md) o el [prompt maestro](prompts/agents-first-documentation-review.prompt.md).
+3. Acceso al repositorio y alcance explícito de la tarea.
 
-## Instrucciones Útiles
+## Contrato
 
-- Pide respuestas estructuradas por fases: auditoría, plan, implementación, validación y resumen.
-- Solicita que cite archivos y rutas concretas cuando justifique cambios.
-- Indica que no debe asumir stack, comandos ni arquitectura sin evidencia local.
-- Para tareas grandes, pide que divida el trabajo en lotes verificables.
+- Leer antes de modificar.
+- Separar evidencia, inferencias y pendientes.
+- Presentar plan antes de cambios relevantes.
+- No inventar stack, comandos, compatibilidad ni resultados.
+- Solicitar aprobación para acciones sensibles.
+- Validar y entregar evidencia reproducible.
 
-## Buenas Prácticas
-
-- Mantén el prompt maestro intacto y agrega contexto específico del repo objetivo después del prompt.
-- Si Claude propone una eliminación documental, exige que explique qué información se migró antes.
-- Si no hay comandos reales de test o build, debe declararlo en vez de inventarlos.
-
-## Resultado Esperado
-
-Claude debería entregar una documentación con `AGENTS.md` como entrada para agentes, `README.md` para humanos y documentos especializados solo cuando aporten valor real.
-
-Para tareas especializadas, selecciona primero un activo desde [`library/README.md`](library/README.md). El catálogo canónico no depende de Claude.
+No existe una diferencia funcional adicional verificada para Claude. Consulta la [matriz de compatibilidad](docs/AGENT_COMPATIBILITY.md) antes de agregar instrucciones específicas de versión o producto.

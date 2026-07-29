@@ -1,6 +1,25 @@
 # Pruebas y Validación
 
-Este repositorio no tiene suite de aplicación ni build system. La validación combina controles documentales, consistencia del catálogo y prueba HTTP del sitio estático.
+Este repositorio no tiene build de producción. La validación combina controles documentales, contrato del catálogo, pruebas unitarias y una prueba HTTP del sitio estático.
+
+## Puerta de calidad
+
+Con Node.js 24 o superior:
+
+```powershell
+npm run quality
+```
+
+Si PowerShell bloquea el wrapper `npm.ps1`, usa el ejecutable equivalente `npm.cmd run quality`.
+
+La secuencia ejecuta, sin instalar dependencias:
+
+1. `npm run validate`: catálogo, schema, front matter, enlaces, anclas, seguridad, JavaScript, navegación y versiones.
+2. `npm test`: renderer Markdown y utilidades puras del catálogo/router.
+3. `npm run smoke`: rutas del shell, recursos, páginas y fuentes canónicas usadas en runtime bajo `/agents-first-repo-docs/`.
+4. `npm run score`: [AI Repository Score](../AI_REPOSITORY_SCORE.md).
+
+Los controles también se ejecutan en `.github/workflows/validate.yml`.
 
 ## 1. Enlaces Markdown
 
@@ -27,11 +46,11 @@ Para `library/catalog.json`:
 - [ ] IDs de dominio y activo únicos.
 - [ ] Cada `path` e `index` existe bajo `library/`.
 - [ ] Cada activo Markdown comienza con front matter.
-- [ ] Schema v2 y `frameworkVersion` válidos.
-- [ ] `id`, `title`, `summary`, `type`, `domain`, `status`, `difficulty`, `tags` y `path` están presentes en el manifiesto.
+- [ ] Schema v3 y `frameworkVersion` válidos.
+- [ ] Metadatos de identidad, clasificación, compatibilidad, relaciones, contrato, mantenimiento y ruta están presentes.
 - [ ] Front matter declara versión, compatibilidad, modelos y proyectos cuando aplica.
 - [ ] El ID y dominio coinciden con el manifiesto y la ruta.
-- [ ] Los IDs de `related` existen o el pendiente está documentado.
+- [ ] Los IDs de `related`, `dependencies` y rutas de aprendizaje existen.
 - [ ] Cada activo aparece en el índice de su dominio.
 
 ## 3. Contratos por tipo
@@ -74,12 +93,13 @@ Para `library/catalog.json`:
 
 Cuando cambien `index.html`, `assets/`, `pages/` o contenido cargado:
 
-1. Servir la raíz por HTTP con una herramienta disponible.
-2. Confirmar `200` para `/`, CSS, JS y páginas parciales.
-3. Confirmar `200` para el prompt maestro, `library/catalog.json` y cada prompt mostrado.
-4. Verificar los hashes documentados en `RUNBOOK.md`.
-5. Probar búsqueda, filtros, visor de activos, copia, breadcrumbs y modo oscuro.
-6. Revisar consola, carga inicial y viewports de escritorio y móvil.
+1. Ejecutar `npm run smoke`.
+2. Confirmar `200` y MIME correcto para shell, CSS, JS, páginas, catálogo, activos y documentos canónicos cargados en runtime.
+3. Verificar los hashes documentados en `RUNBOOK.md`, incluidas URLs directas de activos.
+4. Probar búsqueda normalizada, filtros, orden, tags, relaciones, rutas de aprendizaje, copia, descarga, breadcrumbs, historial y modo oscuro.
+5. Revisar consola, foco, teclado, carga inicial y viewports de escritorio y móvil.
+
+El smoke test comprueba transporte HTTP, estados y MIME; la interacción y el renderizado JavaScript se validan en navegador.
 
 El comando `python -m http.server 8026 --bind 127.0.0.1` puede usarse solo si Python está disponible en el entorno.
 

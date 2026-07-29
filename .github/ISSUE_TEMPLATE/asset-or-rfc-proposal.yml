@@ -1,0 +1,78 @@
+name: Propuesta de activo o RFC
+description: Propón conocimiento reusable o un cambio relevante del framework.
+title: "[Propuesta]: "
+labels: []
+assignees: []
+body:
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Tipo de propuesta
+      options:
+        - Nuevo activo
+        - Mejora de un activo
+        - Arquitectura o taxonomía
+        - Gobernanza o política
+        - Portal o experiencia
+        - Compatibilidad
+        - Otra
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problema verificable
+      description: Describe la necesidad antes de plantear la solución.
+    validations:
+      required: true
+
+  - type: textarea
+    id: existing
+    attributes:
+      label: Búsqueda y evidencia
+      description: Indica qué issues, activos o documentos revisaste y por qué no resuelven el caso.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Propuesta
+      description: Explica resultado, alcance, usuarios y límites.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternativas consideradas
+      description: Incluye la opción de no cambiar nada cuando sea razonable.
+    validations:
+      required: true
+
+  - type: textarea
+    id: compatibility
+    attributes:
+      label: Compatibilidad y migración
+      description: Identifica rutas, IDs, schema, portal o contratos que puedan verse afectados.
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Criterios de aceptación
+      description: Define evidencia observable para considerar resuelto el problema.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Confirmaciones
+      options:
+        - label: La propuesta no duplica deliberadamente contenido canónico.
+          required: true
+        - label: No incluí secretos, datos personales ni información de seguridad sensible.
+          required: true
+        - label: Acepto que una decisión estructural puede requerir un ADR.
+          required: true

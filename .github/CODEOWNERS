@@ -1,0 +1,10 @@
+# Ownership operativo. La autoridad de gobernanza se define en /GOVERNANCE.md.
+* @Blandskron
+
+# Superficies sensibles y comunitarias.
+/.github/ @Blandskron
+/SECURITY.md @Blandskron
+/CODE_OF_CONDUCT.md @Blandskron
+/GOVERNANCE.md @Blandskron
+/MAINTAINERS.md @Blandskron
+/PROMPT_VERSIONING.md @Blandskron

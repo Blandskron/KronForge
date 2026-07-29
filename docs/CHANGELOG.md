@@ -4,6 +4,40 @@ Todos los cambios notables en este proyecto serán documentados en este archivo.
 
 ---
 
+## [3.0.0] - 2026-07-28
+
+### Añadido
+
+- Auditoría integral de arquitectura, contenido, gobernanza, portal y adopción agents-first, con prioridades P0/P1/P2 y plan de implementación gradual.
+- Arquitectura vigente de seis capas y registro inicial de ADR para el framework, el catálogo como proyección y la puerta de calidad sin dependencias.
+- Gobierno OSS con contribución, conducta, seguridad, soporte, gobernanza, maintainers, CODEOWNERS y plantillas de issues/pull requests.
+- JSON Schema draft 2020-12 para el catálogo v3, taxonomía extensible y rutas de aprendizaje basadas en activos existentes.
+- Validación reproducible de catálogo, front matter, relaciones, enlaces, anclas, seguridad, versiones, navegación y JavaScript.
+- Pruebas unitarias, smoke test de rutas publicables y fuentes canónicas bajo el subdirectorio de GitHub Pages, y workflow de GitHub Actions con permisos mínimos.
+- Metodología reproducible AI Repository Score en diez dimensiones.
+- Matriz de compatibilidad que distingue uso universal de Markdown, adaptadores presentes y autodetección no verificada.
+
+### Modificado
+
+- `library/catalog.json` elevado a schema v3 y framework `3.0.0`, con metadatos de clasificación, compatibilidad, mantenimiento, relaciones y contratos.
+- Portal evolucionado con URLs compartibles por activo, búsqueda normalizada, filtros y orden, tags, relaciones, metadatos, aprendizaje y modo lectura.
+- Carga de activos protegida contra carreras, errores y placeholders; copia y descarga conservan exclusivamente el Markdown canónico.
+- Carga documental protegida por destino para impedir que respuestas tardías sobrescriban la pestaña activa.
+- Regiones Markdown desplazables accesibles por teclado, aun cuando las barras visuales permanezcan ocultas.
+- Roadmap servido desde Markdown canónico y extendido con hitos v3, v3.5, v4, v4.5 y v5.
+- README, guías operativas, versionado, contribución y adaptadores alineados con la plataforma v3.
+- Documentos estratégicos v2 marcados como antecedentes y enlazados a la arquitectura vigente.
+
+### Compatibilidad
+
+- Se conservan el prompt maestro, `LICENSE`, los 29 activos y sus rutas públicas.
+- GitHub Pages continúa publicando HTML, CSS y JavaScript vanilla sin build de producción.
+- Los tres dominios todavía sin activos permanecen explícitos; no se agregó contenido de relleno.
+
+### Versión SemVer
+
+Clasificada como **MAJOR**: introduce un nuevo contrato público del catálogo y consolida arquitectura, gobernanza, automatización y experiencia web, con migración compatible de las rutas existentes.
+
 ## [2.2.0] - 2026-07-28
 
 ### Añadido

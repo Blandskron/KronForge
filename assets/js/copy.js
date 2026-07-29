@@ -14,6 +14,23 @@ export function showToast(message = "Copiado al portapapeles") {
     setTimeout(() => toast.classList.add('hidden'), 2500);
 }
 
+async function writeClipboard(content) {
+    if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(content);
+        return;
+    }
+    const textarea = document.createElement('textarea');
+    textarea.value = content;
+    textarea.setAttribute('readonly', '');
+    textarea.style.position = 'fixed';
+    textarea.style.opacity = '0';
+    document.body.append(textarea);
+    textarea.select();
+    const copied = document.execCommand('copy');
+    textarea.remove();
+    if (!copied) throw new Error('Clipboard unavailable');
+}
+
 /**
  * Enlaza todos los botones de copia usando event delegation desde document.
  * Se llama una sola vez en el init; funciona para botones en páginas dinámicas.
@@ -23,6 +40,10 @@ export function bindCopyButtons() {
         const downloadButton = e.target.closest('[data-download-target]');
         if (downloadButton) {
             const target = document.getElementById(downloadButton.dataset.downloadTarget);
+            if (target?.dataset.loadState && target.dataset.loadState !== 'ready') {
+                showToast('El archivo todavía no está disponible');
+                return;
+            }
             const content = target?.dataset.rawMarkdown || target?.innerText;
             if (!content) return;
             const filename = downloadButton.dataset.downloadName
@@ -33,8 +54,10 @@ export function bindCopyButtons() {
             const anchor = document.createElement('a');
             anchor.href = url;
             anchor.download = filename;
+            document.body.append(anchor);
             anchor.click();
-            URL.revokeObjectURL(url);
+            anchor.remove();
+            setTimeout(() => URL.revokeObjectURL(url), 0);
             showToast(`Descarga preparada: ${filename}`);
             return;
         }
@@ -42,41 +65,20 @@ export function bindCopyButtons() {
         const copyButton = e.target.closest('[data-copy-target]');
         if (copyButton) {
             const target = document.getElementById(copyButton.dataset.copyTarget);
+            if (target?.dataset.loadState && target.dataset.loadState !== 'ready') {
+                showToast('El contenido todavía no está disponible');
+                return;
+            }
             const content = target?.dataset.rawMarkdown || target?.innerText;
             if (content) {
-                await navigator.clipboard.writeText(content);
-                showToast(copyButton.dataset.copyMessage || 'Markdown copiado');
+                try {
+                    await writeClipboard(content);
+                    showToast(copyButton.dataset.copyMessage || 'Markdown copiado');
+                } catch {
+                    showToast('No se pudo acceder al portapapeles');
+                }
             }
             return;
-        }
-
-        /* Botón "Copiar Prompt" del prompt principal */
-        if (e.target.closest('.copy-prompt-trigger')) {
-            const text = document.getElementById('prompt-code-display')?.innerText;
-            if (text) {
-                await navigator.clipboard.writeText(text);
-                showToast('Prompt copiado correctamente');
-            }
-            return;
-        }
-
-        /* Botón "Copiar Prompt" de la pestaña de calidad */
-        if (e.target.closest('#copy-quality-prompt')) {
-            const text = document.getElementById('quality-prompt-display')?.innerText;
-            if (text && text !== 'Selecciona un prompt para verlo...') {
-                await navigator.clipboard.writeText(text);
-                showToast('Prompt de calidad copiado');
-            }
-            return;
-        }
-
-        /* Botón "Copiar" del visor de modelos */
-        if (e.target.closest('.copy-model-content')) {
-            const text = document.getElementById('model-code-display')?.innerText;
-            if (text) {
-                await navigator.clipboard.writeText(text);
-                showToast('Plantilla copiada');
-            }
         }
     });
 }

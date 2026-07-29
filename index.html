@@ -29,17 +29,17 @@
     <link rel="icon" type="image/png" href="assets/img/favicon.png">
     
     <!-- CSS modular (Sin build step) -->
-    <link rel="stylesheet" href="assets/css/base.css?v=2.2.0">
-    <link rel="stylesheet" href="assets/css/layout.css?v=2.2.0">
-    <link rel="stylesheet" href="assets/css/components.css?v=2.2.0">
-    <link rel="stylesheet" href="assets/css/portal.css?v=2.2.0">
-    <link rel="stylesheet" href="assets/css/responsive.css?v=2.2.0">
+    <link rel="stylesheet" href="assets/css/base.css?v=3.0.0">
+    <link rel="stylesheet" href="assets/css/layout.css?v=3.0.0">
+    <link rel="stylesheet" href="assets/css/components.css?v=3.0.0">
+    <link rel="stylesheet" href="assets/css/portal.css?v=3.0.0">
+    <link rel="stylesheet" href="assets/css/responsive.css?v=3.0.0">
 </head>
 <body>
     <div class="app-container">
         
         <!-- Sidebar Backdrop (Mobile overlay) -->
-        <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+        <div class="sidebar-backdrop" id="sidebar-backdrop" aria-hidden="true"></div>
 
         <!-- Sidebar Navigation -->
         <aside class="sidebar" id="sidebar">
@@ -50,7 +50,7 @@
                 </div>
                 <div class="brand-details">
                     <h1>Agents First</h1>
-                    <span>v2.2.0 Framework</span>
+                    <span>v3.0.0 Framework</span>
                 </div>
                 <button class="sidebar-close" id="sidebar-close" type="button" aria-label="Colapsar navegación" title="Colapsar navegación">
                     <i class="fa-solid fa-chevron-left"></i>
@@ -81,6 +81,10 @@
                 <a href="#library" class="nav-item" data-tab="library">
                     <i class="fa-solid fa-book"></i>
                     <span>Biblioteca</span>
+                </a>
+                <a href="#learning" class="nav-item" data-tab="learning">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <span>Rutas de aprendizaje</span>
                 </a>
                 <a href="#prompt" class="nav-item" data-tab="prompt">
                     <i class="fa-solid fa-code"></i>
@@ -140,7 +144,8 @@
         <!-- Main Content Area -->
         <main class="main-content">
             <header class="top-bar">
-                <button class="mobile-menu-btn" id="mobile-menu-btn" type="button" aria-label="Abrir navegación">
+                <button class="mobile-menu-btn" id="mobile-menu-btn" type="button"
+                    aria-label="Abrir navegación" aria-controls="sidebar" aria-expanded="false">
                     <i class="fa-solid fa-bars"></i>
                 </button>
                 <nav class="breadcrumbs" id="breadcrumbs" aria-label="Breadcrumb">
@@ -171,6 +176,9 @@
                 </section>
                 <section id="library" class="tab-pane">
                     <div class="page-loading"><i class="fa-solid fa-spinner fa-spin"></i> Cargando biblioteca...</div>
+                </section>
+                <section id="learning" class="tab-pane">
+                    <div class="page-loading"><i class="fa-solid fa-spinner fa-spin"></i> Cargando rutas de aprendizaje...</div>
                 </section>
                 <section id="roadmap" class="tab-pane">
                     <div class="page-loading"><i class="fa-solid fa-spinner fa-spin"></i> Cargando roadmap...</div>
@@ -209,12 +217,12 @@
     </div>
 
     <!-- Notification Toast -->
-    <div id="toast" class="toast hidden">
+    <div id="toast" class="toast hidden" role="status" aria-live="polite" aria-atomic="true">
         <i class="fa-solid fa-circle-check"></i>
         <span>Copiado al portapapeles</span>
     </div>
 
     <!-- App JS (ES Modules nativos) -->
-    <script type="module" src="assets/js/app.js?v=2.2.0"></script>
+    <script type="module" src="assets/js/app.js?v=3.0.0-r2"></script>
 </body>
 </html>

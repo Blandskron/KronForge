@@ -1,5 +1,8 @@
 # Estrategia del Framework Abierto de AI Engineering
 
+> [!NOTE]
+> Esta estrategia conserva el razonamiento de v2.1 como antecedente. El alcance implementado de v3 se documenta en [V3_IMPLEMENTATION_PLAN.md](V3_IMPLEMENTATION_PLAN.md), la arquitectura vigente en [FRAMEWORK_ARCHITECTURE.md](architecture/FRAMEWORK_ARCHITECTURE.md) y el rumbo futuro en [ROADMAP.md](ROADMAP.md).
+
 ## Estado
 
 - **Fecha:** 2026-07-28

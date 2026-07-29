@@ -1,0 +1,76 @@
+name: Reporte de fallo
+description: Reporta un problema reproducible en documentación, catálogo, portal o publicación.
+title: "[Bug]: "
+labels: []
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Gracias por reportar el problema. No incluyas secretos, datos personales ni detalles de vulnerabilidades.
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Área afectada
+      options:
+        - Documentación
+        - Catálogo o activo
+        - Portal web
+        - Navegación o GitHub Pages
+        - Compatibilidad con agentes
+        - Otra
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Descripción
+      description: Explica el problema y su impacto.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Pasos para reproducir
+      description: Incluye rutas o URLs públicas y una secuencia mínima.
+      placeholder: |
+        1. Abrir...
+        2. Seleccionar...
+        3. Observar...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Resultado esperado
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Resultado observado
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidencia no sensible
+      description: Consola, captura, navegador o commit cuando aporte valor. Redacta datos privados.
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Confirmaciones
+      options:
+        - label: Busqué reportes equivalentes.
+          required: true
+        - label: Este reporte no contiene secretos, datos personales ni detalles explotables.
+          required: true
+        - label: Entiendo que los asuntos de seguridad siguen SECURITY.md.
+          required: true

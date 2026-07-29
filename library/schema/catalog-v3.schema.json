@@ -1,0 +1,452 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://blandskron.github.io/agents-first-repo-docs/library/schema/catalog-v3.schema.json",
+  "title": "Agents First Framework catalog schema v3",
+  "description": "Contrato del catálogo materializado desde Markdown canónico para descubrimiento, relaciones y rutas de aprendizaje.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "schemaVersion",
+    "frameworkVersion",
+    "lastUpdated",
+    "metadataDefaults",
+    "typeDefinitions",
+    "domains",
+    "assets",
+    "learningPaths"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "minLength": 1
+    },
+    "schemaVersion": {
+      "const": 3
+    },
+    "frameworkVersion": {
+      "$ref": "#/$defs/semver"
+    },
+    "lastUpdated": {
+      "$ref": "#/$defs/date"
+    },
+    "metadataDefaults": {
+      "$ref": "#/$defs/metadataDefaults"
+    },
+    "typeDefinitions": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/typeDefinition"
+      }
+    },
+    "domains": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/domain"
+      }
+    },
+    "assets": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/asset"
+      }
+    },
+    "learningPaths": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/learningPath"
+      }
+    }
+  },
+  "$defs": {
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*(?:\\.[a-z0-9]+(?:-[a-z0-9]+)*)?$"
+    },
+    "assetId": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*\\.[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "semver": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?(?:\\+[0-9A-Za-z.-]+)?$"
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    },
+    "stringList": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/nonEmptyString"
+      }
+    },
+    "assetIdList": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/assetId"
+      }
+    },
+    "metadataDefaults": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "author",
+        "license",
+        "language",
+        "models",
+        "agents"
+      ],
+      "properties": {
+        "author": {
+          "const": "@Blandskron/contributors"
+        },
+        "license": {
+          "const": "MIT"
+        },
+        "language": {
+          "const": "es"
+        },
+        "models": {
+          "const": [
+            "any"
+          ]
+        },
+        "agents": {
+          "const": [
+            "markdown-compatible"
+          ]
+        }
+      }
+    },
+    "typeDefinition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "title",
+        "summary",
+        "category",
+        "folder",
+        "status"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "title": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "summary": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "category": {
+          "enum": [
+            "execution",
+            "automation",
+            "integration",
+            "validation",
+            "creation",
+            "architecture",
+            "knowledge",
+            "operations",
+            "learning",
+            "reference",
+            "planning"
+          ]
+        },
+        "folder": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "status": {
+          "enum": [
+            "active",
+            "supported"
+          ]
+        }
+      }
+    },
+    "domain": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "title",
+        "summary",
+        "index",
+        "pillar"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "title": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "summary": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "index": {
+          "type": "string",
+          "pattern": "^domains/[a-z0-9-]+/README\\.md$"
+        },
+        "pillar": {
+          "type": "boolean"
+        }
+      }
+    },
+    "asset": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "title",
+        "summary",
+        "type",
+        "category",
+        "domain",
+        "status",
+        "version",
+        "level",
+        "difficulty",
+        "projects",
+        "compatibility",
+        "models",
+        "agents",
+        "language",
+        "author",
+        "license",
+        "lastModified",
+        "tags",
+        "dependencies",
+        "related",
+        "inputs",
+        "outputs",
+        "examples",
+        "estimatedTime",
+        "complexity",
+        "useCases",
+        "path"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/assetId"
+        },
+        "title": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "summary": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "type": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "category": {
+          "enum": [
+            "execution",
+            "automation",
+            "integration",
+            "validation",
+            "creation",
+            "architecture",
+            "knowledge",
+            "operations",
+            "learning",
+            "reference",
+            "planning"
+          ]
+        },
+        "domain": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "status": {
+          "enum": [
+            "draft",
+            "stable",
+            "deprecated"
+          ]
+        },
+        "version": {
+          "$ref": "#/$defs/semver"
+        },
+        "level": {
+          "enum": [
+            "foundation",
+            "intermediate",
+            "advanced"
+          ]
+        },
+        "difficulty": {
+          "enum": [
+            "foundation",
+            "intermediate",
+            "advanced"
+          ]
+        },
+        "projects": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/stringList"
+            },
+            {
+              "minItems": 1
+            }
+          ]
+        },
+        "compatibility": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "models": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/stringList"
+            },
+            {
+              "minItems": 1
+            }
+          ]
+        },
+        "agents": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/stringList"
+            },
+            {
+              "minItems": 1
+            }
+          ]
+        },
+        "language": {
+          "type": "string",
+          "pattern": "^[a-z]{2,3}(?:-[A-Z]{2})?$"
+        },
+        "author": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "license": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "lastModified": {
+          "$ref": "#/$defs/date"
+        },
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/stringList"
+            },
+            {
+              "minItems": 1
+            }
+          ]
+        },
+        "dependencies": {
+          "$ref": "#/$defs/assetIdList"
+        },
+        "related": {
+          "$ref": "#/$defs/assetIdList"
+        },
+        "inputs": {
+          "$ref": "#/$defs/stringList"
+        },
+        "outputs": {
+          "$ref": "#/$defs/stringList"
+        },
+        "examples": {
+          "$ref": "#/$defs/stringList"
+        },
+        "estimatedTime": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        },
+        "complexity": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            null
+          ]
+        },
+        "useCases": {
+          "$ref": "#/$defs/stringList"
+        },
+        "path": {
+          "type": "string",
+          "pattern": "^domains/[a-z0-9-]+/.+\\.md$"
+        }
+      }
+    },
+    "learningPath": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "title",
+        "summary",
+        "status",
+        "coverage",
+        "assets"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "title": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "summary": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "status": {
+          "enum": [
+            "available",
+            "draft",
+            "planned"
+          ]
+        },
+        "coverage": {
+          "enum": [
+            "introductory",
+            "partial",
+            "comprehensive"
+          ]
+        },
+        "assets": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/assetIdList"
+            },
+            {
+              "minItems": 1
+            }
+          ]
+        }
+      }
+    }
+  }
+}

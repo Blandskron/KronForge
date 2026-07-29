@@ -3,8 +3,8 @@
  * Llamado desde app.js al recibir el evento page:loaded para 'structure'.
  */
 
-import { docsDatabase } from './config.js';
-import { setMarkdownContent } from './markdown.js';
+import { docsDatabase } from './config.js?v=3.0.0-r2';
+import { setMarkdownContent } from './markdown.js?v=3.0.0-r2';
 
 /** Enlaza los nodos del árbol de archivos con la previsualización lateral. */
 export function bindTreeView() {

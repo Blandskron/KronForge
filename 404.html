@@ -16,7 +16,7 @@
             const requested = parts.at(-1)?.replace(/\.html$/, '') || 'welcome';
             const allowed = new Set([
                 'welcome', 'quickstart', 'domains', 'library', 'prompt', 'playbooks',
-                'structure', 'models', 'roadmap', 'contributing', 'example',
+                'structure', 'models', 'learning', 'roadmap', 'contributing', 'example',
                 'changelog', 'versioning'
             ]);
             const page = allowed.has(requested) ? requested : 'welcome';

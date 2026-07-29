@@ -1,5 +1,8 @@
 # Propuesta de Evolución del Repositorio
 
+> [!NOTE]
+> Este documento conserva la decisión histórica que originó la arquitectura por dominios en v2. La arquitectura vigente de v3 está en [FRAMEWORK_ARCHITECTURE.md](architecture/FRAMEWORK_ARCHITECTURE.md) y sus decisiones en [docs/adr/](adr/README.md).
+
 ## Estado de la propuesta
 
 - **Fecha:** 2026-07-28

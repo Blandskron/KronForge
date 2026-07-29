@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://blandskron.github.io/agents-first-repo-docs/library/schema/catalog.schema.json",
+  "title": "Alias compatible del schema del catálogo",
+  "description": "Ruta histórica conservada para consumidores existentes. El contrato canónico v3 está en catalog-v3.schema.json.",
+  "$ref": "./catalog-v3.schema.json"
+}

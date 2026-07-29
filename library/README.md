@@ -1,6 +1,6 @@
 # Biblioteca de Ingeniería para Agentes IA
 
-Catálogo de conocimiento reutilizable, agnóstico al modelo y organizado por dominios de ingeniería. La unidad principal es el dominio; dentro de él conviven prompts, skills, templates, checklists, playbooks, patrones, anti-patrones y referencias.
+Catálogo de conocimiento reutilizable, agnóstico al modelo y organizado por dominios de ingeniería. La unidad principal es el dominio; dentro de él conviven activos ejecutables, conocimiento explicativo, validaciones, integraciones, material de aprendizaje y referencias.
 
 ## Cómo usar la biblioteca
 
@@ -33,27 +33,60 @@ Catálogo de conocimiento reutilizable, agnóstico al modelo y organizado por do
 | [Producto y gestión técnica](domains/product-technical-management/README.md) | Discovery, planificación, RFC, riesgo y liderazgo técnico | Índice preparado |
 | [Documentación y conocimiento](domains/documentation-knowledge/README.md) | Documentación como código, auditoría y operación | Skill, patrón y anti-patrón |
 
-## Tipos de activo
+## Catálogo v3
 
-| Tipo | Úsalo para |
+[`catalog.json`](catalog.json) usa schema v3 y conserva `domains` y `assets` para los consumidores de v2. Agrega:
+
+- `metadataDefaults`, con autoría, licencia, idioma, modelos y agentes predeterminados verificables;
+- `typeDefinitions`, con todos los tipos aceptados, su categoría, carpeta y estado;
+- metadatos operativos por activo, incluidos versión, compatibilidad, relaciones y contratos de entrada y salida;
+- `learningPaths`, con rutas cortas formadas exclusivamente por IDs existentes;
+- `lastUpdated`, separado de la versión global del framework.
+
+El contrato formal está en [`schema/catalog-v3.schema.json`](schema/catalog-v3.schema.json) y usa JSON Schema draft 2020-12. La ruta histórica `schema/catalog.schema.json` se conserva como alias compatible.
+
+### Tipos y categorías
+
+Los tipos se agrupan por su función, sin convertir cada tema en un dominio:
+
+| Categoría | Tipos |
 |---|---|
-| Prompt | Delegar un objetivo acotado a un agente |
-| Skill | Ejecutar una capacidad repetible con entradas y salida definidas |
-| Template | Crear un documento o artefacto con estructura consistente |
-| Checklist | Verificar un control o momento operativo de forma independiente |
-| Playbook | Conducir un proceso con fases y decisiones |
-| Pattern | Reutilizar una solución con contexto y trade-offs |
-| Anti-pattern | Detectar y corregir una práctica perjudicial |
-| Reference | Encontrar fuentes primarias con contexto de uso |
-| Example | Mostrar una aplicación mínima y verificable |
-| Case study | Analizar contexto, decisiones y resultados de un caso |
-| Best practice | Recomendar una práctica con alcance y evidencia |
-| Tool integration | Adaptar el núcleo universal a una herramienta concreta |
-| Architecture note | Explicar topología, límites y decisiones de un sistema |
+| Ejecución | `prompt`, `skill`, `subagent`, `playbook`, `recipe`, `snippet` |
+| Automatización | `hook`, `workflow` |
+| Integración | `mcp-integration`, `tool-integration` |
+| Validación | `checklist`, `evaluation`, `benchmark` |
+| Creación | `template` |
+| Arquitectura | `adr`, `architecture`, `architecture-note` |
+| Conocimiento | `pattern`, `anti-pattern`, `best-practice` |
+| Operación | `runbook` |
+| Aprendizaje | `example`, `case-study`, `tutorial`, `guide` |
+| Referencia | `reference` |
+| Planificación | `roadmap` |
 
-## Índice para herramientas
+`active` significa que ya existe al menos un activo canónico de ese tipo. `supported` significa que el contrato acepta contribuciones de ese tipo, pero no crea contenido de relleno.
 
-[`catalog.json`](catalog.json) usa schema v2 y declara dominios, activos y metadatos de descubrimiento. El Markdown sigue siendo la fuente de contenido; el manifiesto alimenta búsqueda, filtros y validación.
+### Fuente de verdad
+
+El Markdown de cada activo sigue siendo la fuente canónica de contenido y metadatos editoriales. El catálogo es un índice materializado y comprometido en Git para que GitHub Pages, agentes y validadores puedan consumirlo sin build ni backend.
+
+- `title` representa el nombre humano y `summary` la descripción breve.
+- `type` identifica el contrato concreto; `category` agrupa tipos para descubrimiento.
+- `level` es el nivel público; `difficulty` se conserva durante v3 por compatibilidad y ambos deben coincidir.
+- Los valores heredables están declarados en `metadataDefaults`, pero cada registro materializa su valor efectivo.
+- `inputs`, `outputs`, `examples`, `estimatedTime`, `complexity` y `useCases` quedan vacíos o nulos cuando el Markdown no los declara como metadatos estructurados. El catálogo no infiere hechos desde prosa libre.
+- `dependencies` y `related` contienen IDs del mismo catálogo.
+
+Los índices de dominio ofrecen orientación humana. El catálogo ofrece el inventario completo y evita que esos índices se conviertan en una segunda base de datos manual.
+
+## Rutas de aprendizaje
+
+El catálogo publica rutas disponibles para Prompt Engineering, AI Engineering, agentes, MCP, hooks, arquitectura, GitHub, DevOps, testing y seguridad. Cada ruta declara:
+
+- `status`: disponibilidad de la secuencia;
+- `coverage`: `introductory`, `partial` o `comprehensive`;
+- `assets`: orden de lectura usando solo activos existentes.
+
+Una ruta no copia contenido ni promete cobertura que la biblioteca todavía no tiene.
 
 ## Contribuir
 

@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Política de soporte
+    url: https://github.com/Blandskron/agents-first-repo-docs/blob/main/SUPPORT.md
+    about: Revisa qué canal corresponde antes de abrir un issue.
+  - name: Política de seguridad
+    url: https://github.com/Blandskron/agents-first-repo-docs/blob/main/SECURITY.md
+    about: No publiques vulnerabilidades, secretos ni datos personales en un issue.

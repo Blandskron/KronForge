@@ -1,21 +1,22 @@
-# Agents First Repo Docs
+# Agents First Framework
 
-Framework documental abierto de AI Engineering: conocimiento reutilizable para diseñar contexto, repositorios, agentes y software de calidad.
+Plataforma documental abierta de AI Engineering para diseñar contexto, repositorios, agentes y software verificable mediante conocimiento reutilizable.
 
-Es agnóstica al modelo, proveedor y stack. Funciona con cualquier agente moderno porque sus activos obligan a observar el repositorio real, distinguir evidencia de supuestos y conservar control humano en decisiones sensibles.
+La versión **3.0.0** organiza el proyecto como framework por capas, con catálogo machine-readable, contratos editoriales, rutas de aprendizaje, gobierno OSS y controles de calidad reproducibles. Sigue siendo agnóstico al modelo, proveedor y stack: la compatibilidad depende de Markdown y de instrucciones explícitas, no de una API propietaria.
 
 El flujo operativo se mantiene simple: **Copiar -> Pegar -> Auditar -> Aprobar -> Aplicar**.
 
 > [!TIP]
-> Explora la versión visual en [GitHub Pages](https://blandskron.github.io/agents-first-repo-docs/) o entra directamente al [catálogo por dominios](library/README.md).
+> Explora el [portal en GitHub Pages](https://blandskron.github.io/agents-first-repo-docs/), entra al [catálogo por dominios](library/README.md) o consulta la [arquitectura v3](docs/architecture/FRAMEWORK_ARCHITECTURE.md).
 
 ## Qué encontrarás
 
 - un [prompt maestro](prompts/agents-first-documentation-review.prompt.md) para preparar repositorios agents-first;
-- una [biblioteca por dominios](library/README.md) con prompts, skills, templates, checklists, playbooks, patrones, anti-patrones y referencias;
-- contratos de autoría y un [catálogo legible por herramientas](library/catalog.json);
-- documentación operativa en [`docs/agent/`](docs/agent/);
-- ejemplos de uso y un sitio estático sin build.
+- una [biblioteca por dominios](library/README.md) con activos ejecutables, de conocimiento, gobierno e integración;
+- un [catálogo v3](library/catalog.json) validado por [JSON Schema](library/schema/catalog-v3.schema.json);
+- relaciones entre activos y rutas de aprendizaje para adopción progresiva;
+- documentación operativa en [`docs/agent/`](docs/agent/) y un [registro de decisiones](docs/adr/README.md);
+- gobierno OSS, controles automáticos y un portal estático sin build de producción.
 
 No es una colección masiva de prompts, un runtime ni una metodología prescriptiva. Organiza capacidades reutilizables y deja que cada activo se adapte a la evidencia del proyecto objetivo.
 
@@ -69,37 +70,41 @@ No es una colección masiva de prompts, un runtime ni una metodología prescript
 
 ```txt
 agents-first-repo-docs/
-├── prompts/
-│   └── agents-first-documentation-review.prompt.md
-├── library/
-│   ├── README.md
-│   ├── catalog.json
-│   └── domains/<domain>/
-│       ├── README.md
-│       ├── prompts/
-│       ├── skills/
-│       ├── templates/
-│       ├── checklists/
-│       ├── playbooks/
-│       ├── patterns/
-│       ├── anti-patterns/
-│       └── references/
-├── docs/
-│   ├── REPOSITORY_EVOLUTION.md
-│   ├── CONTRIBUTING_ASSETS.md
-│   ├── CHANGELOG.md
-│   └── agent/
-├── examples/
-├── index.html
-├── assets/
-└── pages/
+|-- prompts/                  # puerta de entrada ejecutable
+|-- library/
+|   |-- catalog.json         # proyección machine-readable v3
+|   |-- schema/              # contrato JSON Schema
+|   `-- domains/<domain>/    # fuentes Markdown canónicas
+|-- docs/
+|   |-- architecture/        # modelo por capas
+|   |-- adr/                 # decisiones arquitectónicas
+|   |-- audits/              # evidencia y brechas
+|   `-- agent/               # operación para agentes
+|-- scripts/                 # validadores sin dependencias
+|-- tests/                   # pruebas unitarias del portal
+|-- .github/                 # gobierno y quality gate
+|-- index.html
+|-- assets/
+`-- pages/
 ```
 
-Las subcarpetas de activos se crean solo cuando contienen conocimiento real. El prompt maestro conserva su ruta estable como puerta de entrada.
+Las seis capas —orientación, conocimiento, ejecución, gobierno, presentación y automatización— están descritas en la [arquitectura del framework](docs/architecture/FRAMEWORK_ARCHITECTURE.md). Las subcarpetas de activos se crean solo cuando contienen conocimiento real; el Markdown es la fuente canónica y el catálogo/portal son proyecciones.
 
-## Contribuir
+## Calidad reproducible
 
-Lee [cómo contribuir activos](docs/CONTRIBUTING_ASSETS.md). Toda contribución debe:
+Node.js se usa únicamente para controles de mantenimiento; el sitio publicado continúa siendo HTML, CSS y JavaScript vanilla.
+
+```powershell
+npm run quality
+```
+
+En PowerShell con política de ejecución restrictiva, el mismo control se ejecuta con `npm.cmd run quality`.
+
+El comando valida catálogo y schema, front matter, relaciones, enlaces y anclas, seguridad documental, JavaScript, navegación de GitHub Pages, pruebas unitarias y el [AI Repository Score](docs/AI_REPOSITORY_SCORE.md). La misma secuencia se ejecuta en GitHub Actions.
+
+## Contribuir y gobernar
+
+Lee [CONTRIBUTING.md](CONTRIBUTING.md), el [contrato de activos](docs/CONTRIBUTING_ASSETS.md), la [gobernanza](GOVERNANCE.md) y el [código de conducta](CODE_OF_CONDUCT.md). Toda contribución debe:
 
 - ubicarse en un dominio claro;
 - aportar un resultado reusable;
@@ -108,15 +113,15 @@ Lee [cómo contribuir activos](docs/CONTRIBUTING_ASSETS.md). Toda contribución 
 - actualizar índices y changelog;
 - pasar las [validaciones documentales](docs/agent/TESTS.md).
 
-La [estrategia integral](docs/AI_ENGINEERING_FRAMEWORK_STRATEGY.md), la [evolución de la biblioteca](docs/REPOSITORY_EVOLUTION.md) y el [roadmap](docs/ROADMAP.md) documentan el rumbo del proyecto.
+La [estrategia integral](docs/AI_ENGINEERING_FRAMEWORK_STRATEGY.md), el [plan de implementación v3](docs/V3_IMPLEMENTATION_PLAN.md) y el [roadmap hasta v5](docs/ROADMAP.md) documentan el rumbo. Para soporte consulta [SUPPORT.md](SUPPORT.md); para reportes de seguridad, [SECURITY.md](SECURITY.md).
 
 ## Uso con agentes
 
-Los agentes deben leer [AGENTS.md](AGENTS.md) antes de trabajar. `CLAUDE.md`, `GEMINI.md` y `.github/copilot-instructions.md` son adaptadores opcionales; el conocimiento canónico no depende de ellos.
+Los agentes deben leer [AGENTS.md](AGENTS.md) antes de trabajar. La [matriz de compatibilidad](docs/AGENT_COMPATIBILITY.md) distingue soporte universal basado en Markdown de autodetección nativa. `CLAUDE.md`, `GEMINI.md` y `.github/copilot-instructions.md` son adaptadores opcionales; el conocimiento canónico no depende de ellos.
 
 ## Sitio estático
 
-GitHub Pages sirve [`index.html`](index.html), [`assets/`](assets/) y [`pages/`](pages/) directamente desde la raíz. No existe build system.
+GitHub Pages sirve [`index.html`](index.html), [`assets/`](assets/), [`pages/`](pages/) y el Markdown canónico directamente desde la raíz. El portal ofrece búsqueda, filtros, URLs compartibles por activo, lectura Markdown, copia y descarga sin runtime ni build de producción.
 
 ## Versionado y licencia
 

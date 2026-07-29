@@ -1,0 +1,42 @@
+name: Validate framework
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: validate-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    name: Documentation and portal quality
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Use Node.js 24
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+
+      - name: Validate catalog, links and source
+        run: npm run validate
+
+      - name: Run unit tests
+        run: npm test
+
+      - name: Smoke-test GitHub Pages paths
+        run: npm run smoke
+
+      - name: Calculate AI Repository Score
+        run: npm run score

@@ -1,29 +1,20 @@
-# Guía para Gemini
+# Adaptador para Gemini
 
-Esta guía resume cómo usar Gemini con el estándar **agents-first** de este repositorio sin depender de tecnologías o estructuras específicas.
+Este archivo no reemplaza [`AGENTS.md`](AGENTS.md) ni garantiza que una versión concreta de Gemini lo descubra automáticamente.
 
-## Uso Recomendado
+## Contexto que debes proporcionar
 
-1. Copia el prompt maestro desde `prompts/agents-first-documentation-review.prompt.md`.
-2. Entrégalo a Gemini junto con acceso al repositorio objetivo.
-3. Pide que use su ventana de contexto para leer la documentación existente antes de proponer cambios.
-4. Solicita un plan explícito antes de modificar o eliminar archivos.
+1. `AGENTS.md` y los documentos prioritarios que enlaza.
+2. El activo elegido desde [`library/README.md`](library/README.md) o el [prompt maestro](prompts/agents-first-documentation-review.prompt.md).
+3. Acceso al repositorio y alcance explícito de la tarea.
 
-## Instrucciones Útiles
+## Contrato
 
-- Pide que separe evidencia local de inferencias.
-- Solicita tablas de clasificación documental cuando el repositorio tenga muchos archivos Markdown.
-- Para monorepos, pide que detecte servicios, paquetes o módulos antes de escribir documentos globales.
-- Si existen diagramas o contratos, puede proponer Mermaid o tablas, pero solo con información verificable.
+- Leer antes de modificar.
+- Separar evidencia, inferencias y pendientes.
+- Presentar plan antes de cambios relevantes.
+- No inventar stack, comandos, compatibilidad ni resultados.
+- Solicitar aprobación para acciones sensibles.
+- Validar y entregar evidencia reproducible.
 
-## Buenas Prácticas
-
-- No uses plantillas de stack antes de que Gemini detecte el stack real.
-- Mantén los documentos generados breves en la entrada y detallados en `docs/agent/`.
-- Revisa manualmente cualquier propuesta de eliminación o reestructuración sensible.
-
-## Resultado Esperado
-
-Gemini debería producir una estructura documental navegable, segura y mantenible, con comandos reales y pendientes explícitos cuando falte información.
-
-Para tareas especializadas, selecciona primero un activo desde [`library/README.md`](library/README.md). El catálogo canónico no depende de Gemini.
+No existe una diferencia funcional adicional verificada para Gemini. Consulta la [matriz de compatibilidad](docs/AGENT_COMPATIBILITY.md) antes de agregar instrucciones específicas de versión o producto.

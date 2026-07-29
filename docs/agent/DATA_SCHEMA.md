@@ -26,17 +26,32 @@ Este repositorio no tiene base de datos, API propia ni modelos persistentes. Aun
 ### Activo del Catálogo
 
 - **Ubicación:** `library/domains/<dominio>/<tipo>/`.
-- **Tipos:** prompt, skill, template, checklist, playbook, pattern, anti-pattern y reference.
+- **Tipos:** taxonomía extensible declarada en `typeDefinitions`, que incluye prompts, skills, hooks, subagentes, integraciones MCP, playbooks, checklists, templates, ADR, patrones, anti-patrones, runbooks, casos, referencias y formatos educativos.
 - **Identidad:** ID estable `<dominio>.<slug>` en front matter.
-- **Índice:** `library/catalog.json`, actualmente schema v2.
-- **Descubrimiento:** título, resumen, dificultad, tags, dominio, tipo y ruta.
+- **Índice:** `library/catalog.json`, schema v3 validado por `library/schema/catalog-v3.schema.json`.
+- **Descubrimiento:** identidad, clasificación, dificultad, compatibilidad, relaciones, contrato, mantenimiento, casos de uso y ruta.
 - **Regla de compatibilidad:** estados y versiones siguen `PROMPT_VERSIONING.md`.
+
+El Markdown es la fuente canónica. El catálogo proyecta metadatos para el portal y automatizaciones; no sustituye el cuerpo del activo.
+
+### Ruta de Aprendizaje
+
+- **Ubicación:** `learningPaths` en `library/catalog.json`.
+- **Identidad:** ID estable y legible.
+- **Contrato:** título, resumen y secuencia ordenada de IDs existentes.
+- **Regla:** una ruta no duplica el activo ni crea dependencias implícitas; solo propone un orden pedagógico.
+
+### Relación entre Activos
+
+- `dependencies`: requisitos explícitos para aplicar el activo.
+- `related`: conocimiento complementario sin relación de ejecución obligatoria.
+- Toda referencia apunta a un ID existente y se valida automáticamente.
 
 ### Página Estática
 
 - **Ubicación:** `index.html`, carpeta `assets/` (CSS/JS) y carpeta `pages/` (HTML).
-- **Propósito:** presentar la biblioteca y permitir copiar activos canónicos.
-- **Regla:** debe funcionar sin build system.
+- **Propósito:** presentar, buscar, filtrar, enlazar, copiar y descargar activos canónicos.
+- **Regla:** debe funcionar sin build de producción y resolver correctamente el subdirectorio de GitHub Pages.
 
 ## Contratos de Contenido
 
@@ -60,6 +75,11 @@ El prompt debe conservar estas secciones conceptuales:
 
 ## Migraciones
 
-No hay migraciones de datos.
+No hay migraciones de base de datos. Los cambios de schema del catálogo sí requieren:
 
-Los cambios de estructura documental deben registrarse como cambios de versión y reflejarse en README, AGENTS y la página estática cuando afecten la experiencia pública.
+1. ADR cuando cambie el contrato arquitectónico;
+2. actualización del JSON Schema, catálogo, portal y validadores;
+3. versión SemVer y registro en changelog;
+4. conservación explícita o deprecación de campos previos.
+
+Los cambios de estructura documental deben registrarse como cambios de versión y reflejarse en README y la página estática cuando afecten la experiencia pública.

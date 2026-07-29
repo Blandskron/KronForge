@@ -1,86 +1,142 @@
-# Versionado de Activos
+# Lifecycle, Versionado y Compatibilidad
 
-Este documento define el ciclo de vida del prompt maestro y de todos los activos canónicos en `library/`.
+Este documento es la política canónica para versionar, deprecar, mantener compatibilidad y publicar releases del framework, el catálogo, el prompt maestro y los activos.
+
+## Superficies versionadas
+
+| Superficie | Identificador | Fuente |
+|---|---|---|
+| Framework | `MAJOR.MINOR.PATCH` | `library/catalog.json.frameworkVersion` |
+| Schema del catálogo | entero incremental | `library/catalog.json.schemaVersion` |
+| Activo | `MAJOR.MINOR.PATCH` | front matter canónico |
+| Prompt maestro | `MAJOR.MINOR.PATCH` | metadatos y changelog |
+
+La versión global debe coincidir en catálogo, portal, changelog y cualquier texto visible de release. El schema avanza de manera independiente.
 
 ## Versionado semántico
 
-Cada activo declara `version: MAJOR.MINOR.PATCH` en sus metadatos.
-
 ### MAJOR
 
-Cambios incompatibles en entradas, salida, restricciones, fases obligatorias o ruta pública sin transición.
+Cambio incompatible en contratos, rutas públicas, IDs estables, schema o comportamiento obligatorio.
 
 Ejemplos:
 
-- eliminar una fase de aprobación;
-- cambiar el significado de un resultado;
-- retirar un activo estable sin deprecación;
-- alterar de forma incompatible la estructura que un prompt exige crear.
+- retirar una fase de aprobación;
+- reinterpretar entradas o salidas;
+- cambiar el significado de campos existentes;
+- eliminar activos estables sin transición;
+- reorganizar rutas públicas sin migración.
 
 ### MINOR
 
-Capacidades compatibles que amplían el activo.
+Capacidad nueva compatible.
 
 Ejemplos:
 
-- agregar una validación o escenario;
-- incorporar una salida opcional;
-- publicar un activo nuevo;
-- añadir un tipo de activo o dominio sin romper los existentes.
+- agregar un activo, dominio o tipo;
+- añadir campos opcionales con valores por defecto claros;
+- incorporar validaciones o salidas opcionales;
+- ampliar el portal sin romper rutas.
 
 ### PATCH
 
-Correcciones que no cambian el contrato.
+Corrección compatible que no cambia el contrato.
 
 Ejemplos:
 
-- ortografía, claridad o formato;
-- reparación de enlaces;
-- precisión editorial sin nuevas obligaciones.
+- reparar enlaces o navegación;
+- corregir redacción o accesibilidad;
+- ajustar presentación sin alterar contenido canónico;
+- precisar una regla sin agregar obligaciones.
 
-## Versionado del repositorio
+La versión de un activo puede avanzar sin modificar la de todos los demás. La versión global cambia cuando una release publica el conjunto.
 
-El repositorio usa una versión global para releases del catálogo:
+## Estados y madurez
 
-- **MAJOR:** reorganización incompatible, cambio del contrato común o retiro masivo.
-- **MINOR:** dominios, activos o capacidades compatibles.
-- **PATCH:** correcciones editoriales, web o validaciones sin cambio semántico de activos.
+- `draft`: en diseño; puede cambiar sin garantía de compatibilidad.
+- `stable`: apto para reutilización y protegido por esta política.
+- `deprecated`: disponible durante la transición y con reemplazo documentado.
 
-La versión de un activo puede avanzar sin obligar a que todos los demás cambien.
+Un estado no sustituye la versión ni la evidencia de validación.
 
-## Versionado del catálogo
+## Política de compatibilidad
 
-`library/catalog.json` mantiene `schemaVersion` independiente:
+Son superficies estables:
 
-- cambia cuando se agregan, retiran o reinterpretan campos del manifiesto;
-- `frameworkVersion` identifica la release global que publica el catálogo;
-- un cambio incompatible del schema requiere migración documentada;
-- agregar valores compatibles a arrays o nuevos activos no obliga a cambiar el schema.
+- ruta del prompt maestro;
+- IDs y rutas de activos `stable`;
+- campos existentes del schema publicado;
+- hashes y rutas públicas documentadas del portal;
+- contratos obligatorios de prompts, skills y políticas.
 
-## Estados
+Un cambio incompatible requiere:
 
-- `draft`: en diseño; puede cambiar sin compatibilidad.
-- `stable`: apto para reutilización y sujeto a SemVer.
-- `deprecated`: sigue disponible durante la transición y declara su reemplazo.
+1. justificación y alternativas;
+2. ADR cuando sea estructural;
+3. incremento MAJOR;
+4. guía de migración;
+5. actualización coordinada de catálogo, índices, portal y documentación;
+6. aprobación del owner.
 
-## Deprecación
+La compatibilidad de contenido con un agente no garantiza autodetección, permisos ni comportamiento de una herramienta. Consulta [`docs/AGENT_COMPATIBILITY.md`](docs/AGENT_COMPATIBILITY.md).
 
-1. Marca el activo como `deprecated`.
-2. Explica el motivo y enlaza el reemplazo.
-3. Actualiza `related`, índices y `catalog.json`.
-4. Conserva la ruta durante una ventana de transición.
-5. Retira el activo en una versión mayor si la ruta pública se rompe.
+## Política de deprecación
 
-## Proceso de cambio
+1. Cambia el estado a `deprecated`.
+2. Documenta motivo, reemplazo y pasos de migración.
+3. Actualiza `related`, índices, catálogo y changelog.
+4. Conserva ID y ruta durante al menos una release MINOR posterior.
+5. Retira la superficie en una release MAJOR.
+
+Una retirada urgente por riesgo legal o de seguridad requiere decisión explícita del owner, alternativa segura cuando sea posible y registro público sin divulgar detalles sensibles.
+
+No existe una garantía temporal en días porque el proyecto no tiene cadencia fija. La ventana se mide en releases.
+
+## Política de releases
+
+El owner listado en [`MAINTAINERS.md`](MAINTAINERS.md) autoriza la release. La preparación puede delegarse; la publicación no se presume autorizada.
+
+### Preparación
+
+1. Define alcance y versión.
+2. Verifica [Quality Gates](docs/QUALITY_GATES.md).
+3. Sincroniza `frameworkVersion`, versiones de activos, portal y documentación.
+4. Mueve cambios desde `[Unreleased]` a una sección fechada del changelog.
+5. Confirma migraciones, deprecaciones, ADR y roadmap aplicables.
+6. Revisa el diff final y obtiene aprobaciones sensibles.
+
+### Publicación
+
+1. Integra el cambio aprobado en la rama predeterminada.
+2. Crea el tag `vMAJOR.MINOR.PATCH` sobre el commit aprobado.
+3. Verifica GitHub Pages y los activos públicos por HTTP.
+4. Si se publica una GitHub Release, deriva sus notas del changelog; no mantengas dos historiales divergentes.
+
+Las versiones históricas sin tag permanecen como registro documental, pero no establecen por sí solas un precedente para futuras releases.
+
+### Corrección o rollback
+
+Si una release rompe navegación, seguridad o contenido canónico:
+
+- detén promoción adicional;
+- documenta el impacto;
+- revierte de forma segura o publica un PATCH;
+- no reescribas tags o historial remoto sin aprobación explícita.
+
+## Ventana de soporte
+
+La última release estable recibe correcciones. No existe LTS ni soporte garantizado para líneas anteriores salvo declaración explícita en el changelog y `SECURITY.md`.
+
+## Proceso de cambio de un activo
 
 1. Lee el activo, relacionados y reglas del dominio.
-2. Clasifica el cambio.
-3. Actualiza contenido y versión del activo.
-4. Actualiza índice del dominio y `library/catalog.json` cuando aplique.
-5. Registra el cambio en `docs/CHANGELOG.md`.
-6. Ejecuta `docs/agent/TESTS.md`.
-7. Crea un tag solo cuando exista una decisión de release; nunca lo inventes ni lo publiques sin autorización.
+2. Clasifica el cambio y su compatibilidad.
+3. Actualiza contenido, estado y versión.
+4. Alinea índice, catálogo y relaciones.
+5. Registra el cambio notable.
+6. Ejecuta las validaciones reales.
+7. Incluye el activo en una release solo tras la decisión correspondiente.
 
 ## Prompt maestro
 
-`prompts/agents-first-documentation-review.prompt.md` conserva una ruta estable por compatibilidad. Sus cambios de reglas siguen SemVer y requieren una entrada explícita en el changelog. Eliminarlo o moverlo sin transición es un cambio MAJOR y requiere aprobación humana.
+`prompts/agents-first-documentation-review.prompt.md` conserva una ruta estable. Cambios en reglas siguen SemVer y requieren changelog. Eliminarlo, moverlo sin transición o relajar lectura, planificación, seguridad o aprobación es MAJOR y requiere aprobación humana.

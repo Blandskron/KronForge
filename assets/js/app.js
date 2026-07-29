@@ -3,16 +3,23 @@
  * Inicializa todos los componentes al cargar el DOM y reacciona a la carga lazy de páginas.
  */
 
-import { bindSidebar } from './sidebar.js';
-import { bindNavigation, switchTab } from './navigation.js';
-import { bindCopyButtons } from './copy.js';
-import { bindThemeToggle } from './theme.js';
-import { loadFileContent } from './loader.js';
-import { bindCatalogShell, renderDomains, renderLibrary, syncHomeStats } from './catalog.js';
+import { bindSidebar } from './sidebar.js?v=3.0.0-r2';
+import { bindNavigation, switchTab } from './navigation.js?v=3.0.0-r2';
+import { bindCopyButtons } from './copy.js?v=3.0.0-r2';
+import { bindThemeToggle } from './theme.js?v=3.0.0-r2';
+import { loadFileContent } from './loader.js?v=3.0.0-r2';
+import {
+    bindCatalogShell,
+    renderDomains,
+    renderLearningPaths,
+    renderLibrary,
+    syncHomeStats
+} from './catalog-v3.js?v=3.0.0-r2';
+import { parsePortalHash } from './catalog-utils.js?v=3.0.0-r2';
 
 // Módulos inicializados bajo demanda (lazy-loaded pages)
-import { bindTreeView } from './tree.js';
-import { bindModelTabs } from './models.js';
+import { bindTreeView } from './tree.js?v=3.0.0-r2';
+import { bindModelTabs } from './models.js?v=3.0.0-r2';
 
 // Escuchar evento personalizado de navegación lazy
 document.addEventListener('page:loaded', (event) => {
@@ -30,6 +37,12 @@ document.addEventListener('page:loaded', (event) => {
             break;
         case 'library':
             renderLibrary();
+            break;
+        case 'learning':
+            renderLearningPaths();
+            break;
+        case 'roadmap':
+            loadFileContent('docs/ROADMAP.md', 'roadmap-content');
             break;
         case 'contributing':
             loadFileContent('docs/CONTRIBUTING_ASSETS.md', 'contributing-content');
@@ -61,6 +74,10 @@ window.addEventListener('DOMContentLoaded', () => {
     bindThemeToggle();
 
     // Determinar tab inicial por hash (o default a welcome)
-    const initialTab = window.location.hash.replace('#', '') || 'welcome';
-    switchTab(initialTab);
+    const initialRoute = parsePortalHash(window.location.hash);
+    switchTab(initialRoute.routeTab, {
+        assetId: initialRoute.assetId,
+        filters: initialRoute.filters,
+        historyMode: 'none'
+    });
 });

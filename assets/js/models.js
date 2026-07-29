@@ -3,7 +3,7 @@
  * Llamado desde app.js al recibir el evento page:loaded para 'models'.
  */
 
-import { loadFileContent } from './loader.js';
+import { loadFileContent } from './loader.js?v=3.0.0-r2';
 
 const MODEL_CONFIG = {
     claude: {
@@ -19,7 +19,10 @@ const MODEL_CONFIG = {
     copilot: {
         intro: "Instrucciones de contexto para GitHub Copilot dentro de este repositorio.",
         path:  ".github/copilot-instructions.md",
-        file:  ".github/copilot-instructions.md"
+        file:  ".github/copilot-instructions.md",
+        alternatives: [
+            "https://raw.githubusercontent.com/Blandskron/agents-first-repo-docs/main/.github/copilot-instructions.md"
+        ]
     }
 };
 
@@ -41,7 +44,7 @@ export function bindModelTabs() {
             if (path)  path.innerText  = config.path;
             if (download) download.dataset.downloadName = config.file.split('/').at(-1);
 
-            loadFileContent(config.file, 'model-code-display');
+            loadFileContent(config.file, 'model-code-display', {alternatives: config.alternatives});
         });
     });
 

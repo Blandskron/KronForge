@@ -1,0 +1,21 @@
+# Registro de Decisiones Arquitectónicas
+
+Este directorio registra decisiones estructurales reales del framework.
+
+## Estados
+
+- `proposed`: en discusión;
+- `accepted`: vigente;
+- `superseded`: reemplazada por otra decisión;
+- `rejected`: evaluada y no adoptada.
+
+## Índice
+
+| ADR | Estado | Decisión |
+|---|---|---|
+| [ADR-0001](ADR-0001-layered-framework-v3.md) | accepted | Arquitectura v3 por capas y evolución gradual |
+| [ADR-0002](ADR-0002-catalog-v3-projection.md) | accepted | Markdown canónico y catálogo v3 como proyección |
+| [ADR-0003](ADR-0003-zero-dependency-quality-gate.md) | accepted | Quality gate reproducible sin dependencias |
+
+Para una decisión nueva, usa la [plantilla ADR](../../library/domains/architecture/templates/adr.template.md), elimina instrucciones y actualiza este índice.
+

@@ -5,7 +5,7 @@
  * funciona igual en localhost y bajo /agents-first-repo-docs/ en GitHub Pages.
  */
 export const SITE_ROOT = new URL('../../', import.meta.url);
-export const SITE_VERSION = '2.2.0';
+export const SITE_VERSION = '3.0.0';
 
 export function siteUrl(relativePath, versioned = false) {
     const url = new URL(relativePath, SITE_ROOT);

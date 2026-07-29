@@ -1,52 +1,1703 @@
 {
-  "schemaVersion": 2,
-  "frameworkVersion": "2.1.0",
+  "$schema": "schema/catalog-v3.schema.json",
+  "schemaVersion": 3,
+  "frameworkVersion": "3.0.0",
+  "lastUpdated": "2026-07-28",
+  "metadataDefaults": {
+    "author": "@Blandskron/contributors",
+    "license": "MIT",
+    "language": "es",
+    "models": [
+      "any"
+    ],
+    "agents": [
+      "markdown-compatible"
+    ]
+  },
+  "typeDefinitions": [
+    {
+      "id": "prompt",
+      "title": "Prompt",
+      "summary": "Contrato ejecutable para delegar un objetivo acotado a un agente.",
+      "category": "execution",
+      "folder": "prompts",
+      "status": "active"
+    },
+    {
+      "id": "skill",
+      "title": "Skill",
+      "summary": "Capacidad repetible con entradas, restricciones, procedimiento y resultado.",
+      "category": "execution",
+      "folder": "skills",
+      "status": "active"
+    },
+    {
+      "id": "hook",
+      "title": "Hook",
+      "summary": "Automatización observable activada por un evento y con efectos explícitos.",
+      "category": "automation",
+      "folder": "hooks",
+      "status": "supported"
+    },
+    {
+      "id": "subagent",
+      "title": "Subagent",
+      "summary": "Perfil especializado con alcance, autoridad y contrato de entrega.",
+      "category": "execution",
+      "folder": "subagents",
+      "status": "supported"
+    },
+    {
+      "id": "mcp-integration",
+      "title": "MCP integration",
+      "summary": "Integración MCP con capacidades, límites de confianza y permisos declarados.",
+      "category": "integration",
+      "folder": "mcp-integrations",
+      "status": "supported"
+    },
+    {
+      "id": "playbook",
+      "title": "Playbook",
+      "summary": "Proceso por fases con decisiones, validaciones y criterios de salida.",
+      "category": "execution",
+      "folder": "playbooks",
+      "status": "active"
+    },
+    {
+      "id": "checklist",
+      "title": "Checklist",
+      "summary": "Conjunto independiente de controles verificables.",
+      "category": "validation",
+      "folder": "checklists",
+      "status": "active"
+    },
+    {
+      "id": "template",
+      "title": "Template",
+      "summary": "Estructura reutilizable para crear un artefacto consistente.",
+      "category": "creation",
+      "folder": "templates",
+      "status": "active"
+    },
+    {
+      "id": "adr",
+      "title": "ADR",
+      "summary": "Registro de una decisión arquitectónica, su contexto y consecuencias.",
+      "category": "architecture",
+      "folder": "adrs",
+      "status": "supported"
+    },
+    {
+      "id": "pattern",
+      "title": "Pattern",
+      "summary": "Solución reutilizable con contexto, fuerzas y trade-offs.",
+      "category": "knowledge",
+      "folder": "patterns",
+      "status": "active"
+    },
+    {
+      "id": "anti-pattern",
+      "title": "Anti-pattern",
+      "summary": "Práctica perjudicial, sus señales y una alternativa segura.",
+      "category": "knowledge",
+      "folder": "anti-patterns",
+      "status": "active"
+    },
+    {
+      "id": "runbook",
+      "title": "Runbook",
+      "summary": "Procedimiento operativo reproducible para una situación concreta.",
+      "category": "operations",
+      "folder": "runbooks",
+      "status": "supported"
+    },
+    {
+      "id": "case-study",
+      "title": "Case study",
+      "summary": "Caso real con contexto, decisiones, evidencia y resultados.",
+      "category": "learning",
+      "folder": "case-studies",
+      "status": "supported"
+    },
+    {
+      "id": "architecture",
+      "title": "Architecture",
+      "summary": "Descripción integral de componentes, límites, relaciones y decisiones.",
+      "category": "architecture",
+      "folder": "architectures",
+      "status": "supported"
+    },
+    {
+      "id": "architecture-note",
+      "title": "Architecture note",
+      "summary": "Explicación acotada de topología, límites o decisiones de un sistema.",
+      "category": "architecture",
+      "folder": "architecture-notes",
+      "status": "active"
+    },
+    {
+      "id": "reference",
+      "title": "Reference",
+      "summary": "Fuentes primarias seleccionadas con contexto de uso.",
+      "category": "reference",
+      "folder": "references",
+      "status": "active"
+    },
+    {
+      "id": "best-practice",
+      "title": "Best practice",
+      "summary": "Práctica recomendada con alcance, evidencia y límites.",
+      "category": "knowledge",
+      "folder": "best-practices",
+      "status": "supported"
+    },
+    {
+      "id": "example",
+      "title": "Example",
+      "summary": "Aplicación mínima y verificable de un activo o concepto.",
+      "category": "learning",
+      "folder": "examples",
+      "status": "supported"
+    },
+    {
+      "id": "tutorial",
+      "title": "Tutorial",
+      "summary": "Recorrido guiado para completar un resultado mientras se aprende.",
+      "category": "learning",
+      "folder": "tutorials",
+      "status": "supported"
+    },
+    {
+      "id": "guide",
+      "title": "Guide",
+      "summary": "Orientación explicativa para comprender y aplicar un tema.",
+      "category": "learning",
+      "folder": "guides",
+      "status": "supported"
+    },
+    {
+      "id": "roadmap",
+      "title": "Roadmap",
+      "summary": "Secuencia priorizada de resultados y criterios de evolución.",
+      "category": "planning",
+      "folder": "roadmaps",
+      "status": "supported"
+    },
+    {
+      "id": "workflow",
+      "title": "Workflow",
+      "summary": "Flujo coordinado de pasos, decisiones y responsables.",
+      "category": "automation",
+      "folder": "workflows",
+      "status": "supported"
+    },
+    {
+      "id": "recipe",
+      "title": "Recipe",
+      "summary": "Procedimiento breve para resolver un escenario recurrente.",
+      "category": "execution",
+      "folder": "recipes",
+      "status": "supported"
+    },
+    {
+      "id": "snippet",
+      "title": "Snippet",
+      "summary": "Fragmento pequeño y portable con propósito y límites explícitos.",
+      "category": "execution",
+      "folder": "snippets",
+      "status": "supported"
+    },
+    {
+      "id": "evaluation",
+      "title": "Evaluation",
+      "summary": "Método reproducible para evaluar una capacidad o resultado.",
+      "category": "validation",
+      "folder": "evaluations",
+      "status": "supported"
+    },
+    {
+      "id": "benchmark",
+      "title": "Benchmark",
+      "summary": "Medición comparable con dataset, procedimiento y métricas declaradas.",
+      "category": "validation",
+      "folder": "benchmarks",
+      "status": "supported"
+    },
+    {
+      "id": "tool-integration",
+      "title": "Tool integration",
+      "summary": "Adaptador opcional para una herramienta concreta sin acoplar el núcleo.",
+      "category": "integration",
+      "folder": "tool-integrations",
+      "status": "supported"
+    }
+  ],
   "domains": [
-    {"id": "ai-agent-engineering", "title": "IA y agentes", "summary": "Agentes, subagentes, evaluación, memoria, RAG e integración LLM.", "index": "domains/ai-agent-engineering/README.md", "pillar": true},
-    {"id": "context-engineering", "title": "Context Engineering", "summary": "Fuentes, routing, compresión, retrieval y presupuestos de contexto.", "index": "domains/context-engineering/README.md", "pillar": true},
-    {"id": "repository-engineering", "title": "Repository Engineering", "summary": "Repositorios AI-First mantenibles por personas y agentes.", "index": "domains/repository-engineering/README.md", "pillar": true},
-    {"id": "mcp-integration", "title": "MCP e integraciones", "summary": "Clientes, servidores, tools, resources y seguridad MCP.", "index": "domains/mcp-integration/README.md", "pillar": true},
-    {"id": "hooks-workflows", "title": "Hooks y workflows", "summary": "Automatización explícita para tareas, validación y entrega.", "index": "domains/hooks-workflows/README.md", "pillar": true},
-    {"id": "architecture", "title": "Arquitectura", "summary": "Decisiones, estilos, modularidad y evolución de sistemas.", "index": "domains/architecture/README.md", "pillar": false},
-    {"id": "software-development", "title": "Desarrollo de software", "summary": "Backend, frontend, APIs, integración y refactoring.", "index": "domains/software-development/README.md", "pillar": false},
-    {"id": "data", "title": "Datos", "summary": "Modelos, persistencia, migraciones, contratos y pipelines.", "index": "domains/data/README.md", "pillar": false},
-    {"id": "quality-engineering", "title": "Ingeniería de calidad", "summary": "Testing, QA, revisión y criterios verificables de cierre.", "index": "domains/quality-engineering/README.md", "pillar": false},
-    {"id": "security", "title": "Seguridad", "summary": "AppSec, supply chain, secretos, identidad y autorización.", "index": "domains/security/README.md", "pillar": false},
-    {"id": "delivery-platform", "title": "Entrega y plataforma", "summary": "CI/CD, releases, contenedores, cloud e infraestructura.", "index": "domains/delivery-platform/README.md", "pillar": false},
-    {"id": "reliability-performance", "title": "Confiabilidad y performance", "summary": "Observabilidad, resiliencia, incidentes y rendimiento.", "index": "domains/reliability-performance/README.md", "pillar": false},
-    {"id": "experience-accessibility", "title": "Experiencia y accesibilidad", "summary": "UX, UI, accesibilidad, SEO y arquitectura de información.", "index": "domains/experience-accessibility/README.md", "pillar": false},
-    {"id": "product-technical-management", "title": "Producto y gestión técnica", "summary": "Discovery, planificación, RFC, riesgo y liderazgo técnico.", "index": "domains/product-technical-management/README.md", "pillar": false},
-    {"id": "documentation-knowledge", "title": "Documentación y conocimiento", "summary": "Documentación como código, auditoría y gestión del conocimiento.", "index": "domains/documentation-knowledge/README.md", "pillar": false}
+    {
+      "id": "ai-agent-engineering",
+      "title": "IA y agentes",
+      "summary": "Agentes, subagentes, evaluación, memoria, RAG e integración LLM.",
+      "index": "domains/ai-agent-engineering/README.md",
+      "pillar": true
+    },
+    {
+      "id": "context-engineering",
+      "title": "Context Engineering",
+      "summary": "Fuentes, routing, compresión, retrieval y presupuestos de contexto.",
+      "index": "domains/context-engineering/README.md",
+      "pillar": true
+    },
+    {
+      "id": "repository-engineering",
+      "title": "Repository Engineering",
+      "summary": "Repositorios AI-First mantenibles por personas y agentes.",
+      "index": "domains/repository-engineering/README.md",
+      "pillar": true
+    },
+    {
+      "id": "mcp-integration",
+      "title": "MCP e integraciones",
+      "summary": "Clientes, servidores, tools, resources y seguridad MCP.",
+      "index": "domains/mcp-integration/README.md",
+      "pillar": true
+    },
+    {
+      "id": "hooks-workflows",
+      "title": "Hooks y workflows",
+      "summary": "Automatización explícita para tareas, validación y entrega.",
+      "index": "domains/hooks-workflows/README.md",
+      "pillar": true
+    },
+    {
+      "id": "architecture",
+      "title": "Arquitectura",
+      "summary": "Decisiones, estilos, modularidad y evolución de sistemas.",
+      "index": "domains/architecture/README.md",
+      "pillar": false
+    },
+    {
+      "id": "software-development",
+      "title": "Desarrollo de software",
+      "summary": "Backend, frontend, APIs, integración y refactoring.",
+      "index": "domains/software-development/README.md",
+      "pillar": false
+    },
+    {
+      "id": "data",
+      "title": "Datos",
+      "summary": "Modelos, persistencia, migraciones, contratos y pipelines.",
+      "index": "domains/data/README.md",
+      "pillar": false
+    },
+    {
+      "id": "quality-engineering",
+      "title": "Ingeniería de calidad",
+      "summary": "Testing, QA, revisión y criterios verificables de cierre.",
+      "index": "domains/quality-engineering/README.md",
+      "pillar": false
+    },
+    {
+      "id": "security",
+      "title": "Seguridad",
+      "summary": "AppSec, supply chain, secretos, identidad y autorización.",
+      "index": "domains/security/README.md",
+      "pillar": false
+    },
+    {
+      "id": "delivery-platform",
+      "title": "Entrega y plataforma",
+      "summary": "CI/CD, releases, contenedores, cloud e infraestructura.",
+      "index": "domains/delivery-platform/README.md",
+      "pillar": false
+    },
+    {
+      "id": "reliability-performance",
+      "title": "Confiabilidad y performance",
+      "summary": "Observabilidad, resiliencia, incidentes y rendimiento.",
+      "index": "domains/reliability-performance/README.md",
+      "pillar": false
+    },
+    {
+      "id": "experience-accessibility",
+      "title": "Experiencia y accesibilidad",
+      "summary": "UX, UI, accesibilidad, SEO y arquitectura de información.",
+      "index": "domains/experience-accessibility/README.md",
+      "pillar": false
+    },
+    {
+      "id": "product-technical-management",
+      "title": "Producto y gestión técnica",
+      "summary": "Discovery, planificación, RFC, riesgo y liderazgo técnico.",
+      "index": "domains/product-technical-management/README.md",
+      "pillar": false
+    },
+    {
+      "id": "documentation-knowledge",
+      "title": "Documentación y conocimiento",
+      "summary": "Documentación como código, auditoría y gestión del conocimiento.",
+      "index": "domains/documentation-knowledge/README.md",
+      "pillar": false
+    }
   ],
   "assets": [
-    {"id": "ai-agent-engineering.prompt-update", "title": "Actualización de prompt", "summary": "Actualizar un prompt canónico sin degradar su contrato.", "type": "skill", "domain": "ai-agent-engineering", "status": "stable", "difficulty": "intermediate", "tags": ["prompts", "versioning"], "path": "domains/ai-agent-engineering/skills/prompt-update/SKILL.md"},
-    {"id": "ai-agent-engineering.prepare-agents-first", "title": "Preparar un repositorio agents-first", "summary": "Reducir incertidumbre para agentes sin perjudicar la experiencia humana.", "type": "playbook", "domain": "ai-agent-engineering", "status": "stable", "difficulty": "foundation", "tags": ["agents-first", "documentation"], "path": "domains/ai-agent-engineering/playbooks/prepare-agents-first.playbook.md"},
-    {"id": "ai-agent-engineering.subagent-systems", "title": "Sistemas de subagentes", "summary": "Diseñar especialización, autoridad, coordinación y memoria entre agentes.", "type": "architecture-note", "domain": "ai-agent-engineering", "status": "stable", "difficulty": "advanced", "tags": ["agents", "subagents", "coordination"], "path": "domains/ai-agent-engineering/architecture-notes/subagent-systems.architecture-note.md"},
-    {"id": "ai-agent-engineering.subagent-contract", "title": "Delegación por contrato", "summary": "Delegar una subtarea con alcance, autoridad y entrega verificable.", "type": "pattern", "domain": "ai-agent-engineering", "status": "stable", "difficulty": "intermediate", "tags": ["agents", "subagents", "delegation"], "path": "domains/ai-agent-engineering/patterns/subagent-contract.pattern.md"},
-    {"id": "context-engineering.context-layers", "title": "Capas de contexto", "summary": "Separar fuentes, selección, transformación y entrega del contexto.", "type": "architecture-note", "domain": "context-engineering", "status": "stable", "difficulty": "foundation", "tags": ["context", "routing", "retrieval"], "path": "domains/context-engineering/architecture-notes/context-layers.architecture-note.md"},
-    {"id": "context-engineering.progressive-context", "title": "Contexto progresivo", "summary": "Entregar contexto por capas a medida que la tarea demuestra necesitarlo.", "type": "pattern", "domain": "context-engineering", "status": "stable", "difficulty": "intermediate", "tags": ["context", "progressive-disclosure"], "path": "domains/context-engineering/patterns/progressive-context.pattern.md"},
-    {"id": "repository-engineering.design-ai-first-repository", "title": "Diseñar un repositorio AI-First", "summary": "Convertir evidencia del repositorio en una arquitectura operable por personas y agentes.", "type": "playbook", "domain": "repository-engineering", "status": "stable", "difficulty": "intermediate", "tags": ["repository", "agents-first", "context"], "path": "domains/repository-engineering/playbooks/design-ai-first-repository.playbook.md"},
-    {"id": "mcp-integration.mcp-topology", "title": "Topología MCP y límites de confianza", "summary": "Diseñar clientes, servidores y capacidades MCP con autoridad explícita.", "type": "architecture-note", "domain": "mcp-integration", "status": "stable", "difficulty": "foundation", "tags": ["mcp", "tools", "resources"], "path": "domains/mcp-integration/architecture-notes/mcp-topology.architecture-note.md"},
-    {"id": "mcp-integration.mcp-security", "title": "Checklist de seguridad MCP", "summary": "Revisar autoridad, datos y efectos antes de habilitar una integración MCP.", "type": "checklist", "domain": "mcp-integration", "status": "stable", "difficulty": "intermediate", "tags": ["mcp", "security", "permissions"], "path": "domains/mcp-integration/checklists/mcp-security.checklist.md"},
-    {"id": "hooks-workflows.explicit-validation-hook", "title": "Hook de validación explícito", "summary": "Ejecutar controles reproducibles sin ocultar efectos.", "type": "pattern", "domain": "hooks-workflows", "status": "stable", "difficulty": "foundation", "tags": ["hooks", "validation", "automation"], "path": "domains/hooks-workflows/patterns/explicit-validation-hook.pattern.md"},
-    {"id": "architecture.architecture-validation", "title": "Validación de arquitectura", "summary": "Contrastar arquitectura declarada con estructura y dependencias reales.", "type": "prompt", "domain": "architecture", "status": "stable", "difficulty": "advanced", "tags": ["architecture", "validation"], "path": "domains/architecture/prompts/architecture-validation.prompt.md"},
-    {"id": "architecture.adr", "title": "Architecture Decision Record", "summary": "Registrar una decisión arquitectónica, su contexto y consecuencias.", "type": "template", "domain": "architecture", "status": "stable", "difficulty": "foundation", "tags": ["adr", "decisions"], "path": "domains/architecture/templates/adr.template.md"},
-    {"id": "quality-engineering.code-quality-review", "title": "Revisión de calidad de código", "summary": "Evaluar mantenibilidad, duplicación, acoplamiento y deuda técnica.", "type": "prompt", "domain": "quality-engineering", "status": "stable", "difficulty": "intermediate", "tags": ["code-review", "maintainability"], "path": "domains/quality-engineering/prompts/code-quality-review.prompt.md"},
-    {"id": "quality-engineering.definition-of-done-review", "title": "Revisión de Definition of Done", "summary": "Verificar con evidencia si una tarea cumple sus criterios de cierre.", "type": "prompt", "domain": "quality-engineering", "status": "stable", "difficulty": "foundation", "tags": ["definition-of-done", "review"], "path": "domains/quality-engineering/prompts/definition-of-done-review.prompt.md"},
-    {"id": "quality-engineering.functional-qa", "title": "QA funcional", "summary": "Validar flujos y criterios de aceptación observables.", "type": "prompt", "domain": "quality-engineering", "status": "stable", "difficulty": "intermediate", "tags": ["qa", "functional-testing"], "path": "domains/quality-engineering/prompts/functional-qa.prompt.md"},
-    {"id": "quality-engineering.integration-tests", "title": "Tests de integración", "summary": "Diseñar o mejorar pruebas entre módulos y servicios.", "type": "prompt", "domain": "quality-engineering", "status": "stable", "difficulty": "intermediate", "tags": ["testing", "integration-tests"], "path": "domains/quality-engineering/prompts/integration-tests.prompt.md"},
-    {"id": "quality-engineering.regression-qa", "title": "QA de regresión", "summary": "Mapear impacto y producir una validación basada en riesgo.", "type": "prompt", "domain": "quality-engineering", "status": "stable", "difficulty": "intermediate", "tags": ["qa", "regression"], "path": "domains/quality-engineering/prompts/regression-qa.prompt.md"},
-    {"id": "quality-engineering.unit-tests", "title": "Tests unitarios", "summary": "Diseñar pruebas unitarias basadas en la lógica real.", "type": "prompt", "domain": "quality-engineering", "status": "stable", "difficulty": "foundation", "tags": ["testing", "unit-tests"], "path": "domains/quality-engineering/prompts/unit-tests.prompt.md"},
-    {"id": "quality-engineering.pre-merge", "title": "Checklist antes del merge", "summary": "Verificar evidencia mínima antes de integrar un cambio.", "type": "checklist", "domain": "quality-engineering", "status": "stable", "difficulty": "foundation", "tags": ["merge", "quality-gate"], "path": "domains/quality-engineering/checklists/pre-merge.checklist.md"},
-    {"id": "security.security-audit", "title": "Auditoría de ciberseguridad", "summary": "Detectar, clasificar y reportar riesgos sin explotar vulnerabilidades.", "type": "prompt", "domain": "security", "status": "stable", "difficulty": "advanced", "tags": ["appsec", "audit"], "path": "domains/security/prompts/security-audit.prompt.md"},
-    {"id": "security.dependency-vulnerability-audit", "title": "Vulnerabilidades en dependencias", "summary": "Revisar manifiestos y lockfiles con herramientas verificadas.", "type": "prompt", "domain": "security", "status": "stable", "difficulty": "intermediate", "tags": ["dependencies", "supply-chain"], "path": "domains/security/prompts/dependency-vulnerability-audit.prompt.md"},
-    {"id": "security.docker-image-security-audit", "title": "Seguridad de imágenes Docker", "summary": "Revisar Dockerfiles e imágenes sin ejecutar explotación.", "type": "prompt", "domain": "security", "status": "stable", "difficulty": "intermediate", "tags": ["containers", "docker"], "path": "domains/security/prompts/docker-image-security-audit.prompt.md"},
-    {"id": "delivery-platform.release-readiness-review", "title": "Release readiness", "summary": "Determinar si un repositorio está listo para publicar una versión.", "type": "prompt", "domain": "delivery-platform", "status": "stable", "difficulty": "intermediate", "tags": ["release", "delivery"], "path": "domains/delivery-platform/prompts/release-readiness-review.prompt.md"},
-    {"id": "delivery-platform.github-pages-release", "title": "GitHub Pages release", "summary": "Validar un sitio estático antes de publicarlo.", "type": "skill", "domain": "delivery-platform", "status": "stable", "difficulty": "intermediate", "tags": ["github-pages", "release"], "path": "domains/delivery-platform/skills/github-pages-release/SKILL.md"},
-    {"id": "reliability-performance.performance-basic-validation", "title": "Validación básica de performance", "summary": "Identificar riesgos de rendimiento mediante análisis estático.", "type": "prompt", "domain": "reliability-performance", "status": "stable", "difficulty": "intermediate", "tags": ["performance", "static-analysis"], "path": "domains/reliability-performance/prompts/performance-basic-validation.prompt.md"},
-    {"id": "experience-accessibility.accessibility-standards", "title": "Estándares de accesibilidad web", "summary": "Fuentes primarias para diseñar y evaluar accesibilidad web.", "type": "reference", "domain": "experience-accessibility", "status": "stable", "difficulty": "foundation", "tags": ["accessibility", "wcag", "aria"], "path": "domains/experience-accessibility/references/accessibility-standards.references.md"},
-    {"id": "documentation-knowledge.documentation-audit", "title": "Auditoría documental", "summary": "Verificar consistencia, enlaces, seguridad y trazabilidad.", "type": "skill", "domain": "documentation-knowledge", "status": "stable", "difficulty": "intermediate", "tags": ["documentation", "audit"], "path": "domains/documentation-knowledge/skills/documentation-audit/SKILL.md"},
-    {"id": "documentation-knowledge.documentation-as-code", "title": "Documentación como código", "summary": "Mantener documentación versionada, revisable y validable.", "type": "pattern", "domain": "documentation-knowledge", "status": "stable", "difficulty": "foundation", "tags": ["documentation", "governance"], "path": "domains/documentation-knowledge/patterns/documentation-as-code.pattern.md"},
-    {"id": "documentation-knowledge.invented-commands", "title": "Comandos inventados", "summary": "Detectar instrucciones ejecutables sin respaldo local.", "type": "anti-pattern", "domain": "documentation-knowledge", "status": "stable", "difficulty": "foundation", "tags": ["documentation", "safety"], "path": "domains/documentation-knowledge/anti-patterns/invented-commands.anti-pattern.md"}
+    {
+      "id": "ai-agent-engineering.prompt-update",
+      "title": "Actualización de prompt",
+      "summary": "Actualizar un prompt canónico sin degradar su contrato.",
+      "type": "skill",
+      "category": "execution",
+      "domain": "ai-agent-engineering",
+      "status": "stable",
+      "version": "1.0.0",
+      "level": "intermediate",
+      "difficulty": "intermediate",
+      "projects": [
+        "any"
+      ],
+      "compatibility": "model-agnostic",
+      "models": [
+        "any"
+      ],
+      "agents": [
+        "markdown-compatible"
+      ],
+      "language": "es",
+      "author": "@Blandskron/contributors",
+      "license": "MIT",
+      "lastModified": "2026-07-28",
+      "tags": [
+        "prompts",
+        "versioning"
+      ],
+      "dependencies": [],
+      "related": [
+        "documentation-knowledge.documentation-audit"
+      ],
+      "inputs": [],
+      "outputs": [],
+      "examples": [],
+      "estimatedTime": null,
+      "complexity": null,
+      "useCases": [],
+      "path": "domains/ai-agent-engineering/skills/prompt-update/SKILL.md"
+    },
+    {
+      "id": "ai-agent-engineering.prepare-agents-first",
+      "title": "Preparar un repositorio agents-first",
+      "summary": "Reducir incertidumbre para agentes sin perjudicar la experiencia humana.",
+      "type": "playbook",
+      "category": "execution",
+      "domain": "ai-agent-engineering",
+      "status": "stable",
+      "version": "1.0.0",
+      "level": "foundation",
+      "difficulty": "foundation",
+      "projects": [
+        "new",
+        "existing",
+        "legacy",
+        "monorepo"
+      ],
+      "compatibility": "model-agnostic",
+      "models": [
+        "any"
+      ],
+      "agents": [
+        "markdown-compatible"
+      ],
+      "language": "es",
+      "author": "@Blandskron/contributors",
+      "license": "MIT",
+      "lastModified": "2026-07-28",
+      "tags": [
+        "agents-first",
+        "documentation"
+      ],
+      "dependencies": [],
+      "related": [
+        "documentation-knowledge.documentation-audit"
+      ],
+      "inputs": [],
+      "outputs": [],
+      "examples": [],
+      "estimatedTime": null,
+      "complexity": null,
+      "useCases": [],
+      "path": "domains/ai-agent-engineering/playbooks/prepare-agents-first.playbook.md"
+    },
+    {
+      "id": "ai-agent-engineering.subagent-systems",
+      "title": "Sistemas de subagentes",
+      "summary": "Diseñar especialización, autoridad, coordinación y memoria entre agentes.",
+      "type": "architecture-note",
+      "category": "architecture",
+      "domain": "ai-agent-engineering",
+      "status": "stable",
+      "version": "1.0.0",
+      "level": "advanced",
+      "difficulty": "advanced",
+      "projects": [
+        "agent-platform",
+        "complex-repository",
+        "research-workflow"
+      ],
+      "compatibility": "model-agnostic",
+      "models": [
+        "any"
+      ],
+      "agents": [
+        "markdown-compatible"
+      ],
+      "language": "es",
+      "author": "@Blandskron/contributors",
+      "license": "MIT",
+      "lastModified": "2026-07-28",
+      "tags": [
+        "agents",
+        "subagents",
+        "coordination",
+        "memory"
+      ],
+      "dependencies": [],
+      "related": [
+        "ai-agent-engineering.subagent-contract"
+      ],
+      "inputs": [],
+      "outputs": [],
+      "examples": [],
+      "estimatedTime": null,
+      "complexity": null,
+      "useCases": [],
+      "path": "domains/ai-agent-engineering/architecture-notes/subagent-systems.architecture-note.md"
+    },
+    {
+      "id": "ai-agent-engineering.subagent-contract",
+      "title": "Delegación por contrato",
+      "summary": "Delegar una subtarea con alcance, autoridad y entrega verificable.",
+      "type": "pattern",
+      "category": "knowledge",
+      "domain": "ai-agent-engineering",
+      "status": "stable",
+      "version": "1.0.0",
+      "level": "intermediate",
+      "difficulty": "intermediate",
+      "projects": [
+        "agent-platform",
+        "complex-repository",
+        "research-workflow"
+      ],
+      "compatibility": "model-agnostic",
+      "models": [
+        "any"
+      ],
+      "agents": [
+        "markdown-compatible"
+      ],
+      "language": "es",
+      "author": "@Blandskron/contributors",
+      "license": "MIT",
+      "lastModified": "2026-07-28",
+      "tags": [
+        "agents",
+        "subagents",
+        "delegation"
+      ],
+      "dependencies": [],
+      "related": [
+        "ai-agent-engineering.subagent-systems"
+      ],
+      "inputs": [],
+      "outputs": [],
+      "examples": [],
+      "estimatedTime": null,
+      "complexity": null,
+      "useCases": [],
+      "path": "domains/ai-agent-engineering/patterns/subagent-contract.pattern.md"
+    },
+    {
+      "id": "context-engineering.context-layers",
+      "title": "Capas de contexto",
+      "summary": "Separar fuentes, selección, transformación y entrega del contexto.",
+      "type": "architecture-note",
+      "category": "architecture",
+      "domain": "context-engineering",
+      "status": "stable",
+      "version": "1.0.0",
+      "level": "foundation",
+      "difficulty": "foundation",
+      "projects": [
+        "any"
+      ],
+      "compatibility": "model-agnostic",
+      "models": [
+        "any"
+      ],
+      "agents": [
+        "markdown-compatible"
+      ],
+      "language": "es",
+      "author": "@Blandskron/contributors",
+      "license": "MIT",
+      "lastModified": "2026-07-28",
+      "tags": [
+        "context",
+        "routing",
+        "retrieval",
+        "memory"
+      ],
+      "dependencies": [],
+      "related": [
+        "context-engineering.progressive-context"
+      ],
+      "inputs": [],
+      "outputs": [],
+      "examples": [],
+      "estimatedTime": null,
+      "complexity": null,
+      "useCases": [],
+      "path": "domains/context-engineering/architecture-notes/context-layers.architecture-note.md"
+    },
+    {
+      "id": "context-engineering.progressive-context",
+      "title": "Contexto progresivo",
+      "summary": "Entregar contexto por capas a medida que la tarea demuestra necesitarlo.",
+      "type": "pattern",
+      "category": "knowledge",
+      "domain": "context-engineering",
+      "status": "stable",
+      "version": "1.0.0",
+      "level": "intermediate",
+      "difficulty": "intermediate",
+      "projects": [
+        "any"
+      ],
+      "compatibility": "model-agnostic",
+      "models": [
+        "any"
+      ],
+      "agents": [
+        "markdown-compatible"
+      ],
+      "language": "es",
+      "author": "@Blandskron/contributors",
+      "license": "MIT",
+      "lastModified": "2026-07-28",
+      "tags": [
+        "context",
+        "progressive-disclosure",
+        "token-optimization"
+      ],
+      "dependencies": [],
+      "related": [
+        "context-engineering.context-layers"
+      ],
+      "inputs": [],
+      "outputs": [],
+      "examples": [],
+      "estimatedTime": null,
+      "complexity": null,
+      "useCases": [],
+      "path": "domains/context-engineering/patterns/progressive-context.pattern.md"
+    },
+    {
+      "id": "repository-engineering.design-ai-first-repository",
+      "title": "Diseñar un repositorio AI-First",
+      "summary": "Convertir evidencia del repositorio en una arquitectura operable por personas y agentes.",
+      "type": "playbook",
+      "category": "execution",
+      "domain": "repository-engineering",
+      "status": "stable",
+      "version": "1.0.0",
+      "level": "intermediate",
+      "difficulty": "intermediate",
+      "projects": [
+        "new",
+        "existing",
+        "legacy",
+        "monorepo"
+      ],
+      "compatibility": "model-agnostic",
+      "models": [
+        "any"
+      ],
+      "agents": [
+        "markdown-compatible"
+      ],
+      "language": "es",
+      "author": "@Blandskron/contributors",
+      "license": "MIT",
+      "lastModified": "2026-07-28",
+      "tags": [
+        "repository",
+        "agents-first",
+        "documentation",
+        "context"
+      ],
+      "dependencies": [],
+      "related": [
+        "ai-agent-engineering.prepare-agents-first",
+        "context-engineering.progressive-context",
+        "documentation-knowledge.documentation-audit"
+      ],
+      "inputs": [],
+      "outputs": [],
+      "examples": [],
+      "estimatedTime": null,
+      "complexity": null,
+      "useCases": [],
+      "path": "domains/repository-engineering/playbooks/design-ai-first-repository.playbook.md"
+    },
+    {
+      "id": "mcp-integration.mcp-topology",
+      "title": "Topología MCP y límites de confianza",
+      "summary": "Diseñar clientes, servidores y capacidades MCP con autoridad explícita.",
+      "type": "architecture-note",
+      "category": "architecture",
+      "domain": "mcp-integration",
+      "status": "stable",
+      "version": "1.0.0",
+      "level": "foundation",
+      "difficulty": "foundation",
+      "projects": [
+        "ai-application",
+        "agent-platform",
+        "developer-tool"
+      ],
+      "compatibility": "protocol-oriented",
+      "models": [
+        "any"
+      ],
+      "agents": [
+        "markdown-compatible"
+      ],
+      "language": "es",
+      "author": "@Blandskron/contributors",
+      "license": "MIT",
+      "lastModified": "2026-07-28",
+      "tags": [
+        "mcp",
+        "tools",
+        "resources",
+        "security"
+      ],
+      "dependencies": [],
+      "related": [
+        "mcp-integration.mcp-security"
+      ],
+      "inputs": [],
+      "outputs": [],
+      "examples": [],
+      "estimatedTime": null,
+      "complexity": null,
+      "useCases": [],
+      "path": "domains/mcp-integration/architecture-notes/mcp-topology.architecture-note.md"
+    },
+    {
+      "id": "mcp-integration.mcp-security",
+      "title": "Checklist de seguridad MCP",
+      "summary": "Revisar autoridad, datos y efectos antes de habilitar una integración MCP.",
+      "type": "checklist",
+      "category": "validation",
+      "domain": "mcp-integration",
+      "status": "stable",
+      "version": "1.0.0",
+      "level": "intermediate",
+      "difficulty": "intermediate",
+      "projects": [
+        "ai-application",
+        "agent-platform",
+        "developer-tool"
+      ],
+      "compatibility": "protocol-oriented",
+      "models": [
+        "any"
+      ],
+      "agents": [
+        "markdown-compatible"
+      ],
+      "language": "es",
+      "author": "@Blandskron/contributors",
+      "license": "MIT",
+      "lastModified": "2026-07-28",
+      "tags": [
+        "mcp",
+        "security",
+        "permissions"
+      ],
+      "dependencies": [],
+      "related": [
+        "mcp-integration.mcp-topology",
+        "security.security-audit"
+      ],
+      "inputs": [],
+      "outputs": [],
+      "examples": [],
+      "estimatedTime": null,
+      "complexity": null,
+      "useCases": [],
+      "path": "domains/mcp-integration/checklists/mcp-security.checklist.md"
+    },
+    {
+      "id": "hooks-workflows.explicit-validation-hook",
+      "title": "Hook de validación explícito",
+      "summary": "Ejecutar controles reproducibles sin ocultar efectos ni alterar el resultado validado.",
+      "type": "pattern",
+      "category": "knowledge",
+      "domain": "hooks-workflows",
+      "status": "stable",
+      "version": "1.0.0",
+      "level": "foundation",
+      "difficulty": "foundation",
+      "projects": [
+        "any"
+      ],
+      "compatibility": "tool-agnostic",
+      "models": [
+        "any"
+      ],
+      "agents": [
+        "markdown-compatible"
+      ],
+      "language": "es",
+      "author": "@Blandskron/contributors",
+      "license": "MIT",
+      "lastModified": "2026-07-28",
+      "tags": [
+        "hooks",
+        "validation",
+        "automation"
+      ],
+      "dependencies": [],
+      "related": [
+        "quality-engineering.pre-merge"
+      ],
+      "inputs": [],
+      "outputs": [],
+      "examples": [],
+      "estimatedTime": null,
+      "complexity": null,
+      "useCases": [],
+      "path": "domains/hooks-workflows/patterns/explicit-validation-hook.pattern.md"
+    },
+    {
+      "id": "architecture.architecture-validation",
+      "title": "Validación de arquitectura",
+      "summary": "Contrastar la arquitectura declarada con la estructura y dependencias reales.",
+      "type": "prompt",
+      "category": "execution",
+      "domain": "architecture",
+      "status": "stable",
+      "version": "1.0.0",
+      "level": "advanced",
+      "difficulty": "advanced",
+      "projects": [
+        "any"
+      ],
+      "compatibility": "model-agnostic",
+      "models": [
+        "any"
+      ],
+      "agents": [
+        "markdown-compatible"
+      ],
+      "language": "es",
+      "author": "@Blandskron/contributors",
+      "license": "MIT",
+      "lastModified": "2026-07-28",
+      "tags": [
+        "architecture",
+        "validation"
+      ],
+      "dependencies": [],
+      "related": [
+        "architecture.adr"
+      ],
+      "inputs": [],
+      "outputs": [],
+      "examples": [],
+      "estimatedTime": null,
+      "complexity": null,
+      "useCases": [],
+      "path": "domains/architecture/prompts/architecture-validation.prompt.md"
+    },
+    {
+      "id": "architecture.adr",
+      "title": "Architecture Decision Record",
+      "summary": "Registrar una decisión arquitectónica, su contexto y consecuencias.",
+      "type": "template",
+      "category": "creation",
+      "domain": "architecture",
+      "status": "stable",
+      "version": "1.0.0",
+      "level": "foundation",
+      "difficulty": "foundation",
+      "projects": [
+        "any"
+      ],
+      "compatibility": "model-agnostic",
+      "models": [
+        "any"
+      ],
+      "agents": [
+        "markdown-compatible"
+      ],
+      "language": "es",
+      "author": "@Blandskron/contributors",
+      "license": "MIT",
+      "lastModified": "2026-07-28",
+      "tags": [
+        "adr",
+        "decisions"
+      ],
+      "dependencies": [],
+      "related": [
+        "architecture.architecture-validation"
+      ],
+      "inputs": [],
+      "outputs": [],
+      "examples": [],
+      "estimatedTime": null,
+      "complexity": null,
+      "useCases": [],
+      "path": "domains/architecture/templates/adr.template.md"
+    },
+    {
+      "id": "quality-engineering.code-quality-review",
+      "title": "Revisión de calidad de código",
+      "summary": "Evaluar mantenibilidad, duplicación, acoplamiento y deuda técnica.",
+      "type": "prompt",
+      "category": "execution",
+      "domain": "quality-engineering",
+      "status": "stable",
+      "version": "1.0.0",
+      "level": "intermediate",
+      "difficulty": "intermediate",
+      "projects": [
+        "any"
+      ],
+      "compatibility": "model-agnostic",
+      "models": [
+        "any"
+      ],
+      "agents": [
+        "markdown-compatible"
+      ],
+      "language": "es",
+      "author": "@Blandskron/contributors",
+      "license": "MIT",
+      "lastModified": "2026-07-28",
+      "tags": [
+        "code-review",
+        "maintainability"
+      ],
+      "dependencies": [],
+      "related": [
+        "quality-engineering.definition-of-done-review"
+      ],
+      "inputs": [],
+      "outputs": [],
+      "examples": [],
+      "estimatedTime": null,
+      "complexity": null,
+      "useCases": [],
+      "path": "domains/quality-engineering/prompts/code-quality-review.prompt.md"
+    },
+    {
+      "id": "quality-engineering.definition-of-done-review",
+      "title": "Revisión de Definition of Done",
+      "summary": "Verificar con evidencia si una tarea cumple sus criterios de cierre.",
+      "type": "prompt",
+      "category": "execution",
+      "domain": "quality-engineering",
+      "status": "stable",
+      "version": "1.0.0",
+      "level": "foundation",
+      "difficulty": "foundation",
+      "projects": [
+        "any"
+      ],
+      "compatibility": "model-agnostic",
+      "models": [
+        "any"
+      ],
+      "agents": [
+        "markdown-compatible"
+      ],
+      "language": "es",
+      "author": "@Blandskron/contributors",
+      "license": "MIT",
+      "lastModified": "2026-07-28",
+      "tags": [
+        "definition-of-done",
+        "review"
+      ],
+      "dependencies": [],
+      "related": [
+        "quality-engineering.pre-merge"
+      ],
+      "inputs": [],
+      "outputs": [],
+      "examples": [],
+      "estimatedTime": null,
+      "complexity": null,
+      "useCases": [],
+      "path": "domains/quality-engineering/prompts/definition-of-done-review.prompt.md"
+    },
+    {
+      "id": "quality-engineering.functional-qa",
+      "title": "QA funcional",
+      "summary": "Validar flujos y criterios de aceptación observables.",
+      "type": "prompt",
+      "category": "execution",
+      "domain": "quality-engineering",
+      "status": "stable",
+      "version": "1.0.0",
+      "level": "intermediate",
+      "difficulty": "intermediate",
+      "projects": [
+        "application",
+        "service",
+        "library"
+      ],
+      "compatibility": "model-agnostic",
+      "models": [
+        "any"
+      ],
+      "agents": [
+        "markdown-compatible"
+      ],
+      "language": "es",
+      "author": "@Blandskron/contributors",
+      "license": "MIT",
+      "lastModified": "2026-07-28",
+      "tags": [
+        "qa",
+        "functional-testing"
+      ],
+      "dependencies": [],
+      "related": [
+        "quality-engineering.regression-qa"
+      ],
+      "inputs": [],
+      "outputs": [],
+      "examples": [],
+      "estimatedTime": null,
+      "complexity": null,
+      "useCases": [],
+      "path": "domains/quality-engineering/prompts/functional-qa.prompt.md"
+    },
+    {
+      "id": "quality-engineering.integration-tests",
+      "title": "Tests de integración",
+      "summary": "Diseñar o mejorar pruebas entre módulos y servicios con evidencia local.",
+      "type": "prompt",
+      "category": "execution",
+      "domain": "quality-engineering",
+      "status": "stable",
+      "version": "1.0.0",
+      "level": "intermediate",
+      "difficulty": "intermediate",
+      "projects": [
+        "application",
+        "service",
+        "library",
+        "monorepo"
+      ],
+      "compatibility": "model-agnostic",
+      "models": [
+        "any"
+      ],
+      "agents": [
+        "markdown-compatible"
+      ],
+      "language": "es",
+      "author": "@Blandskron/contributors",
+      "license": "MIT",
+      "lastModified": "2026-07-28",
+      "tags": [
+        "testing",
+        "integration-tests"
+      ],
+      "dependencies": [],
+      "related": [
+        "quality-engineering.unit-tests"
+      ],
+      "inputs": [],
+      "outputs": [],
+      "examples": [],
+      "estimatedTime": null,
+      "complexity": null,
+      "useCases": [],
+      "path": "domains/quality-engineering/prompts/integration-tests.prompt.md"
+    },
+    {
+      "id": "quality-engineering.regression-qa",
+      "title": "QA de regresión",
+      "summary": "Mapear impacto y producir una validación de regresión basada en riesgo.",
+      "type": "prompt",
+      "category": "execution",
+      "domain": "quality-engineering",
+      "status": "stable",
+      "version": "1.0.0",
+      "level": "intermediate",
+      "difficulty": "intermediate",
+      "projects": [
+        "any"
+      ],
+      "compatibility": "model-agnostic",
+      "models": [
+        "any"
+      ],
+      "agents": [
+        "markdown-compatible"
+      ],
+      "language": "es",
+      "author": "@Blandskron/contributors",
+      "license": "MIT",
+      "lastModified": "2026-07-28",
+      "tags": [
+        "qa",
+        "regression"
+      ],
+      "dependencies": [],
+      "related": [
+        "quality-engineering.functional-qa"
+      ],
+      "inputs": [],
+      "outputs": [],
+      "examples": [],
+      "estimatedTime": null,
+      "complexity": null,
+      "useCases": [],
+      "path": "domains/quality-engineering/prompts/regression-qa.prompt.md"
+    },
+    {
+      "id": "quality-engineering.unit-tests",
+      "title": "Tests unitarios",
+      "summary": "Diseñar o mejorar pruebas unitarias basadas en la lógica real del repositorio.",
+      "type": "prompt",
+      "category": "execution",
+      "domain": "quality-engineering",
+      "status": "stable",
+      "version": "1.0.0",
+      "level": "foundation",
+      "difficulty": "foundation",
+      "projects": [
+        "application",
+        "service",
+        "library"
+      ],
+      "compatibility": "model-agnostic",
+      "models": [
+        "any"
+      ],
+      "agents": [
+        "markdown-compatible"
+      ],
+      "language": "es",
+      "author": "@Blandskron/contributors",
+      "license": "MIT",
+      "lastModified": "2026-07-28",
+      "tags": [
+        "testing",
+        "unit-tests"
+      ],
+      "dependencies": [],
+      "related": [
+        "quality-engineering.integration-tests"
+      ],
+      "inputs": [],
+      "outputs": [],
+      "examples": [],
+      "estimatedTime": null,
+      "complexity": null,
+      "useCases": [],
+      "path": "domains/quality-engineering/prompts/unit-tests.prompt.md"
+    },
+    {
+      "id": "quality-engineering.pre-merge",
+      "title": "Checklist antes del merge",
+      "summary": "Verificar evidencia mínima antes de integrar un cambio.",
+      "type": "checklist",
+      "category": "validation",
+      "domain": "quality-engineering",
+      "status": "stable",
+      "version": "1.0.0",
+      "level": "foundation",
+      "difficulty": "foundation",
+      "projects": [
+        "any"
+      ],
+      "compatibility": "tool-agnostic",
+      "models": [
+        "any"
+      ],
+      "agents": [
+        "markdown-compatible"
+      ],
+      "language": "es",
+      "author": "@Blandskron/contributors",
+      "license": "MIT",
+      "lastModified": "2026-07-28",
+      "tags": [
+        "merge",
+        "quality-gate"
+      ],
+      "dependencies": [],
+      "related": [
+        "quality-engineering.definition-of-done-review"
+      ],
+      "inputs": [],
+      "outputs": [],
+      "examples": [],
+      "estimatedTime": null,
+      "complexity": null,
+      "useCases": [],
+      "path": "domains/quality-engineering/checklists/pre-merge.checklist.md"
+    },
+    {
+      "id": "security.security-audit",
+      "title": "Auditoría de ciberseguridad",
+      "summary": "Detectar, clasificar y reportar riesgos sin explotar vulnerabilidades.",
+      "type": "prompt",
+      "category": "execution",
+      "domain": "security",
+      "status": "stable",
+      "version": "1.0.0",
+      "level": "advanced",
+      "difficulty": "advanced",
+      "projects": [
+        "application",
+        "service",
+        "infrastructure",
+        "library"
+      ],
+      "compatibility": "model-agnostic",
+      "models": [
+        "any"
+      ],
+      "agents": [
+        "markdown-compatible"
+      ],
+      "language": "es",
+      "author": "@Blandskron/contributors",
+      "license": "MIT",
+      "lastModified": "2026-07-28",
+      "tags": [
+        "appsec",
+        "audit"
+      ],
+      "dependencies": [],
+      "related": [
+        "security.dependency-vulnerability-audit"
+      ],
+      "inputs": [],
+      "outputs": [],
+      "examples": [],
+      "estimatedTime": null,
+      "complexity": null,
+      "useCases": [],
+      "path": "domains/security/prompts/security-audit.prompt.md"
+    },
+    {
+      "id": "security.dependency-vulnerability-audit",
+      "title": "Auditoría de vulnerabilidades en dependencias",
+      "summary": "Revisar manifiestos y lockfiles con herramientas verificadas del proyecto.",
+      "type": "prompt",
+      "category": "execution",
+      "domain": "security",
+      "status": "stable",
+      "version": "1.0.0",
+      "level": "intermediate",
+      "difficulty": "intermediate",
+      "projects": [
+        "application",
+        "service",
+        "library",
+        "infrastructure"
+      ],
+      "compatibility": "model-agnostic",
+      "models": [
+        "any"
+      ],
+      "agents": [
+        "markdown-compatible"
+      ],
+      "language": "es",
+      "author": "@Blandskron/contributors",
+      "license": "MIT",
+      "lastModified": "2026-07-28",
+      "tags": [
+        "dependencies",
+        "supply-chain"
+      ],
+      "dependencies": [],
+      "related": [
+        "security.security-audit"
+      ],
+      "inputs": [],
+      "outputs": [],
+      "examples": [],
+      "estimatedTime": null,
+      "complexity": null,
+      "useCases": [],
+      "path": "domains/security/prompts/dependency-vulnerability-audit.prompt.md"
+    },
+    {
+      "id": "security.docker-image-security-audit",
+      "title": "Auditoría de seguridad de imágenes Docker",
+      "summary": "Revisar Dockerfiles e imágenes sin inventar herramientas ni ejecutar explotación.",
+      "type": "prompt",
+      "category": "execution",
+      "domain": "security",
+      "status": "stable",
+      "version": "1.0.0",
+      "level": "intermediate",
+      "difficulty": "intermediate",
+      "projects": [
+        "containerized-application",
+        "service",
+        "infrastructure"
+      ],
+      "compatibility": "model-agnostic",
+      "models": [
+        "any"
+      ],
+      "agents": [
+        "markdown-compatible"
+      ],
+      "language": "es",
+      "author": "@Blandskron/contributors",
+      "license": "MIT",
+      "lastModified": "2026-07-28",
+      "tags": [
+        "containers",
+        "docker",
+        "supply-chain"
+      ],
+      "dependencies": [],
+      "related": [
+        "security.security-audit"
+      ],
+      "inputs": [],
+      "outputs": [],
+      "examples": [],
+      "estimatedTime": null,
+      "complexity": null,
+      "useCases": [],
+      "path": "domains/security/prompts/docker-image-security-audit.prompt.md"
+    },
+    {
+      "id": "delivery-platform.release-readiness-review",
+      "title": "Revisión de release readiness",
+      "summary": "Determinar si un repositorio está listo para publicar una versión.",
+      "type": "prompt",
+      "category": "execution",
+      "domain": "delivery-platform",
+      "status": "stable",
+      "version": "1.0.0",
+      "level": "intermediate",
+      "difficulty": "intermediate",
+      "projects": [
+        "any"
+      ],
+      "compatibility": "model-agnostic",
+      "models": [
+        "any"
+      ],
+      "agents": [
+        "markdown-compatible"
+      ],
+      "language": "es",
+      "author": "@Blandskron/contributors",
+      "license": "MIT",
+      "lastModified": "2026-07-28",
+      "tags": [
+        "release",
+        "delivery"
+      ],
+      "dependencies": [],
+      "related": [
+        "quality-engineering.definition-of-done-review"
+      ],
+      "inputs": [],
+      "outputs": [],
+      "examples": [],
+      "estimatedTime": null,
+      "complexity": null,
+      "useCases": [],
+      "path": "domains/delivery-platform/prompts/release-readiness-review.prompt.md"
+    },
+    {
+      "id": "delivery-platform.github-pages-release",
+      "title": "GitHub Pages release",
+      "summary": "Validar un sitio estático antes de publicarlo en GitHub Pages.",
+      "type": "skill",
+      "category": "execution",
+      "domain": "delivery-platform",
+      "status": "stable",
+      "version": "1.0.0",
+      "level": "intermediate",
+      "difficulty": "intermediate",
+      "projects": [
+        "static-site",
+        "documentation"
+      ],
+      "compatibility": "tool-agnostic",
+      "models": [
+        "any"
+      ],
+      "agents": [
+        "markdown-compatible"
+      ],
+      "language": "es",
+      "author": "@Blandskron/contributors",
+      "license": "MIT",
+      "lastModified": "2026-07-28",
+      "tags": [
+        "github-pages",
+        "release",
+        "static-site"
+      ],
+      "dependencies": [],
+      "related": [
+        "delivery-platform.release-readiness-review"
+      ],
+      "inputs": [],
+      "outputs": [],
+      "examples": [],
+      "estimatedTime": null,
+      "complexity": null,
+      "useCases": [],
+      "path": "domains/delivery-platform/skills/github-pages-release/SKILL.md"
+    },
+    {
+      "id": "reliability-performance.performance-basic-validation",
+      "title": "Validación básica de performance",
+      "summary": "Identificar riesgos de rendimiento mediante evidencia y análisis estático.",
+      "type": "prompt",
+      "category": "execution",
+      "domain": "reliability-performance",
+      "status": "stable",
+      "version": "1.0.0",
+      "level": "intermediate",
+      "difficulty": "intermediate",
+      "projects": [
+        "application",
+        "service",
+        "library"
+      ],
+      "compatibility": "model-agnostic",
+      "models": [
+        "any"
+      ],
+      "agents": [
+        "markdown-compatible"
+      ],
+      "language": "es",
+      "author": "@Blandskron/contributors",
+      "license": "MIT",
+      "lastModified": "2026-07-28",
+      "tags": [
+        "performance",
+        "static-analysis"
+      ],
+      "dependencies": [],
+      "related": [],
+      "inputs": [],
+      "outputs": [],
+      "examples": [],
+      "estimatedTime": null,
+      "complexity": null,
+      "useCases": [],
+      "path": "domains/reliability-performance/prompts/performance-basic-validation.prompt.md"
+    },
+    {
+      "id": "experience-accessibility.accessibility-standards",
+      "title": "Estándares de accesibilidad web",
+      "summary": "Fuentes primarias para diseñar y evaluar accesibilidad web.",
+      "type": "reference",
+      "category": "reference",
+      "domain": "experience-accessibility",
+      "status": "stable",
+      "version": "1.0.0",
+      "level": "foundation",
+      "difficulty": "foundation",
+      "projects": [
+        "web-application",
+        "website",
+        "design-system"
+      ],
+      "compatibility": "standard-oriented",
+      "models": [
+        "any"
+      ],
+      "agents": [
+        "markdown-compatible"
+      ],
+      "language": "es",
+      "author": "@Blandskron/contributors",
+      "license": "MIT",
+      "lastModified": "2026-07-28",
+      "tags": [
+        "accessibility",
+        "wcag",
+        "aria"
+      ],
+      "dependencies": [],
+      "related": [],
+      "inputs": [],
+      "outputs": [],
+      "examples": [],
+      "estimatedTime": null,
+      "complexity": null,
+      "useCases": [],
+      "path": "domains/experience-accessibility/references/accessibility-standards.references.md"
+    },
+    {
+      "id": "documentation-knowledge.documentation-audit",
+      "title": "Auditoría documental",
+      "summary": "Verificar consistencia, enlaces, seguridad y trazabilidad documental.",
+      "type": "skill",
+      "category": "execution",
+      "domain": "documentation-knowledge",
+      "status": "stable",
+      "version": "1.0.0",
+      "level": "intermediate",
+      "difficulty": "intermediate",
+      "projects": [
+        "any"
+      ],
+      "compatibility": "tool-agnostic",
+      "models": [
+        "any"
+      ],
+      "agents": [
+        "markdown-compatible"
+      ],
+      "language": "es",
+      "author": "@Blandskron/contributors",
+      "license": "MIT",
+      "lastModified": "2026-07-28",
+      "tags": [
+        "documentation",
+        "audit"
+      ],
+      "dependencies": [],
+      "related": [
+        "documentation-knowledge.documentation-as-code"
+      ],
+      "inputs": [],
+      "outputs": [],
+      "examples": [],
+      "estimatedTime": null,
+      "complexity": null,
+      "useCases": [],
+      "path": "domains/documentation-knowledge/skills/documentation-audit/SKILL.md"
+    },
+    {
+      "id": "documentation-knowledge.documentation-as-code",
+      "title": "Documentación como código",
+      "summary": "Mantener documentación versionada, revisable y validable junto al sistema.",
+      "type": "pattern",
+      "category": "knowledge",
+      "domain": "documentation-knowledge",
+      "status": "stable",
+      "version": "1.0.0",
+      "level": "foundation",
+      "difficulty": "foundation",
+      "projects": [
+        "any"
+      ],
+      "compatibility": "tool-agnostic",
+      "models": [
+        "any"
+      ],
+      "agents": [
+        "markdown-compatible"
+      ],
+      "language": "es",
+      "author": "@Blandskron/contributors",
+      "license": "MIT",
+      "lastModified": "2026-07-28",
+      "tags": [
+        "documentation",
+        "governance"
+      ],
+      "dependencies": [],
+      "related": [
+        "documentation-knowledge.documentation-audit"
+      ],
+      "inputs": [],
+      "outputs": [],
+      "examples": [],
+      "estimatedTime": null,
+      "complexity": null,
+      "useCases": [],
+      "path": "domains/documentation-knowledge/patterns/documentation-as-code.pattern.md"
+    },
+    {
+      "id": "documentation-knowledge.invented-commands",
+      "title": "Comandos inventados",
+      "summary": "Detectar y corregir instrucciones ejecutables sin respaldo en el repositorio.",
+      "type": "anti-pattern",
+      "category": "knowledge",
+      "domain": "documentation-knowledge",
+      "status": "stable",
+      "version": "1.0.0",
+      "level": "foundation",
+      "difficulty": "foundation",
+      "projects": [
+        "any"
+      ],
+      "compatibility": "model-agnostic",
+      "models": [
+        "any"
+      ],
+      "agents": [
+        "markdown-compatible"
+      ],
+      "language": "es",
+      "author": "@Blandskron/contributors",
+      "license": "MIT",
+      "lastModified": "2026-07-28",
+      "tags": [
+        "documentation",
+        "safety"
+      ],
+      "dependencies": [],
+      "related": [
+        "documentation-knowledge.documentation-as-code"
+      ],
+      "inputs": [],
+      "outputs": [],
+      "examples": [],
+      "estimatedTime": null,
+      "complexity": null,
+      "useCases": [],
+      "path": "domains/documentation-knowledge/anti-patterns/invented-commands.anti-pattern.md"
+    }
+  ],
+  "learningPaths": [
+    {
+      "id": "prompt-engineering",
+      "title": "Aprender Prompt Engineering",
+      "summary": "Actualizar y gobernar prompts reutilizables sin inventar contexto ni comandos.",
+      "status": "available",
+      "coverage": "introductory",
+      "assets": [
+        "ai-agent-engineering.prompt-update",
+        "documentation-knowledge.invented-commands"
+      ]
+    },
+    {
+      "id": "ai-engineering",
+      "title": "Aprender AI Engineering",
+      "summary": "Conectar repositorios, contexto, subagentes, MCP y validaciones explícitas.",
+      "status": "available",
+      "coverage": "partial",
+      "assets": [
+        "repository-engineering.design-ai-first-repository",
+        "context-engineering.context-layers",
+        "ai-agent-engineering.subagent-systems",
+        "mcp-integration.mcp-topology",
+        "hooks-workflows.explicit-validation-hook"
+      ]
+    },
+    {
+      "id": "agents",
+      "title": "Aprender Agentes",
+      "summary": "Preparar repositorios y contratos de colaboración para agentes especializados.",
+      "status": "available",
+      "coverage": "introductory",
+      "assets": [
+        "ai-agent-engineering.prepare-agents-first",
+        "ai-agent-engineering.subagent-systems",
+        "ai-agent-engineering.subagent-contract"
+      ]
+    },
+    {
+      "id": "mcp",
+      "title": "Aprender MCP",
+      "summary": "Comprender topologías MCP y sus límites de seguridad.",
+      "status": "available",
+      "coverage": "introductory",
+      "assets": [
+        "mcp-integration.mcp-topology",
+        "mcp-integration.mcp-security"
+      ]
+    },
+    {
+      "id": "hooks",
+      "title": "Aprender Hooks",
+      "summary": "Diseñar validaciones activadas por eventos y conectarlas con controles previos al merge.",
+      "status": "available",
+      "coverage": "introductory",
+      "assets": [
+        "hooks-workflows.explicit-validation-hook",
+        "quality-engineering.pre-merge"
+      ]
+    },
+    {
+      "id": "architecture",
+      "title": "Aprender Arquitectura",
+      "summary": "Validar la arquitectura observada y registrar decisiones duraderas.",
+      "status": "available",
+      "coverage": "introductory",
+      "assets": [
+        "architecture.architecture-validation",
+        "architecture.adr"
+      ]
+    },
+    {
+      "id": "github",
+      "title": "Aprender GitHub",
+      "summary": "Publicar el portal estático y evaluar la preparación de una entrega.",
+      "status": "available",
+      "coverage": "introductory",
+      "assets": [
+        "delivery-platform.github-pages-release",
+        "delivery-platform.release-readiness-review"
+      ]
+    },
+    {
+      "id": "devops",
+      "title": "Aprender DevOps",
+      "summary": "Preparar releases, publicar GitHub Pages y revisar imágenes de contenedor.",
+      "status": "available",
+      "coverage": "introductory",
+      "assets": [
+        "delivery-platform.release-readiness-review",
+        "delivery-platform.github-pages-release",
+        "security.docker-image-security-audit"
+      ]
+    },
+    {
+      "id": "testing",
+      "title": "Aprender Testing",
+      "summary": "Recorrer pruebas unitarias, integración, QA funcional, regresión y pre-merge.",
+      "status": "available",
+      "coverage": "partial",
+      "assets": [
+        "quality-engineering.unit-tests",
+        "quality-engineering.integration-tests",
+        "quality-engineering.functional-qa",
+        "quality-engineering.regression-qa",
+        "quality-engineering.pre-merge"
+      ]
+    },
+    {
+      "id": "security",
+      "title": "Aprender Seguridad",
+      "summary": "Auditar aplicación, dependencias, contenedores e integraciones MCP.",
+      "status": "available",
+      "coverage": "partial",
+      "assets": [
+        "security.security-audit",
+        "security.dependency-vulnerability-audit",
+        "security.docker-image-security-audit",
+        "mcp-integration.mcp-security"
+      ]
+    }
   ]
 }

@@ -1,0 +1,17 @@
+{
+  "name": "agents-first-framework",
+  "version": "3.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Controles de calidad sin dependencias para Agents First Framework.",
+  "scripts": {
+    "validate": "node scripts/validate.mjs",
+    "test": "node --test",
+    "smoke": "node scripts/smoke-site.mjs",
+    "score": "node scripts/score.mjs",
+    "quality": "npm run validate && npm test && npm run smoke && npm run score"
+  },
+  "engines": {
+    "node": ">=24"
+  }
+}

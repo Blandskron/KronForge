@@ -1,26 +1,22 @@
 # GitHub Copilot Instructions
 
-Este repositorio contiene una biblioteca de ingeniería asistida por IA, documentación Markdown y una página estática sin build system.
+El contrato canónico vive en [`AGENTS.md`](../AGENTS.md). Este adaptador no lo reemplaza ni garantiza un comportamiento idéntico entre productos o versiones.
 
-## Contexto del Proyecto
+## Contexto local
 
-- El catálogo principal vive en `library/`; el prompt maestro conserva `prompts/agents-first-documentation-review.prompt.md`.
-- El README está orientado a humanos.
-- `AGENTS.md` está orientado a agentes.
-- La página en la raíz (`index.html`), las carpetas `assets/` (CSS/JS) y `pages/` (HTML) presentan el proyecto en GitHub Pages.
+- Biblioteca y catálogo canónicos: `library/`.
+- Prompt maestro estable: `prompts/agents-first-documentation-review.prompt.md`.
+- Operación y validación: `docs/agent/`.
+- Portal estático: `index.html`, `assets/` y `pages/`, sin build.
 
-## Reglas de Generación
+## Reglas
 
-- No asumas frameworks, paquetes ni comandos que no existan en este repositorio.
-- Mantén el prompt maestro universal y agnóstico.
-- Organiza activos por dominio y mantén `library/catalog.json` alineado.
-- Evita duplicar grandes bloques de contenido entre Markdown y JavaScript.
-- Si actualizas un activo o reglas del estándar, actualiza también `docs/CHANGELOG.md`.
-- Conserva HTML, CSS y JS como archivos estáticos simples.
+- Lee el archivo y sus relacionados antes de proponer cambios.
+- No inventes frameworks, comandos, versiones, soporte o resultados.
+- Mantén catálogo, front matter e índices alineados.
+- Enlaza Markdown canónico; no dupliques contenido extenso en HTML o JavaScript.
+- Conserva HTML, CSS y JavaScript nativo.
+- Exige plan y aprobación para cambios incompatibles o sensibles.
+- Verifica enlaces, rutas, Markdown y controles aplicables de `docs/QUALITY_GATES.md`.
 
-## Validación
-
-- Revisa enlaces Markdown internos.
-- Comprueba que no haya rutas a archivos inexistentes.
-- Mantén los bloques de código Markdown correctamente cerrados.
-- No sugieras cambios en licencia, historial Git o estructura mayor sin aprobación humana.
+La cobertura de otros agentes se documenta en [`docs/AGENT_COMPATIBILITY.md`](../docs/AGENT_COMPATIBILITY.md).

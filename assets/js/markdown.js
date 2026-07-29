@@ -14,14 +14,18 @@ function escapeHtml(value = '') {
         .replaceAll("'", '&#039;');
 }
 
-function safeHref(href) {
+function safeHref(href, baseUrl = '') {
     const value = href.trim();
-    return /^(https?:\/\/|mailto:|#|\.{0,2}\/|[a-zA-Z0-9_.-]+(?:\/|$))/i.test(value)
-        ? value
-        : '#';
+    if (!/^(https?:\/\/|mailto:|#|\.{0,2}\/|[a-zA-Z0-9_.-]+(?:\/|$))/i.test(value)) return '#';
+    if (!baseUrl || /^(https?:\/\/|mailto:|#)/i.test(value)) return value;
+    try {
+        return new URL(value, baseUrl).href;
+    } catch {
+        return '#';
+    }
 }
 
-function inlineMarkdown(value = '') {
+function inlineMarkdown(value = '', options = {}) {
     const code = [];
     let text = String(value).replace(/`([^`]+)`/g, (_, content) => {
         const token = `\u0000CODE${code.length}\u0000`;
@@ -31,9 +35,9 @@ function inlineMarkdown(value = '') {
 
     text = escapeHtml(text)
         .replace(/!\[([^\]]*)\]\(([^)\s]+)\)/g, (_, alt, href) =>
-            `<img src="${safeHref(href)}" alt="${alt}" loading="lazy">`)
+            `<img src="${safeHref(href, options.baseUrl)}" alt="${alt}" loading="lazy">`)
         .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (_, label, href) =>
-            `<a href="${safeHref(href)}" target="_blank" rel="noopener">${label}</a>`)
+            `<a href="${safeHref(href, options.baseUrl)}" target="_blank" rel="noopener">${label}</a>`)
         .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
         .replace(/__([^_]+)__/g, '<strong>$1</strong>')
         .replace(/~~([^~]+)~~/g, '<del>$1</del>')
@@ -65,7 +69,7 @@ function isBlockStart(lines, index) {
         || (line.includes('|') && /^\s*\|?\s*:?-{3,}/.test(next));
 }
 
-export function renderMarkdown(source) {
+export function renderMarkdown(source, options = {}) {
     const lines = withoutFrontMatter(source).split('\n');
     const html = [];
 
@@ -86,14 +90,14 @@ export function renderMarkdown(source) {
                 index += 1;
             }
             if (index < lines.length) index += 1;
-            html.push(`<pre><code${language ? ` class="language-${escapeHtml(language)}"` : ''}>${escapeHtml(body.join('\n'))}</code></pre>`);
+            html.push(`<pre tabindex="0" role="region" aria-label="Bloque de código"><code${language ? ` class="language-${escapeHtml(language)}"` : ''}>${escapeHtml(body.join('\n'))}</code></pre>`);
             continue;
         }
 
         const heading = line.match(/^(#{1,6})\s+(.+)$/);
         if (heading) {
             const level = heading[1].length;
-            html.push(`<h${level}>${inlineMarkdown(heading[2])}</h${level}>`);
+            html.push(`<h${level}>${inlineMarkdown(heading[2], options)}</h${level}>`);
             index += 1;
             continue;
         }
@@ -110,7 +114,7 @@ export function renderMarkdown(source) {
                 quote.push(lines[index].replace(/^>\s?/, ''));
                 index += 1;
             }
-            html.push(`<blockquote>${inlineMarkdown(quote.join(' '))}</blockquote>`);
+            html.push(`<blockquote>${inlineMarkdown(quote.join(' '), options)}</blockquote>`);
             continue;
         }
 
@@ -123,7 +127,7 @@ export function renderMarkdown(source) {
                 rows.push(cells(lines[index]));
                 index += 1;
             }
-            html.push(`<div class="table-scroll"><table><thead><tr>${headers.map((cell) => `<th>${inlineMarkdown(cell)}</th>`).join('')}</tr></thead><tbody>${rows.map((row) => `<tr>${row.map((cell) => `<td>${inlineMarkdown(cell)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`);
+            html.push(`<div class="table-scroll" tabindex="0" role="region" aria-label="Tabla desplazable"><table><thead><tr>${headers.map((cell) => `<th>${inlineMarkdown(cell, options)}</th>`).join('')}</tr></thead><tbody>${rows.map((row) => `<tr>${row.map((cell) => `<td>${inlineMarkdown(cell, options)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`);
             continue;
         }
 
@@ -137,8 +141,8 @@ export function renderMarkdown(source) {
                 if (!item || /\d+\./.test(item[1]) !== ordered) break;
                 const task = item[2].match(/^\[([ xX])\]\s+(.+)$/);
                 items.push(task
-                    ? `<li class="task-item"><input type="checkbox" disabled${task[1].toLowerCase() === 'x' ? ' checked' : ''}> ${inlineMarkdown(task[2])}</li>`
-                    : `<li>${inlineMarkdown(item[2])}</li>`);
+                    ? `<li class="task-item"><input type="checkbox" disabled${task[1].toLowerCase() === 'x' ? ' checked' : ''}> ${inlineMarkdown(task[2], options)}</li>`
+                    : `<li>${inlineMarkdown(item[2], options)}</li>`);
                 index += 1;
             }
             html.push(`<${tag}>${items.join('')}</${tag}>`);
@@ -151,16 +155,18 @@ export function renderMarkdown(source) {
             paragraph.push(lines[index].trim());
             index += 1;
         }
-        html.push(`<p>${inlineMarkdown(paragraph.join(' '))}</p>`);
+        html.push(`<p>${inlineMarkdown(paragraph.join(' '), options)}</p>`);
     }
 
     return html.join('');
 }
 
-export function setMarkdownContent(target, source) {
+export function setMarkdownContent(target, source, options = {}) {
     if (!target) return;
     const raw = String(source || '');
     target.dataset.rawMarkdown = raw;
+    target.dataset.loadError = 'false';
+    target.dataset.loadState = 'ready';
     target.classList.add('markdown-body');
-    target.innerHTML = renderMarkdown(raw);
+    target.innerHTML = renderMarkdown(raw, options);
 }

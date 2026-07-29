@@ -9,16 +9,19 @@
  * (onclick="switchTab(...)") funcionen con ES modules.
  */
 
-import { closeSidebar } from './sidebar.js';
-import { siteUrl } from './paths.js';
+import { closeSidebar } from './sidebar.js?v=3.0.0-r2';
+import { siteUrl } from './paths.js?v=3.0.0-r2';
+import { buildPortalHash, parsePortalHash } from './catalog-utils.js?v=3.0.0-r2';
 
 /** Tabs ya cargadas en el DOM. */
 const pageCache = new Set();
+let navigationRequestId = 0;
 const labels = {
     welcome: 'Inicio',
     quickstart: 'Quick Start',
     domains: 'Dominios',
     library: 'Biblioteca',
+    learning: 'Rutas de aprendizaje',
     prompt: 'Prompt principal',
     roadmap: 'Roadmap',
     contributing: 'Contribución',
@@ -33,35 +36,57 @@ const labels = {
  * Activa una tab: actualiza nav, muestra el pane y carga su contenido si aún no está cacheado.
  * @param {string} tabId
  */
-export async function switchTab(tabId) {
-    const aliases = {playbooks: 'library', skills: 'library', prompts: 'library', templates: 'library', patterns: 'library'};
-    tabId = aliases[tabId] || tabId;
+export async function switchTab(tabId, options = {}) {
+    const requestId = ++navigationRequestId;
+    const route = parsePortalHash(`#${tabId}`);
+    const routeTab = options.assetId ? 'library' : route.routeTab;
+    tabId = route.tabId;
     if (!document.getElementById(tabId)) tabId = 'welcome';
     /* ── Actualizar nav items ── */
     document.querySelectorAll('.sidebar-nav .nav-item').forEach((item) => {
         const isLibraryShortcut = item.hasAttribute('data-type');
-        item.classList.toggle('active', item.getAttribute('data-tab') === tabId && !isLibraryShortcut);
+        const active = item.getAttribute('data-tab') === tabId
+            && (route.type ? item.dataset.type === route.type : !isLibraryShortcut);
+        item.classList.toggle('active', active);
+        if (active) item.setAttribute('aria-current', 'page');
+        else item.removeAttribute('aria-current');
     });
 
     /* ── Mostrar pane correcto ── */
     document.querySelectorAll('.tab-pane').forEach((pane) => {
-        pane.classList.toggle('active', pane.id === tabId);
+        const active = pane.id === tabId;
+        pane.classList.toggle('active', active);
+        pane.setAttribute('aria-hidden', String(!active));
     });
 
     /* ── Registrar la navegación para que Atrás/Adelante funcionen ── */
-    if (window.location.hash !== `#${tabId}`) {
-        history.pushState(null, '', `#${tabId}`);
+    const routeFilters = options.filters ?? route.filters;
+    const nextHash = buildPortalHash(routeTab, options.assetId || null, routeFilters);
+    if (options.historyMode !== 'none' && window.location.hash !== nextHash) {
+        const method = options.historyMode === 'replace' ? 'replaceState' : 'pushState';
+        history[method](null, '', nextHash);
     }
 
     /* ── Cargar contenido de la página si no está cacheado ── */
     if (!pageCache.has(tabId)) {
         await loadPage(tabId);
     }
+    if (requestId !== navigationRequestId) return;
 
     const breadcrumb = document.getElementById('breadcrumbs');
     if (breadcrumb) {
         breadcrumb.innerHTML = `<a href="#welcome">Framework</a><i class="fa-solid fa-chevron-right" aria-hidden="true"></i><span>${labels[tabId] || tabId}</span>`;
     }
+
+    document.dispatchEvent(new CustomEvent('route:changed', {
+        detail: {
+            tabId,
+            routeTab,
+            assetId: options.assetId || route.assetId || null,
+            type: route.type,
+            filters: routeFilters
+        }
+    }));
 
     closeSidebar();
 }
@@ -82,6 +107,7 @@ async function loadPage(tabId) {
         section.innerHTML = await res.text();
         pageCache.add(tabId);
         document.dispatchEvent(new CustomEvent('page:loaded', { detail: { tabId } }));
+        return true;
     } catch (err) {
         console.warn(`No se pudo cargar pages/${tabId}.html`, err);
         const pageSource = siteUrl(`pages/${tabId}.html`);
@@ -97,6 +123,7 @@ async function loadPage(tabId) {
                     <a class="btn btn-secondary" href="${pageSource}">Abrir HTML</a>
                 </div>
             </div>`;
+        return false;
     } finally {
         section.removeAttribute('aria-busy');
     }
@@ -107,20 +134,34 @@ export function bindNavigation() {
     document.querySelectorAll('.sidebar-nav .nav-item').forEach((item) => {
         item.addEventListener('click', (event) => {
             event.preventDefault();
-            switchTab(item.getAttribute('data-tab'));
+            const routeTarget = item.getAttribute('href')?.replace(/^#/, '')
+                || item.getAttribute('data-tab');
+            switchTab(routeTarget);
         });
     });
 
     /* Hash navigation desde el back button o links directos */
     window.addEventListener('hashchange', () => {
-        const tab = window.location.hash.replace('#', '') || 'welcome';
-        switchTab(tab);
+        const route = parsePortalHash(window.location.hash);
+        switchTab(route.routeTab, {
+            assetId: route.assetId,
+            filters: route.filters,
+            historyMode: 'none'
+        });
     });
 
-    document.addEventListener('click', (event) => {
+    document.addEventListener('click', async (event) => {
         const retry = event.target.closest('[data-page-retry]');
         if (!retry) return;
-        loadPage(retry.dataset.pageRetry);
+        const tabId = retry.dataset.pageRetry;
+        if (!await loadPage(tabId)) return;
+        const route = parsePortalHash(window.location.hash);
+        if (route.tabId !== tabId) return;
+        await switchTab(route.routeTab, {
+            assetId: route.assetId,
+            filters: route.filters,
+            historyMode: 'none'
+        });
     });
 }
 
