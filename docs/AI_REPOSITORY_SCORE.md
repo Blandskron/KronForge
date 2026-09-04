@@ -26,11 +26,11 @@ Cada dimensión vale 10 puntos y contiene cinco criterios binarios de 2 puntos.
 | Calidad documental | contratos, estándares, auditoría y front matter |
 | Gobernanza | contribución, conducta, ownership y templates |
 | Seguridad | divulgación, límites para agentes y protección de secretos |
-| Automatización | validación, smoke tests, tests, CI y score |
-| Compatibilidad | neutralidad, modelos, agentes y adaptadores |
+| Automatización | validación, smoke tests, tests, CI y verificación de superficies generadas |
+| Compatibilidad | neutralidad, modelos, agentes, adaptadores y conformidad de skills |
 | Reutilización | dominios, tipos, relaciones y contratos |
-| Descubribilidad | búsqueda, filtros, tags, rutas y URLs |
-| Mantenibilidad | ADR, SemVer, changelog, schema y roadmap |
+| Descubribilidad | búsqueda, filtros, tags, `llms.txt` y URLs |
+| Mantenibilidad | ADR, SemVer, changelog, schema y frescura de referencias externas |
 | Escalabilidad | taxonomía, unicidad y separación de fuentes |
 
 ## Niveles
@@ -47,11 +47,16 @@ Cada dimensión vale 10 puntos y contiene cinco criterios binarios de 2 puntos.
 
 - La fórmula vive en `scripts/score.mjs`.
 - Un criterio solo puntúa cuando existe evidencia local verificable.
+- **Un criterio que no puede fallar no se admite.** Comprobar la existencia de un archivo mientras ese archivo se ejecuta, o buscar una cadena que nadie va a borrar, no mide nada. Ver [ADR-0005](adr/ADR-0005-discovery-surface-and-score-calibration.md).
 - Los campos vacíos no cuentan como cobertura.
 - El score puede bajar cuando el contrato se vuelve más exigente.
 - El cálculo ejecuta primero la validación integral. Si falla, conserva el puntaje diagnóstico pero marca `valid: false`, no asigna nivel y termina con error.
 - Un puntaje alto no sustituye revisión humana, seguridad ni pruebas del producto.
 - Los cambios de fórmula se registran mediante ADR y changelog.
+
+## Comparabilidad entre versiones
+
+La fórmula cambió en la entrega `3.2.0`: cuatro criterios que se cumplían por construcción fueron sustituidos por controles que pueden fallar. Los puntajes anteriores y posteriores a ese cambio no son estrictamente comparables. Cada recalibración se registra mediante ADR y changelog.
 
 ## Uso recomendado
 

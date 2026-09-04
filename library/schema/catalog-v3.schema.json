@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://blandskron.github.io/agents-first-repo-docs/library/schema/catalog-v3.schema.json",
   "title": "Agents First Framework catalog schema v3",
-  "description": "Contrato del catálogo materializado desde Markdown canónico para descubrimiento, relaciones y rutas de aprendizaje.",
+  "description": "Contrato del catálogo materializado desde Markdown canónico para descubrimiento, relaciones, frescura de referencias externas y rutas de aprendizaje.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -363,6 +363,9 @@
         "related": {
           "$ref": "#/$defs/assetIdList"
         },
+        "specRefs": {
+          "$ref": "#/$defs/specRefList"
+        },
         "inputs": {
           "$ref": "#/$defs/stringList"
         },
@@ -446,6 +449,39 @@
             }
           ]
         }
+      }
+    },
+    "specRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "spec",
+        "url",
+        "verified"
+      ],
+      "properties": {
+        "spec": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "version": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "url": {
+          "type": "string",
+          "pattern": "^https://"
+        },
+        "verified": {
+          "$ref": "#/$defs/date"
+        }
+      }
+    },
+    "specRefList": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/specRef"
       }
     }
   }

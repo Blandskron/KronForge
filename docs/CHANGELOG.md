@@ -4,6 +4,68 @@ Todos los cambios notables en este proyecto serán documentados en este archivo.
 
 ---
 
+## [3.2.0] - 2026-09-03
+
+### Añadido
+
+- Tres patrones de contexto de horizonte largo: compactación con umbrales de disparo, notas persistentes fuera de la ventana y recuperación bajo demanda mediante identificadores ligeros.
+- Dominio `agent-interoperability` con la architecture note de tarjetas de agente y confianza entre pares —A2A `1.0.0`, tarjetas firmadas y los tres tipos de confianza que suelen confundirse— y la referencia de fronteras entre protocolos.
+- `llms.txt` generado desde el catálogo y verificado por la puerta de calidad, como tercera proyección junto al catálogo y a `skills/`.
+- `scripts/build-llms.mjs` con modo `--check`, y `npm run build` para regenerar ambas superficies.
+- Rutas de aprendizaje «Contexto de horizonte largo» e «Interoperabilidad entre agentes».
+- [ADR-0005](adr/ADR-0005-discovery-surface-and-score-calibration.md) con la decisión sobre superficies generadas y la recalibración del score.
+
+### Modificado
+
+- `ai-agent-engineering.subagent-contract` explica el aislamiento de contexto, que suele ser la razón principal para delegar, y su contrapartida: lo que no entra en la síntesis se pierde.
+- AI Repository Score recalibrado: cuatro criterios que siempre se cumplían se sustituyen por controles que pueden fallar —superficies generadas verificadas, conformidad de skills, `llms.txt` publicado y referencias externas vigentes—.
+- Índices de `context-engineering` y mapa del dominio ampliados con la capa de horizonte largo.
+
+### Compatibilidad
+
+- Se conservan el prompt maestro, `LICENSE`, las rutas públicas existentes y el contrato del catálogo v3.
+- `llms.txt` es una superficie nueva y aditiva.
+- Los criterios retirados del score no cambian la escala: siguen siendo diez dimensiones de diez puntos.
+
+### Versión SemVer
+
+Clasificada como **MINOR**: agrega dominio, activos, superficie de descubrimiento y controles sin romper rutas, IDs ni contratos. La recalibración del score altera la fórmula, que según su propia política puede hacer bajar el puntaje cuando el contrato se vuelve más exigente.
+
+## [3.1.0] - 2026-09-03
+
+### Añadido
+
+- Superficie `skills/` generada desde el Markdown canónico y conforme al formato abierto Agent Skills, para que un cliente compatible pueda descubrir y cargar las skills sin conocer la estructura interna del repositorio.
+- `scripts/build-skills.mjs` con modo `--check`, integrado en la puerta de calidad: la proyección no puede divergir de su fuente.
+- Política de frescura verificable `specRefs` documentada en [SPEC_FRESHNESS.md](SPEC_FRESHNESS.md), con advertencia a los 90 días y bloqueo a los 180 sin re-verificación.
+- Dominio `agent-supply-chain` con architecture note de límites de confianza de una skill, patrón de privilegio mínimo en herramientas, anti-patrón de instrucciones externas no verificadas y checklist OWASP Agentic Skills Top 10.
+- Checklist de conformidad Agent Skills en `ai-agent-engineering`.
+- Ruta de aprendizaje «Confianza en skills».
+- Controles de validación para conformidad del formato, detección de instrucciones remotas en `SKILL.md` (AST05) y frescura de referencias externas.
+- [ADR-0004](adr/ADR-0004-agent-skills-projection-and-spec-freshness.md) con la decisión de proyección y frescura, sus alternativas rechazadas y sus riesgos.
+
+### Modificado
+
+- `mcp-integration.mcp-topology` y `mcp-integration.mcp-security` reescritos contra la revisión `2026-07-28` de la especificación MCP: núcleo sin estado, ausencia de sesión y de intercambio inicial, enrutamiento por encabezados, vigencia y alcance de caché, validación de emisor y ciclo de vida de características.
+- Las tres skills canónicas declaran `license`, `allowed-tools`, `metadata` y `specRefs`, y sus descripciones explican qué hacen y cuándo usarlas según el estándar.
+- `library/catalog.json` publica `specRefs` por activo; el schema v3 acepta el campo de forma aditiva y sin romper consumidores.
+- Matriz de compatibilidad actualizada con la gobernanza de `AGENTS.md` bajo la Agentic AI Foundation y con el soporte de skills por producto.
+- El parser de front matter admite mapas anidados y listas de objetos.
+
+### Eliminado
+
+- Directorios vacíos `skills/` y `.agents/` que quedaban en la raíz sin contenido ni seguimiento en Git.
+
+### Compatibilidad
+
+- Se conservan el prompt maestro, `LICENSE`, las rutas públicas de los activos existentes y el contrato del catálogo v3.
+- `skills/` es una superficie nueva y aditiva; el Markdown de `library/` sigue siendo la fuente de verdad.
+- GitHub Pages continúa publicando HTML, CSS y JavaScript vanilla sin build de producción.
+
+### Versión SemVer
+
+Clasificada como **MINOR**: agrega una superficie distribuible, un dominio, activos y controles sin romper rutas, IDs ni el contrato del catálogo. Los activos MCP suben a **2.0.0** de forma individual porque su contenido describe ahora una revisión distinta de la especificación.
+
 ## [3.0.0] - 2026-07-28
 
 ### Añadido

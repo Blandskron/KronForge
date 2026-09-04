@@ -57,29 +57,89 @@ function parseScalar(value) {
     return trimmed.replace(/^(['"])(.*)\1$/, '$2');
 }
 
+function lineIndent(line) {
+    return line.length - line.trimStart().length;
+}
+
+function parseBlock(lines, start, indent) {
+    let index = start;
+
+    if (index < lines.length && lineIndent(lines[index]) === indent && /^-\s/.test(lines[index].trimStart())) {
+        const items = [];
+        while (index < lines.length) {
+            const line = lines[index];
+            if (!line.trim()) {
+                index += 1;
+                continue;
+            }
+            if (lineIndent(line) !== indent || !/^-\s/.test(line.trimStart())) break;
+
+            const rest = line.trimStart().replace(/^-\s*/, '');
+            if (/^[A-Za-z][A-Za-z0-9_-]*:(?:\s|$)/.test(rest)) {
+                const itemLines = [' '.repeat(indent + 2) + rest];
+                index += 1;
+                while (index < lines.length) {
+                    if (!lines[index].trim()) {
+                        index += 1;
+                        continue;
+                    }
+                    if (lineIndent(lines[index]) < indent + 2) break;
+                    itemLines.push(lines[index]);
+                    index += 1;
+                }
+                items.push(parseBlock(itemLines, 0, indent + 2)[0]);
+            } else {
+                items.push(parseScalar(rest));
+                index += 1;
+            }
+        }
+        return [items, index];
+    }
+
+    const map = {};
+    while (index < lines.length) {
+        const line = lines[index];
+        if (!line.trim() || lineIndent(line) > indent) {
+            index += 1;
+            continue;
+        }
+        if (lineIndent(line) < indent) break;
+
+        const entry = line.trim().match(/^([A-Za-z][A-Za-z0-9_-]*):(?:\s*(.*))?$/);
+        if (!entry) {
+            index += 1;
+            continue;
+        }
+
+        const key = entry[1];
+        const inline = entry[2] ?? '';
+        if (inline.trim() !== '') {
+            map[key] = parseScalar(inline);
+            index += 1;
+            continue;
+        }
+
+        let lookahead = index + 1;
+        while (lookahead < lines.length && !lines[lookahead].trim()) lookahead += 1;
+        if (lookahead < lines.length && lineIndent(lines[lookahead]) > indent) {
+            const [nested, next] = parseBlock(lines, lookahead, lineIndent(lines[lookahead]));
+            map[key] = nested;
+            index = next;
+        } else {
+            map[key] = '';
+            index += 1;
+        }
+    }
+    return [map, index];
+}
+
 export function parseFrontMatter(source) {
     const normalized = String(source).replace(/\r\n?/g, '\n');
     if (!normalized.startsWith('---\n')) return {data: null, body: normalized};
     const end = normalized.indexOf('\n---\n', 4);
     if (end === -1) return {data: null, body: normalized};
 
-    const lines = normalized.slice(4, end).split('\n');
-    const data = {};
-    let activeKey = null;
-
-    for (const line of lines) {
-        const key = line.match(/^([A-Za-z][A-Za-z0-9_-]*):(?:\s*(.*))?$/);
-        if (key) {
-            activeKey = key[1];
-            data[activeKey] = parseScalar(key[2] ?? '');
-            continue;
-        }
-        const item = line.match(/^\s+-\s+(.+)$/);
-        if (item && activeKey) {
-            if (!Array.isArray(data[activeKey])) data[activeKey] = [];
-            data[activeKey].push(parseScalar(item[1]));
-        }
-    }
+    const [data] = parseBlock(normalized.slice(4, end).split('\n'), 0, 0);
     return {data, body: normalized.slice(end + 5)};
 }
 

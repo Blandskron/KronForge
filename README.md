@@ -2,7 +2,9 @@
 
 Plataforma documental abierta de AI Engineering para diseñar contexto, repositorios, agentes y software verificable mediante conocimiento reutilizable.
 
-La versión **3.0.0** organiza el proyecto como framework por capas, con catálogo machine-readable, contratos editoriales, rutas de aprendizaje, gobierno OSS y controles de calidad reproducibles. Sigue siendo agnóstico al modelo, proveedor y stack: la compatibilidad depende de Markdown y de instrucciones explícitas, no de una API propietaria.
+La versión **3.2.0** organiza el proyecto como framework por capas, con catálogo machine-readable, contratos editoriales, rutas de aprendizaje, gobierno OSS y controles de calidad reproducibles. Sigue siendo agnóstico al modelo, proveedor y stack: la compatibilidad depende de Markdown y de instrucciones explícitas, no de una API propietaria.
+
+El Markdown de `library/` es la única fuente de verdad. De ella se generan y verifican tres proyecciones: el [catálogo](library/catalog.json), las [skills distribuibles](skills/README.md) en formato abierto Agent Skills y [`llms.txt`](llms.txt) como puerta de entrada para agentes. Todo activo que cite una fuente externa declara su versión y su fecha de verificación bajo la [política de frescura](docs/SPEC_FRESHNESS.md).
 
 El flujo operativo se mantiene simple: **Copiar -> Pegar -> Auditar -> Aprobar -> Aplicar**.
 
@@ -44,6 +46,8 @@ No es una colección masiva de prompts, un runtime ni una metodología prescript
 | [Context Engineering](library/domains/context-engineering/README.md) | capas, routing, compresión y retrieval |
 | [Repository Engineering](library/domains/repository-engineering/README.md) | repositorios AI-First y contexto mantenible |
 | [MCP e integraciones](library/domains/mcp-integration/README.md) | tools, resources, clientes, servidores y seguridad |
+| [Cadena de suministro de agentes](library/domains/agent-supply-chain/README.md) | confianza, procedencia, privilegio mínimo y revisión de skills |
+| [Interoperabilidad entre agentes](library/domains/agent-interoperability/README.md) | A2A, tarjetas de agente, identidad y fronteras entre protocolos |
 | [Hooks y workflows](library/domains/hooks-workflows/README.md) | automatización, gates, testing y notificaciones |
 | [Arquitectura](library/domains/architecture/README.md) | decisiones, modularidad, DDD y estilos |
 | [Desarrollo de software](library/domains/software-development/README.md) | backend, frontend, APIs y refactoring |
@@ -75,6 +79,8 @@ agents-first-repo-docs/
 |   |-- catalog.json         # proyección machine-readable v3
 |   |-- schema/              # contrato JSON Schema
 |   `-- domains/<domain>/    # fuentes Markdown canónicas
+|-- skills/                   # proyección generada en formato Agent Skills
+|-- llms.txt                  # proyección generada de descubrimiento para agentes
 |-- docs/
 |   |-- architecture/        # modelo por capas
 |   |-- adr/                 # decisiones arquitectónicas
@@ -100,7 +106,13 @@ npm run quality
 
 En PowerShell con política de ejecución restrictiva, el mismo control se ejecuta con `npm.cmd run quality`.
 
-El comando valida catálogo y schema, front matter, relaciones, enlaces y anclas, seguridad documental, JavaScript, navegación de GitHub Pages, pruebas unitarias y el [AI Repository Score](docs/AI_REPOSITORY_SCORE.md). La misma secuencia se ejecuta en GitHub Actions.
+El comando valida catálogo y schema, front matter, relaciones, enlaces y anclas, seguridad documental, JavaScript, navegación de GitHub Pages, pruebas unitarias y el [AI Repository Score](docs/AI_REPOSITORY_SCORE.md). También comprueba la conformidad de las skills con el formato abierto, que su proyección no diverja de la fuente y que ninguna referencia externa lleve más de 180 días sin verificar. La misma secuencia se ejecuta en GitHub Actions.
+
+Tras modificar una skill canónica o el catálogo, regenera las superficies:
+
+```powershell
+npm run build
+```
 
 ## Contribuir y gobernar
 

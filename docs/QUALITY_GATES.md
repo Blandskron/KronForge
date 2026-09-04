@@ -22,6 +22,14 @@ Los activos genéricos del catálogo pueden ayudar a ejecutar una revisión, per
 - [ ] Índices, catálogo, front matter y relaciones están alineados.
 - [ ] No se inventaron comandos, resultados, versiones, soporte o autodetección de herramientas.
 
+### Estándares externos y frescura
+
+- [ ] Toda afirmación nueva sobre una especificación externa declara `specRefs` con versión, URL y fecha de verificación.
+- [ ] Las referencias tocadas por este cambio se abrieron realmente antes de actualizar `verified`.
+- [ ] Las advertencias de frescura entre 90 y 180 días quedaron anotadas o resueltas.
+- [ ] Las skills modificadas cumplen el formato abierto y no delegan instrucciones a una URL externa.
+- [ ] Las proyecciones `skills/` y `llms.txt` se regeneraron y no divergen de su fuente.
+
 ### Documentación
 
 - [ ] Los enlaces internos y sus anclas resuelven.

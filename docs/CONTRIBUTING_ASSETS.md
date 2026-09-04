@@ -57,6 +57,7 @@ useCases: []
 - `author`, `license` y `lastModified` deben ser verificables. La licencia predeterminada del repositorio es `MIT`.
 - `dependencies` contiene IDs necesarios para aplicar el activo.
 - `related` contiene IDs existentes y relaciones útiles.
+- `specRefs` es obligatorio cuando el activo afirma algo sobre una especificación o publicación externa, y se omite cuando no lo hace. Cada entrada declara `spec`, `url` y `verified`, más `version` si la fuente la publica. La puerta de calidad advierte a los 90 días y falla a los 180 sin re-verificar. Ver [frescura verificable](SPEC_FRESHNESS.md).
 - `inputs`, `outputs`, `examples` y `useCases` son listas de descriptores breves.
 - `estimatedTime` expresa minutos enteros o `null`.
 - `complexity` puede ser `low`, `medium`, `high` o `null`; no es un alias de `level`.
@@ -70,6 +71,8 @@ El Markdown es la fuente canónica del activo. [`library/catalog.json`](../libra
 2. Materializa los defaults verificables del repositorio cuando corresponda.
 3. Declara la ruta relativa desde `library/`.
 4. Mantiene vacíos o nulos los campos contractuales no declarados.
+
+Todo cambio en el catálogo o en una skill debe regenerar las superficies con `npm run build`. Ni `skills/` ni `llms.txt` se editan a mano y la puerta de calidad falla si divergen de su fuente.
 
 Al contribuir, actualiza el activo, su registro del catálogo y el índice del dominio en el mismo cambio. El catálogo debe seguir cumpliendo [`catalog-v3.schema.json`](../library/schema/catalog-v3.schema.json); el schema valida forma y vocabularios, mientras que la revisión también debe comprobar unicidad, existencia de rutas y referencias entre IDs.
 

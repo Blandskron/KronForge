@@ -33,6 +33,32 @@ const populatedTypes = new Set(catalog.assets.map((asset) => asset.type)).size;
 const populatedDomains = catalog.domains.filter((domain) =>
     catalog.assets.some((asset) => asset.domain === domain.id)).length;
 
+// Frescura: ningún activo puede sostener una afirmación externa sin verificar.
+// Ver docs/SPEC_FRESHNESS.md.
+const SPEC_FAIL_DAYS = 180;
+const now = Date.now();
+const specRefs = catalog.assets.flatMap((asset) => asset.specRefs || []);
+const staleRefs = specRefs.filter((reference) => {
+    const parsed = Date.parse(`${reference.verified}T00:00:00Z`);
+    return Number.isNaN(parsed) || (now - parsed) / 86400000 > SPEC_FAIL_DAYS;
+});
+const freshnessDeclared = specRefs.length >= 5 && staleRefs.length === 0;
+
+// Conformidad de skills: name válido e igual al directorio, description dentro del límite.
+const skillSources = await Promise.all(
+    (await walk(fromRoot('skills'), (file) => file.endsWith('SKILL.md')))
+        .map(async (file) => ({file, source: await readText(file)}))
+);
+const skillsConformant = skillSources.length > 0 && skillSources.every(({file, source}) => {
+    const {data} = parseFrontMatter(source);
+    if (!data?.name || !data?.description) return false;
+    const directory = file.split(/[\\/]/).at(-2);
+    return data.name === directory
+        && data.name.length <= 64
+        && /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(data.name)
+        && data.description.length <= 1024;
+});
+
 const dimensions = [
     {
         name: 'Preparación para agentes',
@@ -81,7 +107,7 @@ const dimensions = [
             ['Smoke test', await has('scripts/smoke-site.mjs')],
             ['Pruebas Node', (await walk(fromRoot('tests'), (file) => file.endsWith('.test.mjs'))).length >= 1],
             ['Workflow CI', await has('.github/workflows/validate.yml')],
-            ['Score reproducible', await has('scripts/score.mjs')]
+            ['Superficies generadas verificadas', await contains('scripts/validate.mjs', 'build-skills.mjs') && await contains('scripts/validate.mjs', 'build-llms.mjs')]
         ]
     },
     {
@@ -91,7 +117,7 @@ const dimensions = [
             ['Núcleo disponible para cualquier modelo', catalog.assets.every((asset) => asset.models?.includes('any'))],
             ['Agentes declarados', catalog.assets.every((asset) => asset.agents?.length)],
             ['Adaptadores existentes', await has('CLAUDE.md') && await has('GEMINI.md') && await has('.github/copilot-instructions.md')],
-            ['Matriz cubre agentes solicitados', await contains('docs/AGENT_COMPATIBILITY.md', 'Kiro') && await contains('docs/AGENT_COMPATIBILITY.md', 'Codex')]
+            ['Skills conformes al estándar abierto', skillsConformant]
         ]
     },
     {
@@ -110,7 +136,7 @@ const dimensions = [
             ['Búsqueda de portal', await contains('assets/js/catalog-v3.js', 'normalizeSearch')],
             ['Filtros de catálogo', await contains('pages/library.html', 'filter')],
             ['Tags navegables', await contains('assets/js/catalog-v3.js', 'data-tag-filter')],
-            ['Rutas de aprendizaje', Array.isArray(catalog.learningPaths) && catalog.learningPaths.length >= 8],
+            ['Superficie llms.txt publicada', await has('llms.txt')],
             ['URLs de activos', await contains('assets/js/catalog-utils.js', '#library/')]
         ]
     },
@@ -121,7 +147,7 @@ const dimensions = [
             ['Política SemVer', await has('PROMPT_VERSIONING.md')],
             ['Changelog', await has('docs/CHANGELOG.md')],
             ['Schema publicado', await has('library/schema/catalog-v3.schema.json')],
-            ['Roadmap hasta v5', await contains('docs/ROADMAP.md', 'v5')]
+            ['Referencias externas vigentes', freshnessDeclared]
         ]
     },
     {

@@ -1,13 +1,21 @@
 ---
 name: github-pages-release
-description: Validar que un sitio estático esté listo para publicarse en GitHub Pages.
+description: Valida que un sitio estático esté listo para publicarse en GitHub Pages. Comprueba rutas, recursos, navegación y contenido servido desde un subdirectorio antes de publicar. Úsala antes de una release del portal, al cambiar rutas o assets, o cuando una publicación en GitHub Pages falle o muestre enlaces y recursos rotos.
+license: MIT
+allowed-tools: Read Grep Glob Bash(npm run smoke:*) Bash(npm run quality:*)
+metadata:
+  framework: agents-first
+specRefs:
+  - spec: agent-skills
+    url: https://agentskills.io/specification
+    verified: 2026-09-03
 id: delivery-platform.github-pages-release
 title: GitHub Pages release
 summary: Validar un sitio estático antes de publicarlo en GitHub Pages.
 type: skill
 domain: delivery-platform
 status: stable
-version: 1.0.0
+version: 1.1.0
 difficulty: intermediate
 projects: [static-site, documentation]
 compatibility: tool-agnostic

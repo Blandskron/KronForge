@@ -1,11 +1,14 @@
 {
   "name": "agents-first-framework",
-  "version": "3.0.0",
+  "version": "3.2.0",
   "private": true,
   "type": "module",
   "description": "Controles de calidad sin dependencias para Agents First Framework.",
   "scripts": {
     "validate": "node scripts/validate.mjs",
+    "build:skills": "node scripts/build-skills.mjs",
+    "build:llms": "node scripts/build-llms.mjs",
+    "build": "npm run build:skills && npm run build:llms",
     "test": "node --test",
     "smoke": "node scripts/smoke-site.mjs",
     "score": "node scripts/score.mjs",

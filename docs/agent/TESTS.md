@@ -14,7 +14,7 @@ Si PowerShell bloquea el wrapper `npm.ps1`, usa el ejecutable equivalente `npm.c
 
 La secuencia ejecuta, sin instalar dependencias:
 
-1. `npm run validate`: catálogo, schema, front matter, enlaces, anclas, seguridad, JavaScript, navegación y versiones.
+1. `npm run validate`: catálogo, schema, front matter, frescura de referencias externas, conformidad y proyección de skills, enlaces, anclas, seguridad, JavaScript, navegación y versiones.
 2. `npm test`: renderer Markdown y utilidades puras del catálogo/router.
 3. `npm run smoke`: rutas del shell, recursos, páginas y fuentes canónicas usadas en runtime bajo `/agents-first-repo-docs/`.
 4. `npm run score`: [AI Repository Score](../AI_REPOSITORY_SCORE.md).
@@ -52,8 +52,33 @@ Para `library/catalog.json`:
 - [ ] El ID y dominio coinciden con el manifiesto y la ruta.
 - [ ] Los IDs de `related`, `dependencies` y rutas de aprendizaje existen.
 - [ ] Cada activo aparece en el índice de su dominio.
+- [ ] `specRefs` coincide entre front matter y catálogo.
 
-## 3. Contratos por tipo
+## 3. Frescura de referencias externas
+
+Contrato completo en [SPEC_FRESHNESS.md](../SPEC_FRESHNESS.md).
+
+- [ ] Todo activo que afirma algo sobre una fuente externa declara `specRefs`.
+- [ ] Cada referencia tiene `spec`, `url` y `verified`.
+- [ ] Ninguna `verified` está en el futuro.
+- [ ] Ninguna referencia supera 180 días sin verificar.
+- [ ] Las referencias entre 90 y 180 días quedan anotadas para la próxima entrega.
+- [ ] Cuando se actualizó una `verified`, alguien abrió realmente la fuente.
+
+El último punto no puede automatizarse. Es responsabilidad de quien revisa.
+
+## 4. Skills y superficie distribuible
+
+- [ ] `name` cumple el formato y coincide con el directorio.
+- [ ] `description` explica qué hace y cuándo usarla, sin superar 1024 caracteres.
+- [ ] El cuerpo se mantiene bajo 500 líneas.
+- [ ] Ninguna skill obtiene instrucciones desde una URL externa en ejecución.
+- [ ] `npm run build` regenera `skills/` y `llms.txt`; la validación confirma que están al día.
+- [ ] Las superficies generadas no divergen de su fuente canónica.
+
+Detalle por criterio en la [checklist de conformidad](../../library/domains/ai-agent-engineering/checklists/agent-skills-conformance.checklist.md) y revisión de confianza en la [checklist OWASP](../../library/domains/agent-supply-chain/checklists/owasp-agentic-skills-top-10.checklist.md).
+
+## 5. Contratos por tipo
 
 ### Prompts
 
@@ -81,7 +106,7 @@ Para `library/catalog.json`:
 - [ ] Referencias enlazan fuentes primarias y fecha de revisión.
 - [ ] Architecture notes explican componentes, límites y decisiones.
 
-## 4. Markdown y seguridad
+## 6. Markdown y seguridad
 
 - [ ] Número par de cercas de código por tipo de delimitador.
 - [ ] Sin referencias activas a rutas retiradas.
@@ -89,7 +114,7 @@ Para `library/catalog.json`:
 - [ ] Sin comandos presentados como reales cuando no están definidos.
 - [ ] Cambios semánticos registrados en `docs/CHANGELOG.md`.
 
-## 5. Sitio estático
+## 7. Sitio estático
 
 Cuando cambien `index.html`, `assets/`, `pages/` o contenido cargado:
 
@@ -103,7 +128,7 @@ El smoke test comprueba transporte HTTP, estados y MIME; la interacción y el re
 
 El comando `python -m http.server 8026 --bind 127.0.0.1` puede usarse solo si Python está disponible en el entorno.
 
-## 6. Cierre
+## 8. Cierre
 
 Reporta:
 

@@ -1,0 +1,137 @@
+# Agents First Framework
+
+> Plataforma documental abierta de AI Engineering para diseñar contexto, repositorios, agentes y software verificable. Markdown canónico, agnóstico al modelo y al stack, sin runtime. Versión 3.2.0, catálogo actualizado el 2026-09-03.
+
+El conocimiento vive en Markdown bajo `library/domains/`. El catálogo JSON y las carpetas `skills/` son proyecciones verificadas de esa fuente, no fuentes alternativas.
+
+Antes de aplicar cualquier activo: lee antes de modificar, no inventes comandos ni resultados, presenta un plan antes de cambios relevantes y pide aprobación para acciones sensibles.
+
+## Entradas
+
+- [Instrucciones de agente](https://blandskron.github.io/agents-first-repo-docs/AGENTS.md): reglas operativas, superficie editable y definición de terminado
+- [Prompt maestro](https://blandskron.github.io/agents-first-repo-docs/prompts/agents-first-documentation-review.prompt.md): auditar y preparar un repositorio agents-first
+- [Índice de la biblioteca](https://blandskron.github.io/agents-first-repo-docs/library/README.md): cómo está organizado el conocimiento por dominios
+- [Catálogo machine-readable](https://blandskron.github.io/agents-first-repo-docs/library/catalog.json): inventario completo con metadatos, relaciones y rutas
+- [Skills distribuibles](https://blandskron.github.io/agents-first-repo-docs/skills/README.md): skills en el formato abierto Agent Skills
+
+## Políticas y contratos
+
+- [Arquitectura vigente](https://blandskron.github.io/agents-first-repo-docs/docs/architecture/FRAMEWORK_ARCHITECTURE.md): capas, fuente de verdad y escalabilidad
+- [Compatibilidad con agentes](https://blandskron.github.io/agents-first-repo-docs/docs/AGENT_COMPATIBILITY.md): qué está verificado y qué no
+- [Frescura verificable](https://blandskron.github.io/agents-first-repo-docs/docs/SPEC_FRESHNESS.md): cómo se declara y caduca una referencia externa
+- [Contrato de activos](https://blandskron.github.io/agents-first-repo-docs/docs/CONTRIBUTING_ASSETS.md): metadatos obligatorios y reglas de contribución
+- [Quality gates](https://blandskron.github.io/agents-first-repo-docs/docs/QUALITY_GATES.md): criterios de revisión y definición de terminado
+- [Registro de decisiones](https://blandskron.github.io/agents-first-repo-docs/docs/adr/README.md): decisiones arquitectónicas y sus alternativas rechazadas
+
+## IA y agentes
+
+Agentes, subagentes, evaluación, memoria, RAG e integración LLM.
+
+- [Checklist de conformidad Agent Skills](https://blandskron.github.io/agents-first-repo-docs/library/domains/ai-agent-engineering/checklists/agent-skills-conformance.checklist.md): checklist · Verificar que una skill cumple el formato abierto y es consumible por clientes reales.
+- [Preparar un repositorio agents-first](https://blandskron.github.io/agents-first-repo-docs/library/domains/ai-agent-engineering/playbooks/prepare-agents-first.playbook.md): playbook · Reducir incertidumbre para agentes sin perjudicar la experiencia humana.
+- [Actualización de prompt](https://blandskron.github.io/agents-first-repo-docs/library/domains/ai-agent-engineering/skills/prompt-update/SKILL.md): skill · Actualizar un prompt canónico sin degradar su contrato.
+- [Delegación por contrato](https://blandskron.github.io/agents-first-repo-docs/library/domains/ai-agent-engineering/patterns/subagent-contract.pattern.md): pattern · Delegar una subtarea con alcance, autoridad y entrega verificable.
+- [Sistemas de subagentes](https://blandskron.github.io/agents-first-repo-docs/library/domains/ai-agent-engineering/architecture-notes/subagent-systems.architecture-note.md): architecture-note · Diseñar especialización, autoridad, coordinación y memoria entre agentes.
+
+## Context Engineering
+
+Fuentes, routing, compresión, retrieval y presupuestos de contexto.
+
+- [Compactación de contexto](https://blandskron.github.io/agents-first-repo-docs/library/domains/context-engineering/patterns/context-compaction.pattern.md): pattern · Resumir y reiniciar la ventana antes de agotarla para sostener tareas largas.
+- [Capas de contexto](https://blandskron.github.io/agents-first-repo-docs/library/domains/context-engineering/architecture-notes/context-layers.architecture-note.md): architecture-note · Separar fuentes, selección, transformación y entrega del contexto.
+- [Recuperación bajo demanda](https://blandskron.github.io/agents-first-repo-docs/library/domains/context-engineering/patterns/just-in-time-retrieval.pattern.md): pattern · Cargar identificadores ligeros y resolver el contenido solo cuando la tarea lo exige.
+- [Notas persistentes](https://blandskron.github.io/agents-first-repo-docs/library/domains/context-engineering/patterns/persistent-notes.pattern.md): pattern · Escribir fuera de la ventana lo que debe sobrevivir a la compactación y a la sesión.
+- [Contexto progresivo](https://blandskron.github.io/agents-first-repo-docs/library/domains/context-engineering/patterns/progressive-context.pattern.md): pattern · Entregar contexto por capas a medida que la tarea demuestra necesitarlo.
+
+## Repository Engineering
+
+Repositorios AI-First mantenibles por personas y agentes.
+
+- [Diseñar un repositorio AI-First](https://blandskron.github.io/agents-first-repo-docs/library/domains/repository-engineering/playbooks/design-ai-first-repository.playbook.md): playbook · Convertir evidencia del repositorio en una arquitectura operable por personas y agentes.
+
+## MCP e integraciones
+
+Clientes, servidores, tools, resources y seguridad MCP.
+
+- [Checklist de seguridad MCP](https://blandskron.github.io/agents-first-repo-docs/library/domains/mcp-integration/checklists/mcp-security.checklist.md): checklist · Revisar autoridad, datos y efectos antes de habilitar una integración MCP.
+- [Topología MCP y límites de confianza](https://blandskron.github.io/agents-first-repo-docs/library/domains/mcp-integration/architecture-notes/mcp-topology.architecture-note.md): architecture-note · Diseñar clientes, servidores y capacidades MCP con autoridad explícita.
+
+## Cadena de suministro de agentes
+
+Confianza, procedencia y privilegio mínimo en los artefactos que un agente carga y ejecuta.
+
+- [Privilegio mínimo en herramientas de skill](https://blandskron.github.io/agents-first-repo-docs/library/domains/agent-supply-chain/patterns/least-privilege-skill-tools.pattern.md): pattern · Declarar de forma explícita y acotada las herramientas que una skill necesita.
+- [Checklist OWASP Agentic Skills Top 10](https://blandskron.github.io/agents-first-repo-docs/library/domains/agent-supply-chain/checklists/owasp-agentic-skills-top-10.checklist.md): checklist · Revisar una skill contra los diez riesgos catalogados antes de publicarla o adoptarla.
+- [Límites de confianza de una skill](https://blandskron.github.io/agents-first-repo-docs/library/domains/agent-supply-chain/architecture-notes/skill-trust-boundaries.architecture-note.md): architecture-note · Modelar qué autoridad concede cargar una skill antes de que se ejecute.
+- [Instrucciones externas no verificadas](https://blandskron.github.io/agents-first-repo-docs/library/domains/agent-supply-chain/anti-patterns/untrusted-external-instructions.anti-pattern.md): anti-pattern · Cargar instrucciones desde una fuente que no pasó por la revisión que aprobó la skill.
+
+## Interoperabilidad entre agentes
+
+Comunicación, descubrimiento y confianza entre agentes que no comparten dueño ni implementación.
+
+- [Tarjetas de agente y confianza entre pares](https://blandskron.github.io/agents-first-repo-docs/library/domains/agent-interoperability/architecture-notes/agent-cards-and-trust.architecture-note.md): architecture-note · Declarar y verificar las capacidades de un agente ajeno antes de delegarle trabajo.
+- [Fronteras entre protocolos de agente](https://blandskron.github.io/agents-first-repo-docs/library/domains/agent-interoperability/references/protocol-boundaries.references.md): reference · Elegir protocolo por el problema que resuelve, no por su popularidad.
+
+## Hooks y workflows
+
+Automatización explícita para tareas, validación y entrega.
+
+- [Hook de validación explícito](https://blandskron.github.io/agents-first-repo-docs/library/domains/hooks-workflows/patterns/explicit-validation-hook.pattern.md): pattern · Ejecutar controles reproducibles sin ocultar efectos ni alterar el resultado validado.
+
+## Arquitectura
+
+Decisiones, estilos, modularidad y evolución de sistemas.
+
+- [Architecture Decision Record](https://blandskron.github.io/agents-first-repo-docs/library/domains/architecture/templates/adr.template.md): template · Registrar una decisión arquitectónica, su contexto y consecuencias.
+- [Validación de arquitectura](https://blandskron.github.io/agents-first-repo-docs/library/domains/architecture/prompts/architecture-validation.prompt.md): prompt · Contrastar la arquitectura declarada con la estructura y dependencias reales.
+
+## Ingeniería de calidad
+
+Testing, QA, revisión y criterios verificables de cierre.
+
+- [Revisión de calidad de código](https://blandskron.github.io/agents-first-repo-docs/library/domains/quality-engineering/prompts/code-quality-review.prompt.md): prompt · Evaluar mantenibilidad, duplicación, acoplamiento y deuda técnica.
+- [Revisión de Definition of Done](https://blandskron.github.io/agents-first-repo-docs/library/domains/quality-engineering/prompts/definition-of-done-review.prompt.md): prompt · Verificar con evidencia si una tarea cumple sus criterios de cierre.
+- [QA funcional](https://blandskron.github.io/agents-first-repo-docs/library/domains/quality-engineering/prompts/functional-qa.prompt.md): prompt · Validar flujos y criterios de aceptación observables.
+- [Tests de integración](https://blandskron.github.io/agents-first-repo-docs/library/domains/quality-engineering/prompts/integration-tests.prompt.md): prompt · Diseñar o mejorar pruebas entre módulos y servicios con evidencia local.
+- [Checklist antes del merge](https://blandskron.github.io/agents-first-repo-docs/library/domains/quality-engineering/checklists/pre-merge.checklist.md): checklist · Verificar evidencia mínima antes de integrar un cambio.
+- [QA de regresión](https://blandskron.github.io/agents-first-repo-docs/library/domains/quality-engineering/prompts/regression-qa.prompt.md): prompt · Mapear impacto y producir una validación de regresión basada en riesgo.
+- [Tests unitarios](https://blandskron.github.io/agents-first-repo-docs/library/domains/quality-engineering/prompts/unit-tests.prompt.md): prompt · Diseñar o mejorar pruebas unitarias basadas en la lógica real del repositorio.
+
+## Seguridad
+
+AppSec, supply chain, secretos, identidad y autorización.
+
+- [Auditoría de vulnerabilidades en dependencias](https://blandskron.github.io/agents-first-repo-docs/library/domains/security/prompts/dependency-vulnerability-audit.prompt.md): prompt · Revisar manifiestos y lockfiles con herramientas verificadas del proyecto.
+- [Auditoría de seguridad de imágenes Docker](https://blandskron.github.io/agents-first-repo-docs/library/domains/security/prompts/docker-image-security-audit.prompt.md): prompt · Revisar Dockerfiles e imágenes sin inventar herramientas ni ejecutar explotación.
+- [Auditoría de ciberseguridad](https://blandskron.github.io/agents-first-repo-docs/library/domains/security/prompts/security-audit.prompt.md): prompt · Detectar, clasificar y reportar riesgos sin explotar vulnerabilidades.
+
+## Entrega y plataforma
+
+CI/CD, releases, contenedores, cloud e infraestructura.
+
+- [GitHub Pages release](https://blandskron.github.io/agents-first-repo-docs/library/domains/delivery-platform/skills/github-pages-release/SKILL.md): skill · Validar un sitio estático antes de publicarlo en GitHub Pages.
+- [Revisión de release readiness](https://blandskron.github.io/agents-first-repo-docs/library/domains/delivery-platform/prompts/release-readiness-review.prompt.md): prompt · Determinar si un repositorio está listo para publicar una versión.
+
+## Confiabilidad y performance
+
+Observabilidad, resiliencia, incidentes y rendimiento.
+
+- [Validación básica de performance](https://blandskron.github.io/agents-first-repo-docs/library/domains/reliability-performance/prompts/performance-basic-validation.prompt.md): prompt · Identificar riesgos de rendimiento mediante evidencia y análisis estático.
+
+## Experiencia y accesibilidad
+
+UX, UI, accesibilidad, SEO y arquitectura de información.
+
+- [Estándares de accesibilidad web](https://blandskron.github.io/agents-first-repo-docs/library/domains/experience-accessibility/references/accessibility-standards.references.md): reference · Fuentes primarias para diseñar y evaluar accesibilidad web.
+
+## Documentación y conocimiento
+
+Documentación como código, auditoría y gestión del conocimiento.
+
+- [Documentación como código](https://blandskron.github.io/agents-first-repo-docs/library/domains/documentation-knowledge/patterns/documentation-as-code.pattern.md): pattern · Mantener documentación versionada, revisable y validable junto al sistema.
+- [Auditoría documental](https://blandskron.github.io/agents-first-repo-docs/library/domains/documentation-knowledge/skills/documentation-audit/SKILL.md): skill · Verificar consistencia, enlaces, seguridad y trazabilidad documental.
+- [Comandos inventados](https://blandskron.github.io/agents-first-repo-docs/library/domains/documentation-knowledge/anti-patterns/invented-commands.anti-pattern.md): anti-pattern · Detectar y corregir instrucciones ejecutables sin respaldo en el repositorio.
+
+## Opcional
+
+Dominios declarados sin activos canónicos todavía: Desarrollo de software, Datos, Producto y gestión técnica. Sus índices describen alcance futuro y no contienen conocimiento aplicable.

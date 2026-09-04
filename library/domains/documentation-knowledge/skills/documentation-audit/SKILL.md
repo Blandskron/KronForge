@@ -1,13 +1,21 @@
 ---
 name: documentation-audit
-description: Auditar consistencia, navegación, seguridad y evidencia documental antes de cerrar cambios.
+description: Audita documentación, prompts, ejemplos, skills y sitio estático para detectar contradicciones, rutas rotas, contenido duplicado y afirmaciones sin evidencia. Úsala antes de un merge o release que cambie documentos, catálogo o portal, y cuando se pida revisar consistencia documental, enlaces, anclas o trazabilidad antes de publicar.
+license: MIT
+allowed-tools: Read Grep Glob Bash(npm run validate:*) Bash(npm run quality:*)
+metadata:
+  framework: agents-first
+specRefs:
+  - spec: agent-skills
+    url: https://agentskills.io/specification
+    verified: 2026-09-03
 id: documentation-knowledge.documentation-audit
 title: Auditoría documental
 summary: Verificar consistencia, enlaces, seguridad y trazabilidad documental.
 type: skill
 domain: documentation-knowledge
 status: stable
-version: 1.0.0
+version: 1.1.0
 difficulty: intermediate
 projects: [any]
 compatibility: tool-agnostic

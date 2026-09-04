@@ -1,8 +1,8 @@
 {
   "$schema": "schema/catalog-v3.schema.json",
   "schemaVersion": 3,
-  "frameworkVersion": "3.0.0",
-  "lastUpdated": "2026-07-28",
+  "frameworkVersion": "3.2.0",
+  "lastUpdated": "2026-09-03",
   "metadataDefaults": {
     "author": "@Blandskron/contributors",
     "license": "MIT",
@@ -262,6 +262,20 @@
       "pillar": true
     },
     {
+      "id": "agent-supply-chain",
+      "title": "Cadena de suministro de agentes",
+      "summary": "Confianza, procedencia y privilegio mínimo en los artefactos que un agente carga y ejecuta.",
+      "index": "domains/agent-supply-chain/README.md",
+      "pillar": true
+    },
+    {
+      "id": "agent-interoperability",
+      "title": "Interoperabilidad entre agentes",
+      "summary": "Comunicación, descubrimiento y confianza entre agentes que no comparten dueño ni implementación.",
+      "index": "domains/agent-interoperability/README.md",
+      "pillar": true
+    },
+    {
       "id": "hooks-workflows",
       "title": "Hooks y workflows",
       "summary": "Automatización explícita para tareas, validación y entrega.",
@@ -348,7 +362,7 @@
       "category": "execution",
       "domain": "ai-agent-engineering",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "level": "intermediate",
       "difficulty": "intermediate",
       "projects": [
@@ -364,7 +378,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-07-28",
+      "lastModified": "2026-09-03",
       "tags": [
         "prompts",
         "versioning"
@@ -372,6 +386,13 @@
       "dependencies": [],
       "related": [
         "documentation-knowledge.documentation-audit"
+      ],
+      "specRefs": [
+        {
+          "spec": "agent-skills",
+          "url": "https://agentskills.io/specification",
+          "verified": "2026-09-03"
+        }
       ],
       "inputs": [],
       "outputs": [],
@@ -478,7 +499,7 @@
       "category": "knowledge",
       "domain": "ai-agent-engineering",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "level": "intermediate",
       "difficulty": "intermediate",
       "projects": [
@@ -496,7 +517,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-07-28",
+      "lastModified": "2026-09-03",
       "tags": [
         "agents",
         "subagents",
@@ -504,7 +525,15 @@
       ],
       "dependencies": [],
       "related": [
-        "ai-agent-engineering.subagent-systems"
+        "ai-agent-engineering.subagent-systems",
+        "context-engineering.context-compaction"
+      ],
+      "specRefs": [
+        {
+          "spec": "anthropic-context-engineering",
+          "url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+          "verified": "2026-09-03"
+        }
       ],
       "inputs": [],
       "outputs": [],
@@ -655,7 +684,7 @@
       "category": "architecture",
       "domain": "mcp-integration",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "2.0.0",
       "level": "foundation",
       "difficulty": "foundation",
       "projects": [
@@ -673,7 +702,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-07-28",
+      "lastModified": "2026-09-03",
       "tags": [
         "mcp",
         "tools",
@@ -683,6 +712,14 @@
       "dependencies": [],
       "related": [
         "mcp-integration.mcp-security"
+      ],
+      "specRefs": [
+        {
+          "spec": "mcp",
+          "version": "2026-07-28",
+          "url": "https://modelcontextprotocol.io/specification/2026-07-28/changelog",
+          "verified": "2026-09-03"
+        }
       ],
       "inputs": [],
       "outputs": [],
@@ -700,7 +737,7 @@
       "category": "validation",
       "domain": "mcp-integration",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "2.0.0",
       "level": "intermediate",
       "difficulty": "intermediate",
       "projects": [
@@ -718,7 +755,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-07-28",
+      "lastModified": "2026-09-03",
       "tags": [
         "mcp",
         "security",
@@ -728,6 +765,14 @@
       "related": [
         "mcp-integration.mcp-topology",
         "security.security-audit"
+      ],
+      "specRefs": [
+        {
+          "spec": "mcp",
+          "version": "2026-07-28",
+          "url": "https://modelcontextprotocol.io/specification/2026-07-28/changelog",
+          "verified": "2026-09-03"
+        }
       ],
       "inputs": [],
       "outputs": [],
@@ -1336,7 +1381,7 @@
       "category": "execution",
       "domain": "delivery-platform",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "level": "intermediate",
       "difficulty": "intermediate",
       "projects": [
@@ -1353,7 +1398,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-07-28",
+      "lastModified": "2026-09-03",
       "tags": [
         "github-pages",
         "release",
@@ -1362,6 +1407,13 @@
       "dependencies": [],
       "related": [
         "delivery-platform.release-readiness-review"
+      ],
+      "specRefs": [
+        {
+          "spec": "agent-skills",
+          "url": "https://agentskills.io/specification",
+          "verified": "2026-09-03"
+        }
       ],
       "inputs": [],
       "outputs": [],
@@ -1462,7 +1514,7 @@
       "category": "execution",
       "domain": "documentation-knowledge",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "level": "intermediate",
       "difficulty": "intermediate",
       "projects": [
@@ -1478,7 +1530,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-07-28",
+      "lastModified": "2026-09-03",
       "tags": [
         "documentation",
         "audit"
@@ -1486,6 +1538,13 @@
       "dependencies": [],
       "related": [
         "documentation-knowledge.documentation-as-code"
+      ],
+      "specRefs": [
+        {
+          "spec": "agent-skills",
+          "url": "https://agentskills.io/specification",
+          "verified": "2026-09-03"
+        }
       ],
       "inputs": [],
       "outputs": [],
@@ -1576,6 +1635,555 @@
       "complexity": null,
       "useCases": [],
       "path": "domains/documentation-knowledge/anti-patterns/invented-commands.anti-pattern.md"
+    },
+    {
+      "id": "agent-supply-chain.skill-trust-boundaries",
+      "title": "Límites de confianza de una skill",
+      "summary": "Modelar qué autoridad concede cargar una skill antes de que se ejecute.",
+      "type": "architecture-note",
+      "category": "architecture",
+      "domain": "agent-supply-chain",
+      "status": "stable",
+      "version": "1.0.0",
+      "level": "intermediate",
+      "difficulty": "intermediate",
+      "projects": [
+        "ai-application",
+        "agent-platform",
+        "developer-tool"
+      ],
+      "compatibility": "protocol-oriented",
+      "models": [
+        "any"
+      ],
+      "agents": [
+        "markdown-compatible"
+      ],
+      "language": "es",
+      "author": "@Blandskron/contributors",
+      "license": "MIT",
+      "lastModified": "2026-09-03",
+      "tags": [
+        "skills",
+        "supply-chain",
+        "trust",
+        "permissions"
+      ],
+      "dependencies": [],
+      "related": [
+        "agent-supply-chain.least-privilege-skill-tools",
+        "agent-supply-chain.owasp-agentic-skills-top-10"
+      ],
+      "specRefs": [
+        {
+          "spec": "agent-skills",
+          "url": "https://agentskills.io/specification",
+          "verified": "2026-09-03"
+        },
+        {
+          "spec": "owasp-agentic-skills-top-10",
+          "version": "1.0-2026",
+          "url": "https://owasp.org/www-project-agentic-skills-top-10/",
+          "verified": "2026-09-03"
+        }
+      ],
+      "inputs": [],
+      "outputs": [],
+      "examples": [],
+      "estimatedTime": null,
+      "complexity": null,
+      "useCases": [],
+      "path": "domains/agent-supply-chain/architecture-notes/skill-trust-boundaries.architecture-note.md"
+    },
+    {
+      "id": "agent-supply-chain.least-privilege-skill-tools",
+      "title": "Privilegio mínimo en herramientas de skill",
+      "summary": "Declarar de forma explícita y acotada las herramientas que una skill necesita.",
+      "type": "pattern",
+      "category": "knowledge",
+      "domain": "agent-supply-chain",
+      "status": "stable",
+      "version": "1.0.0",
+      "level": "intermediate",
+      "difficulty": "intermediate",
+      "projects": [
+        "ai-application",
+        "agent-platform",
+        "developer-tool"
+      ],
+      "compatibility": "tool-agnostic",
+      "models": [
+        "any"
+      ],
+      "agents": [
+        "markdown-compatible"
+      ],
+      "language": "es",
+      "author": "@Blandskron/contributors",
+      "license": "MIT",
+      "lastModified": "2026-09-03",
+      "tags": [
+        "skills",
+        "permissions",
+        "least-privilege",
+        "supply-chain"
+      ],
+      "dependencies": [],
+      "related": [
+        "agent-supply-chain.skill-trust-boundaries",
+        "mcp-integration.mcp-security"
+      ],
+      "specRefs": [
+        {
+          "spec": "agent-skills",
+          "url": "https://agentskills.io/specification",
+          "verified": "2026-09-03"
+        }
+      ],
+      "inputs": [],
+      "outputs": [],
+      "examples": [],
+      "estimatedTime": null,
+      "complexity": null,
+      "useCases": [],
+      "path": "domains/agent-supply-chain/patterns/least-privilege-skill-tools.pattern.md"
+    },
+    {
+      "id": "agent-supply-chain.untrusted-external-instructions",
+      "title": "Instrucciones externas no verificadas",
+      "summary": "Cargar instrucciones desde una fuente que no pasó por la revisión que aprobó la skill.",
+      "type": "anti-pattern",
+      "category": "knowledge",
+      "domain": "agent-supply-chain",
+      "status": "stable",
+      "version": "1.0.0",
+      "level": "intermediate",
+      "difficulty": "intermediate",
+      "projects": [
+        "ai-application",
+        "agent-platform",
+        "developer-tool"
+      ],
+      "compatibility": "tool-agnostic",
+      "models": [
+        "any"
+      ],
+      "agents": [
+        "markdown-compatible"
+      ],
+      "language": "es",
+      "author": "@Blandskron/contributors",
+      "license": "MIT",
+      "lastModified": "2026-09-03",
+      "tags": [
+        "skills",
+        "supply-chain",
+        "prompt-injection",
+        "review"
+      ],
+      "dependencies": [],
+      "related": [
+        "agent-supply-chain.skill-trust-boundaries",
+        "agent-supply-chain.owasp-agentic-skills-top-10"
+      ],
+      "specRefs": [
+        {
+          "spec": "owasp-agentic-skills-top-10",
+          "version": "1.0-2026",
+          "url": "https://owasp.org/www-project-agentic-skills-top-10/",
+          "verified": "2026-09-03"
+        }
+      ],
+      "inputs": [],
+      "outputs": [],
+      "examples": [],
+      "estimatedTime": null,
+      "complexity": null,
+      "useCases": [],
+      "path": "domains/agent-supply-chain/anti-patterns/untrusted-external-instructions.anti-pattern.md"
+    },
+    {
+      "id": "agent-supply-chain.owasp-agentic-skills-top-10",
+      "title": "Checklist OWASP Agentic Skills Top 10",
+      "summary": "Revisar una skill contra los diez riesgos catalogados antes de publicarla o adoptarla.",
+      "type": "checklist",
+      "category": "validation",
+      "domain": "agent-supply-chain",
+      "status": "stable",
+      "version": "1.0.0",
+      "level": "intermediate",
+      "difficulty": "intermediate",
+      "projects": [
+        "ai-application",
+        "agent-platform",
+        "developer-tool"
+      ],
+      "compatibility": "tool-agnostic",
+      "models": [
+        "any"
+      ],
+      "agents": [
+        "markdown-compatible"
+      ],
+      "language": "es",
+      "author": "@Blandskron/contributors",
+      "license": "MIT",
+      "lastModified": "2026-09-03",
+      "tags": [
+        "skills",
+        "security",
+        "supply-chain",
+        "owasp",
+        "review"
+      ],
+      "dependencies": [],
+      "related": [
+        "agent-supply-chain.skill-trust-boundaries",
+        "agent-supply-chain.untrusted-external-instructions",
+        "agent-supply-chain.least-privilege-skill-tools"
+      ],
+      "specRefs": [
+        {
+          "spec": "owasp-agentic-skills-top-10",
+          "version": "1.0-2026",
+          "url": "https://owasp.org/www-project-agentic-skills-top-10/",
+          "verified": "2026-09-03"
+        }
+      ],
+      "inputs": [],
+      "outputs": [],
+      "examples": [],
+      "estimatedTime": null,
+      "complexity": null,
+      "useCases": [],
+      "path": "domains/agent-supply-chain/checklists/owasp-agentic-skills-top-10.checklist.md"
+    },
+    {
+      "id": "ai-agent-engineering.agent-skills-conformance",
+      "title": "Checklist de conformidad Agent Skills",
+      "summary": "Verificar que una skill cumple el formato abierto y es consumible por clientes reales.",
+      "type": "checklist",
+      "category": "validation",
+      "domain": "ai-agent-engineering",
+      "status": "stable",
+      "version": "1.0.0",
+      "level": "foundation",
+      "difficulty": "foundation",
+      "projects": [
+        "any"
+      ],
+      "compatibility": "tool-agnostic",
+      "models": [
+        "any"
+      ],
+      "agents": [
+        "markdown-compatible"
+      ],
+      "language": "es",
+      "author": "@Blandskron/contributors",
+      "license": "MIT",
+      "lastModified": "2026-09-03",
+      "tags": [
+        "skills",
+        "conformance",
+        "interoperability",
+        "agent-skills"
+      ],
+      "dependencies": [],
+      "related": [
+        "ai-agent-engineering.prompt-update",
+        "agent-supply-chain.owasp-agentic-skills-top-10"
+      ],
+      "specRefs": [
+        {
+          "spec": "agent-skills",
+          "url": "https://agentskills.io/specification",
+          "verified": "2026-09-03"
+        }
+      ],
+      "inputs": [],
+      "outputs": [],
+      "examples": [],
+      "estimatedTime": null,
+      "complexity": null,
+      "useCases": [],
+      "path": "domains/ai-agent-engineering/checklists/agent-skills-conformance.checklist.md"
+    },
+    {
+      "id": "context-engineering.just-in-time-retrieval",
+      "title": "Recuperación bajo demanda",
+      "summary": "Cargar identificadores ligeros y resolver el contenido solo cuando la tarea lo exige.",
+      "type": "pattern",
+      "category": "knowledge",
+      "domain": "context-engineering",
+      "status": "stable",
+      "version": "1.0.0",
+      "level": "intermediate",
+      "difficulty": "intermediate",
+      "projects": [
+        "any"
+      ],
+      "compatibility": "model-agnostic",
+      "models": [
+        "any"
+      ],
+      "agents": [
+        "markdown-compatible"
+      ],
+      "language": "es",
+      "author": "@Blandskron/contributors",
+      "license": "MIT",
+      "lastModified": "2026-09-03",
+      "tags": [
+        "context",
+        "retrieval",
+        "rag",
+        "token-optimization"
+      ],
+      "dependencies": [],
+      "related": [
+        "context-engineering.progressive-context",
+        "context-engineering.context-layers"
+      ],
+      "specRefs": [
+        {
+          "spec": "anthropic-context-engineering",
+          "url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+          "verified": "2026-09-03"
+        }
+      ],
+      "inputs": [],
+      "outputs": [],
+      "examples": [],
+      "estimatedTime": null,
+      "complexity": null,
+      "useCases": [],
+      "path": "domains/context-engineering/patterns/just-in-time-retrieval.pattern.md"
+    },
+    {
+      "id": "context-engineering.context-compaction",
+      "title": "Compactación de contexto",
+      "summary": "Resumir y reiniciar la ventana antes de agotarla para sostener tareas largas.",
+      "type": "pattern",
+      "category": "knowledge",
+      "domain": "context-engineering",
+      "status": "stable",
+      "version": "1.0.0",
+      "level": "intermediate",
+      "difficulty": "intermediate",
+      "projects": [
+        "ai-application",
+        "agent-platform",
+        "research-workflow"
+      ],
+      "compatibility": "model-agnostic",
+      "models": [
+        "any"
+      ],
+      "agents": [
+        "markdown-compatible"
+      ],
+      "language": "es",
+      "author": "@Blandskron/contributors",
+      "license": "MIT",
+      "lastModified": "2026-09-03",
+      "tags": [
+        "context",
+        "compaction",
+        "long-horizon",
+        "memory"
+      ],
+      "dependencies": [],
+      "related": [
+        "context-engineering.progressive-context",
+        "context-engineering.persistent-notes"
+      ],
+      "specRefs": [
+        {
+          "spec": "anthropic-context-engineering",
+          "url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+          "verified": "2026-09-03"
+        }
+      ],
+      "inputs": [],
+      "outputs": [],
+      "examples": [],
+      "estimatedTime": null,
+      "complexity": null,
+      "useCases": [],
+      "path": "domains/context-engineering/patterns/context-compaction.pattern.md"
+    },
+    {
+      "id": "context-engineering.persistent-notes",
+      "title": "Notas persistentes",
+      "summary": "Escribir fuera de la ventana lo que debe sobrevivir a la compactación y a la sesión.",
+      "type": "pattern",
+      "category": "knowledge",
+      "domain": "context-engineering",
+      "status": "stable",
+      "version": "1.0.0",
+      "level": "intermediate",
+      "difficulty": "intermediate",
+      "projects": [
+        "ai-application",
+        "agent-platform",
+        "research-workflow"
+      ],
+      "compatibility": "model-agnostic",
+      "models": [
+        "any"
+      ],
+      "agents": [
+        "markdown-compatible"
+      ],
+      "language": "es",
+      "author": "@Blandskron/contributors",
+      "license": "MIT",
+      "lastModified": "2026-09-03",
+      "tags": [
+        "context",
+        "memory",
+        "notes",
+        "long-horizon"
+      ],
+      "dependencies": [],
+      "related": [
+        "context-engineering.context-compaction",
+        "context-engineering.context-layers"
+      ],
+      "specRefs": [
+        {
+          "spec": "anthropic-context-engineering",
+          "url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+          "verified": "2026-09-03"
+        }
+      ],
+      "inputs": [],
+      "outputs": [],
+      "examples": [],
+      "estimatedTime": null,
+      "complexity": null,
+      "useCases": [],
+      "path": "domains/context-engineering/patterns/persistent-notes.pattern.md"
+    },
+    {
+      "id": "agent-interoperability.agent-cards-and-trust",
+      "title": "Tarjetas de agente y confianza entre pares",
+      "summary": "Declarar y verificar las capacidades de un agente ajeno antes de delegarle trabajo.",
+      "type": "architecture-note",
+      "category": "architecture",
+      "domain": "agent-interoperability",
+      "status": "stable",
+      "version": "1.0.0",
+      "level": "intermediate",
+      "difficulty": "intermediate",
+      "projects": [
+        "agent-platform",
+        "ai-application",
+        "developer-tool"
+      ],
+      "compatibility": "protocol-oriented",
+      "models": [
+        "any"
+      ],
+      "agents": [
+        "markdown-compatible"
+      ],
+      "language": "es",
+      "author": "@Blandskron/contributors",
+      "license": "MIT",
+      "lastModified": "2026-09-03",
+      "tags": [
+        "a2a",
+        "interoperability",
+        "identity",
+        "trust"
+      ],
+      "dependencies": [],
+      "related": [
+        "agent-interoperability.protocol-boundaries",
+        "agent-supply-chain.skill-trust-boundaries"
+      ],
+      "specRefs": [
+        {
+          "spec": "a2a",
+          "version": "1.0.0",
+          "url": "https://a2a-protocol.org/latest/specification/",
+          "verified": "2026-09-03"
+        }
+      ],
+      "inputs": [],
+      "outputs": [],
+      "examples": [],
+      "estimatedTime": null,
+      "complexity": null,
+      "useCases": [],
+      "path": "domains/agent-interoperability/architecture-notes/agent-cards-and-trust.architecture-note.md"
+    },
+    {
+      "id": "agent-interoperability.protocol-boundaries",
+      "title": "Fronteras entre protocolos de agente",
+      "summary": "Elegir protocolo por el problema que resuelve, no por su popularidad.",
+      "type": "reference",
+      "category": "reference",
+      "domain": "agent-interoperability",
+      "status": "stable",
+      "version": "1.0.0",
+      "level": "foundation",
+      "difficulty": "foundation",
+      "projects": [
+        "agent-platform",
+        "ai-application",
+        "developer-tool"
+      ],
+      "compatibility": "protocol-oriented",
+      "models": [
+        "any"
+      ],
+      "agents": [
+        "markdown-compatible"
+      ],
+      "language": "es",
+      "author": "@Blandskron/contributors",
+      "license": "MIT",
+      "lastModified": "2026-09-03",
+      "tags": [
+        "mcp",
+        "a2a",
+        "interoperability",
+        "architecture"
+      ],
+      "dependencies": [],
+      "related": [
+        "agent-interoperability.agent-cards-and-trust",
+        "mcp-integration.mcp-topology"
+      ],
+      "specRefs": [
+        {
+          "spec": "mcp",
+          "version": "2026-07-28",
+          "url": "https://modelcontextprotocol.io/specification/2026-07-28/changelog",
+          "verified": "2026-09-03"
+        },
+        {
+          "spec": "a2a",
+          "version": "1.0.0",
+          "url": "https://a2a-protocol.org/latest/specification/",
+          "verified": "2026-09-03"
+        },
+        {
+          "spec": "agent-skills",
+          "url": "https://agentskills.io/specification",
+          "verified": "2026-09-03"
+        }
+      ],
+      "inputs": [],
+      "outputs": [],
+      "examples": [],
+      "estimatedTime": null,
+      "complexity": null,
+      "useCases": [],
+      "path": "domains/agent-interoperability/references/protocol-boundaries.references.md"
     }
   ],
   "learningPaths": [
@@ -1696,6 +2304,48 @@
         "security.security-audit",
         "security.dependency-vulnerability-audit",
         "security.docker-image-security-audit",
+        "mcp-integration.mcp-security"
+      ]
+    },
+    {
+      "id": "skill-supply-chain",
+      "title": "Confianza en skills",
+      "summary": "Entender qué autoridad concede una skill, diseñarla con privilegio mínimo y revisarla antes de adoptarla.",
+      "status": "available",
+      "coverage": "partial",
+      "assets": [
+        "agent-supply-chain.skill-trust-boundaries",
+        "agent-supply-chain.least-privilege-skill-tools",
+        "agent-supply-chain.untrusted-external-instructions",
+        "ai-agent-engineering.agent-skills-conformance",
+        "agent-supply-chain.owasp-agentic-skills-top-10"
+      ]
+    },
+    {
+      "id": "long-horizon-context",
+      "title": "Contexto de horizonte largo",
+      "summary": "Sostener tareas que superan una ventana de contexto sin perder objetivo, decisiones ni restricciones.",
+      "status": "available",
+      "coverage": "partial",
+      "assets": [
+        "context-engineering.context-layers",
+        "context-engineering.progressive-context",
+        "context-engineering.just-in-time-retrieval",
+        "context-engineering.context-compaction",
+        "context-engineering.persistent-notes",
+        "ai-agent-engineering.subagent-contract"
+      ]
+    },
+    {
+      "id": "agent-interoperability",
+      "title": "Interoperabilidad entre agentes",
+      "summary": "Situar cada protocolo por el problema que resuelve y decidir cuándo delegar a un agente ajeno.",
+      "status": "available",
+      "coverage": "introductory",
+      "assets": [
+        "agent-interoperability.protocol-boundaries",
+        "mcp-integration.mcp-topology",
+        "agent-interoperability.agent-cards-and-trust",
         "mcp-integration.mcp-security"
       ]
     }

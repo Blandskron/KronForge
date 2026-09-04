@@ -1,13 +1,21 @@
 ---
 name: prompt-update
-description: Actualizar un prompt canónico con versionado, trazabilidad y validación.
+description: Actualiza un prompt canónico sin degradar su contrato. Clasifica el cambio como MAJOR, MINOR o PATCH, ajusta versión, relaciones e índices, registra el changelog y ejecuta las validaciones documentales. Úsala cuando haya que cambiar reglas, fases, entregables, restricciones o redacción de un prompt estable, o cuando se pida versionar, deprecar o corregir un prompt del catálogo.
+license: MIT
+allowed-tools: Read Grep Glob Edit
+metadata:
+  framework: agents-first
+specRefs:
+  - spec: agent-skills
+    url: https://agentskills.io/specification
+    verified: 2026-09-03
 id: ai-agent-engineering.prompt-update
 title: Actualización de prompt
 summary: Actualizar un prompt canónico sin degradar su contrato.
 type: skill
 domain: ai-agent-engineering
 status: stable
-version: 1.0.0
+version: 1.1.0
 difficulty: intermediate
 projects: [any]
 compatibility: model-agnostic

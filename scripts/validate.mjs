@@ -45,6 +45,28 @@ async function check(name, action) {
     checks.push({name, ok: errors.length === before});
 }
 
+// Umbrales de frescura para referencias externas. Ver docs/SPEC_FRESHNESS.md.
+const SPEC_WARN_DAYS = 90;
+const SPEC_FAIL_DAYS = 180;
+const TODAY = new Date();
+
+function daysSince(isoDate) {
+    const parsed = Date.parse(`${isoDate}T00:00:00Z`);
+    if (Number.isNaN(parsed)) return null;
+    return Math.floor((TODAY.getTime() - parsed) / 86400000);
+}
+
+function normalizeSpecRef(reference) {
+    if (!reference || typeof reference !== 'object') return null;
+    return [reference.spec, reference.version ?? '', reference.url, reference.verified].join('|');
+}
+
+function equalSpecRefs(left, right) {
+    const a = (Array.isArray(left) ? left : []).map(normalizeSpecRef);
+    const b = (Array.isArray(right) ? right : []).map(normalizeSpecRef);
+    return a.length === b.length && a.every((value, index) => value === b[index]);
+}
+
 function unique(values, label) {
     const seen = new Set();
     for (const value of values) {
@@ -205,6 +227,7 @@ await check('Paridad catálogo, front matter e índices', async () => {
         }
         if (!equalArray(data.models || [], asset.models || [])) fail(`${asset.id}: models difiere`);
         if (!equalArray(data.related || [], asset.related || [])) fail(`${asset.id}: related difiere`);
+        if (!equalSpecRefs(data.specRefs, asset.specRefs)) fail(`${asset.id}: specRefs difiere entre catálogo y front matter`);
 
         const domain = catalogDomains.find((item) => item.id === asset.domain);
         const index = await readText(fromRoot('library', domain.index));
@@ -218,6 +241,90 @@ await check('Paridad catálogo, front matter e índices', async () => {
         if (!catalogPaths.has(path.resolve(file))) {
             fail(`Activo no catalogado: ${toPosix(path.relative(fromRoot('library'), file))}`);
         }
+    }
+});
+
+await check('Frescura de referencias externas', async () => {
+    for (const asset of catalogAssets) {
+        for (const reference of asset.specRefs || []) {
+            const age = daysSince(reference.verified);
+            if (age === null) {
+                fail(`${asset.id}: specRefs.verified inválido para ${reference.spec}`);
+                continue;
+            }
+            if (age < 0) {
+                fail(`${asset.id}: specRefs.verified de ${reference.spec} está en el futuro`);
+                continue;
+            }
+            if (age > SPEC_FAIL_DAYS) {
+                fail(`${asset.id}: referencia a ${reference.spec} sin verificar hace ${age} días (límite ${SPEC_FAIL_DAYS})`);
+            } else if (age > SPEC_WARN_DAYS) {
+                warn(`${asset.id}: referencia a ${reference.spec} verificada hace ${age} días; re-verifica antes de ${SPEC_FAIL_DAYS}`);
+            }
+        }
+    }
+
+    const withRefs = catalogAssets.filter((asset) => (asset.specRefs || []).length).length;
+    if (!withRefs) fail('Ningún activo declara specRefs; la política de frescura no se está aplicando');
+});
+
+await check('Conformidad Agent Skills y proyección distribuible', async () => {
+    // Contrato del formato abierto. Ver library/domains/ai-agent-engineering/checklists/agent-skills-conformance.checklist.md
+    const NAME_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+    const REMOTE_FETCH = /\b(?:curl|wget|Invoke-WebRequest|iwr)\b[^\n]*https?:\/\//i;
+    const REMOTE_INSTRUCTION = /(?:sigue|obedece|aplica|descarga|obtén|obten)[^\n]*https?:\/\//i;
+
+    const skillFiles = await walk(ROOT, (file) => path.basename(file) === 'SKILL.md');
+    if (!skillFiles.length) fail('No se encontró ningún SKILL.md');
+
+    for (const file of skillFiles) {
+        const relative = toPosix(path.relative(ROOT, file));
+        const source = await readText(file);
+        const {data, body} = parseFrontMatter(source);
+
+        if (!data) {
+            fail(`${relative}: SKILL.md sin front matter`);
+            continue;
+        }
+
+        const directory = path.basename(path.dirname(file));
+        if (!data.name) fail(`${relative}: falta name`);
+        else {
+            if (data.name.length > 64) fail(`${relative}: name supera 64 caracteres`);
+            if (!NAME_PATTERN.test(data.name)) fail(`${relative}: name no cumple el formato del estándar`);
+            if (data.name !== directory) fail(`${relative}: name "${data.name}" no coincide con el directorio "${directory}"`);
+        }
+
+        if (!data.description) fail(`${relative}: falta description`);
+        else if (data.description.length > 1024) fail(`${relative}: description supera 1024 caracteres`);
+
+        const bodyLines = body.split('\n').length;
+        if (bodyLines > 500) fail(`${relative}: el cuerpo tiene ${bodyLines} líneas; el estándar recomienda menos de 500`);
+
+        // AST05 — instrucciones cargadas desde una fuente externa no verificada.
+        if (REMOTE_FETCH.test(body)) fail(`${relative}: obtiene contenido remoto en ejecución (AST05)`);
+        if (REMOTE_INSTRUCTION.test(body)) fail(`${relative}: delega instrucciones a una URL externa (AST05)`);
+    }
+
+    const projection = spawnSync(process.execPath, [fromRoot('scripts/build-skills.mjs'), '--check'], {encoding: 'utf8'});
+    if (projection.status !== 0) {
+        fail(`Proyección skills/ desactualizada: ${(projection.stderr || projection.stdout || '').trim()}`);
+    }
+});
+
+await check('Superficie de descubrimiento llms.txt', async () => {
+    const projection = spawnSync(process.execPath, [fromRoot('scripts/build-llms.mjs'), '--check'], {encoding: 'utf8'});
+    if (projection.status !== 0) {
+        fail(`llms.txt desactualizado: ${(projection.stderr || projection.stdout || '').trim()}`);
+    }
+
+    const content = await readText(fromRoot('llms.txt'));
+    if (!content.startsWith('# ')) fail('llms.txt debe empezar con un encabezado H1');
+    if (!content.includes('\n> ')) fail('llms.txt debe incluir el resumen en blockquote');
+
+    // Las rutas publicadas deben existir en el repositorio.
+    for (const match of content.matchAll(/\]\(https:\/\/blandskron\.github\.io\/agents-first-repo-docs\/([^)]+)\)/g)) {
+        if (!await exists(fromRoot(decodeURIComponent(match[1])))) fail(`llms.txt referencia una ruta inexistente: ${match[1]}`);
     }
 });
 

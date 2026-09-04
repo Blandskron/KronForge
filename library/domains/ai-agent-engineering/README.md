@@ -8,6 +8,7 @@ Agentes, subagentes, evaluación, memoria, RAG, integración LLM, prompts y lím
 - Playbook: [preparar un repositorio agents-first](playbooks/prepare-agents-first.playbook.md)
 - Architecture note: [sistemas de subagentes](architecture-notes/subagent-systems.architecture-note.md)
 - Pattern: [delegación por contrato](patterns/subagent-contract.pattern.md)
+- Checklist: [conformidad Agent Skills](checklists/agent-skills-conformance.checklist.md)
 
 ## Mapa del dominio
 
@@ -20,7 +21,7 @@ Agentes, subagentes, evaluación, memoria, RAG, integración LLM, prompts y lím
 
 ## Ruta de aprendizaje
 
-Empieza por el playbook agents-first. Para trabajo multiagente, lee la arquitectura de subagentes y aplica delegación por contrato.
+Empieza por el playbook agents-first. Para trabajo multiagente, lee la arquitectura de subagentes y aplica delegación por contrato. Antes de publicar una skill, verifica su conformidad con el formato abierto y revisa su confianza en [cadena de suministro de agentes](../agent-supply-chain/README.md).
 
 ## Principio
 

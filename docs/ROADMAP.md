@@ -1,7 +1,7 @@
 # Roadmap del Framework
 
 - **Fuente canónica:** este documento.
-- **Última revisión:** 2026-07-28.
+- **Última revisión:** 2026-09-03.
 - **Principio:** profundidad, calidad y evidencia antes que volumen.
 
 Los roadmaps incluidos en documentos estratégicos anteriores describen su momento de diseño. Cuando exista una diferencia, prevalece este archivo.
@@ -56,6 +56,42 @@ Las iniciativas de aprendizaje y casos reales antes asociadas a v2.2 se reprogra
 - navegación y contenido público verificados en GitHub Pages;
 - ninguna capacidad o compatibilidad declarada sin evidencia;
 - release v3 reproducible según la política de lifecycle.
+
+## v3.1 — Conformidad, cadena de suministro y frescura
+
+**Estado:** implementado y validado.
+
+### Objetivos
+
+- cumplir de forma verificable el formato abierto de skills y publicar una superficie distribuible;
+- alinear el conocimiento MCP con la revisión vigente de la especificación;
+- cubrir la confianza en artefactos que el agente carga y ejecuta;
+- impedir que el repositorio envejezca en silencio frente a fuentes externas.
+
+### Criterios de salida
+
+- las skills se cargan en un cliente compatible sin conocer la estructura interna del repositorio;
+- la proyección no puede divergir de su fuente sin que la puerta de calidad falle;
+- todo activo que cite una fuente externa declara versión y fecha de verificación;
+- una referencia sin re-verificar bloquea la puerta a los 180 días.
+
+## v3.2 — Contexto vigente, interoperabilidad y descubrimiento
+
+**Estado:** implementado y validado.
+
+### Objetivos
+
+- cubrir el contexto de horizonte largo, que la biblioteca describía solo hasta la divulgación progresiva;
+- documentar la interoperabilidad entre agentes de distinto dueño, sin cobertura hasta ahora;
+- ofrecer una puerta de entrada legible para agentes que llegan al sitio publicado;
+- recalibrar el score para que vuelva a discriminar.
+
+### Criterios de salida
+
+- compactación, notas persistentes y recuperación bajo demanda tienen activos propios y relacionados entre sí;
+- la selección de protocolo se decide por autoridad, no por popularidad;
+- `llms.txt` se genera desde el catálogo y la puerta falla si diverge;
+- ningún criterio del score se cumple por el solo hecho de ejecutarlo.
 
 ## v3.5 — Aprendizaje y casos reales
 

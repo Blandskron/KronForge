@@ -25,3 +25,5 @@ Lee primero la topología. Usa después la checklist para revisar una integraci�
 ## Límites
 
 Este dominio no sustituye la especificación oficial ni documenta APIs cambiantes como verdades permanentes. Las integraciones de proveedor deben vivir en `tool-integrations/` y declarar versión y fecha de revisión.
+
+Sus activos están escritos contra la revisión `2026-07-28` de la especificación, declarada en `specRefs`. Esa revisión eliminó el estado del protocolo: un diseño anterior puede contener una suposición implícita de sesión. Antes de reutilizar este contenido, comprueba la [frescura de la referencia](../../../docs/SPEC_FRESHNESS.md).

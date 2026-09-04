@@ -30,10 +30,11 @@ El proyecto puede presentarse como plataforma o framework documental liviano, nu
 8. [docs/CONTRIBUTING_ASSETS.md](docs/CONTRIBUTING_ASSETS.md)
 9. [docs/QUALITY_GATES.md](docs/QUALITY_GATES.md)
 10. [docs/AGENT_COMPATIBILITY.md](docs/AGENT_COMPATIBILITY.md)
-11. [PROMPT_VERSIONING.md](PROMPT_VERSIONING.md)
-12. [docs/agent/PERMISSIONS.md](docs/agent/PERMISSIONS.md)
-13. [docs/agent/TESTS.md](docs/agent/TESTS.md)
-14. [docs/agent/RUNBOOK.md](docs/agent/RUNBOOK.md)
+11. [docs/SPEC_FRESHNESS.md](docs/SPEC_FRESHNESS.md)
+12. [PROMPT_VERSIONING.md](PROMPT_VERSIONING.md)
+13. [docs/agent/PERMISSIONS.md](docs/agent/PERMISSIONS.md)
+14. [docs/agent/TESTS.md](docs/agent/TESTS.md)
+15. [docs/agent/RUNBOOK.md](docs/agent/RUNBOOK.md)
 
 ## Superficie Editable
 
@@ -47,6 +48,7 @@ Puedes modificar:
 - `docs/**/*.md`
 - `index.html`, `assets/**`, `pages/**`
 - `scripts/**`, `tests/**`, `package.json`
+- `skills/**` y `llms.txt` únicamente mediante `npm run build`; nunca a mano
 - `.github/workflows/**`, `.github/ISSUE_TEMPLATE/**`, `.github/PULL_REQUEST_TEMPLATE.md`, `.github/CODEOWNERS`
 - `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, `SECURITY.md`, `SUPPORT.md`, `GOVERNANCE.md`, `MAINTAINERS.md`
 - `CLAUDE.md`, `GEMINI.md`, `.github/copilot-instructions.md`
@@ -73,6 +75,11 @@ Pide aprobación antes de:
 - Organiza activos por dominio; no restaures carpetas planas por tipo.
 - No crees subcarpetas o activos de relleno.
 - Mantén `library/catalog.json` y los índices de dominio alineados con los archivos canónicos.
+- `skills/` y `llms.txt` son proyecciones generadas. Edita la fuente canónica en `library/` y regenera; no modifiques el destino.
+- Toda skill debe cumplir el formato abierto: `name` en minúsculas igual al directorio, `description` que explique qué hace y cuándo usarla, cuerpo bajo 500 líneas.
+- Ninguna skill puede obtener instrucciones desde una URL externa en ejecución. El contenido necesario se empaqueta o se versiona.
+- Todo activo que afirme algo sobre una fuente externa declara `specRefs` con `spec`, `url` y `verified`. Actualizar `verified` sin abrir la fuente invalida el control.
+- Al re-verificar una referencia, corrige el activo si la fuente cambió, clasifica el cambio con SemVer y regístralo en el changelog.
 - Mantén el portal como presentación de `library/catalog.json` y Markdown canónico, no como segunda fuente de verdad.
 - El schema v3 del catálogo requiere metadatos de identidad, clasificación, compatibilidad, relaciones, contrato, mantenimiento y ruta por activo.
 - Las relaciones y rutas de aprendizaje solo pueden referenciar IDs existentes.
@@ -88,10 +95,12 @@ Pide aprobación antes de:
 Antes de cerrar una tarea ejecuta `npm run quality`, o documenta con precisión por qué un control no aplica. Esa puerta comprueba:
 
 1. catálogo, schema, front matter, relaciones e índices;
-2. enlaces, anclas, cercas Markdown y patrones de secretos;
-3. sintaxis JavaScript, navegación y recursos del portal;
-4. pruebas unitarias y smoke test bajo el subdirectorio de GitHub Pages;
-5. AI Repository Score y paridad de versión/roadmap.
+2. frescura de referencias externas declaradas en `specRefs`;
+3. conformidad de las skills con el formato abierto y proyecciones `skills/` y `llms.txt` al día;
+4. enlaces, anclas, cercas Markdown y patrones de secretos;
+5. sintaxis JavaScript, navegación y recursos del portal;
+6. pruebas unitarias y smoke test bajo el subdirectorio de GitHub Pages;
+7. AI Repository Score y paridad de versión/roadmap.
 
 Además, confirma que `docs/CHANGELOG.md` refleje los cambios semánticos.
 
@@ -103,6 +112,6 @@ Una tarea está terminada cuando:
 - La documentación del repo es coherente consigo misma.
 - La página estática presenta el proyecto y permite copiar el prompt.
 - Las URLs directas, copia y descarga conservan el activo Markdown canónico.
-- Catálogo, schema, índices y portal permanecen alineados.
+- Catálogo, schema, índices, proyección de skills y portal permanecen alineados.
 - Los cambios están registrados en `docs/CHANGELOG.md` cuando corresponde.
 - `npm run quality` termina sin errores o se explica por qué un control no pudo ejecutarse.
