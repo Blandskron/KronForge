@@ -114,6 +114,8 @@ El owner listado en [`MAINTAINERS.md`](MAINTAINERS.md) autoriza la release. La p
 
 Las versiones históricas sin tag permanecen como registro documental, pero no establecen por sí solas un precedente para futuras releases.
 
+`v3.2.0` es la primera release etiquetada del framework. Las versiones anteriores están descritas en [`docs/CHANGELOG.md`](docs/CHANGELOG.md) y siguen siendo registro documental sin tag.
+
 ### Corrección o rollback
 
 Si una release rompe navegación, seguridad o contenido canónico:

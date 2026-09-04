@@ -36,7 +36,7 @@ Las iniciativas de aprendizaje y casos reales antes asociadas a v2.2 se reprogra
 
 ## v3.0 — Framework gobernado y verificable
 
-**Estado:** implementado y validado; publicación de la release pendiente.
+**Estado:** implementado y validado. Su alcance quedó publicado en la primera release etiquetada del framework, `v3.2.0`, junto a los incrementos v3.1 y v3.2.
 
 ### Objetivos
 
@@ -59,7 +59,7 @@ Las iniciativas de aprendizaje y casos reales antes asociadas a v2.2 se reprogra
 
 ## v3.1 — Conformidad, cadena de suministro y frescura
 
-**Estado:** implementado y validado.
+**Estado:** implementado y validado; publicado dentro de `v3.2.0`. No tiene tag propio porque no existe un commit que delimite su alcance.
 
 ### Objetivos
 
@@ -77,7 +77,7 @@ Las iniciativas de aprendizaje y casos reales antes asociadas a v2.2 se reprogra
 
 ## v3.2 — Contexto vigente, interoperabilidad y descubrimiento
 
-**Estado:** implementado y validado.
+**Estado:** implementado, validado y publicado como `v3.2.0`.
 
 ### Objetivos
 
