@@ -7,6 +7,7 @@ El contrato canónico vive en [`AGENTS.md`](../AGENTS.md). Este adaptador no lo 
 - Biblioteca y catálogo canónicos: `library/`.
 - Prompt maestro estable: `prompts/agents-first-documentation-review.prompt.md`.
 - Operación y validación: `docs/agent/`.
+- Protocolos de trabajo entre personas y agentes: `library/domains/engineering-protocols/`.
 - Portal estático: `index.html`, `assets/` y `pages/`, sin build.
 
 ## Reglas

@@ -15,6 +15,7 @@ El flujo operativo se mantiene simple: **Copiar -> Pegar -> Auditar -> Aprobar -
 
 - un [prompt maestro](prompts/agents-first-documentation-review.prompt.md) para preparar repositorios agents-first;
 - una [biblioteca por dominios](library/README.md) con activos ejecutables, de conocimiento, gobierno e integración;
+- una [suite de protocolos de ingeniería](library/domains/engineering-protocols/README.md) para que personas y agentes deleguen, revisen, validen y publiquen con evidencia verificable;
 - un [catálogo v3](library/catalog.json) validado por [JSON Schema](library/schema/catalog-v3.schema.json);
 - relaciones entre activos y rutas de aprendizaje para adopción progresiva;
 - documentación operativa en [`docs/agent/`](docs/agent/) y un [registro de decisiones](docs/adr/README.md);
@@ -48,6 +49,7 @@ No es una colección masiva de prompts, un runtime ni una metodología prescript
 | [MCP e integraciones](library/domains/mcp-integration/README.md) | tools, resources, clientes, servidores y seguridad |
 | [Cadena de suministro de agentes](library/domains/agent-supply-chain/README.md) | confianza, procedencia, privilegio mínimo y revisión de skills |
 | [Interoperabilidad entre agentes](library/domains/agent-interoperability/README.md) | A2A, tarjetas de agente, identidad y fronteras entre protocolos |
+| [Protocolos de ingeniería](library/domains/engineering-protocols/README.md) | delegación, evidencia, revisión independiente, validación externa y publicación |
 | [Hooks y workflows](library/domains/hooks-workflows/README.md) | automatización, gates, testing y notificaciones |
 | [Arquitectura](library/domains/architecture/README.md) | decisiones, modularidad, DDD y estilos |
 | [Desarrollo de software](library/domains/software-development/README.md) | backend, frontend, APIs y refactoring |

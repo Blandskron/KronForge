@@ -29,6 +29,7 @@ Los activos genéricos del catálogo pueden ayudar a ejecutar una revisión, per
 - [ ] Las advertencias de frescura entre 90 y 180 días quedaron anotadas o resueltas.
 - [ ] Las skills modificadas cumplen el formato abierto y no delegan instrucciones a una URL externa.
 - [ ] Las proyecciones `skills/` y `llms.txt` se regeneraron y no divergen de su fuente.
+- [ ] Todo activo de tipo `protocol` declara sus cuatro secciones obligatorias, una madurez coherente con su `observedIn` y un cuerpo normativo sin nombres de proveedor.
 
 ### Documentación
 

@@ -6,7 +6,8 @@ Este archivo no reemplaza [`AGENTS.md`](AGENTS.md) ni garantiza que una versión
 
 1. `AGENTS.md` y los documentos prioritarios que enlaza.
 2. El activo elegido desde [`library/README.md`](library/README.md) o el [prompt maestro](prompts/agents-first-documentation-review.prompt.md).
-3. Acceso al repositorio y alcance explícito de la tarea.
+3. Cuando la tarea implique varios participantes, evidencia o publicación, la [suite de protocolos](library/domains/engineering-protocols/README.md).
+4. Acceso al repositorio y alcance explícito de la tarea.
 
 ## Contrato
 

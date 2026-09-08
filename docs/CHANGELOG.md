@@ -4,6 +4,38 @@ Todos los cambios notables en este proyecto serán documentados en este archivo.
 
 ---
 
+## [3.3.0] - 2026-09-07
+
+### Añadido
+
+- Tipo de activo `protocol` como concepto de primera clase, con categoría propia, metadatos verificables —código estable, madurez, actores, dependencias, dónde se observó y cuándo se revalidó— y carpeta `protocols`. Ver [ADR-0006](adr/ADR-0006-protocol-asset-type.md).
+- Dominio `engineering-protocols` con la suite de doce protocolos AFP-000 a AFP-011: madurez y validación, estado del repositorio, delegación y handoff, colaboración multiagente, evidencia y compuertas, revisión independiente, validación de consumo externo, conformidad entre interfaces, benchmark reproducible, preparación de publicación, registros de decisión, y completitud, falla y detención.
+- Cinco plantillas nuevas: protocolo, contrato de delegación, recibo de handoff, registro de evidencia de compuerta e informe de benchmark. Una sexta, la plantilla RFC, se suma al dominio `architecture` junto a la de ADR.
+- Tres anti-patrones: compuerta aprobada sin ejecución, autorrevisión presentada como revisión independiente y protocolo acoplado a proveedores.
+- Case study con la evidencia empírica que motivó la suite, incluida una sección explícita de lo que no valida; ejemplo con cinco escenarios de aplicación; y referencia de trabajo previo con cuatro fuentes externas verificadas.
+- Grupo de validación «Contrato de protocolos, madurez y neutralidad» con cinco controles que pueden fallar: coherencia de madurez frente a evidencia declarada, grafo de dependencias acíclico, caducidad de la reevaluación de madurez, secciones obligatorias y neutralidad de proveedor en el cuerpo normativo.
+- Ruta de aprendizaje «Protocolos de ingeniería con agentes».
+
+### Modificado
+
+- El schema del catálogo v3 acepta la categoría `protocol` y el objeto `protocol` en un activo, obligatorio para ese tipo y prohibido para los demás.
+- Los tipos `case-study` y `example` pasan de `supported` a `active` al recibir su primer activo canónico.
+- El portal etiqueta el tipo `protocol` en sus dos renderizadores de catálogo.
+
+### Compatibilidad
+
+- Se conservan el prompt maestro, `LICENSE`, las rutas públicas existentes, los IDs y el contrato del catálogo v3.
+- `protocol` es un tipo aditivo: ningún activo existente cambia de tipo, de categoría ni de ruta.
+- El objeto `protocol` es opcional en el schema y obligatorio por política solo para el tipo que lo declara.
+
+### Estado de madurez
+
+Los doce protocolos se publican en `experimental`. Su evidencia empírica proviene de un solo proyecto, con un solo mantenedor y un solo ecosistema. Ninguno alcanza `reproduced` y ninguno declara medición de efectividad. El case study registra explícitamente qué sostiene esa evidencia y qué no.
+
+### Versión SemVer
+
+Clasificada como **MINOR**: agrega tipo, dominio, activos y controles sin romper rutas, IDs ni contratos. La neutralidad de proveedor es un control nuevo que solo aplica a un tipo nuevo, de modo que ningún activo existente puede empezar a fallar por su causa.
+
 ## [3.2.0] - 2026-09-03
 
 ### Añadido

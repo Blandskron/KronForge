@@ -23,6 +23,7 @@ Catálogo de conocimiento reutilizable, agnóstico al modelo y organizado por do
 | [MCP e integraciones](domains/mcp-integration/README.md) | Clientes, servidores, tools, resources y seguridad | Architecture note y checklist |
 | [Cadena de suministro de agentes](domains/agent-supply-chain/README.md) | Confianza, procedencia y privilegio mínimo de los artefactos que el agente carga | Architecture note, pattern, anti-pattern y checklist |
 | [Interoperabilidad entre agentes](domains/agent-interoperability/README.md) | Comunicación, descubrimiento y confianza entre agentes de distinto dueño | Architecture note y referencia |
+| [Protocolos de ingeniería](domains/engineering-protocols/README.md) | Ciclos normativos de delegación, evidencia, revisión, validación y publicación entre personas y agentes | Doce protocolos, cinco plantillas, tres anti-patrones, case study, ejemplo y referencia |
 | [Hooks y workflows](domains/hooks-workflows/README.md) | Automatización explícita y observable | Pattern |
 | [Arquitectura](domains/architecture/README.md) | Decisiones, estilos, modularidad y evolución de sistemas | Prompt y template ADR |
 | [Desarrollo de software](domains/software-development/README.md) | Backend, frontend, APIs, integración y refactoring | Índice preparado |
@@ -54,6 +55,7 @@ Los tipos se agrupan por su función, sin convertir cada tema en un dominio:
 
 | Categoría | Tipos |
 |---|---|
+| Protocolo | `protocol` |
 | Ejecución | `prompt`, `skill`, `subagent`, `playbook`, `recipe`, `snippet` |
 | Automatización | `hook`, `workflow` |
 | Integración | `mcp-integration`, `tool-integration` |
@@ -67,6 +69,8 @@ Los tipos se agrupan por su función, sin convertir cada tema en un dominio:
 | Planificación | `roadmap` |
 
 `active` significa que ya existe al menos un activo canónico de ese tipo. `supported` significa que el contrato acepta contribuciones de ese tipo, pero no crea contenido de relleno.
+
+El tipo `protocol` es el único con metadatos propios. Describe un ciclo de vida normativo multi-actor y declara `code`, `maturity`, `actors`, `dependsOn`, `observedIn` y `lastValidated`; la puerta de calidad verifica que la madurez corresponda a la evidencia, que el grafo de dependencias sea acíclico, que estén las cuatro secciones obligatorias y que el cuerpo normativo no nombre proveedores. Ver [ADR-0006](../docs/adr/ADR-0006-protocol-asset-type.md).
 
 ### Fuente de verdad
 

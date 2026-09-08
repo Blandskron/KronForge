@@ -166,7 +166,8 @@
             "operations",
             "learning",
             "reference",
-            "planning"
+            "planning",
+            "protocol"
           ]
         },
         "folder": {
@@ -270,7 +271,8 @@
             "operations",
             "learning",
             "reference",
-            "planning"
+            "planning",
+            "protocol"
           ]
         },
         "domain": {
@@ -366,6 +368,9 @@
         "specRefs": {
           "$ref": "#/$defs/specRefList"
         },
+        "protocol": {
+          "$ref": "#/$defs/protocolMetadata"
+        },
         "inputs": {
           "$ref": "#/$defs/stringList"
         },
@@ -450,6 +455,60 @@
           ]
         }
       }
+    },
+    "protocolMetadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "code",
+        "maturity",
+        "actors",
+        "dependsOn",
+        "observedIn",
+        "lastValidated"
+      ],
+      "properties": {
+        "code": {
+          "$ref": "#/$defs/protocolCode"
+        },
+        "maturity": {
+          "enum": [
+            "proposed",
+            "experimental",
+            "observed",
+            "reproduced",
+            "validated",
+            "stable"
+          ]
+        },
+        "actors": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/stringList"
+            },
+            {
+              "minItems": 1
+            }
+          ]
+        },
+        "dependsOn": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/protocolCode"
+          }
+        },
+        "observedIn": {
+          "$ref": "#/$defs/stringList"
+        },
+        "lastValidated": {
+          "$ref": "#/$defs/date"
+        }
+      }
+    },
+    "protocolCode": {
+      "type": "string",
+      "pattern": "^AFP-[0-9]{3}$"
     },
     "specRef": {
       "type": "object",

@@ -1,7 +1,7 @@
 # Roadmap del Framework
 
 - **Fuente canónica:** este documento.
-- **Última revisión:** 2026-09-03.
+- **Última revisión:** 2026-09-07.
 - **Principio:** profundidad, calidad y evidencia antes que volumen.
 
 Los roadmaps incluidos en documentos estratégicos anteriores describen su momento de diseño. Cuando exista una diferencia, prevalece este archivo.
@@ -92,6 +92,29 @@ Las iniciativas de aprendizaje y casos reales antes asociadas a v2.2 se reprogra
 - la selección de protocolo se decide por autoridad, no por popularidad;
 - `llms.txt` se genera desde el catálogo y la puerta falla si diverge;
 - ningún criterio del score se cumple por el solo hecho de ejecutarlo.
+
+## v3.3 — Capa de protocolos de ingeniería
+
+**Estado:** implementado y validado; publicado como `3.3.0`.
+
+### Objetivos
+
+- expresar ciclos normativos multi-actor, que ningún tipo existente podía representar sin confusión semántica;
+- separar de forma verificable una propuesta de una práctica reproducida;
+- convertir la neutralidad de proveedor de convención en compuerta;
+- extraer a activos reutilizables las prácticas de ingeniería observadas en un proyecto real, sin acoplar el framework a ese proyecto.
+
+### Criterios de salida
+
+- el tipo `protocol` existe en el schema, el catálogo, el validador y el portal, con su decisión registrada;
+- cada protocolo declara actores, ciclo de vida, evidencia, límites y madurez, y la puerta falla si la madurez no corresponde a la evidencia declarada;
+- el grafo de dependencias entre protocolos es acíclico y descubrible por máquina;
+- introducir un nombre de proveedor en el cuerpo normativo de un protocolo hace fallar la puerta;
+- el caso de estudio declara explícitamente qué valida su evidencia y qué no.
+
+### Lo que esta entrega no demuestra
+
+Ningún protocolo supera `experimental`. La evidencia proviene de un solo proyecto, un solo mantenedor y un solo ecosistema, y no existe medición de efectividad de ninguno. Alcanzar `reproduced` exige un segundo proyecto independiente; alcanzar `validated` exige medición bajo AFP-008. Ambas cosas pertenecen a entregas posteriores.
 
 ## v3.5 — Aprendizaje y casos reales
 

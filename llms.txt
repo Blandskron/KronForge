@@ -1,6 +1,6 @@
 # Agents First Framework
 
-> Plataforma documental abierta de AI Engineering para diseñar contexto, repositorios, agentes y software verificable. Markdown canónico, agnóstico al modelo y al stack, sin runtime. Versión 3.2.0, catálogo actualizado el 2026-09-03.
+> Plataforma documental abierta de AI Engineering para diseñar contexto, repositorios, agentes y software verificable. Markdown canónico, agnóstico al modelo y al stack, sin runtime. Versión 3.3.0, catálogo actualizado el 2026-09-07.
 
 El conocimiento vive en Markdown bajo `library/domains/`. El catálogo JSON y las carpetas `skills/` son proyecciones verificadas de esa fuente, no fuentes alternativas.
 
@@ -84,6 +84,7 @@ Decisiones, estilos, modularidad y evolución de sistemas.
 
 - [Architecture Decision Record](https://blandskron.github.io/agents-first-repo-docs/library/domains/architecture/templates/adr.template.md): template · Registrar una decisión arquitectónica, su contexto y consecuencias.
 - [Validación de arquitectura](https://blandskron.github.io/agents-first-repo-docs/library/domains/architecture/prompts/architecture-validation.prompt.md): prompt · Contrastar la arquitectura declarada con la estructura y dependencias reales.
+- [Request for Comments](https://blandskron.github.io/agents-first-repo-docs/library/domains/architecture/templates/rfc.template.md): template · Abrir una pregunta de diseño antes de convertirla en decisión, con alternativas y preguntas sin resolver.
 
 ## Ingeniería de calidad
 
@@ -131,6 +132,34 @@ Documentación como código, auditoría y gestión del conocimiento.
 - [Documentación como código](https://blandskron.github.io/agents-first-repo-docs/library/domains/documentation-knowledge/patterns/documentation-as-code.pattern.md): pattern · Mantener documentación versionada, revisable y validable junto al sistema.
 - [Auditoría documental](https://blandskron.github.io/agents-first-repo-docs/library/domains/documentation-knowledge/skills/documentation-audit/SKILL.md): skill · Verificar consistencia, enlaces, seguridad y trazabilidad documental.
 - [Comandos inventados](https://blandskron.github.io/agents-first-repo-docs/library/domains/documentation-knowledge/anti-patterns/invented-commands.anti-pattern.md): anti-pattern · Detectar y corregir instrucciones ejecutables sin respaldo en el repositorio.
+
+## Protocolos de ingeniería con agentes
+
+Ciclos de vida normativos para planificar, delegar, revisar, validar y publicar software entre personas y agentes.
+
+- [Agnara como banco de pruebas multiagente](https://blandskron.github.io/agents-first-repo-docs/library/domains/engineering-protocols/case-studies/agnara-multi-agent.case-study.md): case-study · Qué prácticas de la suite de protocolos se ejercen realmente en un repositorio operado por varios agentes, y qué no demuestran todavía.
+- [Benchmark reproducible](https://blandskron.github.io/agents-first-repo-docs/library/domains/engineering-protocols/protocols/benchmark.protocol.md): protocol · Producir mediciones comparables declarando pregunta, entorno, línea base, repeticiones, incertidumbre y límites.
+- [Informe de benchmark](https://blandskron.github.io/agents-first-repo-docs/library/domains/engineering-protocols/templates/benchmark-report.template.md): template · Publicar una medición con método, incertidumbre, interpretación y límites suficientes para evaluarla.
+- [Completitud, falla y detención](https://blandskron.github.io/agents-first-repo-docs/library/domains/engineering-protocols/protocols/completion-and-stop.protocol.md): protocol · Definir cuándo una tarea terminó, cuándo debe detenerse y con qué evidencia se declara cada resultado.
+- [Registros de decisión](https://blandskron.github.io/agents-first-repo-docs/library/domains/engineering-protocols/protocols/decision-records.protocol.md): protocol · Separar una pregunta abierta de una decisión tomada, y hacer ambas descubribles antes de tocar arquitectura.
+- [Contrato de delegación de tarea](https://blandskron.github.io/agents-first-repo-docs/library/domains/engineering-protocols/templates/delegation-contract.template.md): template · Entregar una tarea con contexto, alcance, criterios y evidencia suficientes para ejecutarla sin conversación previa.
+- [Evidencia y compuertas de calidad](https://blandskron.github.io/agents-first-repo-docs/library/domains/engineering-protocols/protocols/evidence-and-gates.protocol.md): protocol · Separar lo que un agente afirma de lo que ejecutó, observó y puede demostrar.
+- [Registro de evidencia de compuerta](https://blandskron.github.io/agents-first-repo-docs/library/domains/engineering-protocols/templates/evidence-record.template.md): template · Registrar qué se ejecutó, qué se observó y contra qué estado del código, para que la evidencia pueda caducar.
+- [Validación de consumo externo](https://blandskron.github.io/agents-first-repo-docs/library/domains/engineering-protocols/protocols/external-consumption-validation.protocol.md): protocol · Probar el producto desde fuera del repositorio, con el mecanismo de entrega real y solo documentación pública.
+- [Recibo de handoff entre participantes](https://blandskron.github.io/agents-first-repo-docs/library/domains/engineering-protocols/templates/handoff-receipt.template.md): template · Transferir trabajo a otro participante sin depender de la conversación anterior.
+- [Revisión independiente](https://blandskron.github.io/agents-first-repo-docs/library/domains/engineering-protocols/protocols/independent-review.protocol.md): protocol · Revisar desde la evidencia y no desde la narrativa de quien implementó.
+- [Conformidad entre interfaces](https://blandskron.github.io/agents-first-repo-docs/library/domains/engineering-protocols/protocols/interface-conformance.protocol.md): protocol · Demostrar que varias interfaces del mismo sistema implementan la misma semántica, no solo que cada una funciona.
+- [Colaboración multiagente](https://blandskron.github.io/agents-first-repo-docs/library/domains/engineering-protocols/protocols/multi-agent-collaboration.protocol.md): protocol · Coordinar varios agentes sobre un mismo repositorio mediante roles, autoridad y propiedad explícitas.
+- [Trabajo previo y terminología equivalente](https://blandskron.github.io/agents-first-repo-docs/library/domains/engineering-protocols/references/prior-art.reference.md): reference · Dónde las ideas de la suite ya existen bajo otro nombre, y qué se toma prestado de cada tradición.
+- [Madurez y validación de protocolos](https://blandskron.github.io/agents-first-repo-docs/library/domains/engineering-protocols/protocols/protocol-maturity.protocol.md): protocol · Graduar un protocolo desde propuesta hasta estable exigiendo evidencia distinta en cada escalón.
+- [Escenarios de aplicación de los protocolos](https://blandskron.github.io/agents-first-repo-docs/library/domains/engineering-protocols/examples/protocol-scenarios.example.md): example · Cinco recorridos concretos que muestran qué protocolos intervienen y qué evidencia produce cada uno.
+- [Plantilla de protocolo](https://blandskron.github.io/agents-first-repo-docs/library/domains/engineering-protocols/templates/protocol.template.md): template · Redactar un protocolo con actores, ciclo de vida, evidencia, límites y madurez declarada.
+- [Preparación de publicación](https://blandskron.github.io/agents-first-repo-docs/library/domains/engineering-protocols/protocols/release-readiness.protocol.md): protocol · Separar terminar funcionalidad de estar listo para publicar, y reservar la autorización de publicar a una persona.
+- [Estado del repositorio y ciclo del agente](https://blandskron.github.io/agents-first-repo-docs/library/domains/engineering-protocols/protocols/repository-state.protocol.md): protocol · Obligar a un agente a reconstruir el estado del repositorio antes de modificarlo.
+- [Autorrevisión presentada como revisión independiente](https://blandskron.github.io/agents-first-repo-docs/library/domains/engineering-protocols/anti-patterns/self-review-as-independent.anti-pattern.md): anti-pattern · Presentar la revisión del propio trabajo, o el acuerdo entre participantes, como si fuera revisión independiente.
+- [Compuerta aprobada sin ejecución](https://blandskron.github.io/agents-first-repo-docs/library/domains/engineering-protocols/anti-patterns/unverified-gate-claim.anti-pattern.md): anti-pattern · Reportar una compuerta como aprobada apoyándose en inferencia, memoria o en la afirmación de otro participante.
+- [Protocolo acoplado a proveedores](https://blandskron.github.io/agents-first-repo-docs/library/domains/engineering-protocols/anti-patterns/vendor-coupled-protocol.anti-pattern.md): anti-pattern · Escribir el proceso de ingeniería en términos de los productos que hoy lo ejecutan en lugar de roles y capacidades.
+- [Delegación y handoff de trabajo](https://blandskron.github.io/agents-first-repo-docs/library/domains/engineering-protocols/protocols/work-delegation.protocol.md): protocol · Entregar una tarea con contexto suficiente para ejecutarla y transferirla sin depender de memoria conversacional.
 
 ## Opcional
 

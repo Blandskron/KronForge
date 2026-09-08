@@ -18,6 +18,7 @@ Este directorio registra decisiones estructurales reales del framework.
 | [ADR-0003](ADR-0003-zero-dependency-quality-gate.md) | accepted | Quality gate reproducible sin dependencias |
 | [ADR-0004](ADR-0004-agent-skills-projection-and-spec-freshness.md) | accepted | Proyección de skills conforme al estándar y frescura verificable |
 | [ADR-0005](ADR-0005-discovery-surface-and-score-calibration.md) | accepted | Superficie de descubrimiento `llms.txt` y recalibración del score |
+| [ADR-0006](ADR-0006-protocol-asset-type.md) | accepted | Tipo de activo `protocol` y capa de protocolos de ingeniería |
 
 Para una decisión nueva, usa la [plantilla ADR](../../library/domains/architecture/templates/adr.template.md), elimina instrucciones y actualiza este índice.
 

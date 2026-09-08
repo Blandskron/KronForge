@@ -32,9 +32,10 @@ El proyecto puede presentarse como plataforma o framework documental liviano, nu
 10. [docs/AGENT_COMPATIBILITY.md](docs/AGENT_COMPATIBILITY.md)
 11. [docs/SPEC_FRESHNESS.md](docs/SPEC_FRESHNESS.md)
 12. [PROMPT_VERSIONING.md](PROMPT_VERSIONING.md)
-13. [docs/agent/PERMISSIONS.md](docs/agent/PERMISSIONS.md)
-14. [docs/agent/TESTS.md](docs/agent/TESTS.md)
-15. [docs/agent/RUNBOOK.md](docs/agent/RUNBOOK.md)
+13. [library/domains/engineering-protocols/README.md](library/domains/engineering-protocols/README.md)
+14. [docs/agent/PERMISSIONS.md](docs/agent/PERMISSIONS.md)
+15. [docs/agent/TESTS.md](docs/agent/TESTS.md)
+16. [docs/agent/RUNBOOK.md](docs/agent/RUNBOOK.md)
 
 ## Superficie Editable
 
@@ -84,6 +85,9 @@ Pide aprobación antes de:
 - El schema v3 del catálogo requiere metadatos de identidad, clasificación, compatibilidad, relaciones, contrato, mantenimiento y ruta por activo.
 - Las relaciones y rutas de aprendizaje solo pueden referenciar IDs existentes.
 - Registra decisiones arquitectónicas duraderas como ADR en `docs/adr/`.
+- Un activo de tipo `protocol` declara actores, ciclo de vida, evidencia y límites, y su madurez debe corresponder a la evidencia que declara. Ver [ADR-0006](docs/adr/ADR-0006-protocol-asset-type.md).
+- El cuerpo normativo de un protocolo no nombra proveedores, modelos ni proyectos concretos. Ese nombre solo cabe en `## Evidencia y límites` o en `## Adaptadores no normativos`.
+- No promuevas la madurez de un protocolo sin la evidencia que ese escalón exige. Publicar una propuesta como práctica validada es el fallo que la escala existe para impedir.
 - No eleves el AI Repository Score con archivos o metadatos de relleno.
 - Toda mejora relevante del prompt o la documentación debe registrarse en `docs/CHANGELOG.md`.
 - No agregues referencias a archivos de instrucciones específicos de una plataforma si esos archivos no existen en el repositorio.
@@ -96,11 +100,12 @@ Antes de cerrar una tarea ejecuta `npm run quality`, o documenta con precisión 
 
 1. catálogo, schema, front matter, relaciones e índices;
 2. frescura de referencias externas declaradas en `specRefs`;
-3. conformidad de las skills con el formato abierto y proyecciones `skills/` y `llms.txt` al día;
-4. enlaces, anclas, cercas Markdown y patrones de secretos;
-5. sintaxis JavaScript, navegación y recursos del portal;
-6. pruebas unitarias y smoke test bajo el subdirectorio de GitHub Pages;
-7. AI Repository Score y paridad de versión/roadmap.
+3. contrato de los protocolos: madurez frente a evidencia, grafo acíclico, secciones obligatorias y neutralidad de proveedor;
+4. conformidad de las skills con el formato abierto y proyecciones `skills/` y `llms.txt` al día;
+5. enlaces, anclas, cercas Markdown y patrones de secretos;
+6. sintaxis JavaScript, navegación y recursos del portal;
+7. pruebas unitarias y smoke test bajo el subdirectorio de GitHub Pages;
+8. AI Repository Score y paridad de versión/roadmap.
 
 Además, confirma que `docs/CHANGELOG.md` refleje los cambios semánticos.
 

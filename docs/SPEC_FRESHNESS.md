@@ -61,6 +61,12 @@ Actualizar `verified` sin abrir la fuente invalida el control por completo. Es l
 
 La cobertura se reporta en el [AI Repository Score](AI_REPOSITORY_SCORE.md) y su omisión indebida es un hallazgo de revisión, no un fallo automático: ninguna heurística puede decidir de forma fiable si una prosa constituye una afirmación sobre un estándar externo.
 
+## Política hermana: madurez de protocolos
+
+Los activos de tipo `protocol` declaran `lastValidated`, que sigue el mismo razonamiento aplicado a una afirmación distinta: `specRefs.verified` dice cuándo se comprobó una fuente externa; `lastValidated` dice cuándo se reevaluó la madurez que el protocolo declara. Ambas mueren por omisión.
+
+Los umbrales difieren: 90 y 180 días para una fuente externa, 180 y 365 para un protocolo, porque un protocolo cambia más despacio que una especificación. El contrato está en [ADR-0006](adr/ADR-0006-protocol-asset-type.md) y su vocabulario en [AFP-000](../library/domains/engineering-protocols/protocols/protocol-maturity.protocol.md).
+
 ## Relación con otras políticas
 
 - [PROMPT_VERSIONING.md](../PROMPT_VERSIONING.md) clasifica el cambio resultante.

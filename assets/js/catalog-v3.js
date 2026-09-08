@@ -1,6 +1,6 @@
-import { switchTab } from './navigation.js?v=3.2.0';
-import { siteUrl } from './paths.js?v=3.2.0';
-import { setMarkdownContent } from './markdown.js?v=3.2.0';
+import { switchTab } from './navigation.js?v=3.3.0';
+import { siteUrl } from './paths.js?v=3.3.0';
+import { setMarkdownContent } from './markdown.js?v=3.3.0';
 import {
     assetLevel,
     buildPortalHash,
@@ -9,7 +9,7 @@ import {
     normalizeSearch,
     resolveRelatedAssets,
     toArray
-} from './catalog-utils.js?v=3.2.0';
+} from './catalog-utils.js?v=3.3.0';
 
 let catalogPromise;
 let catalog;
@@ -41,6 +41,7 @@ const TYPE_LABELS = {
     checklist: 'Checklist',
     template: 'Template',
     adr: 'ADR',
+    protocol: 'Protocol',
     pattern: 'Pattern',
     'anti-pattern': 'Anti-pattern',
     runbook: 'Runbook',
@@ -328,7 +329,7 @@ export async function renderLibrary(force = false) {
         renderTypeFilters(data);
 
         const version = document.getElementById('catalog-version');
-        if (version) version.textContent = `framework ${data.frameworkVersion || '3.2.0'} · schema v${data.schemaVersion || 3}`;
+        if (version) version.textContent = `framework ${data.frameworkVersion || '3.3.0'} · schema v${data.schemaVersion || 3}`;
 
         const librarySearch = document.getElementById('library-search');
         if (librarySearch) librarySearch.oninput = (event) => {

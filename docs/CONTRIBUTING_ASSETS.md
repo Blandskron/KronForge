@@ -57,6 +57,7 @@ useCases: []
 - `author`, `license` y `lastModified` deben ser verificables. La licencia predeterminada del repositorio es `MIT`.
 - `dependencies` contiene IDs necesarios para aplicar el activo.
 - `related` contiene IDs existentes y relaciones útiles.
+- `protocol` es obligatorio para el tipo `protocol` y está prohibido en cualquier otro tipo. Declara `code` (`AFP-NNN`), `maturity`, `actors`, `dependsOn`, `observedIn` y `lastValidated`. Ver [ADR-0006](adr/ADR-0006-protocol-asset-type.md).
 - `specRefs` es obligatorio cuando el activo afirma algo sobre una especificación o publicación externa, y se omite cuando no lo hace. Cada entrada declara `spec`, `url` y `verified`, más `version` si la fuente la publica. La puerta de calidad advierte a los 90 días y falla a los 180 sin re-verificar. Ver [frescura verificable](SPEC_FRESHNESS.md).
 - `inputs`, `outputs`, `examples` y `useCases` son listas de descriptores breves.
 - `estimatedTime` expresa minutos enteros o `null`.
@@ -75,6 +76,21 @@ El Markdown es la fuente canónica del activo. [`library/catalog.json`](../libra
 Todo cambio en el catálogo o en una skill debe regenerar las superficies con `npm run build`. Ni `skills/` ni `llms.txt` se editan a mano y la puerta de calidad falla si divergen de su fuente.
 
 Al contribuir, actualiza el activo, su registro del catálogo y el índice del dominio en el mismo cambio. El catálogo debe seguir cumpliendo [`catalog-v3.schema.json`](../library/schema/catalog-v3.schema.json); el schema valida forma y vocabularios, mientras que la revisión también debe comprobar unicidad, existencia de rutas y referencias entre IDs.
+
+## Contribuir un protocolo
+
+Un activo de tipo `protocol` describe un ciclo de vida normativo multi-actor. Antes de escribir uno, confirma que no puede expresarse como `playbook` —un procedimiento de un actor— ni como `pattern` —una solución sin ciclo de vida—.
+
+Reglas adicionales que la puerta de calidad verifica:
+
+1. **Cuatro secciones obligatorias:** `## Actores`, `## Ciclo de vida`, `## Evidencia y límites` y `## Qué no afirma este protocolo`.
+2. **Madurez coherente con la evidencia.** Un escalón por encima de `proposed` exige `observedIn` no vacío. Publicar una propuesta como práctica validada es el fallo que la escala existe para impedir.
+3. **Grafo acíclico.** `dependsOn` referencia códigos existentes y el grafo resultante no puede contener ciclos.
+4. **Frescura de madurez.** `lastValidated` es la fecha de la última reevaluación, no la de la última edición. Advertencia a los 180 días, error a los 365.
+5. **Neutralidad de proveedor.** El cuerpo normativo no menciona proveedores, modelos ni proyectos concretos. Ese nombre solo cabe en `## Evidencia y límites`, donde nombrar la fuente es obligatorio, y en `## Adaptadores no normativos`.
+6. **Código estable.** `AFP-NNN` no se reutiliza cuando un protocolo se retira.
+
+Usa la [plantilla de protocolo](../library/domains/engineering-protocols/templates/protocol.template.md) y lee [AFP-000](../library/domains/engineering-protocols/protocols/protocol-maturity.protocol.md) antes de declarar una madurez.
 
 No agregues un tipo nuevo directamente a un activo. Una ampliación de `typeDefinitions` es una decisión estructural, requiere contrato editorial y debe registrarse mediante un ADR en la tarea que la autorice.
 
@@ -115,6 +131,7 @@ Una ruta de `learningPaths`:
 - [ ] Markdown válido y bloques cerrados.
 - [ ] Catálogo compatible con JSON Schema draft 2020-12.
 - [ ] Rutas de aprendizaje siguen usando únicamente IDs existentes.
+- [ ] Si es un protocolo: secciones obligatorias, madurez sostenida por `observedIn`, grafo acíclico y cuerpo normativo neutral.
 - [ ] Índices, sitio y changelog actualizados cuando aplica.
 - [ ] Validaciones de `docs/agent/TESTS.md` ejecutadas.
 

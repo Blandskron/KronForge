@@ -19,7 +19,15 @@ Entradas para humanos y agentes:
 - rutas de aprendizaje;
 - matriz de compatibilidad.
 
-### 2. Conocimiento
+### 2. Protocolo
+
+Ciclos de vida normativos con actores, contratos, evidencia, compuertas y estados de falla. Es la única capa cuyos activos declaran madurez verificable y dependencias entre sí:
+
+- `protocol`.
+
+Se separa de Conocimiento porque un protocolo prescribe comportamiento y un patrón lo describe, y se separa de Ejecución porque no conduce una tarea concreta: gobierna cómo varios actores conducen las suyas. Ver [ADR-0006](../adr/ADR-0006-protocol-asset-type.md).
+
+### 3. Conocimiento
 
 Conceptos y decisiones reutilizables:
 
@@ -30,7 +38,7 @@ Conceptos y decisiones reutilizables:
 - ADR;
 - guías, tutoriales y casos de estudio.
 
-### 3. Ejecución
+### 4. Ejecución
 
 Activos que conducen trabajo:
 
@@ -47,7 +55,7 @@ Activos que conducen trabajo:
 - snippets;
 - evaluaciones y benchmarks.
 
-### 4. Gobernanza
+### 5. Gobernanza
 
 Contratos de comunidad y mantenimiento:
 
@@ -63,7 +71,7 @@ Contratos de comunidad y mantenimiento:
 - estándares documentales;
 - quality gates.
 
-### 5. Presentación
+### 6. Presentación
 
 Portal estático progresivo:
 
@@ -73,7 +81,7 @@ Portal estático progresivo:
 - búsqueda, filtros, relaciones y rutas de aprendizaje;
 - lectura, copia y descarga.
 
-### 6. Automatización
+### 7. Automatización
 
 Calidad reproducible sin toolchain de aplicación:
 
@@ -116,6 +124,7 @@ El dominio sigue siendo la unidad primaria. Tecnologías, estilos y proveedores 
 
 Una carpeta de tipo se crea únicamente cuando contiene un activo canónico. v3 reconoce los tipos siguientes sin obligar a materializarlos todos:
 
+- `protocol`;
 - `prompt`;
 - `skill`;
 - `hook`;

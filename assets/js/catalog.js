@@ -15,6 +15,7 @@ const typeLabels = {
     playbook: 'Playbook',
     template: 'Template',
     checklist: 'Checklist',
+    protocol: 'Protocol',
     pattern: 'Pattern',
     'anti-pattern': 'Anti-pattern',
     reference: 'Reference',

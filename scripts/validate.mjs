@@ -15,6 +15,16 @@ import {
     walk
 } from './lib/repository.mjs';
 import {validateJsonSchema} from './lib/json-schema.mjs';
+import {
+    PROTOCOL_FAIL_DAYS,
+    PROTOCOL_NEUTRAL_EXEMPT,
+    PROTOCOL_WARN_DAYS,
+    dependencyCycles,
+    equalProtocolMetadata,
+    maturityIssues,
+    missingSections,
+    vendorLeak
+} from './lib/protocols.mjs';
 
 const errors = [];
 const warnings = [];
@@ -228,6 +238,9 @@ await check('Paridad catálogo, front matter e índices', async () => {
         if (!equalArray(data.models || [], asset.models || [])) fail(`${asset.id}: models difiere`);
         if (!equalArray(data.related || [], asset.related || [])) fail(`${asset.id}: related difiere`);
         if (!equalSpecRefs(data.specRefs, asset.specRefs)) fail(`${asset.id}: specRefs difiere entre catálogo y front matter`);
+        if (!equalProtocolMetadata(data.protocol, asset.protocol)) {
+            fail(`${asset.id}: metadatos de protocolo difieren entre catálogo y front matter`);
+        }
 
         const domain = catalogDomains.find((item) => item.id === asset.domain);
         const index = await readText(fromRoot('library', domain.index));
@@ -266,6 +279,68 @@ await check('Frescura de referencias externas', async () => {
 
     const withRefs = catalogAssets.filter((asset) => (asset.specRefs || []).length).length;
     if (!withRefs) fail('Ningún activo declara specRefs; la política de frescura no se está aplicando');
+});
+
+await check('Contrato de protocolos, madurez y neutralidad', async () => {
+    const protocols = catalogAssets.filter((asset) => asset.type === 'protocol');
+    if (!protocols.length) fail('No existe ningún activo de tipo protocol');
+
+    for (const asset of catalogAssets) {
+        if (asset.type !== 'protocol' && asset.protocol) {
+            fail(`${asset.id}: declara metadatos de protocolo sin ser de tipo protocol`);
+        }
+        if (asset.type === 'protocol' && !asset.protocol) {
+            fail(`${asset.id}: activo de tipo protocol sin metadatos de protocolo`);
+        }
+    }
+
+    unique(protocols.map((asset) => asset.protocol?.code).filter(Boolean), 'Código de protocolo');
+
+    const byCode = new Map(protocols
+        .filter((asset) => asset.protocol?.code)
+        .map((asset) => [asset.protocol.code, asset.protocol]));
+
+    for (const asset of protocols) {
+        const meta = asset.protocol;
+        if (!meta) continue;
+
+        // La madurez declarada debe corresponder a la evidencia declarada.
+        const maturity = maturityIssues(meta);
+        for (const message of maturity.errors) fail(`${asset.id}: ${message}`);
+        for (const message of maturity.warnings) warn(`${asset.id}: ${message}`);
+
+        for (const dependency of meta.dependsOn || []) {
+            if (!byCode.has(dependency)) fail(`${asset.id}: depende de un protocolo inexistente ${dependency}`);
+            if (dependency === meta.code) fail(`${asset.id}: depende de sí mismo`);
+        }
+
+        // Una madurez sin reevaluar es una afirmación sobre el pasado.
+        const age = daysSince(meta.lastValidated);
+        if (age === null) fail(`${asset.id}: lastValidated inválido`);
+        else if (age < 0) fail(`${asset.id}: lastValidated está en el futuro`);
+        else if (age > PROTOCOL_FAIL_DAYS) {
+            fail(`${asset.id}: madurez sin reevaluar hace ${age} días (límite ${PROTOCOL_FAIL_DAYS})`);
+        } else if (age > PROTOCOL_WARN_DAYS) {
+            warn(`${asset.id}: madurez reevaluada hace ${age} días; revisa antes de ${PROTOCOL_FAIL_DAYS}`);
+        }
+
+        const {body} = parseFrontMatter(await readText(fromRoot('library', asset.path)));
+        for (const section of missingSections(body)) {
+            fail(`${asset.id}: falta la sección obligatoria "## ${section}"`);
+        }
+
+        // ADR-0006: el cuerpo normativo no nombra proveedores, modelos ni proyectos.
+        const leak = vendorLeak(body);
+        if (leak) {
+            fail(`${asset.id}: el cuerpo normativo menciona "${leak}"; `
+                + `un nombre concreto solo cabe en ${PROTOCOL_NEUTRAL_EXEMPT.map((s) => `"## ${s}"`).join(' o ')}`);
+        }
+    }
+
+    // El grafo debe ser acíclico para que la suite sea componible.
+    for (const cycle of dependencyCycles(byCode)) {
+        fail(`Ciclo en el grafo de protocolos: ${cycle.join(' -> ')}`);
+    }
 });
 
 await check('Conformidad Agent Skills y proyección distribuible', async () => {

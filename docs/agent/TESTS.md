@@ -14,8 +14,8 @@ Si PowerShell bloquea el wrapper `npm.ps1`, usa el ejecutable equivalente `npm.c
 
 La secuencia ejecuta, sin instalar dependencias:
 
-1. `npm run validate`: catálogo, schema, front matter, frescura de referencias externas, conformidad y proyección de skills, enlaces, anclas, seguridad, JavaScript, navegación y versiones.
-2. `npm test`: renderer Markdown y utilidades puras del catálogo/router.
+1. `npm run validate`: catálogo, schema, front matter, frescura de referencias externas, contrato de protocolos, conformidad y proyección de skills, enlaces, anclas, seguridad, JavaScript, navegación y versiones.
+2. `npm test`: renderer Markdown, utilidades puras del catálogo/router y contrato de protocolos.
 3. `npm run smoke`: rutas del shell, recursos, páginas y fuentes canónicas usadas en runtime bajo `/agents-first-repo-docs/`.
 4. `npm run score`: [AI Repository Score](../AI_REPOSITORY_SCORE.md).
 
