@@ -23,7 +23,7 @@ Catálogo de conocimiento reutilizable, agnóstico al modelo y organizado por do
 | [MCP e integraciones](domains/mcp-integration/README.md) | Clientes, servidores, tools, resources y seguridad | Architecture note y checklist |
 | [Cadena de suministro de agentes](domains/agent-supply-chain/README.md) | Confianza, procedencia y privilegio mínimo de los artefactos que el agente carga | Architecture note, pattern, anti-pattern y checklist |
 | [Interoperabilidad entre agentes](domains/agent-interoperability/README.md) | Comunicación, descubrimiento y confianza entre agentes de distinto dueño | Architecture note y referencia |
-| [Protocolos de ingeniería](domains/engineering-protocols/README.md) | Ciclos normativos de delegación, evidencia, revisión, validación y publicación entre personas y agentes | Doce protocolos, cinco plantillas, tres anti-patrones, case study, ejemplo y referencia |
+| [Protocolos de ingeniería](domains/engineering-protocols/README.md) | Ciclos normativos de delegación, evidencia, revisión, validación y publicación entre personas y agentes | Doce protocolos, cinco plantillas, tres anti-patrones, ejemplo y referencia |
 | [Hooks y workflows](domains/hooks-workflows/README.md) | Automatización explícita y observable | Pattern |
 | [Arquitectura](domains/architecture/README.md) | Decisiones, estilos, modularidad y evolución de sistemas | Prompt y template ADR |
 | [Desarrollo de software](domains/software-development/README.md) | Backend, frontend, APIs, integración y refactoring | Índice preparado |

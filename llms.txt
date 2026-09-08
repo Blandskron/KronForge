@@ -1,6 +1,6 @@
 # Agents First Framework
 
-> Plataforma documental abierta de AI Engineering para diseñar contexto, repositorios, agentes y software verificable. Markdown canónico, agnóstico al modelo y al stack, sin runtime. Versión 3.3.0, catálogo actualizado el 2026-09-07.
+> Plataforma documental abierta de AI Engineering para diseñar contexto, repositorios, agentes y software verificable. Markdown canónico, agnóstico al modelo y al stack, sin runtime. Versión 3.4.0, catálogo actualizado el 2026-09-07.
 
 El conocimiento vive en Markdown bajo `library/domains/`. El catálogo JSON y las carpetas `skills/` son proyecciones verificadas de esa fuente, no fuentes alternativas.
 
@@ -137,7 +137,6 @@ Documentación como código, auditoría y gestión del conocimiento.
 
 Ciclos de vida normativos para planificar, delegar, revisar, validar y publicar software entre personas y agentes.
 
-- [Agnara como banco de pruebas multiagente](https://blandskron.github.io/agents-first-repo-docs/library/domains/engineering-protocols/case-studies/agnara-multi-agent.case-study.md): case-study · Qué prácticas de la suite de protocolos se ejercen realmente en un repositorio operado por varios agentes, y qué no demuestran todavía.
 - [Benchmark reproducible](https://blandskron.github.io/agents-first-repo-docs/library/domains/engineering-protocols/protocols/benchmark.protocol.md): protocol · Producir mediciones comparables declarando pregunta, entorno, línea base, repeticiones, incertidumbre y límites.
 - [Informe de benchmark](https://blandskron.github.io/agents-first-repo-docs/library/domains/engineering-protocols/templates/benchmark-report.template.md): template · Publicar una medición con método, incertidumbre, interpretación y límites suficientes para evaluarla.
 - [Completitud, falla y detención](https://blandskron.github.io/agents-first-repo-docs/library/domains/engineering-protocols/protocols/completion-and-stop.protocol.md): protocol · Definir cuándo una tarea terminó, cuándo debe detenerse y con qué evidencia se declara cada resultado.

@@ -4,6 +4,37 @@ Todos los cambios notables en este proyecto serán documentados en este archivo.
 
 ---
 
+## [3.4.0] - 2026-09-07
+
+### Eliminado
+
+- Case study dedicado a un proyecto externo. Ese proyecto dejaba de ser una fuente citada y pasaba a ser contenido y carga de mantenimiento de esta biblioteca. La evidencia que contenía permanece distribuida en la sección `## Evidencia y límites` de cada protocolo, junto a la afirmación que sostiene.
+
+### Modificado
+
+- El tipo `case-study` vuelve a `supported`: deja de existir un activo canónico de esa clase.
+- El índice del dominio enuncia el criterio de independencia de forma comprobable: la suite se adopta, valida y publica sin conocer ningún proyecto externo.
+
+### Añadido
+
+- [ADR-0007](adr/ADR-0007-evidence-citation-not-dependency.md), que distingue citar de depender y declara la excepción a la política de deprecación.
+
+### Independencia
+
+Citar no es depender. Una cita a un proyecto externo en `## Evidencia y límites`, y su traza en `observedIn`, es lo que hace falsable la madurez declarada; alojar un activo dedicado a ese proyecto es lo que crea acoplamiento. Si el proyecto citado desapareciera, la puerta de calidad seguiría en verde y la suite seguiría siendo adoptable.
+
+Las madureces no cambian: la identificación que AFP-000 exige sigue presente en cada protocolo.
+
+### Compatibilidad
+
+- Se retira una ruta pública publicada en `3.3.0`, saltando la transición de deprecación que exige [`CONTRIBUTING_ASSETS.md`](CONTRIBUTING_ASSETS.md). La excepción y su justificación están registradas en ADR-0007 y no crean precedente.
+- Ningún ID, relación `related` ni ruta de aprendizaje referenciaba el activo retirado.
+- El resto de rutas públicas, IDs y contratos se conservan.
+
+### Versión SemVer
+
+Clasificada como **MINOR** con retirada de ruta pública declarada. Reservar la `4.0.0` —destinada por el roadmap a interoperabilidad— para retirar un case study falsearía la magnitud del cambio ante quien consume el versionado.
+
 ## [3.3.0] - 2026-09-07
 
 ### Añadido

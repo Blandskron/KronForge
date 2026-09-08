@@ -92,9 +92,8 @@ Ningún protocolo de esta suite está validado. Todos declaran `experimental` ba
 - [Autorrevisión presentada como revisión independiente](anti-patterns/self-review-as-independent.anti-pattern.md)
 - [Protocolo acoplado a proveedores](anti-patterns/vendor-coupled-protocol.anti-pattern.md)
 
-### Caso, ejemplo y referencia
+### Ejemplo y referencia
 
-- Case study: [Agnara como banco de pruebas multiagente](case-studies/agnara-multi-agent.case-study.md)
 - Example: [escenarios de aplicación de los protocolos](examples/protocol-scenarios.example.md)
 - Reference: [trabajo previo y terminología equivalente](references/prior-art.reference.md)
 
@@ -123,4 +122,4 @@ El escenario A de los [ejemplos](examples/protocol-scenarios.example.md) muestra
 
 Este dominio no publica un runtime, un orquestador ni una herramienta de coordinación. Publica contratos que sobreviven al cambio de herramienta.
 
-Tampoco declara validado nada que no lo esté. La evidencia empírica de la suite proviene hoy de un solo proyecto, con un solo mantenedor y un solo ecosistema; el [caso de estudio](case-studies/agnara-multi-agent.case-study.md) declara explícitamente qué sostiene y qué no. Un protocolo que un lector adopte hoy está adoptando una propuesta razonada con evidencia parcial, no una práctica demostrada.
+Tampoco declara validado nada que no lo esté. La evidencia empírica de la suite proviene hoy de un solo proyecto externo, con un solo mantenedor y un solo ecosistema. Cada protocolo cita esa evidencia en su sección `## Evidencia y límites` y declara ahí mismo qué sostiene y qué no; esa cita es una traza verificable, no una dependencia: el framework se adopta, valida y publica sin conocer ese proyecto. Un protocolo que un lector adopte hoy está adoptando una propuesta razonada con evidencia parcial, no una práctica demostrada.

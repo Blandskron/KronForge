@@ -3,23 +3,23 @@
  * Inicializa todos los componentes al cargar el DOM y reacciona a la carga lazy de páginas.
  */
 
-import { bindSidebar } from './sidebar.js?v=3.3.0';
-import { bindNavigation, switchTab } from './navigation.js?v=3.3.0';
-import { bindCopyButtons } from './copy.js?v=3.3.0';
-import { bindThemeToggle } from './theme.js?v=3.3.0';
-import { loadFileContent } from './loader.js?v=3.3.0';
+import { bindSidebar } from './sidebar.js?v=3.4.0';
+import { bindNavigation, switchTab } from './navigation.js?v=3.4.0';
+import { bindCopyButtons } from './copy.js?v=3.4.0';
+import { bindThemeToggle } from './theme.js?v=3.4.0';
+import { loadFileContent } from './loader.js?v=3.4.0';
 import {
     bindCatalogShell,
     renderDomains,
     renderLearningPaths,
     renderLibrary,
     syncHomeStats
-} from './catalog-v3.js?v=3.3.0';
-import { parsePortalHash } from './catalog-utils.js?v=3.3.0';
+} from './catalog-v3.js?v=3.4.0';
+import { parsePortalHash } from './catalog-utils.js?v=3.4.0';
 
 // Módulos inicializados bajo demanda (lazy-loaded pages)
-import { bindTreeView } from './tree.js?v=3.3.0';
-import { bindModelTabs } from './models.js?v=3.3.0';
+import { bindTreeView } from './tree.js?v=3.4.0';
+import { bindModelTabs } from './models.js?v=3.4.0';
 
 // Escuchar evento personalizado de navegación lazy
 document.addEventListener('page:loaded', (event) => {

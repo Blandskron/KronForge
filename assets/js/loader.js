@@ -3,8 +3,8 @@
  * Importado por: app.js y models.js.
  */
 
-import { siteUrl } from './paths.js?v=3.3.0';
-import { setMarkdownContent } from './markdown.js?v=3.3.0';
+import { siteUrl } from './paths.js?v=3.4.0';
+import { setMarkdownContent } from './markdown.js?v=3.4.0';
 
 const activeLoads = new WeakMap();
 

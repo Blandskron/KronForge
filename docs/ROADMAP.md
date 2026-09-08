@@ -116,6 +116,23 @@ Las iniciativas de aprendizaje y casos reales antes asociadas a v2.2 se reprogra
 
 Ningún protocolo supera `experimental`. La evidencia proviene de un solo proyecto, un solo mantenedor y un solo ecosistema, y no existe medición de efectividad de ninguno. Alcanzar `reproduced` exige un segundo proyecto independiente; alcanzar `validated` exige medición bajo AFP-008. Ambas cosas pertenecen a entregas posteriores.
 
+## v3.4 — Independencia del framework
+
+**Estado:** implementado y validado; publicado como `3.4.0`.
+
+### Objetivos
+
+- separar citar de depender: la evidencia externa se cita, no se aloja como activo propio;
+- garantizar que ningún proyecto externo sea contenido ni carga de mantenimiento de esta biblioteca;
+- conservar la falsabilidad de las madureces declaradas, que exige identificar dónde se observó cada protocolo.
+
+### Criterios de salida
+
+- el nombre de un proyecto externo aparece únicamente en `## Evidencia y límites` y en `observedIn`, y está verificado que no aparece en ningún otro lugar;
+- la puerta de calidad es autocontenida: no lee nada fuera de este repositorio;
+- la retirada de un activo publicado queda registrada con su excepción a la política de deprecación en [ADR-0007](adr/ADR-0007-evidence-citation-not-dependency.md);
+- las madureces declaradas no cambian: la trazabilidad que AFP-000 exige sigue presente.
+
 ## v3.5 — Aprendizaje y casos reales
 
 **Estado:** planificado.

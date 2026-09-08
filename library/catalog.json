@@ -1,7 +1,7 @@
 {
   "$schema": "schema/catalog-v3.schema.json",
   "schemaVersion": 3,
-  "frameworkVersion": "3.3.0",
+  "frameworkVersion": "3.4.0",
   "lastUpdated": "2026-09-07",
   "metadataDefaults": {
     "author": "@Blandskron/contributors",
@@ -125,7 +125,7 @@
       "summary": "Caso real con contexto, decisiones, evidencia y resultados.",
       "category": "learning",
       "folder": "case-studies",
-      "status": "active"
+      "status": "supported"
     },
     {
       "id": "architecture",
@@ -2378,61 +2378,6 @@
       "complexity": null,
       "useCases": [],
       "path": "domains/engineering-protocols/anti-patterns/vendor-coupled-protocol.anti-pattern.md"
-    },
-    {
-      "id": "engineering-protocols.agnara-case-study",
-      "title": "Agnara como banco de pruebas multiagente",
-      "summary": "Qué prácticas de la suite de protocolos se ejercen realmente en un repositorio operado por varios agentes, y qué no demuestran todavía.",
-      "type": "case-study",
-      "category": "learning",
-      "domain": "engineering-protocols",
-      "status": "stable",
-      "version": "1.0.0",
-      "level": "intermediate",
-      "difficulty": "intermediate",
-      "projects": [
-        "any"
-      ],
-      "compatibility": "model-agnostic",
-      "models": [
-        "any"
-      ],
-      "agents": [
-        "markdown-compatible"
-      ],
-      "language": "es",
-      "author": "@Blandskron/contributors",
-      "license": "MIT",
-      "lastModified": "2026-09-07",
-      "tags": [
-        "caso",
-        "evidencia",
-        "multiagente",
-        "trazabilidad",
-        "limitaciones"
-      ],
-      "dependencies": [],
-      "related": [
-        "engineering-protocols.protocol-maturity",
-        "engineering-protocols.evidence-and-gates",
-        "engineering-protocols.multi-agent-collaboration",
-        "engineering-protocols.release-readiness"
-      ],
-      "specRefs": [
-        {
-          "spec": "agnara",
-          "version": "develop@7bd2525",
-          "url": "https://github.com/Blandskron/agnara",
-          "verified": "2026-09-07"
-        }
-      ],
-      "inputs": [],
-      "outputs": [],
-      "examples": [],
-      "estimatedTime": null,
-      "complexity": null,
-      "useCases": [],
-      "path": "domains/engineering-protocols/case-studies/agnara-multi-agent.case-study.md"
     },
     {
       "id": "engineering-protocols.protocol-scenarios",

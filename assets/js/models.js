@@ -3,7 +3,7 @@
  * Llamado desde app.js al recibir el evento page:loaded para 'models'.
  */
 
-import { loadFileContent } from './loader.js?v=3.3.0';
+import { loadFileContent } from './loader.js?v=3.4.0';
 
 const MODEL_CONFIG = {
     claude: {

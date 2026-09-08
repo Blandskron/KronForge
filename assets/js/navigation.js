@@ -9,9 +9,9 @@
  * (onclick="switchTab(...)") funcionen con ES modules.
  */
 
-import { closeSidebar } from './sidebar.js?v=3.3.0';
-import { siteUrl } from './paths.js?v=3.3.0';
-import { buildPortalHash, parsePortalHash } from './catalog-utils.js?v=3.3.0';
+import { closeSidebar } from './sidebar.js?v=3.4.0';
+import { siteUrl } from './paths.js?v=3.4.0';
+import { buildPortalHash, parsePortalHash } from './catalog-utils.js?v=3.4.0';
 
 /** Tabs ya cargadas en el DOM. */
 const pageCache = new Set();

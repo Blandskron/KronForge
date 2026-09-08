@@ -36,9 +36,13 @@ export const PROTOCOL_NEUTRAL_EXEMPT = Object.freeze([
 ]);
 
 /**
- * Léxico de acoplamiento a proveedor. No pretende ser exhaustivo: cubre lo que
- * aparece en la práctica actual del repositorio y de su caso de estudio, y
- * ampliarlo es un cambio de una línea.
+ * Léxico de acoplamiento. No pretende ser exhaustivo: cubre los proveedores,
+ * modelos y proyectos que la práctica actual podría filtrar al cuerpo normativo
+ * de un protocolo, y ampliarlo es un cambio de una línea.
+ *
+ * Incluye deliberadamente el proyecto del que proviene la evidencia empírica de
+ * la suite: su nombre es legítimo en `## Evidencia y límites`, donde la
+ * falsabilidad lo exige, y nunca en el contrato. Ver ADR-0007.
  */
 export const VENDOR_LEXICON =
     /\b(?:claude|codex|chatgpt|gpt-[0-9]|openai|anthropic|gemini|antigravity|copilot|cursor|llama|mistral|ollama|agnara)\b/i;

@@ -4,6 +4,7 @@
 - **Fecha:** 2026-09-07
 - **Responsable:** maintainer del repositorio
 - **Complementa:** [ADR-0001](ADR-0001-layered-framework-v3.md) y [ADR-0002](ADR-0002-catalog-v3-projection.md)
+- **Modificada por:** [ADR-0007](ADR-0007-evidence-citation-not-dependency.md), que retira el caso de estudio y conserva la evidencia como cita
 
 ## Contexto
 
@@ -114,5 +115,4 @@ La razón es que la suite se usa como sistema: su valor está en cómo se compon
 
 - [Dominio de protocolos de ingeniería](../../library/domains/engineering-protocols/README.md)
 - [AFP-000 — madurez y validación de protocolos](../../library/domains/engineering-protocols/protocols/protocol-maturity.protocol.md)
-- [Caso de estudio con la evidencia empírica](../../library/domains/engineering-protocols/case-studies/agnara-multi-agent.case-study.md)
 - [Cómo contribuir activos](../CONTRIBUTING_ASSETS.md)
