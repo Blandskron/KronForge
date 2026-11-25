@@ -40,3 +40,24 @@ jobs:
 
       - name: Calculate AI Repository Score
         run: npm run score
+
+  browser:
+    name: Browser and accessibility checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+      - name: Install isolated browser tools
+        run: |
+          mkdir -p "$RUNNER_TEMP/kronforge-browser"
+          cp .github/browser-tools/package*.json "$RUNNER_TEMP/kronforge-browser/"
+          npm ci --prefix "$RUNNER_TEMP/kronforge-browser" --ignore-scripts
+          node "$RUNNER_TEMP/kronforge-browser/node_modules/playwright/cli.js" install --with-deps chromium
+      - name: Verify navigation, downloads and accessibility
+        env:
+          KF_BROWSER_TOOLS: ${{ runner.temp }}/kronforge-browser/node_modules
+          KF_AUDIT_OUT: ${{ runner.temp }}/kronforge-evidence
+        run: node scripts/browser-check.cjs

@@ -8,7 +8,7 @@
     "validate": "node scripts/validate.mjs",
     "build:skills": "node scripts/build-skills.mjs",
     "build:llms": "node scripts/build-llms.mjs",
-    "build": "npm run build:skills && npm run build:llms",
+    "build": "npm run build:skills && npm run build:llms && node scripts/build-learning.mjs",
     "test": "node --test",
     "smoke": "node scripts/smoke-site.mjs",
     "score": "node scripts/score.mjs",

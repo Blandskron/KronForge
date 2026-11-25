@@ -5,7 +5,7 @@ summary: Delegar una subtarea con alcance, autoridad y entrega verificable.
 type: pattern
 domain: ai-agent-engineering
 status: stable
-version: 1.1.0
+version: 1.1.1
 difficulty: intermediate
 projects: [agent-platform, complex-repository, research-workflow]
 compatibility: model-agnostic
@@ -18,6 +18,15 @@ specRefs:
   - spec: anthropic-context-engineering
     url: https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents
     verified: 2026-09-03
+lastModified: 2026-11-25
+inputs:
+  - "Subtarea, alcance y restricciones"
+  - "Fuentes y criterios de aceptación"
+outputs:
+  - "Contrato de delegación acotado"
+  - "Formato de resultado verificable"
+useCases:
+  - "Delegar trabajo independiente con un contexto mínimo"
 ---
 
 # Pattern: Delegación por Contrato

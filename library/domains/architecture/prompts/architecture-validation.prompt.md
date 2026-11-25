@@ -5,7 +5,7 @@ summary: Contrastar la arquitectura declarada con la estructura y dependencias r
 type: prompt
 domain: architecture
 status: stable
-version: 1.0.0
+version: 1.0.1
 difficulty: advanced
 projects: [any]
 compatibility: model-agnostic
@@ -13,6 +13,15 @@ models: [any]
 tags: [architecture, validation]
 related:
   - architecture.adr
+lastModified: 2026-11-25
+inputs:
+  - "Árbol y configuración del repositorio"
+  - "Dependencias y decisiones arquitectónicas observables"
+outputs:
+  - "Diagnóstico de estructura e inconsistencias con referencias"
+  - "Propuestas priorizadas"
+useCases:
+  - "Revisar la arquitectura efectiva de un repositorio"
 ---
 
 # Prompt: Validación de Arquitectura

@@ -5,7 +5,7 @@ summary: Redactar un protocolo con actores, ciclo de vida, evidencia, límites y
 type: template
 domain: engineering-protocols
 status: stable
-version: 1.0.0
+version: 1.0.1
 difficulty: intermediate
 projects: [any]
 compatibility: model-agnostic
@@ -13,6 +13,14 @@ models: [any]
 tags: [protocolo, plantilla, madurez, evidencia]
 related:
   - engineering-protocols.protocol-maturity
+lastModified: 2026-11-25
+inputs:
+  - "Problema, actores y reglas del ciclo de vida"
+  - "Evidencia y límites de madurez"
+outputs:
+  - "Borrador de protocolo con contrato, fallas y front matter"
+useCases:
+  - "Redactar un ciclo de ingeniería que requiera varios actores"
 ---
 
 # AFP-NNN — [Título del protocolo]

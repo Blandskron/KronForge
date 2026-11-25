@@ -5,7 +5,7 @@ summary: Obligar a un agente a reconstruir el estado del repositorio antes de mo
 type: protocol
 domain: engineering-protocols
 status: stable
-version: 1.0.0
+version: 1.0.1
 difficulty: foundation
 projects: [any]
 compatibility: model-agnostic
@@ -22,6 +22,15 @@ protocol:
   dependsOn: []
   observedIn: [agnara]
   lastValidated: 2026-09-07
+lastModified: 2026-11-25
+inputs:
+  - "Rama, árbol de trabajo e integración continua"
+  - "Tareas, prioridades y decisiones vigentes"
+outputs:
+  - "Observación del estado del repositorio"
+  - "Tarea seleccionada, plan y resultado registrado"
+useCases:
+  - "Iniciar o retomar trabajo desde el estado real del proyecto"
 ---
 
 # AFP-001 — Estado del Repositorio y Ciclo del Agente

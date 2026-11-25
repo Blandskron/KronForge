@@ -6,6 +6,12 @@ Todos los cambios notables en este proyecto serán documentados en este archivo.
 
 ## Sin publicar
 
+- Los 57 activos pendientes declaran entradas, salidas y casos de uso en su fuente canónica. Los 65 activos del catálogo tienen esos tres campos completos.
+- Siete prácticas guiadas y un caso reproducible sobre la compatibilidad del catálogo v3.
+- Primeros tres activos en desarrollo de software, datos y gestión técnica. Cinco activos anteriores incorporan contratos explícitos y el validador comprueba la paridad de sus campos.
+- Trabajo de CI con Chromium y axe mediante dependencias aisladas y bloqueadas.
+- Guías para las 14 rutas de aprendizaje, con prerrequisitos, objetivos y entregables, más un ejercicio reproducible. El esquema del catálogo v3 conserva su contrato.
+- Corrección del README sobre la versión vigente y la procedencia del catálogo.
 - Identidad KronForge, temas oscuro, claro y sistema, recursos SVG originales e iconos y fuentes locales.
 - Acceso directo a skills, prompts, protocolos y referencias, con enlaces a arquitectura, gobernanza y calidad.
 - URL de descubrimiento y metadatos alineados con el subdirectorio actual de GitHub Pages.

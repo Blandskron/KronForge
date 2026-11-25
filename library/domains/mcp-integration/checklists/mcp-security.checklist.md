@@ -5,7 +5,7 @@ summary: Revisar autoridad, datos y efectos antes de habilitar una integración 
 type: checklist
 domain: mcp-integration
 status: stable
-version: 2.0.0
+version: 2.0.1
 difficulty: intermediate
 projects: [ai-application, agent-platform, developer-tool]
 compatibility: protocol-oriented
@@ -19,6 +19,16 @@ specRefs:
     version: "2026-07-28"
     url: https://modelcontextprotocol.io/specification/2026-07-28/changelog
     verified: 2026-09-03
+lastModified: 2026-11-25
+inputs:
+  - "Inventario de capacidades MCP"
+  - "Permisos, flujos de datos y evidencia operativa"
+outputs:
+  - "Checklist con evidencia por control"
+  - "Veredicto y bloqueos"
+useCases:
+  - "Evaluar una integración MCP antes de habilitarla"
+  - "Revisar un cambio de permisos o datos"
 ---
 
 # Checklist de Seguridad MCP

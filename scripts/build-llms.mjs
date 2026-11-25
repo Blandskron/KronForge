@@ -25,7 +25,12 @@ const entryPoints = [
     ['Prompt maestro', 'prompts/agents-first-documentation-review.prompt.md', 'auditar y preparar un repositorio agents-first'],
     ['Índice de la biblioteca', 'library/README.md', 'cómo está organizado el conocimiento por dominios'],
     ['Catálogo machine-readable', 'library/catalog.json', 'inventario completo con metadatos, relaciones y rutas'],
-    ['Skills distribuibles', 'skills/README.md', 'skills en el formato abierto Agent Skills']
+    ['Skills distribuibles', 'skills/README.md', 'skills en el formato abierto Agent Skills'],
+    ['Guía de aprendizaje', 'docs/LEARNING_GUIDANCE.md', 'objetivos y entregables por ruta'],
+    ['Guía de aprendizaje machine-readable', 'library/learning-guidance.json', 'metadatos por ID de ruta del catálogo'],
+    ['Ejercicio reproducible', 'docs/learning-quality-example.md', 'ejercicio de testing y evidencia con el repositorio'],
+    ['Prácticas guiadas', 'docs/LEARNING_LABS.md', 'siete prácticas con entradas y entregables'],
+    ['Caso de aprendizaje de KronForge', 'docs/audits/KRONFORGE_LEARNING_CASE.md', 'reproducción local de la compatibilidad del catálogo']
 ];
 
 const policies = [

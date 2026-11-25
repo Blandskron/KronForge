@@ -26,6 +26,7 @@ const server = http.createServer(async (req, res) => {
     if (process.argv.includes('--serve')) { console.log(url); return; }
     const { chromium } = load('playwright');
     const { AxeBuilder } = load('@axe-core/playwright');
+    const catalog = JSON.parse(await fs.readFile(path.join(root, 'library/catalog.json'), 'utf8'));
     const browser = await chromium.launch();
     await fs.mkdir(output, { recursive:true });
     try {
@@ -52,7 +53,8 @@ const server = http.createServer(async (req, res) => {
         await page.setViewportSize({width:1440,height:1000});
         await page.goto(url);
         await page.getByRole('heading',{name:'KronForge',exact:true}).waitFor();
-        await page.waitForFunction(() => document.getElementById('home-asset-count')?.textContent.trim() === '62');
+        await page.waitForFunction(expected => document.getElementById('home-asset-count')?.textContent.trim() === expected,
+            String(catalog.assets.length));
         assert.equal(await page.locator('html').getAttribute('data-theme'), 'dark');
         await page.keyboard.press('Tab');
         assert.equal(await page.evaluate(() => document.activeElement.textContent.trim()), 'Saltar al contenido');
@@ -60,16 +62,19 @@ const server = http.createServer(async (req, res) => {
         assert.equal(await page.evaluate(() => document.activeElement.id), 'main-content');
         await page.evaluate(() => document.activeElement.blur());
         await audit('inicio', 'oscuro');
+        await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }));
         const first = await page.screenshot({path:path.join(output,'inicio-oscuro.png'), animations:'disabled'});
         const replay = await page.screenshot({animations:'disabled'});
         assert.equal(first.equals(replay), true, 'non-deterministic screenshot within the same viewport');
         await page.getByLabel('Tema', {exact:true}).selectOption('light');
         await page.reload();
         await page.getByRole('heading',{name:'KronForge',exact:true}).waitFor();
-        await page.waitForFunction(() => document.getElementById('home-asset-count')?.textContent.trim() === '62');
+        await page.waitForFunction(expected => document.getElementById('home-asset-count')?.textContent.trim() === expected,
+            String(catalog.assets.length));
         assert.equal(await page.locator('html').getAttribute('data-theme'), 'light');
         await page.waitForFunction(() => getComputedStyle(document.querySelector('.pillar-card h3')).color === 'rgb(24, 35, 56)');
         await audit('inicio', 'claro');
+        await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }));
         await page.screenshot({path:path.join(output,'inicio-claro.png'), animations:'disabled'});
         await page.emulateMedia({colorScheme:'dark'});
         await page.getByLabel('Tema', {exact:true}).selectOption('system');
@@ -98,11 +103,14 @@ const server = http.createServer(async (req, res) => {
         await page.getByRole('button',{name:'Modo lectura'}).click();
         await page.waitForFunction(() => document.getElementById('asset-reading-mode')?.getAttribute('aria-pressed') === 'true');
         await audit('lectura', 'oscuro');
+        await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }));
         await page.screenshot({path:path.join(output,'lectura.png'), animations:'disabled'});
         for (const width of [360,768]) {
             await page.setViewportSize({width,height:800});
             await page.goto(url);
             await page.getByRole('heading',{name:'KronForge',exact:true}).waitFor();
+            await page.waitForFunction(expected => document.getElementById('home-asset-count')?.textContent.trim() === expected,
+                String(catalog.assets.length));
             assert.equal(await page.evaluate(() => document.documentElement.scrollWidth), width);
             await audit('inicio-' + width, 'oscuro');
             if (width === 360) {
@@ -111,6 +119,32 @@ const server = http.createServer(async (req, res) => {
                 await page.keyboard.press('Escape');
                 assert.equal(await page.getByRole('button',{name:'Abrir navegación'}).getAttribute('aria-expanded'), 'false');
             }
+        }
+        await page.goto(url + '#learning');
+        await page.locator('.learning-card').first().waitFor();
+        const guide = JSON.parse(await fs.readFile(path.join(root, 'library/learning-guidance.json'), 'utf8'));
+        assert.equal(await page.locator('.learning-card .learning-contract').count(), Object.keys(guide.routes).length);
+        const testing = page.locator('.learning-card').filter({has: page.getByRole('heading', {name: 'Aprender Testing', exact:true})});
+        assert.equal(await testing.locator('.learning-contract dd').last().textContent(), guide.routes.testing.outcome);
+        await audit('aprendizaje', 'oscuro');
+
+        await page.route('**/library/learning-guidance.json*', route => route.fulfill({status: 503}));
+        await page.reload();
+        await page.locator('.learning-card button[data-asset-link]').first().waitFor();
+        assert.equal(await page.locator('.learning-contract').count(), 0);
+        assert.equal(await page.locator('.learning-card').count(), catalog.learningPaths.length);
+        for (const [id, title] of [
+            ['software-development.consumer-compatibility', 'Compatibilidad en un cambio de interfaz'],
+            ['data.migration-rehearsal', 'Ensayar una migración de datos'],
+            ['product-technical-management.change-brief', 'Ficha de alcance y aceptación de un cambio'],
+        ]) {
+            await page.goto(url + '#library/' + id);
+            await page.locator('#asset-viewer:not([hidden])').waitFor();
+            await page.waitForFunction(expected => document.getElementById('asset-viewer-title')?.textContent === expected, title);
+            await page.waitForFunction(expected => {
+                const view = document.getElementById('asset-viewer-content');
+                return view?.dataset.loadState === 'ready' && view.dataset.rawMarkdown?.includes('id: ' + expected);
+            }, id);
         }
         assert.deepEqual(remote, []);
         await fs.writeFile(path.join(output,'axe.json'), JSON.stringify(result,null,2));

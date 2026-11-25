@@ -5,13 +5,22 @@ summary: Mantener documentación versionada, revisable y validable junto al sist
 type: pattern
 domain: documentation-knowledge
 status: stable
-version: 1.0.0
+version: 1.0.1
 difficulty: foundation
 projects: [any]
 compatibility: tool-agnostic
 models: [any]
 tags: [documentation, governance]
 related: [documentation-knowledge.documentation-audit]
+lastModified: 2026-11-25
+inputs:
+  - "Documentación ligada a cambios del producto"
+  - "Flujo de revisión y versionado del repositorio"
+outputs:
+  - "Proceso de revisión documental junto con el código"
+  - "Controles de consistencia y vigencia"
+useCases:
+  - "Mantener documentación que evoluciona con el código"
 ---
 
 # Patrón: Documentación como Código

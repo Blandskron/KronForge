@@ -5,13 +5,22 @@ summary: Verificar con evidencia si una tarea cumple sus criterios de cierre.
 type: prompt
 domain: quality-engineering
 status: stable
-version: 1.0.0
+version: 1.0.1
 difficulty: foundation
 projects: [any]
 compatibility: model-agnostic
 models: [any]
 tags: [definition-of-done, review]
 related: [quality-engineering.pre-merge]
+lastModified: 2026-11-25
+inputs:
+  - "Tarea, historia o pull request"
+  - "Definición de terminado y evidencia local"
+outputs:
+  - "Estado justificado de cada criterio"
+  - "Veredicto de cierre y pendientes"
+useCases:
+  - "Verificar si un cambio puede cerrarse"
 ---
 
 # Prompt: Revisión de Definition of Done

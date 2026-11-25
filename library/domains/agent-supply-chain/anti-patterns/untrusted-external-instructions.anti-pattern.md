@@ -5,7 +5,7 @@ summary: Cargar instrucciones desde una fuente que no pasó por la revisión que
 type: anti-pattern
 domain: agent-supply-chain
 status: stable
-version: 1.0.0
+version: 1.0.1
 difficulty: intermediate
 projects: [ai-application, agent-platform, developer-tool]
 compatibility: tool-agnostic
@@ -19,6 +19,15 @@ specRefs:
     version: "1.0-2026"
     url: https://owasp.org/www-project-agentic-skills-top-10/
     verified: 2026-09-03
+lastModified: 2026-11-25
+inputs:
+  - "Skill y referencias externas que consume"
+  - "Origen y tratamiento de cada respuesta"
+outputs:
+  - "Instrucciones estables empaquetadas o versionadas"
+  - "Límites para datos externos y revisión humana"
+useCases:
+  - "Revisar una skill que obtiene contenido externo en ejecución"
 ---
 
 # Anti-pattern: Instrucciones Externas No Verificadas

@@ -5,7 +5,7 @@ summary: Separar lo que un agente afirma de lo que ejecutó, observó y puede de
 type: protocol
 domain: engineering-protocols
 status: stable
-version: 1.0.0
+version: 1.0.1
 difficulty: intermediate
 projects: [any]
 compatibility: model-agnostic
@@ -24,6 +24,16 @@ protocol:
   dependsOn: [AFP-001]
   observedIn: [agnara]
   lastValidated: 2026-09-07
+lastModified: 2026-11-25
+inputs:
+  - "Cambio identificado y criterios de aceptación"
+  - "Compuertas y autoridad declaradas"
+outputs:
+  - "Registro de comando, observación y estado del código"
+  - "Veredicto por compuerta y razones de omisión"
+useCases:
+  - "Demostrar que un cambio cumple criterios"
+  - "Revisar vigencia de evidencia antes de integrar"
 ---
 
 # AFP-004 — Evidencia y Compuertas de Calidad

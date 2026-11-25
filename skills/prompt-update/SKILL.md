@@ -6,7 +6,7 @@ allowed-tools: Read Grep Glob Edit
 metadata:
   framework: "agents-first"
   asset-id: "ai-agent-engineering.prompt-update"
-  asset-version: "1.1.0"
+  asset-version: "1.1.1"
   domain: "ai-agent-engineering"
   status: "stable"
   repo-compatibility: "model-agnostic"

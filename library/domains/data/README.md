@@ -4,7 +4,7 @@ Modelos, almacenamiento, migraciones, contratos, eventos y pipelines de datos.
 
 ## Estado
 
-Dominio preparado para activos basados en casos reales. No se asume motor, paradigma ni proveedor.
+- [Ensayar una migración de datos](checklists/migration-rehearsal.checklist.md)
 
 ## Límites
 

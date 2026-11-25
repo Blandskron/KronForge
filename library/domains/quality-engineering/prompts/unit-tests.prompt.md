@@ -5,13 +5,22 @@ summary: Diseñar o mejorar pruebas unitarias basadas en la lógica real del rep
 type: prompt
 domain: quality-engineering
 status: stable
-version: 1.0.0
+version: 1.0.1
 difficulty: foundation
 projects: [application, service, library]
 compatibility: model-agnostic
 models: [any]
 tags: [testing, unit-tests]
 related: [quality-engineering.integration-tests]
+lastModified: 2026-11-25
+inputs:
+  - "Unidades de código y comportamiento observable"
+  - "Runner y pruebas existentes"
+outputs:
+  - "Diagnóstico de cobertura por unidad"
+  - "Pruebas y resultados cuando corresponda"
+useCases:
+  - "Cubrir ramas y casos límite de una unidad"
 ---
 
 # Prompt: Tests Unitarios

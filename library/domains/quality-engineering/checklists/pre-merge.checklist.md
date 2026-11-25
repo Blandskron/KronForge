@@ -5,13 +5,22 @@ summary: Verificar evidencia mínima antes de integrar un cambio.
 type: checklist
 domain: quality-engineering
 status: stable
-version: 1.0.0
+version: 1.0.1
 difficulty: foundation
 projects: [any]
 compatibility: tool-agnostic
 models: [any]
 tags: [merge, quality-gate]
 related: [quality-engineering.definition-of-done-review]
+inputs:
+  - Diff
+  - Criterios de aceptación
+  - Resultados de pruebas
+outputs:
+  - Veredicto de merge
+  - Bloqueantes con evidencia
+useCases:
+  - Revisión previa al merge
 ---
 
 # Checklist Antes del Merge

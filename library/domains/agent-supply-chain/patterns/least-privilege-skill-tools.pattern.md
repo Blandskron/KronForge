@@ -5,7 +5,7 @@ summary: Declarar de forma explícita y acotada las herramientas que una skill n
 type: pattern
 domain: agent-supply-chain
 status: stable
-version: 1.0.0
+version: 1.0.1
 difficulty: intermediate
 projects: [ai-application, agent-platform, developer-tool]
 compatibility: tool-agnostic
@@ -18,6 +18,15 @@ specRefs:
   - spec: agent-skills
     url: https://agentskills.io/specification
     verified: 2026-09-03
+lastModified: 2026-11-25
+inputs:
+  - "Procedimiento de la skill y herramientas disponibles"
+  - "Política de permisos del host"
+outputs:
+  - "Permisos justificados por paso"
+  - "Herramientas omitidas o restringidas"
+useCases:
+  - "Revisar las herramientas solicitadas por una skill"
 ---
 
 # Pattern: Privilegio Mínimo en Herramientas de Skill

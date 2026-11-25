@@ -5,7 +5,7 @@ summary: Cinco recorridos concretos que muestran qué protocolos intervienen y q
 type: example
 domain: engineering-protocols
 status: stable
-version: 1.0.0
+version: 1.0.1
 difficulty: intermediate
 projects: [any]
 compatibility: model-agnostic
@@ -16,6 +16,13 @@ related:
   - engineering-protocols.multi-agent-collaboration
   - engineering-protocols.evidence-and-gates
   - engineering-protocols.release-readiness
+lastModified: 2026-11-25
+inputs:
+  - "Configuración de participantes, tarea y nivel de riesgo"
+outputs:
+  - "Ejemplos de secuencia, protocolos aplicables y omisiones justificadas"
+useCases:
+  - "Comparar flujos de agente individual y equipos con roles diferenciados"
 ---
 
 # Escenarios de Aplicación

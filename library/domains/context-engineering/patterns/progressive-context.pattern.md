@@ -5,13 +5,22 @@ summary: Entregar contexto por capas a medida que la tarea demuestra necesitarlo
 type: pattern
 domain: context-engineering
 status: stable
-version: 1.0.0
+version: 1.0.1
 difficulty: intermediate
 projects: [any]
 compatibility: model-agnostic
 models: [any]
 tags: [context, progressive-disclosure, token-optimization]
 related: [context-engineering.context-layers]
+lastModified: 2026-11-25
+inputs:
+  - "Mapa del proyecto"
+  - "Objetivo y fuentes de la tarea"
+outputs:
+  - "Paquete inicial de contexto"
+  - "Punteros para profundizar bajo demanda"
+useCases:
+  - "Preparar una tarea compleja con contexto limitado y verificable"
 ---
 
 # Pattern: Contexto Progresivo

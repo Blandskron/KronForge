@@ -5,13 +5,22 @@ summary: Revisar Dockerfiles e imágenes sin inventar herramientas ni ejecutar e
 type: prompt
 domain: security
 status: stable
-version: 1.0.0
+version: 1.0.1
 difficulty: intermediate
 projects: [containerized-application, service, infrastructure]
 compatibility: model-agnostic
 models: [any]
 tags: [containers, docker, supply-chain]
 related: [security.security-audit]
+lastModified: 2026-11-25
+inputs:
+  - "Dockerfiles, definiciones de servicios o equivalentes disponibles"
+  - "Configuración de imágenes detectable"
+outputs:
+  - "Hallazgos defensivos y mitigaciones"
+  - "Resultado no aplicable cuando faltan definiciones"
+useCases:
+  - "Revisar seguridad de imágenes y configuración de contenedores"
 ---
 
 # Prompt: Auditoría de Seguridad de Imágenes Docker

@@ -5,7 +5,7 @@ summary: Presentar la revisión del propio trabajo, o el acuerdo entre participa
 type: anti-pattern
 domain: engineering-protocols
 status: stable
-version: 1.0.0
+version: 1.0.1
 difficulty: intermediate
 projects: [any]
 compatibility: model-agnostic
@@ -14,6 +14,15 @@ tags: [revision, independencia, sesgo, gobernanza]
 related:
   - engineering-protocols.independent-review
   - engineering-protocols.multi-agent-collaboration
+lastModified: 2026-11-25
+inputs:
+  - "Veredicto de revisión y evidencia de identidad y contexto"
+  - "Riesgo y fuentes primarias del cambio"
+outputs:
+  - "Nivel de independencia declarado"
+  - "Condición de escalamiento o revisión pendiente"
+useCases:
+  - "Auditar una revisión antes de integrar un cambio de alto riesgo"
 ---
 
 # Anti-patrón: Autorrevisión Presentada como Revisión Independiente

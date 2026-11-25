@@ -5,7 +5,7 @@ summary: Separar terminar funcionalidad de estar listo para publicar, y reservar
 type: protocol
 domain: engineering-protocols
 status: stable
-version: 1.0.0
+version: 1.0.1
 difficulty: advanced
 projects: [any]
 compatibility: stack-agnostic
@@ -23,6 +23,15 @@ protocol:
   dependsOn: [AFP-004, AFP-006]
   observedIn: [agnara]
   lastValidated: 2026-09-07
+lastModified: 2026-11-25
+inputs:
+  - "Candidato identificado y alcance de publicación"
+  - "Evidencia vigente de las compuertas aplicables"
+outputs:
+  - "Veredicto de preparación con bloqueos"
+  - "Registro de autorización y evidencia del candidato"
+useCases:
+  - "Evaluar un candidato antes de publicarlo"
 ---
 
 # AFP-009 — Preparación de Publicación

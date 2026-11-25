@@ -5,7 +5,7 @@ summary: Producir mediciones comparables declarando pregunta, entorno, línea ba
 type: protocol
 domain: engineering-protocols
 status: stable
-version: 1.0.0
+version: 1.0.1
 difficulty: advanced
 projects: [any]
 compatibility: stack-agnostic
@@ -22,6 +22,17 @@ protocol:
   dependsOn: [AFP-004]
   observedIn: [agnara]
   lastValidated: 2026-09-07
+lastModified: 2026-11-25
+inputs:
+  - "Pregunta, hipótesis y carga"
+  - "Línea base y candidato identificados"
+  - "Entorno y versiones exactas"
+outputs:
+  - "Método y muestras crudas"
+  - "Resultados, incertidumbre y límites"
+useCases:
+  - "Comparar candidatos bajo condiciones controladas"
+  - "Reproducir una medición"
 ---
 
 # AFP-008 — Benchmark Reproducible

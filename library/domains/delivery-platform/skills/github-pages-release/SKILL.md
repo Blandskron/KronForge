@@ -15,13 +15,24 @@ summary: Validar un sitio estático antes de publicarlo en GitHub Pages.
 type: skill
 domain: delivery-platform
 status: stable
-version: 1.1.0
+version: 1.1.1
 difficulty: intermediate
 projects: [static-site, documentation]
 compatibility: tool-agnostic
 models: [any]
 tags: [github-pages, release, static-site]
 related: [delivery-platform.release-readiness-review]
+lastModified: 2026-11-25
+inputs:
+  - "Raíz publicable y configuración de Pages"
+  - "Archivos modificados y comandos disponibles"
+outputs:
+  - "Veredicto de preparación"
+  - "URLs probadas, errores y pendientes"
+useCases:
+  - "Validar un portal documental"
+  - "Revisar una migración de rutas"
+  - "Preparar una publicación estática"
 ---
 
 # Skill: GitHub Pages Release

@@ -5,7 +5,7 @@ summary: Coordinar varios agentes sobre un mismo repositorio mediante roles, aut
 type: protocol
 domain: engineering-protocols
 status: stable
-version: 1.0.0
+version: 1.0.1
 difficulty: advanced
 projects: [any]
 compatibility: model-agnostic
@@ -24,6 +24,15 @@ protocol:
   dependsOn: [AFP-001, AFP-002]
   observedIn: [agnara]
   lastValidated: 2026-09-07
+lastModified: 2026-11-25
+inputs:
+  - "Tareas, participantes y capacidades"
+  - "Alcance, autoridad y estado compartido"
+outputs:
+  - "Propiedad observable de las tareas"
+  - "Coordinación y conflictos resueltos o escalados con evidencia"
+useCases:
+  - "Coordinar cambios concurrentes sobre un repositorio compartido"
 ---
 
 # AFP-003 — Colaboración Multiagente

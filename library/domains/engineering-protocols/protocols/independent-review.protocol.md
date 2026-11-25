@@ -5,7 +5,7 @@ summary: Revisar desde la evidencia y no desde la narrativa de quien implementó
 type: protocol
 domain: engineering-protocols
 status: stable
-version: 1.0.0
+version: 1.0.1
 difficulty: intermediate
 projects: [any]
 compatibility: model-agnostic
@@ -24,6 +24,16 @@ protocol:
   dependsOn: [AFP-004]
   observedIn: [agnara]
   lastValidated: 2026-09-07
+lastModified: 2026-11-25
+inputs:
+  - "Criterios, diff y pruebas"
+  - "Evidencia de compuertas y fuentes primarias"
+  - "Identidad y contexto del revisor cuando proceda"
+outputs:
+  - "Hallazgos, veredicto y nivel de independencia declarado"
+  - "Nueva revisión de correcciones bloqueantes"
+useCases:
+  - "Evaluar un cambio antes de integrarlo"
 ---
 
 # AFP-005 — Revisión Independiente

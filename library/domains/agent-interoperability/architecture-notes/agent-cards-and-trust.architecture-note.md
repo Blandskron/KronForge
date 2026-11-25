@@ -5,7 +5,7 @@ summary: Declarar y verificar las capacidades de un agente ajeno antes de delega
 type: architecture-note
 domain: agent-interoperability
 status: stable
-version: 1.0.0
+version: 1.0.1
 difficulty: intermediate
 projects: [agent-platform, ai-application, developer-tool]
 compatibility: protocol-oriented
@@ -17,6 +17,15 @@ specRefs:
     version: "1.0.0"
     url: https://a2a-protocol.org/latest/specification/
     verified: 2026-09-03
+lastModified: 2026-11-25
+inputs:
+  - "Tarjeta declarada por el agente"
+  - "Identidad, políticas y autorizaciones disponibles"
+outputs:
+  - "Evaluación de capacidades declaradas y confianza verificable"
+  - "Decisión de delegación con límites"
+useCases:
+  - "Evaluar a un agente externo antes de delegar"
 ---
 
 # Architecture Note: Tarjetas de Agente y Confianza entre Pares

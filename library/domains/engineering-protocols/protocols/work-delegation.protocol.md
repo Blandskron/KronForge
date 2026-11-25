@@ -5,7 +5,7 @@ summary: Entregar una tarea con contexto suficiente para ejecutarla y transferir
 type: protocol
 domain: engineering-protocols
 status: stable
-version: 1.0.0
+version: 1.0.1
 difficulty: intermediate
 projects: [any]
 compatibility: model-agnostic
@@ -24,6 +24,15 @@ protocol:
   dependsOn: [AFP-001]
   observedIn: [agnara]
   lastValidated: 2026-09-07
+lastModified: 2026-11-25
+inputs:
+  - "Objetivo, fuentes y alcance de la tarea"
+  - "Autoridad, criterios y compuertas"
+outputs:
+  - "Contrato aceptable y verificable"
+  - "Handoff con estado, evidencia y próximos pasos"
+useCases:
+  - "Delegar una tarea a otro participante sin conversación previa"
 ---
 
 # AFP-002 — Delegación y Handoff de Trabajo

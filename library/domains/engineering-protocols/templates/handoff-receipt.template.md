@@ -5,7 +5,7 @@ summary: Transferir trabajo a otro participante sin depender de la conversación
 type: template
 domain: engineering-protocols
 status: stable
-version: 1.0.0
+version: 1.0.1
 difficulty: foundation
 projects: [any]
 compatibility: model-agnostic
@@ -14,6 +14,14 @@ tags: [handoff, transferencia, contexto, continuidad]
 related:
   - engineering-protocols.work-delegation
   - engineering-protocols.multi-agent-collaboration
+lastModified: 2026-11-25
+inputs:
+  - "Tarea y estado real"
+  - "Inspección, decisiones, cambios y evidencia"
+outputs:
+  - "`Handoff` con pendientes, riesgos, restricciones y siguiente acción"
+useCases:
+  - "Entregar trabajo completo, bloqueado o pendiente de revisión"
 ---
 
 # Handoff — Tarea [ID]

@@ -237,6 +237,9 @@ await check('Paridad catálogo, front matter e índices', async () => {
         }
         if (!equalArray(data.models || [], asset.models || [])) fail(`${asset.id}: models difiere`);
         if (!equalArray(data.related || [], asset.related || [])) fail(`${asset.id}: related difiere`);
+        for (const field of ['inputs', 'outputs', 'useCases']) {
+            if (!equalArray(data[field] || [], asset[field] || [])) fail(`${asset.id}: ${field} difiere`);
+        }
         if (!equalSpecRefs(data.specRefs, asset.specRefs)) fail(`${asset.id}: specRefs difiere entre catálogo y front matter`);
         if (!equalProtocolMetadata(data.protocol, asset.protocol)) {
             fail(`${asset.id}: metadatos de protocolo difieren entre catálogo y front matter`);
@@ -401,6 +404,11 @@ await check('Superficie de descubrimiento llms.txt', async () => {
     for (const match of content.matchAll(/\]\(https:\/\/blandskron\.github\.io\/KronForge\/([^)]+)\)/g)) {
         if (!await exists(fromRoot(decodeURIComponent(match[1])))) fail(`llms.txt referencia una ruta inexistente: ${match[1]}`);
     }
+});
+
+await check('Guías de aprendizaje y paridad de la proyección', async () => {
+    const guide = spawnSync(process.execPath, [fromRoot('scripts/build-learning.mjs'), '--check'], {encoding: 'utf8'});
+    if (guide.status !== 0) fail((guide.stderr || guide.stdout || 'No se pudo validar la guía de aprendizaje').trim());
 });
 
 await check('Markdown, enlaces, anclas y cercas', async () => {

@@ -5,13 +5,22 @@ summary: Mapear impacto y producir una validación de regresión basada en riesg
 type: prompt
 domain: quality-engineering
 status: stable
-version: 1.0.0
+version: 1.0.1
 difficulty: intermediate
 projects: [any]
 compatibility: model-agnostic
 models: [any]
 tags: [qa, regression]
 related: [quality-engineering.functional-qa]
+inputs:
+  - Cambio o PR
+  - Superficies afectadas
+  - Pruebas y comandos existentes
+outputs:
+  - Mapa de impacto
+  - Checklist de regresión
+useCases:
+  - Validación de un cambio con riesgo de regresión
 ---
 
 # Prompt: QA de Regresión

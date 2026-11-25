@@ -5,13 +5,21 @@ summary: Ejecutar controles reproducibles sin ocultar efectos ni alterar el resu
 type: pattern
 domain: hooks-workflows
 status: stable
-version: 1.0.0
+version: 1.0.1
 difficulty: foundation
 projects: [any]
 compatibility: tool-agnostic
 models: [any]
 tags: [hooks, validation, automation]
 related: [quality-engineering.pre-merge]
+lastModified: 2026-11-25
+inputs:
+  - "Disparador y alcance de validación"
+  - "Comandos reales y política ante fallos"
+outputs:
+  - "Contrato de hook con comandos, efectos y resultado esperado"
+useCases:
+  - "Automatizar una validación repetible con efectos explícitos"
 ---
 
 # Pattern: Hook de Validación Explícito

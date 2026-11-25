@@ -15,13 +15,23 @@ summary: Verificar consistencia, enlaces, seguridad y trazabilidad documental.
 type: skill
 domain: documentation-knowledge
 status: stable
-version: 1.1.0
+version: 1.1.1
 difficulty: intermediate
 projects: [any]
 compatibility: tool-agnostic
 models: [any]
 tags: [documentation, audit]
 related: [documentation-knowledge.documentation-as-code]
+lastModified: 2026-11-25
+inputs:
+  - "Archivos Markdown y estáticos modificados"
+  - "Objetivo del cambio"
+outputs:
+  - "Reporte de alcance, hallazgos, correcciones, validaciones y pendientes"
+useCases:
+  - "Revisar antes de integrar"
+  - "Auditar un cambio de taxonomía o rutas"
+  - "Preparar publicación documental"
 ---
 
 # Skill: Documentation Audit

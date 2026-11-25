@@ -6,7 +6,7 @@ allowed-tools: Read Grep Glob Bash(npm run validate:*) Bash(npm run quality:*)
 metadata:
   framework: "agents-first"
   asset-id: "documentation-knowledge.documentation-audit"
-  asset-version: "1.1.0"
+  asset-version: "1.1.1"
   domain: "documentation-knowledge"
   status: "stable"
   repo-compatibility: "tool-agnostic"

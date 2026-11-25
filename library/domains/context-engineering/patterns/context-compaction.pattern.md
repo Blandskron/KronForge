@@ -5,7 +5,7 @@ summary: Resumir y reiniciar la ventana antes de agotarla para sostener tareas l
 type: pattern
 domain: context-engineering
 status: stable
-version: 1.0.0
+version: 1.0.1
 difficulty: intermediate
 projects: [ai-application, agent-platform, research-workflow]
 compatibility: model-agnostic
@@ -18,6 +18,15 @@ specRefs:
   - spec: anthropic-context-engineering
     url: https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents
     verified: 2026-09-03
+lastModified: 2026-11-25
+inputs:
+  - "Historial de la tarea, decisiones y restricciones"
+  - "Estado actual y enlaces a fuentes"
+outputs:
+  - "Resumen compacto con objetivos, decisiones, pendientes y bloqueos"
+useCases:
+  - "Continuar una tarea larga con un contexto renovado"
+  - "Transferir estado a otra sesión"
 ---
 
 # Pattern: Compactación de Contexto

@@ -5,13 +5,22 @@ summary: Separar fuentes, selección, transformación y entrega del contexto.
 type: architecture-note
 domain: context-engineering
 status: stable
-version: 1.0.0
+version: 1.0.1
 difficulty: foundation
 projects: [any]
 compatibility: model-agnostic
 models: [any]
 tags: [context, routing, retrieval, memory]
 related: [context-engineering.progressive-context]
+lastModified: 2026-11-25
+inputs:
+  - "Reglas persistentes, estado del proyecto y tarea activa"
+  - "Fuentes que se pueden consultar bajo demanda"
+outputs:
+  - "Mapa de capas de contexto"
+  - "Orden de carga y fuentes de verdad"
+useCases:
+  - "Organizar el contexto de un proyecto sin mezclar reglas con datos transitorios"
 ---
 
 # Architecture Note: Capas de Contexto

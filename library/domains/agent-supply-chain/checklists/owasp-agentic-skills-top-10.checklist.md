@@ -5,7 +5,7 @@ summary: Revisar una skill contra los diez riesgos catalogados antes de publicar
 type: checklist
 domain: agent-supply-chain
 status: stable
-version: 1.0.0
+version: 1.0.1
 difficulty: intermediate
 projects: [ai-application, agent-platform, developer-tool]
 compatibility: tool-agnostic
@@ -20,6 +20,16 @@ specRefs:
     version: "1.0-2026"
     url: https://owasp.org/www-project-agentic-skills-top-10/
     verified: 2026-09-03
+lastModified: 2026-11-25
+inputs:
+  - "Artefacto de la skill y su procedencia"
+  - "Permisos, dependencias y evidencia de revisión"
+outputs:
+  - "Checklist con evidencia por categoría"
+  - "Veredicto y controles bloqueantes"
+useCases:
+  - "Revisar una skill propia"
+  - "Evaluar una skill antes de incorporarla"
 ---
 
 # Checklist: OWASP Agentic Skills Top 10

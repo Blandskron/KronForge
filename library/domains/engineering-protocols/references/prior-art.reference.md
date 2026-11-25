@@ -5,7 +5,7 @@ summary: Dónde las ideas de la suite ya existen bajo otro nombre, y qué se tom
 type: reference
 domain: engineering-protocols
 status: stable
-version: 1.0.0
+version: 1.0.1
 difficulty: intermediate
 projects: [any]
 compatibility: model-agnostic
@@ -31,6 +31,15 @@ specRefs:
     version: v1.2
     url: https://slsa.dev/spec/latest/levels
     verified: 2026-09-07
+lastModified: 2026-11-25
+inputs:
+  - "Concepto o protocolo de la suite que se quiere contextualizar"
+outputs:
+  - "Fuentes y equivalencias conceptuales"
+  - "Diferencias y límites de las comparaciones"
+useCases:
+  - "Investigar antecedentes de un protocolo"
+  - "Precisar el alcance de una analogía"
 ---
 
 # Trabajo Previo y Terminología Equivalente

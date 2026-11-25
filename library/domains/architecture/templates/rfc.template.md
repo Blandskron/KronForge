@@ -5,7 +5,7 @@ summary: Abrir una pregunta de diseño antes de convertirla en decisión, con al
 type: template
 domain: architecture
 status: stable
-version: 1.0.0
+version: 1.0.1
 difficulty: intermediate
 projects: [any]
 compatibility: model-agnostic
@@ -14,6 +14,15 @@ tags: [rfc, propuesta, diseno, decisiones]
 related:
   - architecture.adr
   - engineering-protocols.decision-records
+lastModified: 2026-11-25
+inputs:
+  - "Problema, motivación y alcance"
+  - "Diseño, alternativas y restricciones conocidas"
+outputs:
+  - "RFC con compatibilidad, migración, seguridad e impacto operativo"
+  - "Preguntas abiertas y proceso de aceptación"
+useCases:
+  - "Someter un cambio de arquitectura a revisión"
 ---
 
 # RFC-NNNN: [Título]

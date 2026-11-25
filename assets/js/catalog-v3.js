@@ -577,7 +577,12 @@ export async function renderLearningPaths(force = false) {
     const container = document.getElementById('learning-path-grid');
     if (!container) return;
     try {
-        const data = await loadCatalog(force);
+        const [data, guidance] = await Promise.all([
+            loadCatalog(force),
+            fetch(siteUrl('library/learning-guidance.json', true))
+                .then(response => response.ok ? response.json() : null)
+                .catch(() => null)
+        ]);
         const paths = data.learningPaths || [];
         if (!paths.length) {
             container.innerHTML = `
@@ -589,17 +594,23 @@ export async function renderLearningPaths(force = false) {
                 </div>`;
             return;
         }
-        container.innerHTML = paths.map((path, index) => {
+        container.innerHTML = paths.map((path) => {
             const ids = assetIdsForLearningPath(path);
             const assets = ids.map((id) => data.assets.find((asset) => asset.id === id)).filter(Boolean);
+            const guide = guidance?.schemaVersion === 1 ? guidance.routes?.[path.id] : null;
             return `
                 <article class="learning-card">
                     <div class="learning-card-header">
-                        <span>${String(index + 1).padStart(2, '0')}</span>
-                        <span>${escapeHtml(path.coverage || path.level || path.difficulty || path.status || 'available')} · ${assets.length} activos</span>
+                        ${guide ? `<span>${escapeHtml(guide.level)}</span>` : ''}
+                        <span>${assets.length} activos</span>
                     </div>
                     <h3>${escapeHtml(path.title || path.name || path.id)}</h3>
                     <p>${escapeHtml(path.summary || path.description || `Recorrido guiado con ${assets.length} activos canónicos.`)}</p>
+                    ${guide ? `<dl class="learning-contract">
+                        <dt>Prerrequisito</dt><dd>${escapeHtml(guide.prerequisite)}</dd>
+                        <dt>Objetivo</dt><dd>${escapeHtml(guide.goal)}</dd>
+                        <dt>Entregable</dt><dd>${escapeHtml(guide.outcome)}</dd>
+                    </dl>` : ''}
                     ${path.estimatedTime ? `<small><i class="fa-regular fa-clock"></i> ${escapeHtml(path.estimatedTime)}</small>` : ''}
                     <ol>${assets.map((asset) => `
                         <li><button type="button" data-asset-link="${escapeHtml(asset.id)}">

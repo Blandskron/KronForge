@@ -5,7 +5,7 @@ summary: Entregar una tarea con contexto, alcance, criterios y evidencia suficie
 type: template
 domain: engineering-protocols
 status: stable
-version: 1.0.0
+version: 1.0.1
 difficulty: foundation
 projects: [any]
 compatibility: model-agnostic
@@ -14,6 +14,15 @@ tags: [delegacion, tareas, contrato, alcance, criterios]
 related:
   - engineering-protocols.work-delegation
   - engineering-protocols.completion-and-stop
+lastModified: 2026-11-25
+inputs:
+  - "Objetivo, contexto, fuentes y responsable"
+  - "Autoridad, alcance y criterios verificables"
+outputs:
+  - "Contrato con límites, compuertas y evidencia esperada"
+  - "Condiciones de detención y escalamiento"
+useCases:
+  - "Preparar la delegación de una tarea acotada"
 ---
 
 # Tarea [ID]

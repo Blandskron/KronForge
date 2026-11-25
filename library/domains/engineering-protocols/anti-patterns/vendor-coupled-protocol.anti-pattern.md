@@ -5,7 +5,7 @@ summary: Escribir el proceso de ingeniería en términos de los productos que ho
 type: anti-pattern
 domain: engineering-protocols
 status: stable
-version: 1.0.0
+version: 1.0.1
 difficulty: intermediate
 projects: [any]
 compatibility: model-agnostic
@@ -15,6 +15,15 @@ related:
   - engineering-protocols.multi-agent-collaboration
   - engineering-protocols.protocol-maturity
   - agent-interoperability.protocol-boundaries
+lastModified: 2026-11-25
+inputs:
+  - "Texto normativo y adaptadores existentes"
+  - "Roles y capacidades que exige el proceso"
+outputs:
+  - "Reglas expresadas como capacidades verificables"
+  - "Detalles de proveedor en adaptadores no normativos"
+useCases:
+  - "Revisar si un protocolo es portable entre herramientas"
 ---
 
 # Anti-patrón: Protocolo Acoplado a Proveedores

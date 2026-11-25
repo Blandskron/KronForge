@@ -5,7 +5,7 @@ summary: Cargar identificadores ligeros y resolver el contenido solo cuando la t
 type: pattern
 domain: context-engineering
 status: stable
-version: 1.0.0
+version: 1.0.1
 difficulty: intermediate
 projects: [any]
 compatibility: model-agnostic
@@ -18,6 +18,14 @@ specRefs:
   - spec: anthropic-context-engineering
     url: https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents
     verified: 2026-09-03
+lastModified: 2026-11-25
+inputs:
+  - "Tarea, mapa inicial y fuentes consultables"
+outputs:
+  - "Contexto recuperado para la necesidad concreta"
+  - "Referencias a las fuentes usadas"
+useCases:
+  - "Resolver una duda puntual sin precargar todo el repositorio"
 ---
 
 # Pattern: Recuperación Bajo Demanda

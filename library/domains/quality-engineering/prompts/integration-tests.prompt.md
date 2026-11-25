@@ -5,13 +5,22 @@ summary: Diseñar o mejorar pruebas entre módulos y servicios con evidencia loc
 type: prompt
 domain: quality-engineering
 status: stable
-version: 1.0.0
+version: 1.0.1
 difficulty: intermediate
 projects: [application, service, library, monorepo]
 compatibility: model-agnostic
 models: [any]
 tags: [testing, integration-tests]
 related: [quality-engineering.unit-tests]
+lastModified: 2026-11-25
+inputs:
+  - "Componentes e interfaces observables"
+  - "Configuración y suite de integración existentes"
+outputs:
+  - "Diagnóstico de cobertura entre componentes"
+  - "Pruebas y resultados cuando corresponda"
+useCases:
+  - "Cubrir interacciones entre módulos y servicios"
 ---
 
 # Prompt: Tests de Integración

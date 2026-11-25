@@ -5,7 +5,7 @@ summary: Definir cuándo una tarea terminó, cuándo debe detenerse y con qué e
 type: protocol
 domain: engineering-protocols
 status: stable
-version: 1.0.0
+version: 1.0.1
 difficulty: foundation
 projects: [any]
 compatibility: model-agnostic
@@ -22,6 +22,15 @@ protocol:
   dependsOn: [AFP-004]
   observedIn: [agnara]
   lastValidated: 2026-09-07
+lastModified: 2026-11-25
+inputs:
+  - "Criterios de salida, estado real y evidencia vigente"
+  - "Bloqueos y autoridad disponible"
+outputs:
+  - "Estado de cierre del vocabulario del protocolo"
+  - "Motivo, evidencia y condición de reanudación o escalamiento"
+useCases:
+  - "Cerrar, detener o escalar una unidad de trabajo"
 ---
 
 # AFP-011 — Completitud, Falla y Detención

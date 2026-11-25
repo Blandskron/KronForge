@@ -5,13 +5,22 @@ summary: Identificar riesgos de rendimiento mediante evidencia y análisis está
 type: prompt
 domain: reliability-performance
 status: stable
-version: 1.0.0
+version: 1.0.1
 difficulty: intermediate
 projects: [application, service, library]
 compatibility: model-agnostic
 models: [any]
 tags: [performance, static-analysis]
 related: []
+lastModified: 2026-11-25
+inputs:
+  - "Código, configuración y flujos detectables"
+  - "Evidencia estática disponible"
+outputs:
+  - "Riesgos de rendimiento con ubicación"
+  - "Mejoras sugeridas y mediciones pendientes"
+useCases:
+  - "Priorizar problemas de rendimiento antes de medirlos"
 ---
 
 # Prompt: Validación Básica de Performance

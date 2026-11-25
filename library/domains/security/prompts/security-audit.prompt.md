@@ -5,13 +5,22 @@ summary: Detectar, clasificar y reportar riesgos sin explotar vulnerabilidades.
 type: prompt
 domain: security
 status: stable
-version: 1.0.0
+version: 1.0.1
 difficulty: advanced
 projects: [application, service, infrastructure, library]
 compatibility: model-agnostic
 models: [any]
 tags: [appsec, audit]
 related: [security.dependency-vulnerability-audit]
+lastModified: 2026-11-25
+inputs:
+  - "Repositorio autorizado y alcance de revisión"
+  - "Código y configuración disponibles"
+outputs:
+  - "Hallazgos defensivos clasificados con evidencia"
+  - "Mitigaciones y límites de la auditoría"
+useCases:
+  - "Revisar riesgos de seguridad de aplicación mediante análisis defensivo"
 ---
 
 # Prompt: Auditoría de Ciberseguridad

@@ -8,9 +8,9 @@ Anteriormente Agents First Framework. [Guía de marca](docs/BRAND_GUIDELINES.md)
 
 Plataforma documental abierta de AI Engineering para diseñar contexto, repositorios, agentes y software verificable mediante conocimiento reutilizable.
 
-La versión **3.2.0** organiza el proyecto como framework por capas, con catálogo machine-readable, contratos editoriales, rutas de aprendizaje, gobierno OSS y controles de calidad reproducibles. Sigue siendo agnóstico al modelo, proveedor y stack: la compatibilidad depende de Markdown y de instrucciones explícitas, no de una API propietaria.
+KronForge 3.4.0 organiza el conocimiento en capas, con catálogo machine-readable, contratos editoriales, rutas de aprendizaje, gobierno OSS y controles de calidad reproducibles. La compatibilidad se apoya en Markdown e instrucciones explícitas y es agnóstica al modelo, proveedor y stack.
 
-El Markdown de `library/` es la única fuente de verdad. De ella se generan y verifican tres proyecciones: el [catálogo](library/catalog.json), las [skills distribuibles](skills/README.md) en formato abierto Agent Skills y [`llms.txt`](llms.txt) como puerta de entrada para agentes. Todo activo que cite una fuente externa declara su versión y su fecha de verificación bajo la [política de frescura](docs/SPEC_FRESHNESS.md).
+El Markdown de `library/` es la fuente canónica de los activos. El [catálogo](library/catalog.json) se mantiene en paridad con sus metadatos. Las [skills distribuibles](skills/README.md), [`llms.txt`](llms.txt) y los [metadatos de aprendizaje](library/learning-guidance.json) se regeneran con `npm run build`. Las referencias declaradas se rigen por la [política de frescura](docs/SPEC_FRESHNESS.md).
 
 El flujo operativo se mantiene simple: **Copiar -> Pegar -> Auditar -> Aprobar -> Aplicar**.
 
@@ -23,7 +23,7 @@ El flujo operativo se mantiene simple: **Copiar -> Pegar -> Auditar -> Aprobar -
 - una [biblioteca por dominios](library/README.md) con activos ejecutables, de conocimiento, gobierno e integración;
 - una [suite de protocolos de ingeniería](library/domains/engineering-protocols/README.md) para que personas y agentes deleguen, revisen, validen y publiquen con evidencia verificable;
 - un [catálogo v3](library/catalog.json) validado por [JSON Schema](library/schema/catalog-v3.schema.json);
-- relaciones entre activos y rutas de aprendizaje para adopción progresiva;
+- relaciones entre activos, [rutas de aprendizaje](docs/LEARNING_GUIDANCE.md) y un [ejercicio reproducible](docs/learning-quality-example.md);
 - documentación operativa en [`docs/agent/`](docs/agent/) y un [registro de decisiones](docs/adr/README.md);
 - gobierno OSS, controles automáticos y un portal estático sin build de producción.
 

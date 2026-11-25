@@ -37,6 +37,7 @@ El Markdown es la fuente canónica. El catálogo proyecta metadatos para el port
 ### Ruta de Aprendizaje
 
 - **Ubicación:** `learningPaths` en `library/catalog.json`.
+- **Guía complementaria:** `library/learning-guidance.json` versión 1, indexada por ID de ruta. Se genera desde [la guía Markdown](../LEARNING_GUIDANCE.md). El catálogo v3 sigue definiendo la identidad y el orden de los activos.
 - **Identidad:** ID estable y legible.
 - **Contrato:** título, resumen y secuencia ordenada de IDs existentes.
 - **Regla:** una ruta no duplica el activo ni crea dependencias implícitas; solo propone un orden pedagógico.

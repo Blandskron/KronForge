@@ -5,7 +5,7 @@ summary: Diseñar clientes, servidores y capacidades MCP con autoridad explícit
 type: architecture-note
 domain: mcp-integration
 status: stable
-version: 2.0.0
+version: 2.0.1
 difficulty: foundation
 projects: [ai-application, agent-platform, developer-tool]
 compatibility: protocol-oriented
@@ -17,6 +17,16 @@ specRefs:
     version: "2026-07-28"
     url: https://modelcontextprotocol.io/specification/2026-07-28/changelog
     verified: 2026-09-03
+lastModified: 2026-11-25
+inputs:
+  - "Host, cliente y servidor previstos"
+  - "Capacidades, datos y límites de autoridad"
+outputs:
+  - "Mapa de componentes y fronteras de confianza"
+  - "Decisiones de autorización, estado y ciclo de vida"
+useCases:
+  - "Diseñar una integración MCP"
+  - "Revisar responsabilidades en una topología existente"
 ---
 
 # Architecture Note: Topología MCP y Límites de Confianza

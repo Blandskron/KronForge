@@ -5,7 +5,7 @@ summary: Verificar que una skill cumple el formato abierto y es consumible por c
 type: checklist
 domain: ai-agent-engineering
 status: stable
-version: 1.0.0
+version: 1.0.1
 difficulty: foundation
 projects: [any]
 compatibility: tool-agnostic
@@ -18,6 +18,14 @@ specRefs:
   - spec: agent-skills
     url: https://agentskills.io/specification
     verified: 2026-09-03
+lastModified: 2026-11-25
+inputs:
+  - "Directorio de la skill, front matter y archivos asociados"
+outputs:
+  - "Checklist de formato, portabilidad y seguridad"
+  - "Veredicto con evidencia"
+useCases:
+  - "Validar una skill antes de distribuirla"
 ---
 
 # Checklist: Conformidad Agent Skills

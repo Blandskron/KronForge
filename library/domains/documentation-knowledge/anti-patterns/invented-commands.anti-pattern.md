@@ -5,13 +5,22 @@ summary: Detectar y corregir instrucciones ejecutables sin respaldo en el reposi
 type: anti-pattern
 domain: documentation-knowledge
 status: stable
-version: 1.0.0
+version: 1.0.1
 difficulty: foundation
 projects: [any]
 compatibility: model-agnostic
 models: [any]
 tags: [documentation, safety]
 related: [documentation-knowledge.documentation-as-code]
+lastModified: 2026-11-25
+inputs:
+  - "Comandos citados en documentación"
+  - "Manifiestos, scripts o CI que definen su uso"
+outputs:
+  - "Inventario de comandos respaldados o pendientes"
+  - "Correcciones de argumentos y contexto"
+useCases:
+  - "Revisar un runbook o prompt antes de publicarlo"
 ---
 
 # Anti-patrón: Comandos Inventados

@@ -5,13 +5,22 @@ summary: Evaluar mantenibilidad, duplicación, acoplamiento y deuda técnica.
 type: prompt
 domain: quality-engineering
 status: stable
-version: 1.0.0
+version: 1.0.1
 difficulty: intermediate
 projects: [any]
 compatibility: model-agnostic
 models: [any]
 tags: [code-review, maintainability]
 related: [quality-engineering.definition-of-done-review]
+lastModified: 2026-11-25
+inputs:
+  - "Código fuente y alcance de revisión"
+  - "Convenciones y controles detectables"
+outputs:
+  - "Hallazgos de mantenibilidad con evidencia"
+  - "Recomendaciones priorizadas"
+useCases:
+  - "Revisar deuda técnica o calidad de un módulo"
 ---
 
 # Prompt: Revisión de Calidad de Código

@@ -80,7 +80,9 @@ Marcar una casilla no reemplaza la evidencia. Un pendiente bloqueante impide dec
 ## Excepciones
 
 `No aplica` requiere una justificación concreta. El maintainer puede aceptar deuda no bloqueante solo si queda registrada con impacto, responsable de decisión y condición de seguimiento.
-## Comprobación opcional de navegador
+## Comprobación de navegador
+
+El [workflow de validación](../.github/workflows/validate.yml) ejecuta Chromium con herramientas fijadas en un lockfile aislado. El recorrido comprueba navegación, copia, descarga y accesibilidad. La comparación de hashes se ejecuta en el entorno de referencia.
 
 El verificador [browser-check.cjs](../scripts/browser-check.cjs) usa Playwright 1.65.1 y axe-core para Playwright 4.14.0, instalados en una carpeta de herramientas externa al portal. Indica esa carpeta `node_modules` en `KF_BROWSER_TOOLS` y una salida opcional en `KF_AUDIT_OUT`. Ejecuta `node scripts/browser-check.cjs` para validar y capturar. En el entorno de la referencia visual puedes añadir `--compare` para comparar los hashes.
 

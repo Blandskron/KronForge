@@ -5,7 +5,7 @@ summary: Convertir evidencia del repositorio en una arquitectura operable por pe
 type: playbook
 domain: repository-engineering
 status: stable
-version: 1.0.0
+version: 1.0.1
 difficulty: intermediate
 projects: [new, existing, legacy, monorepo]
 compatibility: model-agnostic
@@ -15,6 +15,16 @@ related:
   - ai-agent-engineering.prepare-agents-first
   - context-engineering.progressive-context
   - documentation-knowledge.documentation-audit
+lastModified: 2026-11-25
+inputs:
+  - "Repositorio accesible"
+  - "Instrucciones, documentación y automatizaciones actuales"
+outputs:
+  - "Diagnóstico de la estructura real"
+  - "Entradas diferenciadas para humanos y agentes"
+  - "Plan y comprobaciones de la estructura"
+useCases:
+  - "Diseñar o reorganizar el contexto de un repositorio existente"
 ---
 
 # Playbook: Diseñar un Repositorio AI-First

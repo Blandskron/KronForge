@@ -15,13 +15,25 @@ summary: Actualizar un prompt canónico sin degradar su contrato.
 type: skill
 domain: ai-agent-engineering
 status: stable
-version: 1.1.0
+version: 1.1.1
 difficulty: intermediate
 projects: [any]
 compatibility: model-agnostic
 models: [any]
 tags: [prompts, versioning]
 related: [documentation-knowledge.documentation-audit]
+lastModified: 2026-11-25
+inputs:
+  - "Solicitud y resultado esperado"
+  - "Prompt vigente y activos relacionados"
+  - "Política de versionado y reglas del repositorio"
+outputs:
+  - "Prompt actualizado y cambio clasificado"
+  - "Changelog y validaciones registradas"
+useCases:
+  - "Añadir una fase compatible"
+  - "Precisar una regla ambigua"
+  - "Deprecar una regla con transición"
 ---
 
 # Skill: Actualización de Prompt

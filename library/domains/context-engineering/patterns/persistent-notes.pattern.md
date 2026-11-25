@@ -5,7 +5,7 @@ summary: Escribir fuera de la ventana lo que debe sobrevivir a la compactación 
 type: pattern
 domain: context-engineering
 status: stable
-version: 1.0.0
+version: 1.0.1
 difficulty: intermediate
 projects: [ai-application, agent-platform, research-workflow]
 compatibility: model-agnostic
@@ -18,6 +18,16 @@ specRefs:
   - spec: anthropic-context-engineering
     url: https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents
     verified: 2026-09-03
+lastModified: 2026-11-25
+inputs:
+  - "Cambio de estado, decisiones y fuentes"
+  - "Destino persistente accesible a quien continúe"
+outputs:
+  - "Notas con hechos, inferencias y próximo paso"
+  - "Punteros verificables"
+useCases:
+  - "Retomar trabajo entre sesiones"
+  - "Coordinar participantes sin perder estado"
 ---
 
 # Pattern: Notas Persistentes

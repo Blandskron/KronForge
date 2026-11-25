@@ -5,7 +5,7 @@ summary: Separar una pregunta abierta de una decisión tomada, y hacer ambas des
 type: protocol
 domain: engineering-protocols
 status: stable
-version: 1.0.0
+version: 1.0.1
 difficulty: intermediate
 projects: [any]
 compatibility: model-agnostic
@@ -23,6 +23,16 @@ protocol:
   dependsOn: [AFP-001]
   observedIn: [agents-first-repo-docs, agnara]
   lastValidated: 2026-09-07
+lastModified: 2026-11-25
+inputs:
+  - "Pregunta abierta y alternativas"
+  - "Evidencia, restricciones y autoridad de decisión"
+outputs:
+  - "Propuesta o decisión duradera con identificador"
+  - "Índice y referencias desde las superficies afectadas"
+useCases:
+  - "Evaluar una propuesta abierta"
+  - "Registrar una decisión de arquitectura"
 ---
 
 # AFP-010 — Registros de Decisión

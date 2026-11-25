@@ -5,13 +5,22 @@ summary: Fuentes primarias para diseñar y evaluar accesibilidad web.
 type: reference
 domain: experience-accessibility
 status: stable
-version: 1.0.0
+version: 1.0.1
 difficulty: foundation
 projects: [web-application, website, design-system]
 compatibility: standard-oriented
 models: [any]
 tags: [accessibility, wcag, aria]
 related: []
+lastModified: 2026-11-25
+inputs:
+  - "Página, componente o requisito de accesibilidad web"
+outputs:
+  - "Selección de fuentes normativas y guías de interacción"
+  - "Criterios para combinar evaluación humana y automática"
+useCases:
+  - "Preparar una evaluación de accesibilidad"
+  - "Elegir una referencia para un widget"
 ---
 
 # Referencias: Estándares de Accesibilidad Web

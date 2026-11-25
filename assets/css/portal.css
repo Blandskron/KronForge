@@ -1238,3 +1238,6 @@ body.reading-mode .asset-source {
         padding: 8px;
     }
 }
+.learning-contract { display: grid; gap: 4px; margin-block: 16px; }
+.learning-contract dt { font-size: .8rem; font-weight: 700; }
+.learning-contract dd { color: var(--text-secondary); font-size: .875rem; margin: 0 0 8px; }

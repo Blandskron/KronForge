@@ -4,7 +4,7 @@ Prácticas de backend, frontend, APIs, integración, refactoring y diseño de c�
 
 ## Estado
 
-Dominio preparado para contribuciones. No contiene activos todavía: el catálogo evita contenido de relleno.
+- [Compatibilidad en un cambio de interfaz](checklists/consumer-compatibility.checklist.md)
 
 ## Límites
 

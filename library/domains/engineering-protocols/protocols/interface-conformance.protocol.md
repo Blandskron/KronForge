@@ -5,7 +5,7 @@ summary: Demostrar que varias interfaces del mismo sistema implementan la misma 
 type: protocol
 domain: engineering-protocols
 status: stable
-version: 1.0.0
+version: 1.0.1
 difficulty: advanced
 projects: [any]
 compatibility: protocol-agnostic
@@ -22,6 +22,15 @@ protocol:
   dependsOn: [AFP-004]
   observedIn: [agnara]
   lastValidated: 2026-09-07
+lastModified: 2026-11-25
+inputs:
+  - "Capacidad compartida y sus interfaces"
+  - "Escenarios equivalentes e invariantes observables"
+outputs:
+  - "Matriz de resultados por interfaz"
+  - "Divergencias y excepciones explícitas"
+useCases:
+  - "Comprobar consistencia de una capacidad expuesta por varias interfaces"
 ---
 
 # AFP-007 — Conformidad entre Interfaces

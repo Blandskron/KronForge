@@ -5,13 +5,23 @@ summary: Diseñar especialización, autoridad, coordinación y memoria entre age
 type: architecture-note
 domain: ai-agent-engineering
 status: stable
-version: 1.0.0
+version: 1.0.1
 difficulty: advanced
 projects: [agent-platform, complex-repository, research-workflow]
 compatibility: model-agnostic
 models: [any]
 tags: [agents, subagents, coordination, memory]
 related: [ai-agent-engineering.subagent-contract]
+lastModified: 2026-11-25
+inputs:
+  - "Tarea candidata y sus dependencias"
+  - "Ámbitos de escritura y capacidades disponibles"
+outputs:
+  - "Diseño de roles y coordinación"
+  - "Reglas de aislamiento y comunicación"
+useCases:
+  - "Evaluar la descomposición de una tarea"
+  - "Diseñar una revisión separada"
 ---
 
 # Architecture Note: Sistemas de Subagentes

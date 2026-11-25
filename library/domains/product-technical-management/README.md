@@ -4,7 +4,7 @@ Discovery, planificación, RFC, riesgo, priorización y coordinación técnica.
 
 ## Estado
 
-Dominio preparado para contribuciones verificables. Las plantillas futuras deben separar hechos, supuestos, decisiones y responsables.
+- [Ficha de alcance y aceptación de un cambio](templates/change-brief.template.md)
 
 ## Límites
 

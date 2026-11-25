@@ -1,6 +1,6 @@
 # KronForge — Agents-First Engineering Framework
 
-> Plataforma documental abierta de AI Engineering para diseñar contexto, repositorios, agentes y software verificable. Markdown canónico, agnóstico al modelo y al stack, sin runtime. Versión 3.4.0, catálogo actualizado el 2026-09-07.
+> Plataforma documental abierta de AI Engineering para diseñar contexto, repositorios, agentes y software verificable. Markdown canónico, agnóstico al modelo y al stack, sin runtime. Versión 3.4.0, catálogo actualizado el 2026-11-25.
 
 El conocimiento vive en Markdown bajo `library/domains/`. El catálogo JSON y las carpetas `skills/` son proyecciones verificadas de esa fuente, no fuentes alternativas.
 
@@ -13,6 +13,11 @@ Antes de aplicar cualquier activo: lee antes de modificar, no inventes comandos 
 - [Índice de la biblioteca](https://blandskron.github.io/KronForge/library/README.md): cómo está organizado el conocimiento por dominios
 - [Catálogo machine-readable](https://blandskron.github.io/KronForge/library/catalog.json): inventario completo con metadatos, relaciones y rutas
 - [Skills distribuibles](https://blandskron.github.io/KronForge/skills/README.md): skills en el formato abierto Agent Skills
+- [Guía de aprendizaje](https://blandskron.github.io/KronForge/docs/LEARNING_GUIDANCE.md): objetivos y entregables por ruta
+- [Guía de aprendizaje machine-readable](https://blandskron.github.io/KronForge/library/learning-guidance.json): metadatos por ID de ruta del catálogo
+- [Ejercicio reproducible](https://blandskron.github.io/KronForge/docs/learning-quality-example.md): ejercicio de testing y evidencia con el repositorio
+- [Prácticas guiadas](https://blandskron.github.io/KronForge/docs/LEARNING_LABS.md): siete prácticas con entradas y entregables
+- [Caso de aprendizaje de KronForge](https://blandskron.github.io/KronForge/docs/audits/KRONFORGE_LEARNING_CASE.md): reproducción local de la compatibilidad del catálogo
 
 ## Políticas y contratos
 
@@ -86,6 +91,18 @@ Decisiones, estilos, modularidad y evolución de sistemas.
 - [Validación de arquitectura](https://blandskron.github.io/KronForge/library/domains/architecture/prompts/architecture-validation.prompt.md): prompt · Contrastar la arquitectura declarada con la estructura y dependencias reales.
 - [Request for Comments](https://blandskron.github.io/KronForge/library/domains/architecture/templates/rfc.template.md): template · Abrir una pregunta de diseño antes de convertirla en decisión, con alternativas y preguntas sin resolver.
 
+## Desarrollo de software
+
+Backend, frontend, APIs, integración y refactoring.
+
+- [Compatibilidad en un cambio de interfaz](https://blandskron.github.io/KronForge/library/domains/software-development/checklists/consumer-compatibility.checklist.md): checklist · Comprobar qué consumidores pueden seguir usando una interfaz modificada.
+
+## Datos
+
+Modelos, persistencia, migraciones, contratos y pipelines.
+
+- [Ensayar una migración de datos](https://blandskron.github.io/KronForge/library/domains/data/checklists/migration-rehearsal.checklist.md): checklist · Comparar invariantes antes y después de una migración en un entorno aislado.
+
 ## Ingeniería de calidad
 
 Testing, QA, revisión y criterios verificables de cierre.
@@ -125,6 +142,12 @@ UX, UI, accesibilidad, SEO y arquitectura de información.
 
 - [Estándares de accesibilidad web](https://blandskron.github.io/KronForge/library/domains/experience-accessibility/references/accessibility-standards.references.md): reference · Fuentes primarias para diseñar y evaluar accesibilidad web.
 
+## Producto y gestión técnica
+
+Discovery, planificación, RFC, riesgo y liderazgo técnico.
+
+- [Ficha de alcance y aceptación de un cambio](https://blandskron.github.io/KronForge/library/domains/product-technical-management/templates/change-brief.template.md): template · Convertir una necesidad observada en un cambio acotado y comprobable.
+
 ## Documentación y conocimiento
 
 Documentación como código, auditoría y gestión del conocimiento.
@@ -159,7 +182,3 @@ Ciclos de vida normativos para planificar, delegar, revisar, validar y publicar 
 - [Compuerta aprobada sin ejecución](https://blandskron.github.io/KronForge/library/domains/engineering-protocols/anti-patterns/unverified-gate-claim.anti-pattern.md): anti-pattern · Reportar una compuerta como aprobada apoyándose en inferencia, memoria o en la afirmación de otro participante.
 - [Protocolo acoplado a proveedores](https://blandskron.github.io/KronForge/library/domains/engineering-protocols/anti-patterns/vendor-coupled-protocol.anti-pattern.md): anti-pattern · Escribir el proceso de ingeniería en términos de los productos que hoy lo ejecutan en lugar de roles y capacidades.
 - [Delegación y handoff de trabajo](https://blandskron.github.io/KronForge/library/domains/engineering-protocols/protocols/work-delegation.protocol.md): protocol · Entregar una tarea con contexto suficiente para ejecutarla y transferirla sin depender de memoria conversacional.
-
-## Opcional
-
-Dominios declarados sin activos canónicos todavía: Desarrollo de software, Datos, Producto y gestión técnica. Sus índices describen alcance futuro y no contienen conocimiento aplicable.

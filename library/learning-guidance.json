@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "routes": {
+    "prompt-engineering": {
+      "level": "Inicial",
+      "prerequisite": "Un prompt versionado y una tarea que puedas comprobar.",
+      "goal": "Revisar instrucciones y vincular los comandos a la evidencia local.",
+      "outcome": "Un diff de prompt con cambios justificados y una prueba de la conducta esperada."
+    },
+    "ai-engineering": {
+      "level": "Intermedio",
+      "prerequisite": "Un repositorio conocido y una tarea real con criterio de cierre.",
+      "goal": "Distribuir el contexto, la autoridad y la validación entre los participantes.",
+      "outcome": "Un mapa de contexto y responsabilidad con un punto de validación por transferencia."
+    },
+    "agents": {
+      "level": "Inicial",
+      "prerequisite": "Un repositorio con instrucciones y una tarea que se pueda dividir.",
+      "goal": "Preparar el contexto y describir un encargo verificable para un agente.",
+      "outcome": "Un contrato de delegación con alcance, entradas, permisos y entrega esperada."
+    },
+    "mcp": {
+      "level": "Inicial",
+      "prerequisite": "Una operación definida y documentación del servidor que quieres evaluar.",
+      "goal": "Identificar los participantes, la frontera de confianza y los permisos necesarios.",
+      "outcome": "Un diagrama de interacción y una decisión documentada sobre la integración."
+    },
+    "hooks": {
+      "level": "Inicial",
+      "prerequisite": "Un evento identificable y un comando de validación ya disponible.",
+      "goal": "Asociar una validación acotada a un evento del proyecto.",
+      "outcome": "Una propuesta de hook con disparador, salida esperada y conducta ante un fallo."
+    },
+    "architecture": {
+      "level": "Inicial",
+      "prerequisite": "Acceso a la arquitectura actual y una decisión técnica pendiente.",
+      "goal": "Contrastar la arquitectura observada con sus restricciones y alternativas.",
+      "outcome": "Un ADR con contexto, decisión, alternativas y consecuencias verificables."
+    },
+    "github": {
+      "level": "Inicial",
+      "prerequisite": "Una copia del sitio y acceso de lectura a la configuración de Pages.",
+      "goal": "Comprobar las rutas y los archivos de una entrega estática.",
+      "outcome": "Un registro de verificación local con la URL base, recursos comprobados y decisión de entrega."
+    },
+    "devops": {
+      "level": "Intermedio",
+      "prerequisite": "Un artefacto de entrega y una configuración de publicación verificables.",
+      "goal": "Revisar el origen de los artefactos y los controles previos a una release.",
+      "outcome": "Una lista de comprobación con evidencias, impedimentos y autorización pendiente."
+    },
+    "testing": {
+      "level": "Inicial",
+      "prerequisite": "Un cambio acotado y los comandos de prueba existentes.",
+      "goal": "Elegir pruebas unitarias, de integración y de regresión según el riesgo.",
+      "outcome": "Una matriz de escenarios con resultado observado y criterios de merge."
+    },
+    "security": {
+      "level": "Intermedio",
+      "prerequisite": "Alcance autorizado e inventario de dependencias o artefactos.",
+      "goal": "Revisar riesgos de manera defensiva y registrar la evidencia observada.",
+      "outcome": "Un informe de hallazgos con prioridades, límites y propuestas de remediación."
+    },
+    "skill-supply-chain": {
+      "level": "Intermedio",
+      "prerequisite": "Una copia de la skill para revisión y una lista de permisos necesarios.",
+      "goal": "Seguir las acciones que la skill puede inducir y reducir su autoridad.",
+      "outcome": "Una decisión de adopción con trazabilidad a instrucciones, herramientas y dependencias."
+    },
+    "long-horizon-context": {
+      "level": "Intermedio",
+      "prerequisite": "Una tarea de varias sesiones con decisiones y restricciones registradas.",
+      "goal": "Conservar el estado necesario para retomar el trabajo.",
+      "outcome": "Una nota de reanudación con objetivo, verificaciones, decisiones y próximo paso."
+    },
+    "agent-interoperability": {
+      "level": "Intermedio",
+      "prerequisite": "Dos participantes con identidades, autoridad y entregables definidos.",
+      "goal": "Distinguir el acceso a capacidades de la delegación entre participantes.",
+      "outcome": "Una decisión sobre el mecanismo y las condiciones de confianza verificadas."
+    },
+    "engineering-protocols": {
+      "level": "Intermedio",
+      "prerequisite": "Una tarea verificable, un repositorio y responsables identificables.",
+      "goal": "Pasar del diagnóstico a una entrega con revisión y criterios observables.",
+      "outcome": "Un conjunto de evidencia de trabajo, revisión y decisión de release."
+    }
+  }
+}

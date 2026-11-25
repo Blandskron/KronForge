@@ -2,7 +2,7 @@
   "$schema": "schema/catalog-v3.schema.json",
   "schemaVersion": 3,
   "frameworkVersion": "3.4.0",
-  "lastUpdated": "2026-09-07",
+  "lastUpdated": "2026-11-25",
   "metadataDefaults": {
     "author": "@Blandskron/contributors",
     "license": "MIT",
@@ -377,7 +377,7 @@
       "category": "execution",
       "domain": "ai-agent-engineering",
       "status": "stable",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "level": "intermediate",
       "difficulty": "intermediate",
       "projects": [
@@ -393,7 +393,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-09-03",
+      "lastModified": "2026-11-25",
       "tags": [
         "prompts",
         "versioning"
@@ -409,12 +409,23 @@
           "verified": "2026-09-03"
         }
       ],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Solicitud y resultado esperado",
+        "Prompt vigente y activos relacionados",
+        "Política de versionado y reglas del repositorio"
+      ],
+      "outputs": [
+        "Prompt actualizado y cambio clasificado",
+        "Changelog y validaciones registradas"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Añadir una fase compatible",
+        "Precisar una regla ambigua",
+        "Deprecar una regla con transición"
+      ],
       "path": "domains/ai-agent-engineering/skills/prompt-update/SKILL.md"
     },
     {
@@ -425,7 +436,7 @@
       "category": "execution",
       "domain": "ai-agent-engineering",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "level": "foundation",
       "difficulty": "foundation",
       "projects": [
@@ -444,7 +455,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-07-28",
+      "lastModified": "2026-11-25",
       "tags": [
         "agents-first",
         "documentation"
@@ -453,12 +464,21 @@
       "related": [
         "documentation-knowledge.documentation-audit"
       ],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Repositorio accesible en lectura",
+        "Objetivo de preparación e instrucciones existentes"
+      ],
+      "outputs": [
+        "Diagnóstico con evidencia",
+        "Mapa de archivos y permisos",
+        "Cambios autorizados y validaciones registradas"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Preparar un repositorio existente para colaboradores humanos y agentes"
+      ],
       "path": "domains/ai-agent-engineering/playbooks/prepare-agents-first.playbook.md"
     },
     {
@@ -469,7 +489,7 @@
       "category": "architecture",
       "domain": "ai-agent-engineering",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "level": "advanced",
       "difficulty": "advanced",
       "projects": [
@@ -487,7 +507,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-07-28",
+      "lastModified": "2026-11-25",
       "tags": [
         "agents",
         "subagents",
@@ -498,12 +518,21 @@
       "related": [
         "ai-agent-engineering.subagent-contract"
       ],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Tarea candidata y sus dependencias",
+        "Ámbitos de escritura y capacidades disponibles"
+      ],
+      "outputs": [
+        "Diseño de roles y coordinación",
+        "Reglas de aislamiento y comunicación"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Evaluar la descomposición de una tarea",
+        "Diseñar una revisión separada"
+      ],
       "path": "domains/ai-agent-engineering/architecture-notes/subagent-systems.architecture-note.md"
     },
     {
@@ -514,7 +543,7 @@
       "category": "knowledge",
       "domain": "ai-agent-engineering",
       "status": "stable",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "level": "intermediate",
       "difficulty": "intermediate",
       "projects": [
@@ -532,7 +561,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-09-03",
+      "lastModified": "2026-11-25",
       "tags": [
         "agents",
         "subagents",
@@ -550,12 +579,20 @@
           "verified": "2026-09-03"
         }
       ],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Subtarea, alcance y restricciones",
+        "Fuentes y criterios de aceptación"
+      ],
+      "outputs": [
+        "Contrato de delegación acotado",
+        "Formato de resultado verificable"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Delegar trabajo independiente con un contexto mínimo"
+      ],
       "path": "domains/ai-agent-engineering/patterns/subagent-contract.pattern.md"
     },
     {
@@ -566,7 +603,7 @@
       "category": "architecture",
       "domain": "context-engineering",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "level": "foundation",
       "difficulty": "foundation",
       "projects": [
@@ -582,7 +619,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-07-28",
+      "lastModified": "2026-11-25",
       "tags": [
         "context",
         "routing",
@@ -593,12 +630,20 @@
       "related": [
         "context-engineering.progressive-context"
       ],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Reglas persistentes, estado del proyecto y tarea activa",
+        "Fuentes que se pueden consultar bajo demanda"
+      ],
+      "outputs": [
+        "Mapa de capas de contexto",
+        "Orden de carga y fuentes de verdad"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Organizar el contexto de un proyecto sin mezclar reglas con datos transitorios"
+      ],
       "path": "domains/context-engineering/architecture-notes/context-layers.architecture-note.md"
     },
     {
@@ -609,7 +654,7 @@
       "category": "knowledge",
       "domain": "context-engineering",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "level": "intermediate",
       "difficulty": "intermediate",
       "projects": [
@@ -625,7 +670,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-07-28",
+      "lastModified": "2026-11-25",
       "tags": [
         "context",
         "progressive-disclosure",
@@ -635,12 +680,20 @@
       "related": [
         "context-engineering.context-layers"
       ],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Mapa del proyecto",
+        "Objetivo y fuentes de la tarea"
+      ],
+      "outputs": [
+        "Paquete inicial de contexto",
+        "Punteros para profundizar bajo demanda"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Preparar una tarea compleja con contexto limitado y verificable"
+      ],
       "path": "domains/context-engineering/patterns/progressive-context.pattern.md"
     },
     {
@@ -651,7 +704,7 @@
       "category": "execution",
       "domain": "repository-engineering",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "level": "intermediate",
       "difficulty": "intermediate",
       "projects": [
@@ -670,7 +723,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-07-28",
+      "lastModified": "2026-11-25",
       "tags": [
         "repository",
         "agents-first",
@@ -683,12 +736,21 @@
         "context-engineering.progressive-context",
         "documentation-knowledge.documentation-audit"
       ],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Repositorio accesible",
+        "Instrucciones, documentación y automatizaciones actuales"
+      ],
+      "outputs": [
+        "Diagnóstico de la estructura real",
+        "Entradas diferenciadas para humanos y agentes",
+        "Plan y comprobaciones de la estructura"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Diseñar o reorganizar el contexto de un repositorio existente"
+      ],
       "path": "domains/repository-engineering/playbooks/design-ai-first-repository.playbook.md"
     },
     {
@@ -699,7 +761,7 @@
       "category": "architecture",
       "domain": "mcp-integration",
       "status": "stable",
-      "version": "2.0.0",
+      "version": "2.0.1",
       "level": "foundation",
       "difficulty": "foundation",
       "projects": [
@@ -717,7 +779,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-09-03",
+      "lastModified": "2026-11-25",
       "tags": [
         "mcp",
         "tools",
@@ -736,12 +798,21 @@
           "verified": "2026-09-03"
         }
       ],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Host, cliente y servidor previstos",
+        "Capacidades, datos y límites de autoridad"
+      ],
+      "outputs": [
+        "Mapa de componentes y fronteras de confianza",
+        "Decisiones de autorización, estado y ciclo de vida"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Diseñar una integración MCP",
+        "Revisar responsabilidades en una topología existente"
+      ],
       "path": "domains/mcp-integration/architecture-notes/mcp-topology.architecture-note.md"
     },
     {
@@ -752,7 +823,7 @@
       "category": "validation",
       "domain": "mcp-integration",
       "status": "stable",
-      "version": "2.0.0",
+      "version": "2.0.1",
       "level": "intermediate",
       "difficulty": "intermediate",
       "projects": [
@@ -770,7 +841,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-09-03",
+      "lastModified": "2026-11-25",
       "tags": [
         "mcp",
         "security",
@@ -789,12 +860,21 @@
           "verified": "2026-09-03"
         }
       ],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Inventario de capacidades MCP",
+        "Permisos, flujos de datos y evidencia operativa"
+      ],
+      "outputs": [
+        "Checklist con evidencia por control",
+        "Veredicto y bloqueos"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Evaluar una integración MCP antes de habilitarla",
+        "Revisar un cambio de permisos o datos"
+      ],
       "path": "domains/mcp-integration/checklists/mcp-security.checklist.md"
     },
     {
@@ -805,7 +885,7 @@
       "category": "knowledge",
       "domain": "hooks-workflows",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "level": "foundation",
       "difficulty": "foundation",
       "projects": [
@@ -821,7 +901,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-07-28",
+      "lastModified": "2026-11-25",
       "tags": [
         "hooks",
         "validation",
@@ -831,12 +911,19 @@
       "related": [
         "quality-engineering.pre-merge"
       ],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Disparador y alcance de validación",
+        "Comandos reales y política ante fallos"
+      ],
+      "outputs": [
+        "Contrato de hook con comandos, efectos y resultado esperado"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Automatizar una validación repetible con efectos explícitos"
+      ],
       "path": "domains/hooks-workflows/patterns/explicit-validation-hook.pattern.md"
     },
     {
@@ -847,7 +934,7 @@
       "category": "execution",
       "domain": "architecture",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "level": "advanced",
       "difficulty": "advanced",
       "projects": [
@@ -863,7 +950,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-07-28",
+      "lastModified": "2026-11-25",
       "tags": [
         "architecture",
         "validation"
@@ -872,12 +959,20 @@
       "related": [
         "architecture.adr"
       ],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Árbol y configuración del repositorio",
+        "Dependencias y decisiones arquitectónicas observables"
+      ],
+      "outputs": [
+        "Diagnóstico de estructura e inconsistencias con referencias",
+        "Propuestas priorizadas"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Revisar la arquitectura efectiva de un repositorio"
+      ],
       "path": "domains/architecture/prompts/architecture-validation.prompt.md"
     },
     {
@@ -888,7 +983,7 @@
       "category": "creation",
       "domain": "architecture",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "level": "foundation",
       "difficulty": "foundation",
       "projects": [
@@ -904,7 +999,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-07-28",
+      "lastModified": "2026-11-25",
       "tags": [
         "adr",
         "decisions"
@@ -913,12 +1008,21 @@
       "related": [
         "architecture.architecture-validation"
       ],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Contexto verificable",
+        "Alternativas",
+        "Restricciones"
+      ],
+      "outputs": [
+        "Registro de decisión",
+        "Criterios para revisar la decisión"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Decisión arquitectónica duradera"
+      ],
       "path": "domains/architecture/templates/adr.template.md"
     },
     {
@@ -929,7 +1033,7 @@
       "category": "execution",
       "domain": "quality-engineering",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "level": "intermediate",
       "difficulty": "intermediate",
       "projects": [
@@ -945,7 +1049,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-07-28",
+      "lastModified": "2026-11-25",
       "tags": [
         "code-review",
         "maintainability"
@@ -954,12 +1058,20 @@
       "related": [
         "quality-engineering.definition-of-done-review"
       ],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Código fuente y alcance de revisión",
+        "Convenciones y controles detectables"
+      ],
+      "outputs": [
+        "Hallazgos de mantenibilidad con evidencia",
+        "Recomendaciones priorizadas"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Revisar deuda técnica o calidad de un módulo"
+      ],
       "path": "domains/quality-engineering/prompts/code-quality-review.prompt.md"
     },
     {
@@ -970,7 +1082,7 @@
       "category": "execution",
       "domain": "quality-engineering",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "level": "foundation",
       "difficulty": "foundation",
       "projects": [
@@ -986,7 +1098,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-07-28",
+      "lastModified": "2026-11-25",
       "tags": [
         "definition-of-done",
         "review"
@@ -995,12 +1107,20 @@
       "related": [
         "quality-engineering.pre-merge"
       ],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Tarea, historia o pull request",
+        "Definición de terminado y evidencia local"
+      ],
+      "outputs": [
+        "Estado justificado de cada criterio",
+        "Veredicto de cierre y pendientes"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Verificar si un cambio puede cerrarse"
+      ],
       "path": "domains/quality-engineering/prompts/definition-of-done-review.prompt.md"
     },
     {
@@ -1011,7 +1131,7 @@
       "category": "execution",
       "domain": "quality-engineering",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "level": "intermediate",
       "difficulty": "intermediate",
       "projects": [
@@ -1029,7 +1149,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-07-28",
+      "lastModified": "2026-11-25",
       "tags": [
         "qa",
         "functional-testing"
@@ -1038,12 +1158,20 @@
       "related": [
         "quality-engineering.regression-qa"
       ],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Flujos detectables y reglas documentadas",
+        "Criterios de aceptación disponibles"
+      ],
+      "outputs": [
+        "Checklist funcional con precondiciones y resultados esperados",
+        "Flujos sin evidencia"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Preparar QA funcional sobre una aplicación existente"
+      ],
       "path": "domains/quality-engineering/prompts/functional-qa.prompt.md"
     },
     {
@@ -1054,7 +1182,7 @@
       "category": "execution",
       "domain": "quality-engineering",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "level": "intermediate",
       "difficulty": "intermediate",
       "projects": [
@@ -1073,7 +1201,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-07-28",
+      "lastModified": "2026-11-25",
       "tags": [
         "testing",
         "integration-tests"
@@ -1082,12 +1210,20 @@
       "related": [
         "quality-engineering.unit-tests"
       ],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Componentes e interfaces observables",
+        "Configuración y suite de integración existentes"
+      ],
+      "outputs": [
+        "Diagnóstico de cobertura entre componentes",
+        "Pruebas y resultados cuando corresponda"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Cubrir interacciones entre módulos y servicios"
+      ],
       "path": "domains/quality-engineering/prompts/integration-tests.prompt.md"
     },
     {
@@ -1098,7 +1234,7 @@
       "category": "execution",
       "domain": "quality-engineering",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "level": "intermediate",
       "difficulty": "intermediate",
       "projects": [
@@ -1114,7 +1250,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-07-28",
+      "lastModified": "2026-11-25",
       "tags": [
         "qa",
         "regression"
@@ -1123,12 +1259,21 @@
       "related": [
         "quality-engineering.functional-qa"
       ],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Cambio o PR",
+        "Superficies afectadas",
+        "Pruebas y comandos existentes"
+      ],
+      "outputs": [
+        "Mapa de impacto",
+        "Checklist de regresión"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Validación de un cambio con riesgo de regresión"
+      ],
       "path": "domains/quality-engineering/prompts/regression-qa.prompt.md"
     },
     {
@@ -1139,7 +1284,7 @@
       "category": "execution",
       "domain": "quality-engineering",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "level": "foundation",
       "difficulty": "foundation",
       "projects": [
@@ -1157,7 +1302,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-07-28",
+      "lastModified": "2026-11-25",
       "tags": [
         "testing",
         "unit-tests"
@@ -1166,12 +1311,20 @@
       "related": [
         "quality-engineering.integration-tests"
       ],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Unidades de código y comportamiento observable",
+        "Runner y pruebas existentes"
+      ],
+      "outputs": [
+        "Diagnóstico de cobertura por unidad",
+        "Pruebas y resultados cuando corresponda"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Cubrir ramas y casos límite de una unidad"
+      ],
       "path": "domains/quality-engineering/prompts/unit-tests.prompt.md"
     },
     {
@@ -1182,7 +1335,7 @@
       "category": "validation",
       "domain": "quality-engineering",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "level": "foundation",
       "difficulty": "foundation",
       "projects": [
@@ -1198,7 +1351,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-07-28",
+      "lastModified": "2026-11-25",
       "tags": [
         "merge",
         "quality-gate"
@@ -1207,12 +1360,21 @@
       "related": [
         "quality-engineering.definition-of-done-review"
       ],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Diff",
+        "Criterios de aceptación",
+        "Resultados de pruebas"
+      ],
+      "outputs": [
+        "Veredicto de merge",
+        "Bloqueantes con evidencia"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Revisión previa al merge"
+      ],
       "path": "domains/quality-engineering/checklists/pre-merge.checklist.md"
     },
     {
@@ -1223,7 +1385,7 @@
       "category": "execution",
       "domain": "security",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "level": "advanced",
       "difficulty": "advanced",
       "projects": [
@@ -1242,7 +1404,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-07-28",
+      "lastModified": "2026-11-25",
       "tags": [
         "appsec",
         "audit"
@@ -1251,12 +1413,20 @@
       "related": [
         "security.dependency-vulnerability-audit"
       ],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Repositorio autorizado y alcance de revisión",
+        "Código y configuración disponibles"
+      ],
+      "outputs": [
+        "Hallazgos defensivos clasificados con evidencia",
+        "Mitigaciones y límites de la auditoría"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Revisar riesgos de seguridad de aplicación mediante análisis defensivo"
+      ],
       "path": "domains/security/prompts/security-audit.prompt.md"
     },
     {
@@ -1267,7 +1437,7 @@
       "category": "execution",
       "domain": "security",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "level": "intermediate",
       "difficulty": "intermediate",
       "projects": [
@@ -1286,7 +1456,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-07-28",
+      "lastModified": "2026-11-25",
       "tags": [
         "dependencies",
         "supply-chain"
@@ -1295,12 +1465,20 @@
       "related": [
         "security.security-audit"
       ],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Manifiestos y lockfiles disponibles",
+        "Gestor de paquetes y resultados de auditoría verificables"
+      ],
+      "outputs": [
+        "Dependencias afectadas con severidad y evidencia",
+        "Mitigaciones y comprobaciones pendientes"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Revisar vulnerabilidades conocidas en dependencias directas o transitivas"
+      ],
       "path": "domains/security/prompts/dependency-vulnerability-audit.prompt.md"
     },
     {
@@ -1311,7 +1489,7 @@
       "category": "execution",
       "domain": "security",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "level": "intermediate",
       "difficulty": "intermediate",
       "projects": [
@@ -1329,7 +1507,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-07-28",
+      "lastModified": "2026-11-25",
       "tags": [
         "containers",
         "docker",
@@ -1339,12 +1517,20 @@
       "related": [
         "security.security-audit"
       ],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Dockerfiles, definiciones de servicios o equivalentes disponibles",
+        "Configuración de imágenes detectable"
+      ],
+      "outputs": [
+        "Hallazgos defensivos y mitigaciones",
+        "Resultado no aplicable cuando faltan definiciones"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Revisar seguridad de imágenes y configuración de contenedores"
+      ],
       "path": "domains/security/prompts/docker-image-security-audit.prompt.md"
     },
     {
@@ -1355,7 +1541,7 @@
       "category": "execution",
       "domain": "delivery-platform",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "level": "intermediate",
       "difficulty": "intermediate",
       "projects": [
@@ -1371,7 +1557,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-07-28",
+      "lastModified": "2026-11-25",
       "tags": [
         "release",
         "delivery"
@@ -1380,12 +1566,21 @@
       "related": [
         "quality-engineering.definition-of-done-review"
       ],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Versión candidata",
+        "Proceso de release vigente",
+        "Resultados de validación"
+      ],
+      "outputs": [
+        "Diagnóstico de preparación",
+        "Bloqueantes para la publicación"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Revisión previa a una release"
+      ],
       "path": "domains/delivery-platform/prompts/release-readiness-review.prompt.md"
     },
     {
@@ -1396,7 +1591,7 @@
       "category": "execution",
       "domain": "delivery-platform",
       "status": "stable",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "level": "intermediate",
       "difficulty": "intermediate",
       "projects": [
@@ -1413,7 +1608,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-09-03",
+      "lastModified": "2026-11-25",
       "tags": [
         "github-pages",
         "release",
@@ -1430,12 +1625,22 @@
           "verified": "2026-09-03"
         }
       ],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Raíz publicable y configuración de Pages",
+        "Archivos modificados y comandos disponibles"
+      ],
+      "outputs": [
+        "Veredicto de preparación",
+        "URLs probadas, errores y pendientes"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Validar un portal documental",
+        "Revisar una migración de rutas",
+        "Preparar una publicación estática"
+      ],
       "path": "domains/delivery-platform/skills/github-pages-release/SKILL.md"
     },
     {
@@ -1446,7 +1651,7 @@
       "category": "execution",
       "domain": "reliability-performance",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "level": "intermediate",
       "difficulty": "intermediate",
       "projects": [
@@ -1464,19 +1669,27 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-07-28",
+      "lastModified": "2026-11-25",
       "tags": [
         "performance",
         "static-analysis"
       ],
       "dependencies": [],
       "related": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Código, configuración y flujos detectables",
+        "Evidencia estática disponible"
+      ],
+      "outputs": [
+        "Riesgos de rendimiento con ubicación",
+        "Mejoras sugeridas y mediciones pendientes"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Priorizar problemas de rendimiento antes de medirlos"
+      ],
       "path": "domains/reliability-performance/prompts/performance-basic-validation.prompt.md"
     },
     {
@@ -1487,7 +1700,7 @@
       "category": "reference",
       "domain": "experience-accessibility",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "level": "foundation",
       "difficulty": "foundation",
       "projects": [
@@ -1505,7 +1718,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-07-28",
+      "lastModified": "2026-11-25",
       "tags": [
         "accessibility",
         "wcag",
@@ -1513,12 +1726,20 @@
       ],
       "dependencies": [],
       "related": [],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Página, componente o requisito de accesibilidad web"
+      ],
+      "outputs": [
+        "Selección de fuentes normativas y guías de interacción",
+        "Criterios para combinar evaluación humana y automática"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Preparar una evaluación de accesibilidad",
+        "Elegir una referencia para un widget"
+      ],
       "path": "domains/experience-accessibility/references/accessibility-standards.references.md"
     },
     {
@@ -1529,7 +1750,7 @@
       "category": "execution",
       "domain": "documentation-knowledge",
       "status": "stable",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "level": "intermediate",
       "difficulty": "intermediate",
       "projects": [
@@ -1545,7 +1766,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-09-03",
+      "lastModified": "2026-11-25",
       "tags": [
         "documentation",
         "audit"
@@ -1561,12 +1782,21 @@
           "verified": "2026-09-03"
         }
       ],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Archivos Markdown y estáticos modificados",
+        "Objetivo del cambio"
+      ],
+      "outputs": [
+        "Reporte de alcance, hallazgos, correcciones, validaciones y pendientes"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Revisar antes de integrar",
+        "Auditar un cambio de taxonomía o rutas",
+        "Preparar publicación documental"
+      ],
       "path": "domains/documentation-knowledge/skills/documentation-audit/SKILL.md"
     },
     {
@@ -1577,7 +1807,7 @@
       "category": "knowledge",
       "domain": "documentation-knowledge",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "level": "foundation",
       "difficulty": "foundation",
       "projects": [
@@ -1593,7 +1823,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-07-28",
+      "lastModified": "2026-11-25",
       "tags": [
         "documentation",
         "governance"
@@ -1602,12 +1832,20 @@
       "related": [
         "documentation-knowledge.documentation-audit"
       ],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Documentación ligada a cambios del producto",
+        "Flujo de revisión y versionado del repositorio"
+      ],
+      "outputs": [
+        "Proceso de revisión documental junto con el código",
+        "Controles de consistencia y vigencia"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Mantener documentación que evoluciona con el código"
+      ],
       "path": "domains/documentation-knowledge/patterns/documentation-as-code.pattern.md"
     },
     {
@@ -1618,7 +1856,7 @@
       "category": "knowledge",
       "domain": "documentation-knowledge",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "level": "foundation",
       "difficulty": "foundation",
       "projects": [
@@ -1634,7 +1872,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-07-28",
+      "lastModified": "2026-11-25",
       "tags": [
         "documentation",
         "safety"
@@ -1643,12 +1881,20 @@
       "related": [
         "documentation-knowledge.documentation-as-code"
       ],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Comandos citados en documentación",
+        "Manifiestos, scripts o CI que definen su uso"
+      ],
+      "outputs": [
+        "Inventario de comandos respaldados o pendientes",
+        "Correcciones de argumentos y contexto"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Revisar un runbook o prompt antes de publicarlo"
+      ],
       "path": "domains/documentation-knowledge/anti-patterns/invented-commands.anti-pattern.md"
     },
     {
@@ -1659,7 +1905,7 @@
       "category": "architecture",
       "domain": "agent-supply-chain",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "level": "intermediate",
       "difficulty": "intermediate",
       "projects": [
@@ -1677,7 +1923,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-09-03",
+      "lastModified": "2026-11-25",
       "tags": [
         "skills",
         "supply-chain",
@@ -1702,12 +1948,21 @@
           "verified": "2026-09-03"
         }
       ],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Skill y su origen",
+        "Host, herramientas y autoridad concedida"
+      ],
+      "outputs": [
+        "Mapa de límites entre distribución, carga y ejecución",
+        "Decisiones de adopción y restricciones"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Evaluar una skill antes de instalarla",
+        "Revisar su traslado entre hosts"
+      ],
       "path": "domains/agent-supply-chain/architecture-notes/skill-trust-boundaries.architecture-note.md"
     },
     {
@@ -1718,7 +1973,7 @@
       "category": "knowledge",
       "domain": "agent-supply-chain",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "level": "intermediate",
       "difficulty": "intermediate",
       "projects": [
@@ -1736,7 +1991,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-09-03",
+      "lastModified": "2026-11-25",
       "tags": [
         "skills",
         "permissions",
@@ -1755,12 +2010,20 @@
           "verified": "2026-09-03"
         }
       ],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Procedimiento de la skill y herramientas disponibles",
+        "Política de permisos del host"
+      ],
+      "outputs": [
+        "Permisos justificados por paso",
+        "Herramientas omitidas o restringidas"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Revisar las herramientas solicitadas por una skill"
+      ],
       "path": "domains/agent-supply-chain/patterns/least-privilege-skill-tools.pattern.md"
     },
     {
@@ -1771,7 +2034,7 @@
       "category": "knowledge",
       "domain": "agent-supply-chain",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "level": "intermediate",
       "difficulty": "intermediate",
       "projects": [
@@ -1789,7 +2052,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-09-03",
+      "lastModified": "2026-11-25",
       "tags": [
         "skills",
         "supply-chain",
@@ -1809,12 +2072,20 @@
           "verified": "2026-09-03"
         }
       ],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Skill y referencias externas que consume",
+        "Origen y tratamiento de cada respuesta"
+      ],
+      "outputs": [
+        "Instrucciones estables empaquetadas o versionadas",
+        "Límites para datos externos y revisión humana"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Revisar una skill que obtiene contenido externo en ejecución"
+      ],
       "path": "domains/agent-supply-chain/anti-patterns/untrusted-external-instructions.anti-pattern.md"
     },
     {
@@ -1825,7 +2096,7 @@
       "category": "validation",
       "domain": "agent-supply-chain",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "level": "intermediate",
       "difficulty": "intermediate",
       "projects": [
@@ -1843,7 +2114,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-09-03",
+      "lastModified": "2026-11-25",
       "tags": [
         "skills",
         "security",
@@ -1865,12 +2136,21 @@
           "verified": "2026-09-03"
         }
       ],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Artefacto de la skill y su procedencia",
+        "Permisos, dependencias y evidencia de revisión"
+      ],
+      "outputs": [
+        "Checklist con evidencia por categoría",
+        "Veredicto y controles bloqueantes"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Revisar una skill propia",
+        "Evaluar una skill antes de incorporarla"
+      ],
       "path": "domains/agent-supply-chain/checklists/owasp-agentic-skills-top-10.checklist.md"
     },
     {
@@ -1881,7 +2161,7 @@
       "category": "validation",
       "domain": "ai-agent-engineering",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "level": "foundation",
       "difficulty": "foundation",
       "projects": [
@@ -1897,7 +2177,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-09-03",
+      "lastModified": "2026-11-25",
       "tags": [
         "skills",
         "conformance",
@@ -1916,12 +2196,19 @@
           "verified": "2026-09-03"
         }
       ],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Directorio de la skill, front matter y archivos asociados"
+      ],
+      "outputs": [
+        "Checklist de formato, portabilidad y seguridad",
+        "Veredicto con evidencia"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Validar una skill antes de distribuirla"
+      ],
       "path": "domains/ai-agent-engineering/checklists/agent-skills-conformance.checklist.md"
     },
     {
@@ -1932,7 +2219,7 @@
       "category": "knowledge",
       "domain": "context-engineering",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "level": "intermediate",
       "difficulty": "intermediate",
       "projects": [
@@ -1948,7 +2235,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-09-03",
+      "lastModified": "2026-11-25",
       "tags": [
         "context",
         "retrieval",
@@ -1967,12 +2254,19 @@
           "verified": "2026-09-03"
         }
       ],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Tarea, mapa inicial y fuentes consultables"
+      ],
+      "outputs": [
+        "Contexto recuperado para la necesidad concreta",
+        "Referencias a las fuentes usadas"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Resolver una duda puntual sin precargar todo el repositorio"
+      ],
       "path": "domains/context-engineering/patterns/just-in-time-retrieval.pattern.md"
     },
     {
@@ -1983,7 +2277,7 @@
       "category": "knowledge",
       "domain": "context-engineering",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "level": "intermediate",
       "difficulty": "intermediate",
       "projects": [
@@ -2001,7 +2295,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-09-03",
+      "lastModified": "2026-11-25",
       "tags": [
         "context",
         "compaction",
@@ -2020,12 +2314,20 @@
           "verified": "2026-09-03"
         }
       ],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Historial de la tarea, decisiones y restricciones",
+        "Estado actual y enlaces a fuentes"
+      ],
+      "outputs": [
+        "Resumen compacto con objetivos, decisiones, pendientes y bloqueos"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Continuar una tarea larga con un contexto renovado",
+        "Transferir estado a otra sesión"
+      ],
       "path": "domains/context-engineering/patterns/context-compaction.pattern.md"
     },
     {
@@ -2036,7 +2338,7 @@
       "category": "knowledge",
       "domain": "context-engineering",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "level": "intermediate",
       "difficulty": "intermediate",
       "projects": [
@@ -2054,7 +2356,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-09-03",
+      "lastModified": "2026-11-25",
       "tags": [
         "context",
         "memory",
@@ -2073,12 +2375,21 @@
           "verified": "2026-09-03"
         }
       ],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Cambio de estado, decisiones y fuentes",
+        "Destino persistente accesible a quien continúe"
+      ],
+      "outputs": [
+        "Notas con hechos, inferencias y próximo paso",
+        "Punteros verificables"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Retomar trabajo entre sesiones",
+        "Coordinar participantes sin perder estado"
+      ],
       "path": "domains/context-engineering/patterns/persistent-notes.pattern.md"
     },
     {
@@ -2089,7 +2400,7 @@
       "category": "architecture",
       "domain": "agent-interoperability",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "level": "intermediate",
       "difficulty": "intermediate",
       "projects": [
@@ -2107,7 +2418,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-09-03",
+      "lastModified": "2026-11-25",
       "tags": [
         "a2a",
         "interoperability",
@@ -2127,12 +2438,20 @@
           "verified": "2026-09-03"
         }
       ],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Tarjeta declarada por el agente",
+        "Identidad, políticas y autorizaciones disponibles"
+      ],
+      "outputs": [
+        "Evaluación de capacidades declaradas y confianza verificable",
+        "Decisión de delegación con límites"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Evaluar a un agente externo antes de delegar"
+      ],
       "path": "domains/agent-interoperability/architecture-notes/agent-cards-and-trust.architecture-note.md"
     },
     {
@@ -2143,7 +2462,7 @@
       "category": "reference",
       "domain": "agent-interoperability",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "level": "foundation",
       "difficulty": "foundation",
       "projects": [
@@ -2161,7 +2480,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-09-03",
+      "lastModified": "2026-11-25",
       "tags": [
         "mcp",
         "a2a",
@@ -2192,12 +2511,21 @@
           "verified": "2026-09-03"
         }
       ],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Necesidad de orientación, procedimiento, acceso o delegación",
+        "Roles y autoridad de los participantes"
+      ],
+      "outputs": [
+        "Mapa de formatos y protocolos por necesidad",
+        "Criterio para combinarlos"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Diseñar interoperabilidad entre agentes",
+        "Revisar quién autoriza cada acción"
+      ],
       "path": "domains/agent-interoperability/references/protocol-boundaries.references.md"
     },
     {
@@ -2208,7 +2536,7 @@
       "category": "creation",
       "domain": "architecture",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "level": "intermediate",
       "difficulty": "intermediate",
       "projects": [
@@ -2224,7 +2552,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-09-07",
+      "lastModified": "2026-11-25",
       "tags": [
         "rfc",
         "propuesta",
@@ -2236,12 +2564,20 @@
         "architecture.adr",
         "engineering-protocols.decision-records"
       ],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Problema, motivación y alcance",
+        "Diseño, alternativas y restricciones conocidas"
+      ],
+      "outputs": [
+        "RFC con compatibilidad, migración, seguridad e impacto operativo",
+        "Preguntas abiertas y proceso de aceptación"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Someter un cambio de arquitectura a revisión"
+      ],
       "path": "domains/architecture/templates/rfc.template.md"
     },
     {
@@ -2252,7 +2588,7 @@
       "category": "knowledge",
       "domain": "engineering-protocols",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "level": "intermediate",
       "difficulty": "intermediate",
       "projects": [
@@ -2268,7 +2604,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-09-07",
+      "lastModified": "2026-11-25",
       "tags": [
         "revision",
         "independencia",
@@ -2280,12 +2616,20 @@
         "engineering-protocols.independent-review",
         "engineering-protocols.multi-agent-collaboration"
       ],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Veredicto de revisión y evidencia de identidad y contexto",
+        "Riesgo y fuentes primarias del cambio"
+      ],
+      "outputs": [
+        "Nivel de independencia declarado",
+        "Condición de escalamiento o revisión pendiente"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Auditar una revisión antes de integrar un cambio de alto riesgo"
+      ],
       "path": "domains/engineering-protocols/anti-patterns/self-review-as-independent.anti-pattern.md"
     },
     {
@@ -2296,7 +2640,7 @@
       "category": "knowledge",
       "domain": "engineering-protocols",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "level": "foundation",
       "difficulty": "foundation",
       "projects": [
@@ -2312,7 +2656,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-09-07",
+      "lastModified": "2026-11-25",
       "tags": [
         "evidencia",
         "compuertas",
@@ -2325,12 +2669,20 @@
         "engineering-protocols.completion-and-stop",
         "documentation-knowledge.invented-commands"
       ],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Afirmación sobre una compuerta",
+        "Comando, observación y estado del código disponibles"
+      ],
+      "outputs": [
+        "Evidencia vigente o estado NOT_RUN con razón",
+        "Conclusión trazable"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Revisar una afirmación de validación en un handoff"
+      ],
       "path": "domains/engineering-protocols/anti-patterns/unverified-gate-claim.anti-pattern.md"
     },
     {
@@ -2341,7 +2693,7 @@
       "category": "knowledge",
       "domain": "engineering-protocols",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "level": "intermediate",
       "difficulty": "intermediate",
       "projects": [
@@ -2357,7 +2709,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-09-07",
+      "lastModified": "2026-11-25",
       "tags": [
         "protocolo",
         "acoplamiento",
@@ -2371,12 +2723,20 @@
         "engineering-protocols.protocol-maturity",
         "agent-interoperability.protocol-boundaries"
       ],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Texto normativo y adaptadores existentes",
+        "Roles y capacidades que exige el proceso"
+      ],
+      "outputs": [
+        "Reglas expresadas como capacidades verificables",
+        "Detalles de proveedor en adaptadores no normativos"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Revisar si un protocolo es portable entre herramientas"
+      ],
       "path": "domains/engineering-protocols/anti-patterns/vendor-coupled-protocol.anti-pattern.md"
     },
     {
@@ -2387,7 +2747,7 @@
       "category": "learning",
       "domain": "engineering-protocols",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "level": "intermediate",
       "difficulty": "intermediate",
       "projects": [
@@ -2403,7 +2763,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-09-07",
+      "lastModified": "2026-11-25",
       "tags": [
         "ejemplos",
         "escenarios",
@@ -2417,12 +2777,18 @@
         "engineering-protocols.evidence-and-gates",
         "engineering-protocols.release-readiness"
       ],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Configuración de participantes, tarea y nivel de riesgo"
+      ],
+      "outputs": [
+        "Ejemplos de secuencia, protocolos aplicables y omisiones justificadas"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Comparar flujos de agente individual y equipos con roles diferenciados"
+      ],
       "path": "domains/engineering-protocols/examples/protocol-scenarios.example.md"
     },
     {
@@ -2433,7 +2799,7 @@
       "category": "protocol",
       "domain": "engineering-protocols",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "level": "advanced",
       "difficulty": "advanced",
       "projects": [
@@ -2449,7 +2815,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-09-07",
+      "lastModified": "2026-11-25",
       "tags": [
         "benchmark",
         "medicion",
@@ -2479,12 +2845,22 @@
         ],
         "lastValidated": "2026-09-07"
       },
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Pregunta, hipótesis y carga",
+        "Línea base y candidato identificados",
+        "Entorno y versiones exactas"
+      ],
+      "outputs": [
+        "Método y muestras crudas",
+        "Resultados, incertidumbre y límites"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Comparar candidatos bajo condiciones controladas",
+        "Reproducir una medición"
+      ],
       "path": "domains/engineering-protocols/protocols/benchmark.protocol.md"
     },
     {
@@ -2495,7 +2871,7 @@
       "category": "protocol",
       "domain": "engineering-protocols",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "level": "foundation",
       "difficulty": "foundation",
       "projects": [
@@ -2511,7 +2887,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-09-07",
+      "lastModified": "2026-11-25",
       "tags": [
         "falla",
         "detencion",
@@ -2541,12 +2917,20 @@
         ],
         "lastValidated": "2026-09-07"
       },
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Criterios de salida, estado real y evidencia vigente",
+        "Bloqueos y autoridad disponible"
+      ],
+      "outputs": [
+        "Estado de cierre del vocabulario del protocolo",
+        "Motivo, evidencia y condición de reanudación o escalamiento"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Cerrar, detener o escalar una unidad de trabajo"
+      ],
       "path": "domains/engineering-protocols/protocols/completion-and-stop.protocol.md"
     },
     {
@@ -2557,7 +2941,7 @@
       "category": "protocol",
       "domain": "engineering-protocols",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "level": "intermediate",
       "difficulty": "intermediate",
       "projects": [
@@ -2573,7 +2957,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-09-07",
+      "lastModified": "2026-11-25",
       "tags": [
         "adr",
         "rfc",
@@ -2606,12 +2990,21 @@
         ],
         "lastValidated": "2026-09-07"
       },
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Pregunta abierta y alternativas",
+        "Evidencia, restricciones y autoridad de decisión"
+      ],
+      "outputs": [
+        "Propuesta o decisión duradera con identificador",
+        "Índice y referencias desde las superficies afectadas"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Evaluar una propuesta abierta",
+        "Registrar una decisión de arquitectura"
+      ],
       "path": "domains/engineering-protocols/protocols/decision-records.protocol.md"
     },
     {
@@ -2622,7 +3015,7 @@
       "category": "protocol",
       "domain": "engineering-protocols",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "level": "intermediate",
       "difficulty": "intermediate",
       "projects": [
@@ -2638,7 +3031,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-09-07",
+      "lastModified": "2026-11-25",
       "tags": [
         "evidencia",
         "quality-gates",
@@ -2671,12 +3064,21 @@
         ],
         "lastValidated": "2026-09-07"
       },
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Cambio identificado y criterios de aceptación",
+        "Compuertas y autoridad declaradas"
+      ],
+      "outputs": [
+        "Registro de comando, observación y estado del código",
+        "Veredicto por compuerta y razones de omisión"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Demostrar que un cambio cumple criterios",
+        "Revisar vigencia de evidencia antes de integrar"
+      ],
       "path": "domains/engineering-protocols/protocols/evidence-and-gates.protocol.md"
     },
     {
@@ -2687,7 +3089,7 @@
       "category": "protocol",
       "domain": "engineering-protocols",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "level": "advanced",
       "difficulty": "advanced",
       "projects": [
@@ -2703,7 +3105,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-09-07",
+      "lastModified": "2026-11-25",
       "tags": [
         "clean-room",
         "validacion",
@@ -2733,12 +3135,20 @@
         ],
         "lastValidated": "2026-09-07"
       },
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Artefacto candidato exacto con versión y hash",
+        "Canal real de entrega y documentación pública"
+      ],
+      "outputs": [
+        "Resultado PASS o FAIL desde un entorno limpio",
+        "Registro reproducible de consumo"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Validar que un consumidor externo puede usar un candidato publicado o publicable"
+      ],
       "path": "domains/engineering-protocols/protocols/external-consumption-validation.protocol.md"
     },
     {
@@ -2749,7 +3159,7 @@
       "category": "protocol",
       "domain": "engineering-protocols",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "level": "intermediate",
       "difficulty": "intermediate",
       "projects": [
@@ -2765,7 +3175,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-09-07",
+      "lastModified": "2026-11-25",
       "tags": [
         "revision",
         "independencia",
@@ -2798,12 +3208,21 @@
         ],
         "lastValidated": "2026-09-07"
       },
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Criterios, diff y pruebas",
+        "Evidencia de compuertas y fuentes primarias",
+        "Identidad y contexto del revisor cuando proceda"
+      ],
+      "outputs": [
+        "Hallazgos, veredicto y nivel de independencia declarado",
+        "Nueva revisión de correcciones bloqueantes"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Evaluar un cambio antes de integrarlo"
+      ],
       "path": "domains/engineering-protocols/protocols/independent-review.protocol.md"
     },
     {
@@ -2814,7 +3233,7 @@
       "category": "protocol",
       "domain": "engineering-protocols",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "level": "advanced",
       "difficulty": "advanced",
       "projects": [
@@ -2830,7 +3249,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-09-07",
+      "lastModified": "2026-11-25",
       "tags": [
         "conformidad",
         "adaptadores",
@@ -2859,12 +3278,20 @@
         ],
         "lastValidated": "2026-09-07"
       },
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Capacidad compartida y sus interfaces",
+        "Escenarios equivalentes e invariantes observables"
+      ],
+      "outputs": [
+        "Matriz de resultados por interfaz",
+        "Divergencias y excepciones explícitas"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Comprobar consistencia de una capacidad expuesta por varias interfaces"
+      ],
       "path": "domains/engineering-protocols/protocols/interface-conformance.protocol.md"
     },
     {
@@ -2875,7 +3302,7 @@
       "category": "protocol",
       "domain": "engineering-protocols",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "level": "advanced",
       "difficulty": "advanced",
       "projects": [
@@ -2891,7 +3318,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-09-07",
+      "lastModified": "2026-11-25",
       "tags": [
         "multiagente",
         "roles",
@@ -2929,12 +3356,20 @@
         ],
         "lastValidated": "2026-09-07"
       },
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Tareas, participantes y capacidades",
+        "Alcance, autoridad y estado compartido"
+      ],
+      "outputs": [
+        "Propiedad observable de las tareas",
+        "Coordinación y conflictos resueltos o escalados con evidencia"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Coordinar cambios concurrentes sobre un repositorio compartido"
+      ],
       "path": "domains/engineering-protocols/protocols/multi-agent-collaboration.protocol.md"
     },
     {
@@ -2945,7 +3380,7 @@
       "category": "protocol",
       "domain": "engineering-protocols",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "level": "intermediate",
       "difficulty": "intermediate",
       "projects": [
@@ -2961,7 +3396,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-09-07",
+      "lastModified": "2026-11-25",
       "tags": [
         "protocolo",
         "madurez",
@@ -2988,12 +3423,20 @@
         ],
         "lastValidated": "2026-09-07"
       },
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Protocolo, nivel declarado y observaciones",
+        "Evidencia de reproducción o medición cuando exista"
+      ],
+      "outputs": [
+        "Madurez justificada",
+        "Condiciones para reevaluarla y límites de la evidencia"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Clasificar o reevaluar la madurez de un protocolo"
+      ],
       "path": "domains/engineering-protocols/protocols/protocol-maturity.protocol.md"
     },
     {
@@ -3004,7 +3447,7 @@
       "category": "protocol",
       "domain": "engineering-protocols",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "level": "advanced",
       "difficulty": "advanced",
       "projects": [
@@ -3020,7 +3463,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-09-07",
+      "lastModified": "2026-11-25",
       "tags": [
         "release",
         "publicacion",
@@ -3052,12 +3495,20 @@
         ],
         "lastValidated": "2026-09-07"
       },
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Candidato identificado y alcance de publicación",
+        "Evidencia vigente de las compuertas aplicables"
+      ],
+      "outputs": [
+        "Veredicto de preparación con bloqueos",
+        "Registro de autorización y evidencia del candidato"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Evaluar un candidato antes de publicarlo"
+      ],
       "path": "domains/engineering-protocols/protocols/release-readiness.protocol.md"
     },
     {
@@ -3068,7 +3519,7 @@
       "category": "protocol",
       "domain": "engineering-protocols",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "level": "foundation",
       "difficulty": "foundation",
       "projects": [
@@ -3084,7 +3535,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-09-07",
+      "lastModified": "2026-11-25",
       "tags": [
         "repositorio",
         "estado",
@@ -3111,12 +3562,20 @@
         ],
         "lastValidated": "2026-09-07"
       },
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Rama, árbol de trabajo e integración continua",
+        "Tareas, prioridades y decisiones vigentes"
+      ],
+      "outputs": [
+        "Observación del estado del repositorio",
+        "Tarea seleccionada, plan y resultado registrado"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Iniciar o retomar trabajo desde el estado real del proyecto"
+      ],
       "path": "domains/engineering-protocols/protocols/repository-state.protocol.md"
     },
     {
@@ -3127,7 +3586,7 @@
       "category": "protocol",
       "domain": "engineering-protocols",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "level": "intermediate",
       "difficulty": "intermediate",
       "projects": [
@@ -3143,7 +3602,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-09-07",
+      "lastModified": "2026-11-25",
       "tags": [
         "delegacion",
         "handoff",
@@ -3175,12 +3634,20 @@
         ],
         "lastValidated": "2026-09-07"
       },
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Objetivo, fuentes y alcance de la tarea",
+        "Autoridad, criterios y compuertas"
+      ],
+      "outputs": [
+        "Contrato aceptable y verificable",
+        "Handoff con estado, evidencia y próximos pasos"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Delegar una tarea a otro participante sin conversación previa"
+      ],
       "path": "domains/engineering-protocols/protocols/work-delegation.protocol.md"
     },
     {
@@ -3191,7 +3658,7 @@
       "category": "reference",
       "domain": "engineering-protocols",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "level": "intermediate",
       "difficulty": "intermediate",
       "projects": [
@@ -3207,7 +3674,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-09-07",
+      "lastModified": "2026-11-25",
       "tags": [
         "investigacion",
         "trabajo-previo",
@@ -3246,12 +3713,20 @@
           "verified": "2026-09-07"
         }
       ],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Concepto o protocolo de la suite que se quiere contextualizar"
+      ],
+      "outputs": [
+        "Fuentes y equivalencias conceptuales",
+        "Diferencias y límites de las comparaciones"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Investigar antecedentes de un protocolo",
+        "Precisar el alcance de una analogía"
+      ],
       "path": "domains/engineering-protocols/references/prior-art.reference.md"
     },
     {
@@ -3262,7 +3737,7 @@
       "category": "creation",
       "domain": "engineering-protocols",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "level": "intermediate",
       "difficulty": "intermediate",
       "projects": [
@@ -3278,7 +3753,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-09-07",
+      "lastModified": "2026-11-25",
       "tags": [
         "benchmark",
         "medicion",
@@ -3290,12 +3765,19 @@
         "engineering-protocols.benchmark",
         "reliability-performance.performance-basic-validation"
       ],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Pregunta, versiones, carga y entorno",
+        "Procedimiento y muestras observadas"
+      ],
+      "outputs": [
+        "Informe con comparación, incertidumbre, amenazas a la validez y reproducción"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Publicar un benchmark que otro equipo pueda evaluar"
+      ],
       "path": "domains/engineering-protocols/templates/benchmark-report.template.md"
     },
     {
@@ -3306,7 +3788,7 @@
       "category": "creation",
       "domain": "engineering-protocols",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "level": "foundation",
       "difficulty": "foundation",
       "projects": [
@@ -3322,7 +3804,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-09-07",
+      "lastModified": "2026-11-25",
       "tags": [
         "delegacion",
         "tareas",
@@ -3335,12 +3817,20 @@
         "engineering-protocols.work-delegation",
         "engineering-protocols.completion-and-stop"
       ],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Objetivo, contexto, fuentes y responsable",
+        "Autoridad, alcance y criterios verificables"
+      ],
+      "outputs": [
+        "Contrato con límites, compuertas y evidencia esperada",
+        "Condiciones de detención y escalamiento"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Preparar la delegación de una tarea acotada"
+      ],
       "path": "domains/engineering-protocols/templates/delegation-contract.template.md"
     },
     {
@@ -3351,7 +3841,7 @@
       "category": "creation",
       "domain": "engineering-protocols",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "level": "foundation",
       "difficulty": "foundation",
       "projects": [
@@ -3367,7 +3857,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-09-07",
+      "lastModified": "2026-11-25",
       "tags": [
         "evidencia",
         "compuertas",
@@ -3379,12 +3869,21 @@
         "engineering-protocols.evidence-and-gates",
         "engineering-protocols.release-readiness"
       ],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Identificador del estado del código",
+        "Comandos ejecutados",
+        "Observaciones y artefactos"
+      ],
+      "outputs": [
+        "Registro de compuertas",
+        "Límites y condiciones de caducidad"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Entrega de evidencia a un revisor"
+      ],
       "path": "domains/engineering-protocols/templates/evidence-record.template.md"
     },
     {
@@ -3395,7 +3894,7 @@
       "category": "creation",
       "domain": "engineering-protocols",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "level": "foundation",
       "difficulty": "foundation",
       "projects": [
@@ -3411,7 +3910,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-09-07",
+      "lastModified": "2026-11-25",
       "tags": [
         "handoff",
         "transferencia",
@@ -3423,12 +3922,19 @@
         "engineering-protocols.work-delegation",
         "engineering-protocols.multi-agent-collaboration"
       ],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Tarea y estado real",
+        "Inspección, decisiones, cambios y evidencia"
+      ],
+      "outputs": [
+        "`Handoff` con pendientes, riesgos, restricciones y siguiente acción"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Entregar trabajo completo, bloqueado o pendiente de revisión"
+      ],
       "path": "domains/engineering-protocols/templates/handoff-receipt.template.md"
     },
     {
@@ -3439,7 +3945,7 @@
       "category": "creation",
       "domain": "engineering-protocols",
       "status": "stable",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "level": "intermediate",
       "difficulty": "intermediate",
       "projects": [
@@ -3455,7 +3961,7 @@
       "language": "es",
       "author": "@Blandskron/contributors",
       "license": "MIT",
-      "lastModified": "2026-09-07",
+      "lastModified": "2026-11-25",
       "tags": [
         "protocolo",
         "plantilla",
@@ -3466,13 +3972,178 @@
       "related": [
         "engineering-protocols.protocol-maturity"
       ],
-      "inputs": [],
-      "outputs": [],
+      "inputs": [
+        "Problema, actores y reglas del ciclo de vida",
+        "Evidencia y límites de madurez"
+      ],
+      "outputs": [
+        "Borrador de protocolo con contrato, fallas y front matter"
+      ],
       "examples": [],
       "estimatedTime": null,
       "complexity": null,
-      "useCases": [],
+      "useCases": [
+        "Redactar un ciclo de ingeniería que requiera varios actores"
+      ],
       "path": "domains/engineering-protocols/templates/protocol.template.md"
+    },
+    {
+      "id": "software-development.consumer-compatibility",
+      "title": "Compatibilidad en un cambio de interfaz",
+      "summary": "Comprobar qué consumidores pueden seguir usando una interfaz modificada.",
+      "type": "checklist",
+      "category": "validation",
+      "domain": "software-development",
+      "status": "draft",
+      "version": "1.0.0",
+      "level": "intermediate",
+      "difficulty": "intermediate",
+      "projects": [
+        "any"
+      ],
+      "compatibility": "tool-agnostic",
+      "models": [
+        "any"
+      ],
+      "agents": [
+        "markdown-compatible"
+      ],
+      "language": "es",
+      "author": "@Blandskron/contributors",
+      "license": "MIT",
+      "lastModified": "2026-11-25",
+      "tags": [
+        "compatibilidad",
+        "contratos"
+      ],
+      "dependencies": [],
+      "related": [
+        "quality-engineering.regression-qa",
+        "engineering-protocols.interface-conformance"
+      ],
+      "inputs": [
+        "Contrato actual",
+        "Cambio propuesto",
+        "Consumidores observados"
+      ],
+      "outputs": [
+        "Matriz de compatibilidad",
+        "Plan de transición si corresponde"
+      ],
+      "examples": [],
+      "estimatedTime": null,
+      "complexity": null,
+      "useCases": [
+        "Evolución de una API",
+        "Cambio de un formato exportado"
+      ],
+      "path": "domains/software-development/checklists/consumer-compatibility.checklist.md"
+    },
+    {
+      "id": "data.migration-rehearsal",
+      "title": "Ensayar una migración de datos",
+      "summary": "Comparar invariantes antes y después de una migración en un entorno aislado.",
+      "type": "checklist",
+      "category": "validation",
+      "domain": "data",
+      "status": "draft",
+      "version": "1.0.0",
+      "level": "intermediate",
+      "difficulty": "intermediate",
+      "projects": [
+        "any"
+      ],
+      "compatibility": "tool-agnostic",
+      "models": [
+        "any"
+      ],
+      "agents": [
+        "markdown-compatible"
+      ],
+      "language": "es",
+      "author": "@Blandskron/contributors",
+      "license": "MIT",
+      "lastModified": "2026-11-25",
+      "tags": [
+        "migracion",
+        "invariantes"
+      ],
+      "dependencies": [],
+      "related": [
+        "quality-engineering.integration-tests",
+        "engineering-protocols.evidence-record"
+      ],
+      "inputs": [
+        "Cambio de datos previsto",
+        "Fixture sintético o autorizado",
+        "Criterios de reconciliación"
+      ],
+      "outputs": [
+        "Registro del ensayo",
+        "Diferencias observadas",
+        "Decisión de preparación"
+      ],
+      "examples": [],
+      "estimatedTime": null,
+      "complexity": null,
+      "useCases": [
+        "Cambio de esquema",
+        "Transformación por lotes"
+      ],
+      "path": "domains/data/checklists/migration-rehearsal.checklist.md"
+    },
+    {
+      "id": "product-technical-management.change-brief",
+      "title": "Ficha de alcance y aceptación de un cambio",
+      "summary": "Convertir una necesidad observada en un cambio acotado y comprobable.",
+      "type": "template",
+      "category": "creation",
+      "domain": "product-technical-management",
+      "status": "draft",
+      "version": "1.0.0",
+      "level": "foundation",
+      "difficulty": "foundation",
+      "projects": [
+        "any"
+      ],
+      "compatibility": "tool-agnostic",
+      "models": [
+        "any"
+      ],
+      "agents": [
+        "markdown-compatible"
+      ],
+      "language": "es",
+      "author": "@Blandskron/contributors",
+      "license": "MIT",
+      "lastModified": "2026-11-25",
+      "tags": [
+        "alcance",
+        "aceptacion"
+      ],
+      "dependencies": [],
+      "related": [
+        "engineering-protocols.work-delegation",
+        "quality-engineering.definition-of-done-review"
+      ],
+      "inputs": [
+        "Necesidad observada",
+        "Restricciones",
+        "Usuarios o procesos afectados"
+      ],
+      "outputs": [
+        "Ficha de alcance",
+        "Criterios de aceptación",
+        "Responsable de la decisión"
+      ],
+      "examples": [],
+      "estimatedTime": null,
+      "complexity": null,
+      "useCases": [
+        "Refinamiento de una solicitud",
+        "Corte de una entrega incremental"
+      ],
+      "path": "domains/product-technical-management/templates/change-brief.template.md"
     }
   ],
   "learningPaths": [

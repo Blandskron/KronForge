@@ -5,13 +5,23 @@ summary: Reducir incertidumbre para agentes sin perjudicar la experiencia humana
 type: playbook
 domain: ai-agent-engineering
 status: stable
-version: 1.0.0
+version: 1.0.1
 difficulty: foundation
 projects: [new, existing, legacy, monorepo]
 compatibility: model-agnostic
 models: [any]
 tags: [agents-first, documentation]
 related: [documentation-knowledge.documentation-audit]
+lastModified: 2026-11-25
+inputs:
+  - "Repositorio accesible en lectura"
+  - "Objetivo de preparación e instrucciones existentes"
+outputs:
+  - "Diagnóstico con evidencia"
+  - "Mapa de archivos y permisos"
+  - "Cambios autorizados y validaciones registradas"
+useCases:
+  - "Preparar un repositorio existente para colaboradores humanos y agentes"
 ---
 
 # Playbook: Preparar un Repositorio Agents-First

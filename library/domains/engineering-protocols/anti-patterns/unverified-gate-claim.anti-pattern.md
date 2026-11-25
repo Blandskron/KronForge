@@ -5,7 +5,7 @@ summary: Reportar una compuerta como aprobada apoyándose en inferencia, memoria
 type: anti-pattern
 domain: engineering-protocols
 status: stable
-version: 1.0.0
+version: 1.0.1
 difficulty: foundation
 projects: [any]
 compatibility: model-agnostic
@@ -15,6 +15,15 @@ related:
   - engineering-protocols.evidence-and-gates
   - engineering-protocols.completion-and-stop
   - documentation-knowledge.invented-commands
+lastModified: 2026-11-25
+inputs:
+  - "Afirmación sobre una compuerta"
+  - "Comando, observación y estado del código disponibles"
+outputs:
+  - "Evidencia vigente o estado NOT_RUN con razón"
+  - "Conclusión trazable"
+useCases:
+  - "Revisar una afirmación de validación en un handoff"
 ---
 
 # Anti-patrón: Compuerta Aprobada sin Ejecución

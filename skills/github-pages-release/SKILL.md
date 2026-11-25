@@ -6,7 +6,7 @@ allowed-tools: Read Grep Glob Bash(npm run smoke:*) Bash(npm run quality:*)
 metadata:
   framework: "agents-first"
   asset-id: "delivery-platform.github-pages-release"
-  asset-version: "1.1.0"
+  asset-version: "1.1.1"
   domain: "delivery-platform"
   status: "stable"
   repo-compatibility: "tool-agnostic"

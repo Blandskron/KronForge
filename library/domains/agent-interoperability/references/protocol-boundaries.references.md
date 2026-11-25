@@ -5,7 +5,7 @@ summary: Elegir protocolo por el problema que resuelve, no por su popularidad.
 type: reference
 domain: agent-interoperability
 status: stable
-version: 1.0.0
+version: 1.0.1
 difficulty: foundation
 projects: [agent-platform, ai-application, developer-tool]
 compatibility: protocol-oriented
@@ -24,6 +24,16 @@ specRefs:
   - spec: agent-skills
     url: https://agentskills.io/specification
     verified: 2026-09-03
+lastModified: 2026-11-25
+inputs:
+  - "Necesidad de orientación, procedimiento, acceso o delegación"
+  - "Roles y autoridad de los participantes"
+outputs:
+  - "Mapa de formatos y protocolos por necesidad"
+  - "Criterio para combinarlos"
+useCases:
+  - "Diseñar interoperabilidad entre agentes"
+  - "Revisar quién autoriza cada acción"
 ---
 
 # Reference: Fronteras entre Protocolos de Agente

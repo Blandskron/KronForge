@@ -5,7 +5,7 @@ summary: Publicar una medición con método, incertidumbre, interpretación y l�
 type: template
 domain: engineering-protocols
 status: stable
-version: 1.0.0
+version: 1.0.1
 difficulty: intermediate
 projects: [any]
 compatibility: stack-agnostic
@@ -14,6 +14,14 @@ tags: [benchmark, medicion, reproducibilidad, metodo]
 related:
   - engineering-protocols.benchmark
   - reliability-performance.performance-basic-validation
+lastModified: 2026-11-25
+inputs:
+  - "Pregunta, versiones, carga y entorno"
+  - "Procedimiento y muestras observadas"
+outputs:
+  - "Informe con comparación, incertidumbre, amenazas a la validez y reproducción"
+useCases:
+  - "Publicar un benchmark que otro equipo pueda evaluar"
 ---
 
 # Benchmark [ID] — [título]

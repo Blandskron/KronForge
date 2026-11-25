@@ -5,7 +5,7 @@ summary: Registrar qué se ejecutó, qué se observó y contra qué estado del c
 type: template
 domain: engineering-protocols
 status: stable
-version: 1.0.0
+version: 1.0.1
 difficulty: foundation
 projects: [any]
 compatibility: stack-agnostic
@@ -14,6 +14,15 @@ tags: [evidencia, compuertas, verificacion, caducidad]
 related:
   - engineering-protocols.evidence-and-gates
   - engineering-protocols.release-readiness
+inputs:
+  - Identificador del estado del código
+  - Comandos ejecutados
+  - Observaciones y artefactos
+outputs:
+  - Registro de compuertas
+  - Límites y condiciones de caducidad
+useCases:
+  - Entrega de evidencia a un revisor
 ---
 
 # Registro de evidencia — [tarea o candidato]

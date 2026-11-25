@@ -5,13 +5,22 @@ summary: Determinar si un repositorio está listo para publicar una versión.
 type: prompt
 domain: delivery-platform
 status: stable
-version: 1.0.0
+version: 1.0.1
 difficulty: intermediate
 projects: [any]
 compatibility: model-agnostic
 models: [any]
 tags: [release, delivery]
 related: [quality-engineering.definition-of-done-review]
+inputs:
+  - Versión candidata
+  - Proceso de release vigente
+  - Resultados de validación
+outputs:
+  - Diagnóstico de preparación
+  - Bloqueantes para la publicación
+useCases:
+  - Revisión previa a una release
 ---
 
 # Prompt: Revisión de Release Readiness

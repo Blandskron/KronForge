@@ -5,7 +5,7 @@ summary: Graduar un protocolo desde propuesta hasta estable exigiendo evidencia 
 type: protocol
 domain: engineering-protocols
 status: stable
-version: 1.0.0
+version: 1.0.1
 difficulty: intermediate
 projects: [any]
 compatibility: model-agnostic
@@ -21,6 +21,15 @@ protocol:
   dependsOn: []
   observedIn: [agents-first-repo-docs]
   lastValidated: 2026-09-07
+lastModified: 2026-11-25
+inputs:
+  - "Protocolo, nivel declarado y observaciones"
+  - "Evidencia de reproducción o medición cuando exista"
+outputs:
+  - "Madurez justificada"
+  - "Condiciones para reevaluarla y límites de la evidencia"
+useCases:
+  - "Clasificar o reevaluar la madurez de un protocolo"
 ---
 
 # AFP-000 — Madurez y Validación de Protocolos

@@ -5,13 +5,22 @@ summary: Registrar una decisión arquitectónica, su contexto y consecuencias.
 type: template
 domain: architecture
 status: stable
-version: 1.0.0
+version: 1.0.1
 difficulty: foundation
 projects: [any]
 compatibility: model-agnostic
 models: [any]
 tags: [adr, decisions]
 related: [architecture.architecture-validation]
+inputs:
+  - Contexto verificable
+  - Alternativas
+  - Restricciones
+outputs:
+  - Registro de decisión
+  - Criterios para revisar la decisión
+useCases:
+  - Decisión arquitectónica duradera
 ---
 
 # ADR-NNN: [Decisión]

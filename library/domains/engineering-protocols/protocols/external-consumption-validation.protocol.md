@@ -5,7 +5,7 @@ summary: Probar el producto desde fuera del repositorio, con el mecanismo de ent
 type: protocol
 domain: engineering-protocols
 status: stable
-version: 1.0.0
+version: 1.0.1
 difficulty: advanced
 projects: [any]
 compatibility: stack-agnostic
@@ -23,6 +23,15 @@ protocol:
   dependsOn: [AFP-004]
   observedIn: [agnara]
   lastValidated: 2026-09-07
+lastModified: 2026-11-25
+inputs:
+  - "Artefacto candidato exacto con versión y hash"
+  - "Canal real de entrega y documentación pública"
+outputs:
+  - "Resultado PASS o FAIL desde un entorno limpio"
+  - "Registro reproducible de consumo"
+useCases:
+  - "Validar que un consumidor externo puede usar un candidato publicado o publicable"
 ---
 
 # AFP-006 — Validación de Consumo Externo

@@ -21,6 +21,8 @@ La secuencia ejecuta, sin instalar dependencias:
 
 Los controles también se ejecutan en `.github/workflows/validate.yml`.
 
+El trabajo de navegador de ese workflow instala Playwright y axe desde el lockfile de `.github/browser-tools/` en un directorio temporal. Comprueba rutas, copia, descarga y accesibilidad con Chromium. La comparación de hashes se ejecuta aparte en el entorno Windows de referencia. El portal y `npm run quality` mantienen cero dependencias instalables.
+
 ## 1. Enlaces Markdown
 
 Verifica todos los enlaces relativos en archivos Markdown:

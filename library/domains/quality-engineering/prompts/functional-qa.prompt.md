@@ -5,13 +5,22 @@ summary: Validar flujos y criterios de aceptación observables.
 type: prompt
 domain: quality-engineering
 status: stable
-version: 1.0.0
+version: 1.0.1
 difficulty: intermediate
 projects: [application, service, library]
 compatibility: model-agnostic
 models: [any]
 tags: [qa, functional-testing]
 related: [quality-engineering.regression-qa]
+lastModified: 2026-11-25
+inputs:
+  - "Flujos detectables y reglas documentadas"
+  - "Criterios de aceptación disponibles"
+outputs:
+  - "Checklist funcional con precondiciones y resultados esperados"
+  - "Flujos sin evidencia"
+useCases:
+  - "Preparar QA funcional sobre una aplicación existente"
 ---
 
 # Prompt: QA Funcional

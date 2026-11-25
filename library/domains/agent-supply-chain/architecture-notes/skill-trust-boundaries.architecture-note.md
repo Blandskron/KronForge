@@ -5,7 +5,7 @@ summary: Modelar qué autoridad concede cargar una skill antes de que se ejecute
 type: architecture-note
 domain: agent-supply-chain
 status: stable
-version: 1.0.0
+version: 1.0.1
 difficulty: intermediate
 projects: [ai-application, agent-platform, developer-tool]
 compatibility: protocol-oriented
@@ -22,6 +22,16 @@ specRefs:
     version: "1.0-2026"
     url: https://owasp.org/www-project-agentic-skills-top-10/
     verified: 2026-09-03
+lastModified: 2026-11-25
+inputs:
+  - "Skill y su origen"
+  - "Host, herramientas y autoridad concedida"
+outputs:
+  - "Mapa de límites entre distribución, carga y ejecución"
+  - "Decisiones de adopción y restricciones"
+useCases:
+  - "Evaluar una skill antes de instalarla"
+  - "Revisar su traslado entre hosts"
 ---
 
 # Architecture Note: Límites de Confianza de una Skill
