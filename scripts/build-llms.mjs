@@ -12,7 +12,7 @@ import {exists, fromRoot, readJson, readText} from './lib/repository.mjs';
 
 const OUTPUT = fromRoot('llms.txt');
 const CHECK_ONLY = process.argv.includes('--check');
-const SITE = 'https://blandskron.github.io/agents-first-repo-docs';
+const SITE = 'https://blandskron.github.io/KronForge';
 
 const catalog = await readJson(fromRoot('library/catalog.json'));
 
@@ -45,7 +45,7 @@ const domains = catalog.domains
     .filter(({assets}) => assets.length);
 
 const lines = [
-    '# Agents First Framework',
+    '# KronForge — Agents-First Engineering Framework',
     '',
     `> Plataforma documental abierta de AI Engineering para diseñar contexto, repositorios, agentes y software verificable. Markdown canónico, agnóstico al modelo y al stack, sin runtime. Versión ${catalog.frameworkVersion}, catálogo actualizado el ${catalog.lastUpdated}.`,
     '',

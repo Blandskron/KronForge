@@ -2,7 +2,7 @@
  * Rutas absolutas del sitio calculadas desde este módulo.
  *
  * Usar import.meta.url evita que los fetch dependan de la URL visible:
- * funciona igual en localhost y bajo /agents-first-repo-docs/ en GitHub Pages.
+ * funciona igual en localhost y bajo /KronForge/ en GitHub Pages.
  */
 export const SITE_ROOT = new URL('../../', import.meta.url);
 export const SITE_VERSION = '3.4.0';

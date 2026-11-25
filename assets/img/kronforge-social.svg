@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs><pattern id="grid" width="56" height="56" patternUnits="userSpaceOnUse"><path d="M56 0H0v56" fill="none" stroke="#2a3652"/></pattern></defs>
+  <path fill="#0b1020" d="M0 0h1200v630H0z"/>
+  <path fill="url(#grid)" d="M700 0h500v630H700z"/>
+  <path d="M943 123 1096 211v176L943 475l-153-88V211z" fill="#121a2d" stroke="#f59e0b" stroke-width="7"/>
+  <path d="M882 218v170m0-84 100-85" fill="none" stroke="#fcd34d" stroke-width="23" stroke-linecap="square"/>
+  <path d="m921 273 73 107" fill="none" stroke="#f59e0b" stroke-width="23" stroke-linecap="square"/>
+  <path fill="#ea580c" d="M1008 201h23v23h-23zM84 136h64v5H84z"/>
+  <g font-family="system-ui, sans-serif">
+    <text x="78" y="280" font-size="100" font-weight="700" fill="#f5f7fb">KronForge</text>
+    <text x="84" y="337" font-size="32" fill="#fcd34d">Agents-First Engineering Framework</text>
+    <text x="84" y="405" font-size="24" fill="#b8c2d9">Forge better software. Empower intelligent agents.</text>
+    <text x="84" y="538" font-size="21" fill="#f5f7fb">Open Source · By BLANDSKRON</text>
+  </g>
+</svg>

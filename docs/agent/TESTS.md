@@ -16,7 +16,7 @@ La secuencia ejecuta, sin instalar dependencias:
 
 1. `npm run validate`: catálogo, schema, front matter, frescura de referencias externas, contrato de protocolos, conformidad y proyección de skills, enlaces, anclas, seguridad, JavaScript, navegación y versiones.
 2. `npm test`: renderer Markdown, utilidades puras del catálogo/router y contrato de protocolos.
-3. `npm run smoke`: rutas del shell, recursos, páginas y fuentes canónicas usadas en runtime bajo `/agents-first-repo-docs/`.
+3. `npm run smoke`: rutas del shell, recursos, páginas y fuentes canónicas usadas en runtime bajo `/KronForge/`.
 4. `npm run score`: [AI Repository Score](../AI_REPOSITORY_SCORE.md).
 
 Los controles también se ejecutan en `.github/workflows/validate.yml`.

@@ -30,7 +30,7 @@ Este código aplica a issues, pull requests, revisiones, discusiones, activos, e
 
 El repositorio todavía no tiene un canal privado confirmado para reportes de conducta. No publiques nombres, capturas, mensajes privados ni detalles que puedan identificar a las personas involucradas.
 
-Para solicitar coordinación **sin información sensible**, abre un [issue público mínimo](https://github.com/Blandskron/agents-first-repo-docs/issues/new) indicando únicamente que necesitas contactar al maintainer por un asunto de conducta. `@Blandskron` decidirá el siguiente paso disponible.
+Para solicitar coordinación **sin información sensible**, abre un [issue público mínimo](https://github.com/Blandskron/KronForge/issues/new) indicando únicamente que necesitas contactar al maintainer por un asunto de conducta. `@Blandskron` decidirá el siguiente paso disponible.
 
 > [!IMPORTANT]
 > Está pendiente que el owner publique un canal privado verificable. Hasta entonces, los reportes confidenciales no deben enviarse mediante GitHub Issues. Esta es una limitación de gobernanza conocida, no una garantía de confidencialidad.

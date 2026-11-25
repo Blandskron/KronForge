@@ -67,6 +67,10 @@ document.addEventListener('page:loaded', (event) => {
 
 // Inicialización general al cargar el DOM
 window.addEventListener('DOMContentLoaded', () => {
+    document.querySelector('.skip-link')?.addEventListener('click', (event) => {
+        event.preventDefault();
+        document.getElementById('main-content')?.focus();
+    });
     bindCatalogShell();
     bindSidebar();
     bindNavigation();

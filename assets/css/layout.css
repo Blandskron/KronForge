@@ -335,6 +335,11 @@ body.sidebar-collapsed .linkedin-btn span {
 
 /* ─── Soporte para imágenes claro/oscuro e iconos de marca ─── */
 
+.brand-details .forge-wordmark { font-weight: 750; font-size: 1.125rem; color: var(--text-primary); letter-spacing: -.035em; text-transform: none; }
+.theme-control { flex: 1; min-width: 0; }
+.theme-control select { box-sizing: border-box; width: 100%; padding: 8px; border: 1px solid var(--border-strong); border-radius: var(--radius-control); background: var(--surface); color: var(--text-primary); font: inherit; }
+body.sidebar-collapsed .theme-control { min-width: 100%; }
+
 .dark-only {
     display: none !important;
 }

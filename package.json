@@ -1,9 +1,9 @@
 {
-  "name": "agents-first-framework",
+  "name": "kronforge",
   "version": "3.4.0",
   "private": true,
   "type": "module",
-  "description": "Controles de calidad sin dependencias para Agents First Framework.",
+  "description": "Controles de calidad sin dependencias para KronForge.",
   "scripts": {
     "validate": "node scripts/validate.mjs",
     "build:skills": "node scripts/build-skills.mjs",

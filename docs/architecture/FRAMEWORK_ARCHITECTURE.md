@@ -1,8 +1,8 @@
-# Arquitectura de Agents First Framework v3
+# Arquitectura de KronForge v3
 
 ## Propósito
 
-Agents First Framework es una plataforma documental abierta para diseñar, documentar y evolucionar proyectos AI-First y Human-Friendly. No es un runtime, SDK ni metodología prescriptiva.
+KronForge es una plataforma documental abierta para diseñar, documentar y evolucionar proyectos AI-First y Human-Friendly. No es un runtime, SDK ni metodología prescriptiva.
 
 La arquitectura v3 separa responsabilidades para que el repositorio pueda crecer a cientos o miles de activos sin convertir el portal, el catálogo o los adaptadores en fuentes alternativas.
 

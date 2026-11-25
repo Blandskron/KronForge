@@ -40,13 +40,17 @@ export async function switchTab(tabId, options = {}) {
     const requestId = ++navigationRequestId;
     const route = parsePortalHash(`#${tabId}`);
     const routeTab = options.assetId ? 'library' : route.routeTab;
+    const routeFilters = options.filters ?? route.filters;
     tabId = route.tabId;
     if (!document.getElementById(tabId)) tabId = 'welcome';
     /* ── Actualizar nav items ── */
-    document.querySelectorAll('.sidebar-nav .nav-item').forEach((item) => {
+    const shortcutType = route.type || routeFilters?.type;
+    const navigation = [...document.querySelectorAll('.sidebar-nav .nav-item')];
+    const hasShortcut = navigation.some(item => item.dataset.tab === tabId && item.dataset.type === shortcutType && shortcutType);
+    navigation.forEach((item) => {
         const isLibraryShortcut = item.hasAttribute('data-type');
         const active = item.getAttribute('data-tab') === tabId
-            && (route.type ? item.dataset.type === route.type : !isLibraryShortcut);
+            && (hasShortcut ? item.dataset.type === shortcutType : !isLibraryShortcut);
         item.classList.toggle('active', active);
         if (active) item.setAttribute('aria-current', 'page');
         else item.removeAttribute('aria-current');
@@ -60,7 +64,6 @@ export async function switchTab(tabId, options = {}) {
     });
 
     /* ── Registrar la navegación para que Atrás/Adelante funcionen ── */
-    const routeFilters = options.filters ?? route.filters;
     const nextHash = buildPortalHash(routeTab, options.assetId || null, routeFilters);
     if (options.historyMode !== 'none' && window.location.hash !== nextHash) {
         const method = options.historyMode === 'replace' ? 'replaceState' : 'pushState';

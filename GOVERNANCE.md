@@ -2,7 +2,7 @@
 
 ## Modelo
 
-Agents First Repo Docs usa un modelo **maintainer-led con consulta abierta**. La comunidad propone, aporta evidencia y revisa; el maintainer busca consenso y conserva la decisión final sobre integración, releases y políticas.
+KronForge usa un modelo **maintainer-led con consulta abierta**. La comunidad propone, aporta evidencia y revisa; el maintainer busca consenso y conserva la decisión final sobre integración, releases y políticas.
 
 Este modelo refleja la realidad actual de un proyecto con un único owner. No simula comités ni roles que todavía no existen.
 

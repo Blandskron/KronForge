@@ -80,3 +80,8 @@ Marcar una casilla no reemplaza la evidencia. Un pendiente bloqueante impide dec
 ## Excepciones
 
 `No aplica` requiere una justificación concreta. El maintainer puede aceptar deuda no bloqueante solo si queda registrada con impacto, responsable de decisión y condición de seguimiento.
+## Comprobación opcional de navegador
+
+El verificador [browser-check.cjs](../scripts/browser-check.cjs) usa Playwright 1.65.1 y axe-core para Playwright 4.14.0, instalados en una carpeta de herramientas externa al portal. Indica esa carpeta `node_modules` en `KF_BROWSER_TOOLS` y una salida opcional en `KF_AUDIT_OUT`. Ejecuta `node scripts/browser-check.cjs` para validar y capturar. En el entorno de la referencia visual puedes añadir `--compare` para comparar los hashes.
+
+Para Lighthouse, abre el servidor estático con `node scripts/browser-check.cjs --serve` y usa la URL de loopback que imprime. La comparación de capturas depende de la plataforma y la versión del navegador.

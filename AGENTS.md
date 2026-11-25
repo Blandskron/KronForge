@@ -1,6 +1,6 @@
 # Instrucciones de Agente (AGENTS.md)
 
-Este repositorio mantiene Agents First Framework v3: una plataforma documental abierta de AI Engineering, organizada por capas y dominios, más un portal estático para descubrir, relacionar, copiar y descargar sus activos.
+Este repositorio mantiene KronForge v3: una plataforma documental abierta de AI Engineering, organizada por capas y dominios, más un portal estático para descubrir, relacionar, copiar y descargar sus activos.
 
 El producto real es el conocimiento reutilizable: prompts, skills, hooks, subagentes, integraciones MCP, templates, checklists, playbooks, decisiones, patrones, anti-patrones, runbooks, casos y referencias. El repositorio completo actúa como ejemplo vivo del estándar.
 

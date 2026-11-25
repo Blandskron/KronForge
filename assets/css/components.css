@@ -25,14 +25,14 @@
 .copy-prompt-trigger,
 .btn-primary,
 .btn-accent {
-    background: var(--accent);
-    color: #ffffff;
+    background: var(--forge-amber);
+    color: #0b1020;
 }
 
 .copy-prompt-trigger:hover,
 .btn-primary:hover,
 .btn-accent:hover {
-    background: var(--accent-strong);
+    background: var(--forge-gold);
 }
 
 .btn-secondary {

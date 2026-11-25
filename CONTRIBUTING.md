@@ -1,4 +1,4 @@
-# Contribuir a Agents First Repo Docs
+# Contribuir a KronForge
 
 Gracias por ayudar a mejorar el framework. Las contribuciones deben aumentar su utilidad para personas y agentes sin convertirlo en una metodología pesada, asumir un proveedor o duplicar conocimiento canónico.
 

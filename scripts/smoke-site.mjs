@@ -4,7 +4,7 @@ import {createReadStream} from 'node:fs';
 import {stat} from 'node:fs/promises';
 import {ROOT, fromRoot, readJson, toPosix, walk} from './lib/repository.mjs';
 
-const BASE_PATH = '/agents-first-repo-docs';
+const BASE_PATH = '/KronForge';
 const mime = {
     '.css': 'text/css; charset=utf-8',
     '.html': 'text/html; charset=utf-8',
@@ -12,6 +12,7 @@ const mime = {
     '.json': 'application/json; charset=utf-8',
     '.md': 'text/markdown; charset=utf-8',
     '.png': 'image/png',
+    '.woff2': 'font/woff2',
     '.svg': 'image/svg+xml'
 };
 
@@ -26,7 +27,7 @@ async function regularFile(target) {
 const server = http.createServer(async (request, response) => {
     const url = new URL(request.url, 'http://127.0.0.1');
     let pathname = decodeURIComponent(url.pathname);
-    if (!pathname.startsWith(BASE_PATH)) {
+    if (pathname !== BASE_PATH && !pathname.startsWith(BASE_PATH + '/')) {
         response.writeHead(404, {'Content-Type': 'text/plain'});
         response.end('Not found');
         return;
@@ -79,7 +80,7 @@ const routes = new Set([
 for (const file of await walk(fromRoot('pages'), (target) => target.endsWith('.html'))) {
     routes.add(`/${toPosix(path.relative(ROOT, file))}`);
 }
-for (const file of await walk(fromRoot('assets'), (target) => /\.(?:css|js|png|svg)$/.test(target))) {
+for (const file of await walk(fromRoot('assets'), (target) => /\.(?:css|js|png|svg|woff2)$/.test(target))) {
     routes.add(`/${toPosix(path.relative(ROOT, file))}`);
 }
 
@@ -111,7 +112,7 @@ try {
     await new Promise((resolve) => server.close(resolve));
 }
 
-console.log('\nAgents First Framework — smoke test GitHub Pages\n');
+console.log('\nKronForge — smoke test GitHub Pages\n');
 console.log(`${routes.size} rutas verificadas bajo ${BASE_PATH}/`);
 for (const error of errors) console.error(`✗ ${error}`);
 if (!errors.length) console.log('✓ Todas las rutas, estados y MIME son correctos');

@@ -21,7 +21,7 @@ const MODEL_CONFIG = {
         path:  ".github/copilot-instructions.md",
         file:  ".github/copilot-instructions.md",
         alternatives: [
-            "https://raw.githubusercontent.com/Blandskron/agents-first-repo-docs/main/.github/copilot-instructions.md"
+            "https://raw.githubusercontent.com/Blandskron/KronForge/main/.github/copilot-instructions.md"
         ]
     }
 };

@@ -1,26 +1,25 @@
 <script type="module" src="../assets/js/page-entry.js" data-page="welcome"></script>
 <section class="portal-hero">
     <div class="hero-copy">
-        <span class="eyebrow"><i class="fa-solid fa-circle-nodes"></i> Open AI Engineering</span>
-        <h2>Construye software preparado para personas y agentes.</h2>
-        <p>Un framework documental abierto para diseñar contexto, repositorios, agentes, integraciones y sistemas de software sin depender de un modelo.</p>
+        <span class="eyebrow"><i class="fa-solid fa-circle-nodes" aria-hidden="true"></i> Agents-First Engineering Framework</span>
+        <h1>Kron<span>Forge</span></h1>
+        <p lang="en" class="forge-slogan">Forge better software.<br>Empower intelligent agents.</p>
+        <p>Recursos de ingeniería para diseñar contexto, documentar decisiones y verificar el trabajo de personas y agentes.</p>
         <div class="hero-buttons">
             <button class="btn btn-primary" onclick="switchTab('quickstart')">
-                Empezar ahora <i class="fa-solid fa-arrow-right"></i>
+                Empezar ahora <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
             </button>
             <button class="btn btn-secondary" onclick="switchTab('domains')">
                 Explorar dominios
             </button>
         </div>
         <div class="hero-proof" aria-label="Principios principales">
-            <span>Model agnostic</span>
-            <span>Human friendly</span>
-            <span>Context driven</span>
-            <span>Open source</span>
+            <span>Markdown canónico</span>
+            <span>Agnóstico al modelo y al stack</span>
         </div>
     </div>
     <div class="hero-system" aria-label="Flujo del framework">
-        <div class="system-label">Agents First Loop</div>
+        <div class="system-label">Flujo de adopción</div>
         <ol>
             <li><span>01</span><strong>Copiar</strong><small>Selecciona un activo</small></li>
             <li><span>02</span><strong>Pegar</strong><small>Entrega contexto real</small></li>
@@ -32,16 +31,26 @@
 </section>
 
 <section class="stat-strip" aria-label="Estado del framework">
-    <div><strong id="home-domain-count">15</strong><span>dominios</span></div>
-    <div><strong id="home-asset-count">29</strong><span>activos</span></div>
+    <div><strong id="home-domain-count">—</strong><span>dominios</span></div>
+    <div><strong id="home-asset-count">—</strong><span>activos</span></div>
     <div><strong id="home-type-count">—</strong><span>tipos publicados</span></div>
     <div><strong id="home-last-updated">—</strong><span>última actualización</span></div>
+</section>
+
+<section class="forge-resources" aria-labelledby="resource-heading">
+    <h2 id="resource-heading">Explora el catálogo</h2>
+    <div class="forge-resource-grid">
+        <a href="#library?type=skill"><i class="fa-solid fa-bolt" aria-hidden="true"></i><strong>Skills</strong><span>Capacidades que puedes incorporar a tu agente.</span></a>
+        <a href="#library?type=prompt"><i class="fa-solid fa-code" aria-hidden="true"></i><strong>Prompts</strong><span>Instrucciones con alcance, contexto y resultados esperados.</span></a>
+        <a href="#library?type=protocol"><i class="fa-solid fa-route" aria-hidden="true"></i><strong>Protocolos</strong><span>Procesos de ingeniería con roles y evidencia.</span></a>
+        <a href="#library?type=reference"><i class="fa-solid fa-book-open" aria-hidden="true"></i><strong>Estándares y referencias</strong><span>Fuentes para verificar prácticas y decisiones.</span></a>
+    </div>
 </section>
 
 <section class="section-heading">
     <div>
         <span class="eyebrow">Pilares</span>
-        <h3>Ingeniería de IA como sistema, no como colección de trucos.</h3>
+        <h3>Dominios de ingeniería</h3>
     </div>
     <button class="text-link" onclick="switchTab('domains')">Ver todos los dominios <i class="fa-solid fa-arrow-right"></i></button>
 </section>
@@ -49,25 +58,21 @@
 <div class="pillar-grid">
     <button class="pillar-card" data-domain-link="context-engineering">
         <i class="fa-solid fa-layer-group"></i>
-        <span>01</span>
         <h3>Context Engineering</h3>
         <p>Diseña fuentes, routing, compresión, retrieval y entrega de contexto.</p>
     </button>
     <button class="pillar-card" data-domain-link="repository-engineering">
         <i class="fa-solid fa-code-branch"></i>
-        <span>02</span>
         <h3>Repository Engineering</h3>
         <p>Crea repositorios sostenibles para colaboración humano-agente.</p>
     </button>
     <button class="pillar-card" data-domain-link="ai-agent-engineering">
         <i class="fa-solid fa-robot"></i>
-        <span>03</span>
         <h3>Agent Systems</h3>
         <p>Define autoridad, coordinación, memoria, evaluación y delegación.</p>
     </button>
     <button class="pillar-card" data-domain-link="mcp-integration">
         <i class="fa-solid fa-plug-circle-bolt"></i>
-        <span>04</span>
         <h3>MCP & Tools</h3>
         <p>Integra capacidades con límites de confianza y consentimiento explícitos.</p>
     </button>
@@ -80,4 +85,14 @@
         <p>El portal carga los activos canónicos del repositorio; no mantiene una segunda copia del contenido.</p>
     </div>
     <button class="btn btn-secondary" onclick="switchTab('library')">Abrir biblioteca</button>
+</section>
+
+<section class="forge-resources" aria-labelledby="project-heading">
+    <h2 id="project-heading">Cómo se mantiene KronForge</h2>
+    <div class="forge-resource-grid">
+        <a href="docs/architecture/FRAMEWORK_ARCHITECTURE.md"><i class="fa-solid fa-sitemap" aria-hidden="true"></i><strong>Arquitectura</strong><span>Capas, contratos y decisiones.</span></a>
+        <a href="GOVERNANCE.md"><i class="fa-solid fa-book" aria-hidden="true"></i><strong>Gobernanza</strong><span>Responsabilidades y revisión humana.</span></a>
+        <a href="docs/QUALITY_GATES.md"><i class="fa-solid fa-circle-check" aria-hidden="true"></i><strong>Compuertas de calidad</strong><span>Validaciones y evidencia esperada.</span></a>
+        <a href="llms.txt"><i class="fa-solid fa-file-lines" aria-hidden="true"></i><strong>Descubrimiento para agentes</strong><span>Índice generado de fuentes canónicas.</span></a>
+    </div>
 </section>

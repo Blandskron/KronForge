@@ -398,7 +398,7 @@ await check('Superficie de descubrimiento llms.txt', async () => {
     if (!content.includes('\n> ')) fail('llms.txt debe incluir el resumen en blockquote');
 
     // Las rutas publicadas deben existir en el repositorio.
-    for (const match of content.matchAll(/\]\(https:\/\/blandskron\.github\.io\/agents-first-repo-docs\/([^)]+)\)/g)) {
+    for (const match of content.matchAll(/\]\(https:\/\/blandskron\.github\.io\/KronForge\/([^)]+)\)/g)) {
         if (!await exists(fromRoot(decodeURIComponent(match[1])))) fail(`llms.txt referencia una ruta inexistente: ${match[1]}`);
     }
 });
@@ -495,7 +495,7 @@ await check('Navegación, páginas y referencias web', async () => {
     }
     const models = await readText(fromRoot('assets/js/models.js'));
     if (models.includes('.github/copilot-instructions.md')
-        && !models.includes('raw.githubusercontent.com/Blandskron/agents-first-repo-docs/main/.github/copilot-instructions.md')) {
+        && !models.includes('raw.githubusercontent.com/Blandskron/KronForge/main/.github/copilot-instructions.md')) {
         fail('El visor de Copilot necesita una fuente pública alternativa porque GitHub Pages no sirve .github/');
     }
 
@@ -539,7 +539,7 @@ await check('Cobertura y señales de mantenimiento', async () => {
 });
 
 if (!process.argv.includes('--quiet')) {
-    console.log('\nAgents First Framework — validación integral\n');
+    console.log('\nKronForge — validación integral\n');
     for (const item of checks) console.log(`${item.ok ? '✓' : '✗'} ${item.name}`);
     for (const message of warnings) console.warn(`⚠ ${message}`);
     for (const message of errors) console.error(`✗ ${message}`);

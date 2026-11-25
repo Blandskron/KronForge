@@ -4,6 +4,12 @@ Todos los cambios notables en este proyecto serán documentados en este archivo.
 
 ---
 
+## Sin publicar
+
+- Identidad KronForge, temas oscuro, claro y sistema, recursos SVG originales e iconos y fuentes locales.
+- Acceso directo a skills, prompts, protocolos y referencias, con enlaces a arquitectura, gobernanza y calidad.
+- URL de descubrimiento y metadatos alineados con el subdirectorio actual de GitHub Pages.
+
 ## [3.4.0] - 2026-09-07
 
 ### Eliminado

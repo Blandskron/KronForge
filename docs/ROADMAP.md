@@ -1,10 +1,20 @@
 # Roadmap del Framework
 
 - **Fuente canónica:** este documento.
-- **Última revisión:** 2026-09-07.
+- **Última revisión:** 2026-11-25.
 - **Principio:** profundidad, calidad y evidencia antes que volumen.
 
 Los roadmaps incluidos en documentos estratégicos anteriores describen su momento de diseño. Cuando exista una diferencia, prevalece este archivo.
+
+## Transición KronForge
+
+| Tarea | Dependencia | Criterio de aceptación |
+|---|---|---|
+| KF-01 Auditar la base y referencias | — | Inventario, decisión sobre skill y comprobación de ambas URL de Pages en [la auditoría](audits/KRONFORGE_TRANSITION.md). |
+| KF-02 Identidad y temas | KF-01 | Isotipo, firma, favicon, modo oscuro inicial, modo claro y sistema, con foco visible y movimiento reducido. |
+| KF-03 Descubrimiento y lectura | KF-02 | La portada conduce a dominios, recursos por tipo y gobernanza. Las rutas, filtros, relaciones y el Markdown canónico siguen operativos con teclado y enlaces compartibles. |
+| KF-04 Metadatos y distribución | KF-01 | URL canónica /KronForge/, descubrimiento generado y comprobación de rutas con identificadores históricos preservados. |
+| KF-05 Validación de entrega | KF-02, KF-03, KF-04 | Ejecutar controles existentes y comprobar navegación, accesibilidad, regresión visual y Lighthouse en navegador real. La publicación necesita autorización explícita. |
 
 ## Orden de evolución
 

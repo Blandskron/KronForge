@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="KronForge">
+  <path d="M32 4 57 18.5v27L32 60 7 45.5v-27Z" fill="#121a2d" stroke="#f59e0b" stroke-width="3"/>
+  <path d="M22 17v30M22 33l18-15" fill="none" stroke="#fcd34d" stroke-width="5" stroke-linecap="square"/>
+  <path d="m29 30 13 16" fill="none" stroke="#f59e0b" stroke-width="5" stroke-linecap="square"/>
+  <path d="M43 17h4v4h-4Z" fill="#ea580c"/>
+</svg>

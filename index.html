@@ -1,33 +1,29 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agents First Framework — Open AI Engineering</title>
+    <title>KronForge — Agents-First Engineering Framework</title>
     <meta name="description" content="Framework documental abierto y agnóstico para diseñar, construir y mantener software AI-First con personas y agentes.">
     <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#2563eb">
-    <link rel="canonical" href="https://blandskron.github.io/agents-first-repo-docs/">
+    <meta name="theme-color" content="#0b1020">
+    <link rel="canonical" href="https://blandskron.github.io/KronForge/">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Agents First Framework">
-    <meta property="og:description" content="Open AI Engineering. Contexto, agentes, MCP, repositorios y software de calidad.">
-    <meta property="og:url" content="https://blandskron.github.io/agents-first-repo-docs/">
-    <meta property="og:image" content="https://blandskron.github.io/agents-first-repo-docs/assets/img/og-ai-engineering.png">
-    <meta property="og:image:alt" content="Agents First — Open AI Engineering, cuatro pilares conectados">
+    <meta property="og:title" content="KronForge — Agents-First Engineering Framework">
+    <meta property="og:site_name" content="KronForge">
+    <meta property="og:description" content="Forge better software. Empower intelligent agents. Recursos abiertos de ingeniería para personas y agentes.">
+    <meta property="og:url" content="https://blandskron.github.io/KronForge/">
+    <meta property="og:image" content="https://blandskron.github.io/KronForge/assets/img/kronforge-social.png">
+    <meta property="og:image:alt" content="KronForge, isotipo hexagonal y firma BLANDSKRON">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://blandskron.github.io/agents-first-repo-docs/assets/img/og-ai-engineering.png">
+    <meta name="twitter:image" content="https://blandskron.github.io/KronForge/assets/img/kronforge-social.png">
     
-    <!-- Google Fonts: Plus Jakarta Sans -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- FontAwesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="assets/img/favicon.png">
-    
+    <link rel="icon" type="image/svg+xml" href="assets/img/kronforge-mark.svg">
+    <link rel="preload" href="assets/fonts/sora.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="assets/css/icons.css">
+    <script src="assets/js/theme-boot.js"></script>
+
     <!-- CSS modular (Sin build step) -->
     <link rel="stylesheet" href="assets/css/base.css?v=3.4.0">
     <link rel="stylesheet" href="assets/css/layout.css?v=3.4.0">
@@ -36,6 +32,7 @@
     <link rel="stylesheet" href="assets/css/responsive.css?v=3.4.0">
 </head>
 <body>
+    <a class="skip-link" href="#main-content">Saltar al contenido</a>
     <div class="app-container">
         
         <!-- Sidebar Backdrop (Mobile overlay) -->
@@ -45,12 +42,11 @@
         <aside class="sidebar" id="sidebar">
             <div class="sidebar-brand">
                 <div class="brand-logo">
-                    <img src="assets/img/ico-black.png" alt="Agents First" class="brand-logo-img light-only">
-                    <img src="assets/img/ico-white.png" alt="Agents First" class="brand-logo-img dark-only">
+                    <img src="assets/img/kronforge-mark.svg" alt="" class="brand-logo-img" width="40" height="40">
                 </div>
                 <div class="brand-details">
-                    <h1>Agents First</h1>
-                    <span>v3.4.0 Framework</span>
+                    <span class="forge-wordmark">KronForge</span>
+                    <span>Agents-First Engineering · v3.4.0</span>
                 </div>
                 <button class="sidebar-close" id="sidebar-close" type="button" aria-label="Colapsar navegación" title="Colapsar navegación">
                     <i class="fa-solid fa-chevron-left"></i>
@@ -81,6 +77,15 @@
                 <a href="#library" class="nav-item" data-tab="library">
                     <i class="fa-solid fa-book"></i>
                     <span>Biblioteca</span>
+                </a>
+                <a href="#library?type=skill" class="nav-item" data-tab="library" data-type="skill">
+                    <i class="fa-solid fa-bolt" aria-hidden="true"></i><span>Skills</span>
+                </a>
+                <a href="#library?type=protocol" class="nav-item" data-tab="library" data-type="protocol">
+                    <i class="fa-solid fa-route" aria-hidden="true"></i><span>Protocolos</span>
+                </a>
+                <a href="#library?type=reference" class="nav-item" data-tab="library" data-type="reference">
+                    <i class="fa-solid fa-book-open" aria-hidden="true"></i><span>Estándares</span>
                 </a>
                 <a href="#learning" class="nav-item" data-tab="learning">
                     <i class="fa-solid fa-graduation-cap"></i>
@@ -126,11 +131,8 @@
             </nav>
 
             <div class="sidebar-footer">
-                <button class="theme-btn" id="theme-toggle-btn" title="Alternar tema">
-                    <i class="fa-solid fa-moon"></i>
-                    <span>Modo Oscuro</span>
-                </button>
-                <a href="https://github.com/blandskron/agents-first-repo-docs" target="_blank" class="github-btn" rel="noopener">
+                <div class="theme-control"><label for="theme-toggle-btn" class="sr-only">Tema</label><select id="theme-toggle-btn"><option value="dark">Oscuro</option><option value="light">Claro</option><option value="system">Sistema</option></select></div>
+                <a href="https://github.com/Blandskron/KronForge" target="_blank" class="github-btn" rel="noopener">
                     <i class="fa-brands fa-github"></i>
                     <span>Ver en GitHub</span>
                 </a>
@@ -142,7 +144,7 @@
         </aside>
 
         <!-- Main Content Area -->
-        <main class="main-content">
+        <main class="main-content" id="main-content" tabindex="-1">
             <header class="top-bar">
                 <button class="mobile-menu-btn" id="mobile-menu-btn" type="button"
                     aria-label="Abrir navegación" aria-controls="sidebar" aria-expanded="false">
@@ -210,7 +212,7 @@
                     <img src="assets/img/logo-white.png" alt="Logo Blandskron" class="footer-logo dark-only">
                 </div>
                 <div class="footer-credits">
-                    Hecho con <i class="fa-solid fa-heart txt-heart"></i> por <a href="https://blandskron.com" target="_blank" rel="noopener">blandskron</a>
+                    Open Source · By <a href="https://blandskron.cl/" target="_blank" rel="noopener">BLANDSKRON</a>
                 </div>
             </footer>
         </main>

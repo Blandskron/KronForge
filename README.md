@@ -1,4 +1,10 @@
-# Agents First Framework
+# KronForge — Agents-First Engineering Framework
+
+![KronForge](assets/img/kronforge-social.png)
+
+**Forge better software. Empower intelligent agents.** · Open Source · By BLANDSKRON.
+
+Anteriormente Agents First Framework. [Guía de marca](docs/BRAND_GUIDELINES.md) · [Sistema de diseño](docs/DESIGN_SYSTEM.md).
 
 Plataforma documental abierta de AI Engineering para diseñar contexto, repositorios, agentes y software verificable mediante conocimiento reutilizable.
 
@@ -9,7 +15,7 @@ El Markdown de `library/` es la única fuente de verdad. De ella se generan y ve
 El flujo operativo se mantiene simple: **Copiar -> Pegar -> Auditar -> Aprobar -> Aplicar**.
 
 > [!TIP]
-> Explora el [portal en GitHub Pages](https://blandskron.github.io/agents-first-repo-docs/), entra al [catálogo por dominios](library/README.md) o consulta la [arquitectura v3](docs/architecture/FRAMEWORK_ARCHITECTURE.md).
+> Explora el [portal en GitHub Pages](https://blandskron.github.io/KronForge/), entra al [catálogo por dominios](library/README.md) o consulta la [arquitectura v3](docs/architecture/FRAMEWORK_ARCHITECTURE.md).
 
 ## Qué encontrarás
 
@@ -75,7 +81,7 @@ No es una colección masiva de prompts, un runtime ni una metodología prescript
 ## Arquitectura del repositorio
 
 ```txt
-agents-first-repo-docs/
+KronForge/
 |-- prompts/                  # puerta de entrada ejecutable
 |-- library/
 |   |-- catalog.json         # proyección machine-readable v3

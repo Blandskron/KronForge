@@ -1,9 +1,29 @@
-/* Agents First Repo Docs — base.css
+/* KronForge — base.css
    Variables, reset, tipografía y estilos globales de body.
    ======================================================= */
 
+@font-face { font-family: Sora; src: url('../fonts/sora.woff2') format('woff2'); font-weight: 100 900; font-display: swap; }
+@font-face { font-family: Inter; src: url('../fonts/inter.woff2') format('woff2'); font-weight: 100 900; font-display: swap; }
+@font-face { font-family: "JetBrains Mono"; src: url('../fonts/jetbrains-mono.woff2') format('woff2'); font-weight: 100 800; font-display: swap; }
+
 :root {
-    --bg-primary: #f7f7f4;
+    color-scheme: light;
+    --forge-amber: #f59e0b;
+    --forge-orange: #ea580c;
+    --forge-gold: #fcd34d;
+    --status-success: #22c55e;
+    --status-warning: #f59e0b;
+    --status-error: #ef4444;
+    --status-information: #38bdf8;
+    --status-ai: #a78bfa;
+    --status-verified: #14b8a6;
+    --space-unit: 4px;
+    --radius-control: 8px;
+    --radius-card: 12px;
+    --radius-panel: 16px;
+    --radius-hero: 24px;
+    --motion: 200ms;
+    --bg-primary: #f5f7fb;
     --bg-secondary: #ffffff;
     --bg-tertiary: #f0f1ee;
     --surface: #ffffff;
@@ -11,12 +31,13 @@
     --surface-raised: #ffffff;
     --border-color: #e2e4df;
     --border-strong: #c9cec6;
-    --text-primary: #202123;
-    --text-secondary: #5f6368;
-    --text-muted: #8a8f95;
-    --accent: #2563eb;
-    --accent-strong: #1d4ed8;
-    --accent-soft: #eaf1ff;
+    --text-primary: #182338;
+    --text-secondary: #46536e;
+    --text-muted: #58647c;
+    --accent: #92400e;
+    --accent-strong: #78350f;
+    --accent-soft: #fdf0d8;
+    --focus: #92400e;
     --success: #15803d;
     --warning: #b45309;
     --code-bg: #0f172a;
@@ -25,26 +46,31 @@
     --shadow-md: 0 12px 28px rgba(15, 23, 42, 0.08);
     --sidebar-width: 292px;
     --sidebar-collapsed-width: 76px;
-    --radius: 8px;
-    --font-primary: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+    --radius: var(--radius-control);
+    --font-primary: Inter, system-ui, sans-serif;
+    --font-display: Sora, var(--font-primary);
+    --font-mono: "JetBrains Mono", Consolas, monospace;
 }
 
 [data-theme="dark"] {
-    --bg-primary: #101114;
-    --bg-secondary: #17181c;
-    --bg-tertiary: #202126;
-    --surface: #17181c;
-    --surface-muted: #1f2025;
-    --surface-raised: #1b1c21;
-    --border-color: #2d3036;
-    --border-strong: #3e424b;
-    --text-primary: #ececf1;
-    --text-secondary: #b7bbc3;
-    --text-muted: #858b96;
-    --accent: #7aa2ff;
-    --accent-strong: #a7c0ff;
-    --accent-soft: rgba(122, 162, 255, 0.14);
+    color-scheme: dark;
+    --bg-primary: #0b1020;
+    --bg-secondary: #121a2d;
+    --bg-tertiary: #182338;
+    --surface: #121a2d;
+    --surface-muted: #182338;
+    --surface-raised: #182338;
+    --border-color: #2a3652;
+    --border-strong: #62708b;
+    --text-primary: #f5f7fb;
+    --text-secondary: #b8c2d9;
+    --text-muted: #9aa9c7;
+    --accent: #f59e0b;
+    --accent-strong: #fcd34d;
+    --accent-soft: #2d2319;
+    --focus: #fcd34d;
+    --success: #4ade80;
+    --warning: #fcd34d;
     --code-bg: #0b0c10;
     --code-text: #eef2ff;
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.26);
@@ -68,7 +94,12 @@
 html {
     scroll-behavior: smooth;
     overflow-x: hidden;
+    scroll-padding-block-end: 74px;
 }
+
+:is(h1, h2, h3, .forge-wordmark) { font-family: var(--font-display); }
+.skip-link { position: fixed; top: 12px; left: 12px; z-index: 300; padding: 12px; background: var(--surface); color: var(--text-primary); transform: translateY(-150%); }
+.skip-link:focus { transform: none; }
 
 body {
     min-height: 100vh;
@@ -111,8 +142,8 @@ code {
     border: 0;
 }
 
-:where(a, button, input, select, [tabindex]):focus-visible {
-    outline: 3px solid color-mix(in srgb, var(--accent) 70%, white);
+:where(a, button, input, select, summary, [tabindex]):focus-visible {
+    outline: 3px solid var(--focus);
     outline-offset: 3px;
 }
 

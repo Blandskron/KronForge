@@ -20,6 +20,7 @@ Este directorio registra decisiones estructurales reales del framework.
 | [ADR-0005](ADR-0005-discovery-surface-and-score-calibration.md) | accepted | Superficie de descubrimiento `llms.txt` y recalibración del score |
 | [ADR-0006](ADR-0006-protocol-asset-type.md) | accepted | Tipo de activo `protocol` y capa de protocolos de ingeniería |
 | [ADR-0007](ADR-0007-evidence-citation-not-dependency.md) | accepted | La evidencia externa se cita, no se aloja |
+| [ADR-0008](ADR-0008-kronforge-portal-identity.md) | accepted | Identidad y publicación de KronForge |
 
 Para una decisión nueva, usa la [plantilla ADR](../../library/domains/architecture/templates/adr.template.md), elimina instrucciones y actualiza este índice.
 

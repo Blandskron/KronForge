@@ -25,7 +25,7 @@ No publiques en un issue:
 - tokens, credenciales o datos personales;
 - rutas o instrucciones que faciliten abuso.
 
-El repositorio todavía no tiene un canal privado de seguridad confirmado. Para solicitar coordinación **sin detalles sensibles**, abre un [issue público mínimo](https://github.com/Blandskron/agents-first-repo-docs/issues/new) con el título `Solicitud de coordinación de seguridad` e incluye solo:
+El repositorio todavía no tiene un canal privado de seguridad confirmado. Para solicitar coordinación **sin detalles sensibles**, abre un [issue público mínimo](https://github.com/Blandskron/KronForge/issues/new) con el título `Solicitud de coordinación de seguridad` e incluye solo:
 
 - superficie general afectada;
 - si el problema sigue presente;
