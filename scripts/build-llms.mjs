@@ -30,6 +30,8 @@ const entryPoints = [
     ['Guía de aprendizaje machine-readable', 'library/learning-guidance.json', 'metadatos por ID de ruta del catálogo'],
     ['Ejercicio reproducible', 'docs/learning-quality-example.md', 'ejercicio de testing y evidencia con el repositorio'],
     ['Prácticas guiadas', 'docs/LEARNING_LABS.md', 'siete prácticas con entradas y entregables'],
+    ['Tutoriales por dominio', 'docs/tutorials/README.md', 'ejercicios con criterios verificables y activos canónicos'],
+    ['Casos reproducibles', 'docs/cases/README.md', 'cambios históricos y resultados observados en KronForge'],
     ['Caso de aprendizaje de KronForge', 'docs/audits/KRONFORGE_LEARNING_CASE.md', 'reproducción local de la compatibilidad del catálogo']
 ];
 

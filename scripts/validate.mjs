@@ -409,6 +409,11 @@ await check('Superficie de descubrimiento llms.txt', async () => {
 await check('Guías de aprendizaje y paridad de la proyección', async () => {
     const guide = spawnSync(process.execPath, [fromRoot('scripts/build-learning.mjs'), '--check'], {encoding: 'utf8'});
     if (guide.status !== 0) fail((guide.stderr || guide.stdout || 'No se pudo validar la guía de aprendizaje').trim());
+
+    const tutorialIndex = await readText(fromRoot('docs/tutorials/README.md'));
+    for (const domain of catalog.domains) {
+        if (!tutorialIndex.includes(`](${domain.id}.md)`)) fail(`Falta el tutorial del dominio ${domain.id} en el índice`);
+    }
 });
 
 await check('Markdown, enlaces, anclas y cercas', async () => {

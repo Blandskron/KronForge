@@ -128,6 +128,19 @@ const server = http.createServer(async (req, res) => {
         assert.equal(await testing.locator('.learning-contract dd').last().textContent(), guide.routes.testing.outcome);
         await audit('aprendizaje', 'oscuro');
 
+        for (const [label, relative, heading] of [
+            ['Tutoriales por dominio', 'docs/tutorials/README.md', '# Tutoriales por dominio'],
+            ['Casos reproducibles', 'docs/cases/README.md', '# Casos reproducibles de KronForge'],
+        ]) {
+            const [response] = await Promise.all([
+                page.waitForResponse(url + relative),
+                page.getByRole('link', {name: label, exact: true}).click(),
+            ]);
+            assert.equal(response.ok(), true);
+            assert.equal((await response.text()).startsWith(heading), true);
+            await page.goto(url + '#learning');
+        }
+
         await page.route('**/library/learning-guidance.json*', route => route.fulfill({status: 503}));
         await page.reload();
         await page.locator('.learning-card button[data-asset-link]').first().waitFor();

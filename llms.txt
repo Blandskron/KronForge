@@ -17,6 +17,8 @@ Antes de aplicar cualquier activo: lee antes de modificar, no inventes comandos 
 - [Guía de aprendizaje machine-readable](https://blandskron.github.io/KronForge/library/learning-guidance.json): metadatos por ID de ruta del catálogo
 - [Ejercicio reproducible](https://blandskron.github.io/KronForge/docs/learning-quality-example.md): ejercicio de testing y evidencia con el repositorio
 - [Prácticas guiadas](https://blandskron.github.io/KronForge/docs/LEARNING_LABS.md): siete prácticas con entradas y entregables
+- [Tutoriales por dominio](https://blandskron.github.io/KronForge/docs/tutorials/README.md): ejercicios con criterios verificables y activos canónicos
+- [Casos reproducibles](https://blandskron.github.io/KronForge/docs/cases/README.md): cambios históricos y resultados observados en KronForge
 - [Caso de aprendizaje de KronForge](https://blandskron.github.io/KronForge/docs/audits/KRONFORGE_LEARNING_CASE.md): reproducción local de la compatibilidad del catálogo
 
 ## Políticas y contratos

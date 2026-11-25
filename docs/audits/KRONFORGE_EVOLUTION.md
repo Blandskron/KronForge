@@ -37,3 +37,7 @@ Siguen pendientes completar los contratos restantes, ampliar los tutoriales por 
 Se completaron las entradas, salidas y casos de uso de los 57 activos que conservaban esos campos vacíos. El catálogo refleja los metadatos declarados en cada Markdown y los 65 activos tienen los tres campos completos. Cada cambio se versionó como corrección editorial del activo. Las referencias externas y la madurez de los protocolos conservan sus fechas y declaraciones de evidencia.
 
 El trabajo de aprendizaje continúa con tutoriales por dominio y casos reproducidos en proyectos independientes.
+
+## Tutoriales y reproducciones
+
+El [índice de tutoriales](../tutorials/README.md) cubre los 18 dominios con un ejercicio, un criterio observable y un enlace a un activo canónico por dominio. El [índice de casos](../cases/README.md) reúne siete reproducciones internas, con comparaciones históricas de Git y verificaciones del catálogo, proyección de skills, lector Markdown, protocolos y publicación bajo el prefijo de Pages. La evidencia independiente sigue pendiente.

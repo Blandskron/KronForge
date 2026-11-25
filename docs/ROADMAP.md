@@ -145,7 +145,7 @@ Ningún protocolo supera `experimental`. La evidencia proviene de un solo proyec
 
 ## v3.5 — Aprendizaje y casos reales
 
-**Estado:** en curso. Las 14 rutas tienen nivel, prerrequisito, objetivo y entregable. La [guía de prácticas](LEARNING_LABS.md) cubre los siete temas prioritarios y el [caso de compatibilidad](audits/KRONFORGE_LEARNING_CASE.md) se reproduce en KronForge. Siguen pendientes los casos en proyectos independientes y los tutoriales completos por dominio. [Auditoría de avance](audits/KRONFORGE_EVOLUTION.md)
+**Estado:** en curso. Las 14 rutas tienen nivel, prerrequisito, objetivo y entregable. Hay [siete prácticas iniciales](LEARNING_LABS.md), un [tutorial para cada uno de los 18 dominios](tutorials/README.md) y [siete casos reproducibles en KronForge](cases/README.md). Sigue pendiente obtener evidencia de proyectos independientes. [Auditoría de avance](audits/KRONFORGE_EVOLUTION.md)
 
 ### Objetivos
 

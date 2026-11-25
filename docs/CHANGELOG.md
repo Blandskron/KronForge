@@ -6,6 +6,7 @@ Todos los cambios notables en este proyecto serán documentados en este archivo.
 
 ## Sin publicar
 
+- Dieciocho tutoriales por dominio con ejercicios y criterios de aceptación, seis casos reproducibles nuevos y acceso a ambos índices desde el portal, el README y `llms.txt`.
 - Los 57 activos pendientes declaran entradas, salidas y casos de uso en su fuente canónica. Los 65 activos del catálogo tienen esos tres campos completos.
 - Siete prácticas guiadas y un caso reproducible sobre la compatibilidad del catálogo v3.
 - Primeros tres activos en desarrollo de software, datos y gestión técnica. Cinco activos anteriores incorporan contratos explícitos y el validador comprueba la paridad de sus campos.

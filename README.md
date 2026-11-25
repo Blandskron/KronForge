@@ -23,7 +23,7 @@ El flujo operativo se mantiene simple: **Copiar -> Pegar -> Auditar -> Aprobar -
 - una [biblioteca por dominios](library/README.md) con activos ejecutables, de conocimiento, gobierno e integración;
 - una [suite de protocolos de ingeniería](library/domains/engineering-protocols/README.md) para que personas y agentes deleguen, revisen, validen y publiquen con evidencia verificable;
 - un [catálogo v3](library/catalog.json) validado por [JSON Schema](library/schema/catalog-v3.schema.json);
-- relaciones entre activos, [rutas de aprendizaje](docs/LEARNING_GUIDANCE.md) y un [ejercicio reproducible](docs/learning-quality-example.md);
+- relaciones entre activos, [rutas de aprendizaje](docs/LEARNING_GUIDANCE.md), [tutoriales por dominio](docs/tutorials/README.md) y [casos reproducibles](docs/cases/README.md);
 - documentación operativa en [`docs/agent/`](docs/agent/) y un [registro de decisiones](docs/adr/README.md);
 - gobierno OSS, controles automáticos y un portal estático sin build de producción.
 

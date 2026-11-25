@@ -82,6 +82,12 @@ const routes = new Set([
     ...catalog.assets.map((asset) => `/library/${asset.path}`)
 ]);
 
+for (const directory of ['tutorials', 'cases']) {
+    for (const file of await walk(fromRoot('docs', directory), (target) => target.endsWith('.md'))) {
+        routes.add(`/${toPosix(path.relative(ROOT, file))}`);
+    }
+}
+
 for (const file of await walk(fromRoot('pages'), (target) => target.endsWith('.html'))) {
     routes.add(`/${toPosix(path.relative(ROOT, file))}`);
 }

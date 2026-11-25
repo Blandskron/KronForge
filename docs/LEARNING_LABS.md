@@ -2,6 +2,8 @@
 
 Trabaja en una copia local con los permisos correspondientes. Usa datos sintéticos para los ejercicios y registra el estado del código antes de ejecutar controles. Las primeras prácticas recorren instrucciones y contexto. Las últimas comprueban un cambio y su entrega.
 
+Continúa con los [tutoriales por dominio](tutorials/README.md) para producir un entregable revisable o con los [casos reproducibles](cases/README.md) para repetir comprobaciones de KronForge.
+
 ## 1. Revisar un prompt
 
 Toma una instrucción del [prompt maestro](../prompts/agents-first-documentation-review.prompt.md). Busca el comando o archivo al que remite dentro del repositorio elegido. Reescribe la instrucción para declarar qué evidencia necesita y qué hacer cuando falte. Compara ambas versiones sobre la misma entrada y guarda una nota con la diferencia observada. Usa la [guía de actualización](../skills/prompt-update/SKILL.md) si el cambio afecta a un prompt versionado.
