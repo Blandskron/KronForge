@@ -74,6 +74,16 @@ export {
     applyUninstall,
     planInstall,
     planUninstall,
+    repairInstall,
     rollbackInstall,
     runDoctor
 } from './lib/installer.mjs';
+export {
+    createCheckpoint,
+    initMemory,
+    listLearningCandidates,
+    promoteLearningCandidate,
+    recordLearningCandidate,
+    saveMemoryEntry,
+    searchMemory
+} from './lib/memory-store.mjs';

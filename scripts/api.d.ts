@@ -138,7 +138,15 @@ export declare function applyInstall(targetDir?: string, options?: KronForgeInst
 export declare function planUninstall(targetDir: string, packIds: string[], options?: {force?: boolean}): Promise<Record<string, unknown>>;
 export declare function applyUninstall(targetDir: string, packIds: string[], options?: {dryRun?: boolean; force?: boolean}): Promise<Record<string, unknown>>;
 export declare function rollbackInstall(targetDir?: string, options?: {dryRun?: boolean}): Promise<Record<string, unknown>>;
+export declare function repairInstall(targetDir?: string, options?: {dryRun?: boolean; force?: boolean}): Promise<Record<string, unknown>>;
 export declare function runDoctor(targetDir?: string): Promise<Record<string, unknown>>;
+export declare function initMemory(targetDir?: string): Promise<Record<string, unknown>>;
+export declare function saveMemoryEntry(targetDir?: string, options?: {title: string; content: string; tags?: string[]}): Promise<Record<string, unknown>>;
+export declare function searchMemory(targetDir?: string, query?: string): Promise<Record<string, unknown>>;
+export declare function createCheckpoint(targetDir?: string, options?: {label?: string; status?: string; notes?: string; evidence?: string[]}): Promise<Record<string, unknown>>;
+export declare function recordLearningCandidate(targetDir?: string, options?: {title: string; lesson: string; evidence?: string}): Promise<Record<string, unknown>>;
+export declare function listLearningCandidates(targetDir?: string): Promise<Record<string, unknown>>;
+export declare function promoteLearningCandidate(targetDir: string, candidateId: string, options: {approved: boolean}): Promise<Record<string, unknown>>;
 export declare function discoverContext(targetDir?: string): Promise<Record<string, unknown>>;
 export declare function routeContext(targetDir?: string, options?: {task?: string; budget?: number}): Promise<Record<string, unknown>>;
 export declare function validateRepositoryGovernance(targetDir?: string): Promise<Record<string, unknown>>;

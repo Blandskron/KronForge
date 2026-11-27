@@ -18,6 +18,11 @@ const SUPPORTED_ADAPTERS = {
         id: 'cursor',
         target: '.cursor/rules/kronforge.mdc',
         title: 'Adaptador para Cursor'
+    },
+    codex: {
+        id: 'codex',
+        target: '.codex/AGENTS.md',
+        title: 'Adaptador para OpenAI Codex'
     }
 };
 

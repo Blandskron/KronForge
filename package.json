@@ -53,6 +53,7 @@
     "scripts/lib/governance-validator.mjs",
     "scripts/lib/assurance.mjs",
     "scripts/lib/builders.mjs",
+    "scripts/lib/memory-store.mjs",
     "scripts/lib/packs.mjs",
     "scripts/lib/context-generator.mjs",
     "scripts/lib/installer.mjs",

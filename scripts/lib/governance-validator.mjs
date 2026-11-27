@@ -166,6 +166,56 @@ export async function validateRepositoryGovernance(targetDir = process.cwd()) {
     }
     checks.push({id: 'lock-integrity', ok: lockIssues === 0});
 
+    // 5. Agent Config & MCP Shield (auditoría de configuraciones de agentes y hooks)
+    const agentConfigCandidates = [
+        '.claude/settings.json',
+        '.claude/settings.local.json',
+        '.mcp.json',
+        'mcp.json',
+        '.cursor/mcp.json',
+        'hooks/hooks.json'
+    ];
+    let shieldIssues = 0;
+    let shieldChecked = 0;
+    for (const rel of agentConfigCandidates) {
+        const full = path.join(root, rel);
+        let raw;
+        try {
+            const st = await lstat(full);
+            if (!st.isFile() || st.isSymbolicLink()) continue;
+            raw = await readFile(full, 'utf8');
+        } catch {
+            continue;
+        }
+        shieldChecked += 1;
+        if (/"dangerouslyDisableSandbox"\s*:\s*true/i.test(raw) || /"Bash\(\*\)"/.test(raw)) {
+            shieldIssues += 1;
+            errors.push({
+                code: 'AGENT_SHIELD_EXCESSIVE_PERMISSIONS',
+                path: rel,
+                message: `Permiso excesivo o sandbox deshabilitado en configuración de agente: ${rel}`
+            });
+        }
+        if (/http:\/\/(?!localhost\b|127\.0\.0\.1\b)/i.test(raw)) {
+            warnings.push({
+                code: 'AGENT_SHIELD_INSECURE_MCP_HTTP',
+                path: rel,
+                message: `URL HTTP sin TLS hacia host remoto detectada en ${rel}`
+            });
+        }
+        for (const unsafe of UNSAFE_REMOTE_EXEC_PATTERNS) {
+            if (unsafe.test(raw)) {
+                shieldIssues += 1;
+                errors.push({
+                    code: 'AGENT_SHIELD_HOOK_INJECTION',
+                    path: rel,
+                    message: `Patrón de ejecución remota insegura detectado en ${rel}`
+                });
+            }
+        }
+    }
+    checks.push({id: 'agent-config-shield', ok: shieldIssues === 0, checkedConfigs: shieldChecked});
+
     return {
         root,
         status: errors.length === 0 ? 'PASS' : 'FAIL',

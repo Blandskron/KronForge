@@ -5,22 +5,30 @@ import {
     applyUninstall,
     auditRepository,
     buildPackManifest,
+    createCheckpoint,
     detectRepository,
     discoverContext,
+    initMemory,
     listAssets,
     listAvailablePacks,
     listAvailableProfiles,
     listDomains,
+    listLearningCandidates,
     loadPackageMeta,
+    promoteLearningCandidate,
     readAssetMarkdown,
     readLlmsTxt,
     readMasterPrompt,
+    recordLearningCandidate,
     renderAssuranceMarkdown,
+    repairInstall,
     rollbackInstall,
     routeContext,
     runDoctor,
+    saveMemoryEntry,
     scaffoldSkill,
     scoreRepository,
+    searchMemory,
     validateRepositoryGovernance,
     verifyPackManifest
 } from './api.mjs';
@@ -43,7 +51,7 @@ function positionalArgs() {
     for (let i = 1; i < args.length; i += 1) {
         const arg = args[i];
         if (arg.startsWith('--')) {
-            if (!['--json', '--dry-run', '--force', '--help', '-h', '--version', '-v'].includes(arg)) {
+            if (!['--json', '--dry-run', '--force', '--approve', '--help', '-h', '--version', '-v'].includes(arg)) {
                 i += 1;
             }
             continue;
@@ -72,7 +80,10 @@ Uso — Operación sobre repositorios:
   kronforge update [dir] [--dry-run] [--force] [--json]
   kronforge uninstall <pack...> [--dir <dir>] [--dry-run] [--force] [--json]
   kronforge rollback [dir] [--dry-run] [--json]
+  kronforge repair [dir] [--dry-run] [--force] [--json] Restaura archivos gestionados ausentes sin pisar deriva
   kronforge doctor [dir] [--json]                      Verifica integridad del lock y deriva local
+  kronforge memory init|save|search|checkpoint [dir]   Gestiona memoria persistente y checkpoints en Markdown
+  kronforge learn record|list|promote [dir]            Aprendizaje auditable en cuarentena (requiere --approve)
   kronforge validate [dir] [--json]                    Valida gobernanza, secretos, skills y lock SHA-256
   kronforge score [dir] [--json]                       Calcula el Engineering Score universal (0-100)
   kronforge audit [dir] [--json]                       Ejecuta auditoría integral con evidencia AFP-004
@@ -327,6 +338,66 @@ try {
             if (res.status !== 'PASS') process.exitCode = 1;
         } else {
             console.error('Uso: kronforge pack build|verify <dir> [--id <id>] [--version <v>] [--json]');
+            process.exitCode = 1;
+        }
+    } else if (command === 'repair') {
+        const dir = readFlag('--dir') || positionals[0] || process.cwd();
+        const result = await repairInstall(dir, {dryRun, force});
+        if (asJson) console.log(JSON.stringify(result, null, 2));
+        else console.log(`KronForge repair [${result.dryRun ? 'DRY-RUN' : result.repaired ? 'REPARADO' : 'SIN CAMBIOS'}] · ausentes: ${result.missing.length} · deriva: ${result.drifted.length}`);
+    } else if (command === 'memory') {
+        const sub = positionals[0];
+        const dir = readFlag('--dir') || positionals[1] || process.cwd();
+        if (sub === 'init') {
+            const res = await initMemory(dir);
+            if (asJson) console.log(JSON.stringify(res, null, 2));
+            else console.log(`Memoria inicializada en ${res.memoryDir} y ${res.checkpointsDir}`);
+        } else if (sub === 'save') {
+            const tagsRaw = readFlag('--tags');
+            const res = await saveMemoryEntry(dir, {
+                title: readFlag('--title'),
+                content: readFlag('--content'),
+                tags: tagsRaw ? tagsRaw.split(',').map((t) => t.trim()).filter(Boolean) : []
+            });
+            if (asJson) console.log(JSON.stringify(res, null, 2));
+            else console.log(`Nota guardada: ${res.path}`);
+        } else if (sub === 'search') {
+            const res = await searchMemory(dir, readFlag('--query') || positionals[2] || '');
+            if (asJson) console.log(JSON.stringify(res, null, 2));
+            else for (const m of res.matches) console.log(`${m.path}\t${m.preview}`);
+        } else if (sub === 'checkpoint') {
+            const res = await createCheckpoint(dir, {
+                label: readFlag('--label') || 'checkpoint',
+                notes: readFlag('--notes') || ''
+            });
+            if (asJson) console.log(JSON.stringify(res, null, 2));
+            else console.log(`Checkpoint creado: ${res.path} (SHA-256: ${res.sha256})`);
+        } else {
+            console.error('Uso: kronforge memory init|save|search|checkpoint [dir] [--json]');
+            process.exitCode = 1;
+        }
+    } else if (command === 'learn') {
+        const sub = positionals[0];
+        const dir = readFlag('--dir') || process.cwd();
+        if (sub === 'record') {
+            const res = await recordLearningCandidate(dir, {
+                title: readFlag('--title'),
+                lesson: readFlag('--lesson'),
+                evidence: readFlag('--evidence')
+            });
+            if (asJson) console.log(JSON.stringify(res, null, 2));
+            else console.log(`Candidato registrado en cuarentena: ${res.id} (status: ${res.status}, trusted: ${res.trusted})`);
+        } else if (sub === 'list') {
+            const res = await listLearningCandidates(dir);
+            if (asJson) console.log(JSON.stringify(res, null, 2));
+            else for (const c of res.candidates) console.log(`${c.id}\t[${c.status}]\t${c.title}`);
+        } else if (sub === 'promote') {
+            const id = positionals[1];
+            const res = await promoteLearningCandidate(dir, id, {approved: hasFlag('--approve')});
+            if (asJson) console.log(JSON.stringify(res, null, 2));
+            else console.log(`Aprendizaje promovido tras aprobación humana: ${res.memoryPath}`);
+        } else {
+            console.error('Uso: kronforge learn record|list|promote [id] [--dir <dir>] [--approve] [--json]');
             process.exitCode = 1;
         }
     } else if (command === 'doctor') {

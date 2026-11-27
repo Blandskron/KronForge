@@ -427,3 +427,41 @@ export async function runDoctor(targetDir) {
         detection
     };
 }
+
+export async function repairInstall(targetDir, options = {}) {
+    const root = path.resolve(targetDir || process.cwd());
+    const doctor = await runDoctor(root);
+    if (!doctor.initialized) {
+        throw new Error('No existe instalación de KronForge en este directorio (.kronforge/lock.json ausente).');
+    }
+
+    const missing = doctor.checkedFiles.filter((f) => f.status === 'missing').map((f) => f.target);
+    const drifted = doctor.checkedFiles.filter((f) => f.status === 'drifted').map((f) => f.target);
+
+    if (!missing.length && (!drifted.length || !options.force)) {
+        return {
+            repaired: false,
+            dryRun: Boolean(options.dryRun),
+            missing,
+            drifted,
+            message: drifted.length
+                ? 'Archivos modificados localmente preservados. Usa --force solo si deseas restaurarlos al estado del lock.'
+                : 'La instalación ya está saludable; no se requiere reparación.'
+        };
+    }
+
+    const result = await applyInstall(root, {
+        update: true,
+        dryRun: Boolean(options.dryRun),
+        force: Boolean(options.force)
+    });
+
+    return {
+        repaired: Boolean(result.applied),
+        dryRun: Boolean(options.dryRun),
+        missing,
+        drifted,
+        snapshotId: result.snapshotId || null,
+        plan: result.plan
+    };
+}
