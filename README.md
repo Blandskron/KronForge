@@ -14,7 +14,7 @@ Anteriormente Agents First Framework. [Guía de marca](docs/BRAND_GUIDELINES.md)
 
 Plataforma documental abierta de AI Engineering para diseñar contexto, repositorios, agentes y software verificable mediante conocimiento reutilizable.
 
-KronForge 3.4.2 organiza el conocimiento en capas, con catálogo machine-readable, contratos editoriales, rutas de aprendizaje, gobierno OSS y controles de calidad reproducibles. La compatibilidad se apoya en Markdown e instrucciones explícitas y es agnóstica al modelo, proveedor y stack.
+KronForge 3.4.3 organiza el conocimiento en capas, con catálogo machine-readable, contratos editoriales, rutas de aprendizaje, gobierno OSS y controles de calidad reproducibles. La compatibilidad se apoya en Markdown e instrucciones explícitas y es agnóstica al modelo, proveedor y stack.
 
 El Markdown de `library/` es la fuente canónica de los activos. El [catálogo](library/catalog.json) se mantiene en paridad con sus metadatos. Las [skills distribuibles](skills/README.md), [`llms.txt`](llms.txt) y los [metadatos de aprendizaje](library/learning-guidance.json) se regeneran con `npm run build`. Las referencias declaradas se rigen por la [política de frescura](docs/SPEC_FRESHNESS.md).
 
