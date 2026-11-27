@@ -21,6 +21,9 @@ Este directorio registra decisiones estructurales reales del framework.
 | [ADR-0006](ADR-0006-protocol-asset-type.md) | accepted | Tipo de activo `protocol` y capa de protocolos de ingeniería |
 | [ADR-0007](ADR-0007-evidence-citation-not-dependency.md) | accepted | La evidencia externa se cita, no se aloja |
 | [ADR-0008](ADR-0008-kronforge-portal-identity.md) | accepted | Identidad y publicación de KronForge |
+| [ADR-0009](ADR-0009-pack-composition-and-distribution.md) | proposed | Composición de packs y distribución portable |
+| [ADR-0010](ADR-0010-pinned-installation-and-trust.md) | proposed | Instalación fijada, aprobada y recuperable |
+| [ADR-0011](ADR-0011-external-adoption-before-cli.md) | proposed | Adopción externa como condición para ampliar la automatización |
 
 Para una decisión nueva, usa la [plantilla ADR](../../library/domains/architecture/templates/adr.template.md), elimina instrucciones y actualiza este índice.
 

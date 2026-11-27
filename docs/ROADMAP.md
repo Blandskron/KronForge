@@ -217,6 +217,8 @@ Ningún protocolo supera `experimental`. La evidencia proviene de un solo proyec
 
 ## Cambios al roadmap
 
+La [propuesta de evolución de KronForge](KRONFORGE_EVOLUTION_ROADMAP.md) detalla ciclos candidatos, dependencias y criterios de aceptación para packs, distribución y adopción externa. Sus decisiones arquitectónicas siguen en revisión.
+
 Una modificación de objetivos o criterios requiere issue o RFC. Si cambia arquitectura, compatibilidad o secuencia de releases, también requiere ADR y aprobación según [GOVERNANCE.md](../GOVERNANCE.md).
 
 El roadmap no es una promesa de fecha. Una entrega se declara completada solo con evidencia registrada en changelog y quality gates.

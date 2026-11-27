@@ -6,6 +6,9 @@ Todos los cambios notables en este proyecto serán documentados en este archivo.
 
 ## Sin publicar
 
+- [Auditoría de evolución de KronForge](audits/KRONFORGE_EVOLUTION_AUDIT.md) con investigación de estándares y distribución, arquitectura objetivo, contratos para packs y roadmap por ciclos.
+- [ADR-0009](adr/ADR-0009-pack-composition-and-distribution.md), [ADR-0010](adr/ADR-0010-pinned-installation-and-trust.md) y [ADR-0011](adr/ADR-0011-external-adoption-before-cli.md) en estado `proposed`.
+- [Ficha de BLK-ENG-001](KRONFORGE_C0_BLK_ENG_001.md) y ensayo reproducible con datos sintéticos. C0 está cerrado para uso interno y C1 para el perfil A + R conserva pendiente la evidencia de reproducción independiente.
 - Dieciocho tutoriales por dominio con ejercicios y criterios de aceptación, seis casos reproducibles nuevos y acceso a ambos índices desde el portal, el README y `llms.txt`.
 - Los 57 activos pendientes declaran entradas, salidas y casos de uso en su fuente canónica. Los 65 activos del catálogo tienen esos tres campos completos.
 - Siete prácticas guiadas y un caso reproducible sobre la compatibilidad del catálogo v3.
