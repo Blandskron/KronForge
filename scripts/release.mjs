@@ -37,8 +37,18 @@ if (!nextVersion || !/^\d+\.\d+\.\d+$/.test(nextVersion)) {
 }
 
 function run(command, commandArgs, options = {}) {
-    const executable = process.platform === 'win32' && command === 'npm' ? 'npm.cmd' : command;
-    const result = spawnSync(executable, commandArgs, {
+    let executable = command;
+    let finalArgs = commandArgs;
+    if (command === 'npm') {
+        if (process.env.npm_execpath && process.env.npm_execpath.endsWith('.js')) {
+            executable = process.execPath;
+            finalArgs = [process.env.npm_execpath, ...commandArgs];
+        } else if (process.platform === 'win32') {
+            executable = 'cmd.exe';
+            finalArgs = ['/d', '/s', '/c', 'npm.cmd', ...commandArgs];
+        }
+    }
+    const result = spawnSync(executable, finalArgs, {
         cwd: ROOT,
         stdio: options.capture ? 'pipe' : 'inherit',
         encoding: 'utf8'

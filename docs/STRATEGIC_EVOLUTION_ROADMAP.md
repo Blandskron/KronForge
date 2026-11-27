@@ -92,6 +92,6 @@
 
 | ID | Tarea | Prioridad | Dependencias | Estado |
 |---|---|---|---|---|
-| `C7-T1` | Matriz CI multi-OS (Windows, Linux, macOS) e instalaciones limpias desde `.tgz` | P0 | Ciclos 1–6 | `Pending` |
-| `C7-T2` | Validación externa reproducible multi-stack (Greenfield y Brownfield) | P0 | `C7-T1` | `Pending` |
-| `C7-T3` | Auditoría final, re-evaluación competitiva, Changelog, Release Notes y Go/No-Go | P0 | `C7-T2` | `Pending` |
+| `C7-T1` | Matriz CI multi-OS (Windows, Linux, macOS) e instalaciones limpias desde `.tgz` | P0 | Ciclos 1–6 | `Completed` |
+| `C7-T2` | Validación externa reproducible multi-stack (Greenfield y Brownfield) | P0 | `C7-T1` | `Completed` |
+| `C7-T3` | Auditoría final, re-evaluación competitiva, Changelog, Release Notes y Go/No-Go | P0 | `C7-T2` | `Completed` |

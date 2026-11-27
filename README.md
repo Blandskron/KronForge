@@ -66,10 +66,15 @@ El [prototipo de packs](docs/KRONFORGE_PACK_PREVIEW.md) permite ensayar planific
 Ejecuta el CLI directamente con `npx` (Node.js `>=24`):
 
 ```powershell
+npx kronforge detect
+npx kronforge init --profile opensource --dry-run
+npx kronforge install security testing spec-driven
+npx kronforge context --task "seguridad" --budget 2000
+npx kronforge validate
+npx kronforge score
+npx kronforge report --format md
+npx kronforge doctor
 npx kronforge prompt
-npx kronforge domains
-npx kronforge list --type protocol
-npx kronforge show <asset-id>
 ```
 
 O instálalo como paquete con declaraciones TypeScript incluidas (`npm install kronforge`):

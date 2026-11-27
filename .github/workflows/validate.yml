@@ -16,9 +16,13 @@ concurrency:
 
 jobs:
   quality:
-    name: Documentation and portal quality
-    runs-on: ubuntu-latest
+    name: Documentation and portal quality (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
     timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
 
     steps:
       - name: Check out repository
@@ -32,7 +36,7 @@ jobs:
       - name: Validate catalog, links and source
         run: npm run validate
 
-      - name: Run unit tests
+      - name: Run unit and integration tests
         run: npm test
 
       - name: Smoke-test GitHub Pages paths
