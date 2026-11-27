@@ -53,6 +53,12 @@ Todo pull request debe explicar:
 
 Los criterios de revisión y cierre viven en [QUALITY_GATES.md](docs/QUALITY_GATES.md). Un checklist marcado sin evidencia no demuestra cumplimiento.
 
+### Revisión con un mantenedor
+
+KronForge usa el perfil individual mientras tenga un único mantenedor. Para un cambio ordinario, abre una PR propia, revisa el diff y registra los checks verdes para el commit revisado. Si revisas tu propio trabajo, registra autorrevisión. Usa squash como integración habitual y explica en la PR cualquier excepción.
+
+Los cambios de autenticación, secretos, permisos o cadena de publicación requieren la revisión reforzada definida por [AFP-005](library/domains/engineering-protocols/protocols/independent-review.protocol.md). Cuando falte revisión independiente en un cambio crítico, el owner debe decidir y registrar expresamente el riesgo, el alcance y la condición de seguimiento antes de integrar.
+
 El maintainer puede solicitar cambios, dividir el alcance o rechazar una propuesta que duplique activos, rompa los principios del framework o aumente el costo de mantenimiento sin beneficio verificable.
 
 ## Licencia y procedencia

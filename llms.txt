@@ -1,6 +1,6 @@
 # KronForge — Agents-First Engineering Framework
 
-> Plataforma documental abierta de AI Engineering para diseñar contexto, repositorios, agentes y software verificable. Markdown canónico, agnóstico al modelo y al stack, sin runtime. Versión 3.4.0, catálogo actualizado el 2026-11-25.
+> Plataforma documental abierta de AI Engineering para diseñar contexto, repositorios, agentes y software verificable. Markdown canónico, agnóstico al modelo y al stack, sin runtime. Versión 3.4.0, catálogo actualizado el 2026-11-27.
 
 El conocimiento vive en Markdown bajo `library/domains/`. El catálogo JSON y las carpetas `skills/` son proyecciones verificadas de esa fuente, no fuentes alternativas.
 
@@ -123,6 +123,7 @@ AppSec, supply chain, secretos, identidad y autorización.
 
 - [Auditoría de vulnerabilidades en dependencias](https://blandskron.github.io/KronForge/library/domains/security/prompts/dependency-vulnerability-audit.prompt.md): prompt · Revisar manifiestos y lockfiles con herramientas verificadas del proyecto.
 - [Auditoría de seguridad de imágenes Docker](https://blandskron.github.io/KronForge/library/domains/security/prompts/docker-image-security-audit.prompt.md): prompt · Revisar Dockerfiles e imágenes sin inventar herramientas ni ejecutar explotación.
+- [Auditoría técnica de privacidad](https://blandskron.github.io/KronForge/library/domains/security/prompts/privacy-audit.prompt.md): prompt · Inventariar flujos de datos y priorizar brechas de privacidad con evidencia verificable.
 - [Auditoría de ciberseguridad](https://blandskron.github.io/KronForge/library/domains/security/prompts/security-audit.prompt.md): prompt · Detectar, clasificar y reportar riesgos sin explotar vulnerabilidades.
 
 ## Entrega y plataforma

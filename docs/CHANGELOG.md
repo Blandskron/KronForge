@@ -6,6 +6,10 @@ Todos los cambios notables en este proyecto serán documentados en este archivo.
 
 ## Sin publicar
 
+- Perfil de trabajo con un único mantenedor, aviso de privacidad del portal y primer borrador del prompt de auditoría técnica de privacidad en la biblioteca. Canal privado de reportes de seguridad habilitado y verificado.
+
+- Validación documental del perfil de mantenedor único y ensayo del prompt de privacidad sobre el portal estático, con configuración observada y brechas pendientes de decisión.
+
 - Guía visual de uso de KronForge en la portada y el README, con capturas reales de la biblioteca y el visor. El recorrido nativo y el kit sintético v2 se centran en Codex.
 
 - Ensayo reproducible del kit externo en mini proyectos Node.js y Python, con evidencia del ciclo de vida del pack y del descubrimiento y la ejecución en los clientes probados.
