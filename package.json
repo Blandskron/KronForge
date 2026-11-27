@@ -1,10 +1,13 @@
 {
   "name": "kronforge",
-  "version": "3.4.1",
+  "version": "3.4.2",
   "type": "module",
   "description": "KronForge: plataforma documental abierta de AI Engineering con catálogo v3, prompts, skills y protocolos reutilizables sin dependencias.",
   "license": "MIT",
-  "author": "Blandskron",
+  "author": {
+    "name": "Blandskron",
+    "url": "https://github.com/Blandskron"
+  },
   "homepage": "https://blandskron.github.io/KronForge/",
   "repository": {
     "type": "git",
@@ -24,8 +27,12 @@
     "protocols",
     "documentation"
   ],
+  "types": "./scripts/api.d.ts",
   "exports": {
-    ".": "./scripts/api.mjs",
+    ".": {
+      "types": "./scripts/api.d.ts",
+      "import": "./scripts/api.mjs"
+    },
     "./catalog": "./library/catalog.json",
     "./schema": "./library/schema/catalog-v3.schema.json",
     "./package.json": "./package.json"
@@ -39,6 +46,7 @@
     "skills/",
     "llms.txt",
     "scripts/api.mjs",
+    "scripts/api.d.ts",
     "scripts/cli.mjs",
     "README.md",
     "LICENSE",

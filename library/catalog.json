@@ -1,7 +1,7 @@
 {
   "$schema": "schema/catalog-v3.schema.json",
   "schemaVersion": 3,
-  "frameworkVersion": "3.4.1",
+  "frameworkVersion": "3.4.2",
   "lastUpdated": "2026-11-27",
   "metadataDefaults": {
     "author": "@Blandskron/contributors",

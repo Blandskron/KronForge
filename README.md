@@ -1,6 +1,12 @@
 # KronForge — Agents-First Engineering Framework
 
-![KronForge](assets/img/kronforge-social.png)
+[![npm version](https://img.shields.io/npm/v/kronforge?color=cb3837&label=npm)](https://www.npmjs.com/package/kronforge)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue)](https://github.com/Blandskron/KronForge/blob/main/LICENSE)
+[![Node.js](https://img.shields.io/badge/node-%3E%3D24-339933)](https://nodejs.org/)
+[![Zero Dependencies](https://img.shields.io/badge/dependencies-0-brightgreen)](https://www.npmjs.com/package/kronforge?activeTab=dependencies)
+[![Validate framework](https://github.com/Blandskron/KronForge/actions/workflows/validate.yml/badge.svg)](https://github.com/Blandskron/KronForge/actions/workflows/validate.yml)
+
+![KronForge](https://blandskron.github.io/KronForge/assets/img/kronforge-social.png)
 
 **Forge better software. Empower intelligent agents.** · Open Source · By BLANDSKRON.
 
@@ -8,7 +14,7 @@ Anteriormente Agents First Framework. [Guía de marca](docs/BRAND_GUIDELINES.md)
 
 Plataforma documental abierta de AI Engineering para diseñar contexto, repositorios, agentes y software verificable mediante conocimiento reutilizable.
 
-KronForge 3.4.1 organiza el conocimiento en capas, con catálogo machine-readable, contratos editoriales, rutas de aprendizaje, gobierno OSS y controles de calidad reproducibles. La compatibilidad se apoya en Markdown e instrucciones explícitas y es agnóstica al modelo, proveedor y stack.
+KronForge 3.4.2 organiza el conocimiento en capas, con catálogo machine-readable, contratos editoriales, rutas de aprendizaje, gobierno OSS y controles de calidad reproducibles. La compatibilidad se apoya en Markdown e instrucciones explícitas y es agnóstica al modelo, proveedor y stack.
 
 El Markdown de `library/` es la fuente canónica de los activos. El [catálogo](library/catalog.json) se mantiene en paridad con sus metadatos. Las [skills distribuibles](skills/README.md), [`llms.txt`](llms.txt) y los [metadatos de aprendizaje](library/learning-guidance.json) se regeneran con `npm run build`. Las referencias declaradas se rigen por la [política de frescura](docs/SPEC_FRESHNESS.md).
 
@@ -55,15 +61,27 @@ Revisa el diagnóstico y autoriza el alcance. Al finalizar, conserva el diff, lo
 
 El [prototipo de packs](docs/KRONFORGE_PACK_PREVIEW.md) permite ensayar planificación, instalación, actualización y retiro con un repositorio desechable. La [guía del kit sintético](docs/KRONFORGE_EXTERNAL_TRIAL.md) incluye la prueba en Codex y qué evidencia devolver.
 
-### Desde npm (sin dependencias)
+### Desde npm (CLI y API sin dependencias)
+
+Ejecuta el CLI directamente con `npx` (Node.js `>=24`):
 
 ```powershell
 npx kronforge prompt
+npx kronforge domains
 npx kronforge list --type protocol
 npx kronforge show <asset-id>
 ```
 
-También puedes instalarlo como paquete (`npm install kronforge`) para importar el catálogo o leer activos Markdown desde Node.js (`>=24`).
+O instálalo como paquete con declaraciones TypeScript incluidas (`npm install kronforge`):
+
+```js
+import { loadCatalog, listAssets, readAssetMarkdown, readMasterPrompt } from 'kronforge';
+
+const catalog = await loadCatalog();
+const protocols = await listAssets({ type: 'protocol' });
+const prompt = await readMasterPrompt();
+const markdown = await readAssetMarkdown(protocols[0].id);
+```
 
 ## Dominios
 

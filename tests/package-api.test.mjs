@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {spawnSync} from 'node:child_process';
+import {access} from 'node:fs/promises';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {
@@ -40,6 +41,10 @@ test('la API del paquete expone catálogo, dominios, activos, prompt maestro y l
 
     const llms = await readLlmsTxt();
     assert.ok(llms.includes('KronForge'));
+
+    assert.equal(pkg.types, './scripts/api.d.ts');
+    assert.equal(pkg.exports['.'].types, './scripts/api.d.ts');
+    await access(path.join(ROOT, 'scripts', 'api.d.ts'));
 });
 
 test('el CLI kronforge responde a --version, domains, list --json y show', async () => {

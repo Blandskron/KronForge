@@ -5,7 +5,7 @@
  * funciona igual en localhost y bajo /KronForge/ en GitHub Pages.
  */
 export const SITE_ROOT = new URL('../../', import.meta.url);
-export const SITE_VERSION = '3.4.1';
+export const SITE_VERSION = '3.4.2';
 
 export function siteUrl(relativePath, versioned = false) {
     const url = new URL(relativePath, SITE_ROOT);

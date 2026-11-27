@@ -32,6 +32,18 @@ Todos los cambios notables en este proyecto serán documentados en este archivo.
 - Acceso directo a skills, prompts, protocolos y referencias, con enlaces a arquitectura, gobernanza y calidad.
 - URL de descubrimiento y metadatos alineados con el subdirectorio actual de GitHub Pages.
 
+## [3.4.2] - 2026-11-27
+
+### Añadido
+
+- Declaraciones TypeScript sin dependencias en `scripts/api.d.ts` expuestas en `package.json` (`types` y `exports["."].types`) para soporte de tipado e insignia `TS` en npm.
+- Badges de estado (npm, licencia MIT, Node.js, cero dependencias y CI) y ejemplos de uso programático JS/TS en `README.md`.
+
+### Modificado
+
+- URL absoluta para el banner social en `README.md` para asegurar su renderizado tanto en GitHub como en npmjs.com.
+- Metadatos de autor enriquecidos con URL en `package.json`.
+
 ## [3.4.1] - 2026-11-27
 
 ### Añadido
