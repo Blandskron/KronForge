@@ -142,3 +142,7 @@ export declare function runDoctor(targetDir?: string): Promise<Record<string, un
 export declare function discoverContext(targetDir?: string): Promise<Record<string, unknown>>;
 export declare function routeContext(targetDir?: string, options?: {task?: string; budget?: number}): Promise<Record<string, unknown>>;
 export declare function validateRepositoryGovernance(targetDir?: string): Promise<Record<string, unknown>>;
+export declare function evaluateSkills(targetDir?: string): Promise<Record<string, unknown>>;
+export declare function scoreRepository(targetDir?: string): Promise<Record<string, unknown>>;
+export declare function auditRepository(targetDir?: string): Promise<Record<string, unknown>>;
+export declare function renderAssuranceMarkdown(audit: Record<string, unknown>): string;

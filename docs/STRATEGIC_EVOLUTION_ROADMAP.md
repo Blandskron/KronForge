@@ -72,9 +72,9 @@
 
 | ID | Tarea | Prioridad | Dependencias | Estado |
 |---|---|---|---|---|
-| `C5-T1` | Universal Repository Score (`kronforge score <dir>` y `kronforge audit <dir>`) | P1 | Ciclo 1, Ciclo 4 | `Pending` |
-| `C5-T2` | Evidence Engine (`AFP-004`) con veredictos verificables (`PASS/FAIL/NOT_RUN/STALE/NEEDS_REVIEW`) | P1 | `C5-T1` | `Pending` |
-| `C5-T3` | Skill & Workflow Evaluations + Benchmarks reproducibles (`AFP-008`) | P2 | `C5-T2` | `Pending` |
+| `C5-T1` | Universal Repository Score (`kronforge score <dir>` y `kronforge audit <dir>`) | P1 | Ciclo 1, Ciclo 4 | `Completed` |
+| `C5-T2` | Evidence Engine (`AFP-004`) con veredictos verificables (`PASS/FAIL/NOT_RUN/STALE/NEEDS_REVIEW`) | P1 | `C5-T1` | `Completed` |
+| `C5-T3` | Skill & Workflow Evaluations + Benchmarks reproducibles (`AFP-008`) | P2 | `C5-T2` | `Completed` |
 
 ---
 

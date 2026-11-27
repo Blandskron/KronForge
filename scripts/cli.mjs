@@ -1,7 +1,9 @@
 #!/usr/bin/env node
+import {writeFile} from 'node:fs/promises';
 import {
     applyInstall,
     applyUninstall,
+    auditRepository,
     detectRepository,
     discoverContext,
     listAssets,
@@ -12,9 +14,11 @@ import {
     readAssetMarkdown,
     readLlmsTxt,
     readMasterPrompt,
+    renderAssuranceMarkdown,
     rollbackInstall,
     routeContext,
     runDoctor,
+    scoreRepository,
     validateRepositoryGovernance
 } from './api.mjs';
 
@@ -67,6 +71,9 @@ Uso — Operación sobre repositorios:
   kronforge rollback [dir] [--dry-run] [--json]
   kronforge doctor [dir] [--json]                      Verifica integridad del lock y deriva local
   kronforge validate [dir] [--json]                    Valida gobernanza, secretos, skills y lock SHA-256
+  kronforge score [dir] [--json]                       Calcula el Engineering Score universal (0-100)
+  kronforge audit [dir] [--json]                       Ejecuta auditoría integral con evidencia AFP-004
+  kronforge report [dir] [--format md|json] [--out f]  Genera reporte verificable de madurez y evidencia
 
 Opciones generales:
   kronforge --version                                  Muestra la versión instalada
@@ -241,6 +248,41 @@ try {
             for (const warn of report.warnings) console.log(`  [WARN]  ${warn.code}: ${warn.message}`);
         }
         if (report.status !== 'PASS') process.exitCode = 1;
+    } else if (command === 'score') {
+        const dir = readFlag('--dir') || positionals[0] || process.cwd();
+        const report = await scoreRepository(dir);
+        if (asJson) {
+            console.log(JSON.stringify(report, null, 2));
+        } else {
+            console.log(`KronForge Engineering Score — ${report.repository}: ${report.total}/100 · Nivel ${report.grade} (${report.verdict})`);
+            for (const dim of report.dimensions) {
+                console.log(`  ${String(dim.score).padStart(2, ' ')}/${dim.max}  ${dim.name}`);
+            }
+        }
+        if (report.verdict === 'FAIL') process.exitCode = 1;
+    } else if (command === 'audit') {
+        const dir = readFlag('--dir') || positionals[0] || process.cwd();
+        const audit = await auditRepository(dir);
+        if (asJson) {
+            console.log(JSON.stringify(audit, null, 2));
+        } else {
+            console.log(renderAssuranceMarkdown(audit));
+        }
+        if (audit.verdict === 'FAIL') process.exitCode = 1;
+    } else if (command === 'report') {
+        const dir = readFlag('--dir') || positionals[0] || process.cwd();
+        const format = (readFlag('--format') || (asJson ? 'json' : 'md')).toLowerCase();
+        const outPath = readFlag('--out');
+        const audit = await auditRepository(dir);
+        const output = format === 'json'
+            ? `${JSON.stringify(audit, null, 2)}\n`
+            : renderAssuranceMarkdown(audit);
+        if (outPath) {
+            await writeFile(outPath, output, 'utf8');
+            console.log(`Reporte generado en ${outPath} (SHA-256: ${audit.digestSha256})`);
+        } else {
+            process.stdout.write(output);
+        }
     } else if (command === 'doctor') {
         const dir = readFlag('--dir') || positionals[0] || process.cwd();
         const report = await runDoctor(dir);

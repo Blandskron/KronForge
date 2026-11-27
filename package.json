@@ -51,6 +51,7 @@
     "scripts/lib/detector.mjs",
     "scripts/lib/context-discovery.mjs",
     "scripts/lib/governance-validator.mjs",
+    "scripts/lib/assurance.mjs",
     "scripts/lib/packs.mjs",
     "scripts/lib/context-generator.mjs",
     "scripts/lib/installer.mjs",
