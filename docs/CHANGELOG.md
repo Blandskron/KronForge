@@ -6,6 +6,8 @@ Todos los cambios notables en este proyecto serán documentados en este archivo.
 
 ## Sin publicar
 
+- Migración de `.github/workflows/publish-npm.yml` a npm Trusted Publishing (OIDC) sin `NPM_TOKEN`.
+
 - Perfil de trabajo con un único mantenedor, aviso de privacidad del portal y primer borrador del prompt de auditoría técnica de privacidad en la biblioteca. Canal privado de reportes de seguridad habilitado y verificado.
 
 - Validación documental del perfil de mantenedor único y ensayo del prompt de privacidad sobre el portal estático, con configuración observada y brechas pendientes de decisión.

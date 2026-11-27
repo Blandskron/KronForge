@@ -34,7 +34,6 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: 24
-          registry-url: 'https://registry.npmjs.org'
 
       - name: Verify tag and version parity
         if: startsWith(github.ref, 'refs/tags/v')
@@ -54,10 +53,8 @@ jobs:
       - name: Inspect package contents
         run: npm pack --dry-run
 
-      - name: Publish package to npm
+      - name: Publish package to npm (OIDC Trusted Publishing)
         if: startsWith(github.ref, 'refs/tags/v') || inputs.dry_run == false
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npm publish --provenance --access public
 
       - name: Create GitHub Release
