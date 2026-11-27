@@ -6,6 +6,8 @@ Todos los cambios notables en este proyecto serán documentados en este archivo.
 
 ## Sin publicar
 
+- [Prototipo local de packs](KRONFORGE_PACK_PREVIEW.md) con manifiestos fijados, plan revisable, estado por generación y pruebas de ciclo de vida. Ensayo npm offline para el código genérico y proyecciones sintéticas para verificar compatibilidad de instalación.
+
 - [Auditoría de evolución de KronForge](audits/KRONFORGE_EVOLUTION_AUDIT.md) con investigación de estándares y distribución, arquitectura objetivo, contratos para packs y roadmap por ciclos.
 - [ADR-0009](adr/ADR-0009-pack-composition-and-distribution.md), [ADR-0010](adr/ADR-0010-pinned-installation-and-trust.md) y [ADR-0011](adr/ADR-0011-external-adoption-before-cli.md) en estado `proposed`.
 - [Ficha de BLK-ENG-001](KRONFORGE_C0_BLK_ENG_001.md) y ensayo reproducible con datos sintéticos. C0 y el piloto interno C1 para A + R están cerrados. El cierre de C1 registra el ensayo del autor y la excepción a la revisión independiente autorizada por el titular.

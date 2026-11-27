@@ -2,6 +2,8 @@
 
 **Estado** Borrador de diseño. Los nombres y ejemplos sirven para validar el alcance del piloto. La aprobación del contrato y la implementación pertenecen al [roadmap](../KRONFORGE_EVOLUTION_ROADMAP.md).
 
+El [prototipo local](../KRONFORGE_PACK_PREVIEW.md) usa un schema provisional separado y limita las escrituras a generaciones gestionadas. Fija los hashes de los manifiestos en la solicitud del consumidor y registra las diferencias con este contrato objetivo.
+
 ## Superficies y validación
 
 Usar JSON Schema 2020-12 para estructura y reglas semánticas separadas para estados, rutas, grafo, permisos y evidencia. Versionar cada formato con `schemaVersion` entero. Un lector rechaza una versión mayor desconocida antes de escribir. Usar UTF-8, claves únicas y schemas fijados localmente. Rechazar campos desconocidos en contratos de instalación para evitar interpretar una intención parcialmente. [JSON Schema 2020-12](https://json-schema.org/draft/2020-12).
