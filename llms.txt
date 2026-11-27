@@ -50,6 +50,8 @@ Fuentes, routing, compresión, retrieval y presupuestos de contexto.
 - [Recuperación bajo demanda](https://blandskron.github.io/KronForge/library/domains/context-engineering/patterns/just-in-time-retrieval.pattern.md): pattern · Cargar identificadores ligeros y resolver el contenido solo cuando la tarea lo exige.
 - [Notas persistentes](https://blandskron.github.io/KronForge/library/domains/context-engineering/patterns/persistent-notes.pattern.md): pattern · Escribir fuera de la ventana lo que debe sobrevivir a la compactación y a la sesión.
 - [Contexto progresivo](https://blandskron.github.io/KronForge/library/domains/context-engineering/patterns/progressive-context.pattern.md): pattern · Entregar contexto por capas a medida que la tarea demuestra necesitarlo.
+- [Memoria persistente del proyecto entre sesiones](https://blandskron.github.io/KronForge/library/domains/context-engineering/templates/project-memory.template.md): template · Registrar hechos verificados, decisiones activas y preguntas abiertas en Markdown versionado evitando duplicidad y obsolescencia.
+- [Enrutamiento de contexto por presupuesto de tokens](https://blandskron.github.io/KronForge/library/domains/context-engineering/patterns/token-budget-context-routing.pattern.md): pattern · Seleccionar y entregar solo el contexto relevante por niveles de divulgación progresiva para reducir consumo innecesario de tokens y ruido.
 
 ## Repository Engineering
 

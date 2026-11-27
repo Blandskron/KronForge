@@ -53,6 +53,11 @@ export const ENGINEERING_PACKS = {
                 sourceType: 'asset',
                 assetId: 'ai-agent-engineering.agent-roles-and-handoffs',
                 target: '.kronforge/packs/agents-first/agent-roles-and-handoffs.pattern.md'
+            },
+            {
+                sourceType: 'asset',
+                assetId: 'context-engineering.project-memory',
+                target: '.kronforge/packs/agents-first/project-memory.template.md'
             }
         ]
     },

@@ -3,6 +3,7 @@ import {
     applyInstall,
     applyUninstall,
     detectRepository,
+    discoverContext,
     listAssets,
     listAvailablePacks,
     listAvailableProfiles,
@@ -12,6 +13,7 @@ import {
     readLlmsTxt,
     readMasterPrompt,
     rollbackInstall,
+    routeContext,
     runDoctor
 } from './api.mjs';
 
@@ -56,6 +58,7 @@ Uso — Conocimiento y catálogo:
 
 Uso — Operación sobre repositorios:
   kronforge detect [dir] [--json]                      Detecta stack, comandos reales, CI y agentes
+  kronforge context [dir] [--task <t>] [--budget <n>]  Descubre contexto y enruta por presupuesto de tokens
   kronforge init [dir] [--profile <p>] [--adapters a,b] [--dry-run] [--force] [--json]
   kronforge install <pack...> [--dir <dir>] [--dry-run] [--force] [--json]
   kronforge update [dir] [--dry-run] [--force] [--json]
@@ -202,6 +205,29 @@ try {
         const result = await rollbackInstall(dir, {dryRun});
         if (asJson) console.log(JSON.stringify(result, null, 2));
         else console.log(`KronForge rollback [${result.dryRun ? 'DRY-RUN' : 'RESTAURADO'}] · snapshot: ${result.snapshotId}`);
+    } else if (command === 'context') {
+        const dir = readFlag('--dir') || positionals[0] || process.cwd();
+        const task = readFlag('--task');
+        const budget = readFlag('--budget');
+        const payload = task || budget
+            ? await routeContext(dir, {task, budget: budget ? Number(budget) : undefined})
+            : await discoverContext(dir);
+        if (asJson) {
+            console.log(JSON.stringify(payload, null, 2));
+        } else if (payload.selected) {
+            console.log(`Context routing · presupuesto: ${payload.budget} tokens · usados: ${payload.usedTokens} · ahorrados: ${payload.savedTokens}`);
+            for (const item of payload.selected) {
+                console.log(`  [+] ${item.path} (${item.tier}, ~${item.estimatedTokens} tokens)`);
+            }
+            if (payload.deferred.length) {
+                console.log(`  Diferidos bajo demanda: ${payload.deferred.length} archivos`);
+            }
+        } else {
+            console.log(`Context discovery · archivos: ${payload.summary.totalFiles} · tokens estimados: ${payload.summary.totalEstimatedTokens} (Tier 1: ${payload.summary.tier1Tokens})`);
+            for (const warning of payload.warnings) {
+                console.log(`  [WARN] ${warning.code}: ${warning.message}`);
+            }
+        }
     } else if (command === 'doctor') {
         const dir = readFlag('--dir') || positionals[0] || process.cwd();
         const report = await runDoctor(dir);

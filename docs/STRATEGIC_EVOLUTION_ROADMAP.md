@@ -52,9 +52,9 @@
 
 | ID | Tarea | Prioridad | Dependencias | Estado |
 |---|---|---|---|---|
-| `C3-T1` | Context Discovery Engine (`index` de convenciones reales del repositorio) | P1 | Ciclo 1 | `Pending` |
-| `C3-T2` | Project Memory Protocol & Template persistente entre sesiones | P1 | Ciclo 2 | `Pending` |
-| `C3-T3` | Context Routing y compresión orientada a presupuesto de tokens | P1 | `C3-T1` | `Pending` |
+| `C3-T1` | Context Discovery Engine (`index` de convenciones reales del repositorio) | P1 | Ciclo 1 | `Completed` |
+| `C3-T2` | Project Memory Protocol & Template persistente entre sesiones | P1 | Ciclo 2 | `Completed` |
+| `C3-T3` | Context Routing y compresión orientada a presupuesto de tokens | P1 | `C3-T1` | `Completed` |
 
 ---
 

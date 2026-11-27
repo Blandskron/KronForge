@@ -139,3 +139,5 @@ export declare function planUninstall(targetDir: string, packIds: string[], opti
 export declare function applyUninstall(targetDir: string, packIds: string[], options?: {dryRun?: boolean; force?: boolean}): Promise<Record<string, unknown>>;
 export declare function rollbackInstall(targetDir?: string, options?: {dryRun?: boolean}): Promise<Record<string, unknown>>;
 export declare function runDoctor(targetDir?: string): Promise<Record<string, unknown>>;
+export declare function discoverContext(targetDir?: string): Promise<Record<string, unknown>>;
+export declare function routeContext(targetDir?: string, options?: {task?: string; budget?: number}): Promise<Record<string, unknown>>;

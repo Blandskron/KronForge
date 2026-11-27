@@ -49,6 +49,7 @@
     "scripts/api.d.ts",
     "scripts/cli.mjs",
     "scripts/lib/detector.mjs",
+    "scripts/lib/context-discovery.mjs",
     "scripts/lib/packs.mjs",
     "scripts/lib/context-generator.mjs",
     "scripts/lib/installer.mjs",

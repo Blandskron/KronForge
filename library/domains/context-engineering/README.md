@@ -17,6 +17,8 @@ Diseño del contexto que humanos y agentes necesitan para decidir y ejecutar con
 - Pattern: [recuperación bajo demanda](patterns/just-in-time-retrieval.pattern.md)
 - Pattern: [compactación de contexto](patterns/context-compaction.pattern.md)
 - Pattern: [notas persistentes](patterns/persistent-notes.pattern.md)
+- Pattern: [enrutamiento de contexto por presupuesto de tokens](patterns/token-budget-context-routing.pattern.md)
+- Template: [memoria persistente del proyecto](templates/project-memory.template.md)
 
 ## Ruta de aprendizaje
 

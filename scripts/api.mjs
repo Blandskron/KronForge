@@ -63,6 +63,7 @@ export async function readLlmsTxt() {
 }
 
 export {detectRepository} from './lib/detector.mjs';
+export {discoverContext, routeContext} from './lib/context-discovery.mjs';
 export {listAvailablePacks, listAvailableProfiles, resolvePackFiles} from './lib/packs.mjs';
 export {listSupportedAdapters, renderAdapterFile, renderAgentsMarkdown} from './lib/context-generator.mjs';
 export {

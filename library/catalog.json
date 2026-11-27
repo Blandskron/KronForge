@@ -4668,6 +4668,117 @@
       "projects": [
         "any"
       ]
+    },
+    {
+      "id": "context-engineering.project-memory",
+      "title": "Memoria persistente del proyecto entre sesiones",
+      "summary": "Registrar hechos verificados, decisiones activas y preguntas abiertas en Markdown versionado evitando duplicidad y obsolescencia.",
+      "type": "template",
+      "domain": "context-engineering",
+      "category": "creation",
+      "level": "foundation",
+      "difficulty": "foundation",
+      "status": "stable",
+      "version": "1.0.0",
+      "compatibility": "tool-agnostic",
+      "models": [
+        "any"
+      ],
+      "agents": [
+        "markdown-compatible"
+      ],
+      "projects": [
+        "any"
+      ],
+      "language": "es",
+      "author": "@Blandskron/contributors",
+      "license": "MIT",
+      "lastModified": "2026-11-27",
+      "tags": [
+        "memory",
+        "context-engineering",
+        "sessions",
+        "progressive-disclosure"
+      ],
+      "dependencies": [],
+      "related": [
+        "context-engineering.persistent-notes",
+        "context-engineering.context-compaction",
+        "context-engineering.token-budget-context-routing"
+      ],
+      "inputs": [
+        "Hallazgos verificados durante sesiones de trabajo",
+        "Decisiones técnicas aún no formalizadas en ADR o pendientes de cierre"
+      ],
+      "outputs": [
+        "Registro conciso de memoria operativa con fecha de verificación y enlaces canónicos"
+      ],
+      "examples": [
+        "Aplicar en un repositorio objetivo midiendo tokens ahorrados"
+      ],
+      "estimatedTime": 15,
+      "complexity": "low",
+      "useCases": [
+        "Continuar trabajo multi-sesión sin repetir investigaciones",
+        "Transferir contexto exacto entre distintos agentes o mantenedores"
+      ],
+      "path": "domains/context-engineering/templates/project-memory.template.md"
+    },
+    {
+      "id": "context-engineering.token-budget-context-routing",
+      "title": "Enrutamiento de contexto por presupuesto de tokens",
+      "summary": "Seleccionar y entregar solo el contexto relevante por niveles de divulgación progresiva para reducir consumo innecesario de tokens y ruido.",
+      "type": "pattern",
+      "domain": "context-engineering",
+      "category": "knowledge",
+      "level": "intermediate",
+      "difficulty": "intermediate",
+      "status": "stable",
+      "version": "1.0.0",
+      "compatibility": "tool-agnostic",
+      "models": [
+        "any"
+      ],
+      "agents": [
+        "markdown-compatible"
+      ],
+      "projects": [
+        "any"
+      ],
+      "language": "es",
+      "author": "@Blandskron/contributors",
+      "license": "MIT",
+      "lastModified": "2026-11-27",
+      "tags": [
+        "context-routing",
+        "token-budget",
+        "progressive-disclosure",
+        "context-engineering"
+      ],
+      "dependencies": [],
+      "related": [
+        "context-engineering.context-layers",
+        "context-engineering.progressive-context",
+        "context-engineering.just-in-time-retrieval",
+        "context-engineering.project-memory"
+      ],
+      "inputs": [
+        "Inventario de documentos y convenciones del repositorio",
+        "Descripción acotada de la tarea y presupuesto objetivo de tokens"
+      ],
+      "outputs": [
+        "Conjunto mínimo priorizado de archivos de contexto por nivel y lista de referencias diferidas"
+      ],
+      "examples": [
+        "Aplicar en un repositorio objetivo midiendo tokens ahorrados"
+      ],
+      "estimatedTime": 15,
+      "complexity": "medium",
+      "useCases": [
+        "Evitar saturar la ventana de contexto al iniciar una sesión de agente",
+        "Priorizar seguridad, arquitectura o memoria según la tarea solicitada"
+      ],
+      "path": "domains/context-engineering/patterns/token-budget-context-routing.pattern.md"
     }
   ],
   "learningPaths": [
