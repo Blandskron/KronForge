@@ -67,4 +67,8 @@ test('el CLI kronforge responde a --version, domains, list --json y show', async
     const showRun = spawnSync(process.execPath, [CLI, 'show', protocols[0].id], {encoding: 'utf8'});
     assert.equal(showRun.status, 0);
     assert.ok(showRun.stdout.length > 50);
+
+    const releaseDryRun = spawnSync(process.execPath, [path.join(ROOT, 'scripts', 'release.mjs'), '9.9.9', '--dry-run'], {encoding: 'utf8'});
+    assert.equal(releaseDryRun.status, 0);
+    assert.ok(releaseDryRun.stdout.includes('v9.9.9'));
 });

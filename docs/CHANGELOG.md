@@ -6,6 +6,7 @@ Todos los cambios notables en este proyecto serán documentados en este archivo.
 
 ## Sin publicar
 
+- Script `npm run release -- <version> [--push]` en `scripts/release.mjs` para sincronizar versiones, validar `npm run quality`, etiquetar y desplegar a npm en un solo paso.
 - Migración de `.github/workflows/publish-npm.yml` a npm Trusted Publishing (OIDC) sin `NPM_TOKEN`.
 
 - Perfil de trabajo con un único mantenedor, aviso de privacidad del portal y primer borrador del prompt de auditoría técnica de privacidad en la biblioteca. Canal privado de reportes de seguridad habilitado y verificado.
