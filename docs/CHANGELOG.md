@@ -6,6 +6,9 @@ Todos los cambios notables en este proyecto serán documentados en este archivo.
 
 ## Sin publicar
 
+- **Ciclo 1 (Operational Foundation):** Stack & Repo Detector (`scripts/lib/detector.mjs`), catálogo de perfiles (`startup`, `opensource`, `enterprise`) y 7 packs selectivos (`scripts/lib/packs.mjs`), generador de contexto y adaptadores (`scripts/lib/context-generator.mjs`), instalador seguro con lock SHA-256, dry-run, detección de deriva/conflictos, rollback y diagnóstico (`scripts/lib/installer.mjs`), integrados en CLI (`detect`, `packs`, `init`, `install`, `update`, `uninstall`, `rollback`, `doctor`), API y tipos TS (`tests/operational-foundation.test.mjs`).
+- **Ciclo 0 (Arquitectura y Roadmap):** [ADR-0012](adr/ADR-0012-universal-evolution-architecture.md) y [Roadmap Estratégico Ciclos 0–7](STRATEGIC_EVOLUTION_ROADMAP.md).
+
 - Script `npm run release -- <version> [--push]` en `scripts/release.mjs` para sincronizar versiones, validar `npm run quality`, etiquetar y desplegar a npm en un solo paso.
 - Migración de `.github/workflows/publish-npm.yml` a npm Trusted Publishing (OIDC) sin `NPM_TOKEN`.
 

@@ -48,6 +48,10 @@
     "scripts/api.mjs",
     "scripts/api.d.ts",
     "scripts/cli.mjs",
+    "scripts/lib/detector.mjs",
+    "scripts/lib/packs.mjs",
+    "scripts/lib/context-generator.mjs",
+    "scripts/lib/installer.mjs",
     "README.md",
     "LICENSE",
     "AGENTS.md"

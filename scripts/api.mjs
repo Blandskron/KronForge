@@ -61,3 +61,15 @@ export async function readMasterPrompt() {
 export async function readLlmsTxt() {
     return readFile(LLMS_TXT_PATH, 'utf8');
 }
+
+export {detectRepository} from './lib/detector.mjs';
+export {listAvailablePacks, listAvailableProfiles, resolvePackFiles} from './lib/packs.mjs';
+export {listSupportedAdapters, renderAdapterFile, renderAgentsMarkdown} from './lib/context-generator.mjs';
+export {
+    applyInstall,
+    applyUninstall,
+    planInstall,
+    planUninstall,
+    rollbackInstall,
+    runDoctor
+} from './lib/installer.mjs';
