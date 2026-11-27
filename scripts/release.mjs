@@ -115,6 +115,10 @@ await replaceInFile('assets/js/paths.js', (text) =>
     text.replace(new RegExp(`SITE_VERSION = '${escapedCurrent}'`), `SITE_VERSION = '${nextVersion}'`)
 );
 
+await replaceInFile('assets/js/app.js', (text) =>
+    text.replace(new RegExp(`\\?v=${escapedCurrent}`, 'g'), `?v=${nextVersion}`)
+);
+
 await replaceInFile('README.md', (text) =>
     text.replace(new RegExp(`KronForge ${escapedCurrent}`), `KronForge ${nextVersion}`)
 );
@@ -136,6 +140,7 @@ run('git', [
     'library/catalog.json',
     'index.html',
     'assets/js/paths.js',
+    'assets/js/app.js',
     'README.md',
     'docs/CHANGELOG.md',
     'llms.txt',

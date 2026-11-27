@@ -1,6 +1,6 @@
 # ADR-0011 — Adopción externa como condición para ampliar la automatización
 
-- **Estado** `proposed`
+- **Estado** `superseded` por [ADR-0012](ADR-0012-universal-evolution-architecture.md)
 - **Fecha** 2026-11-27
 - **Responsable propuesto** Maintainer del framework
 - **Relacionado** [ADR-0005](ADR-0005-discovery-surface-and-score-calibration.md) y [ADR-0006](ADR-0006-protocol-asset-type.md)

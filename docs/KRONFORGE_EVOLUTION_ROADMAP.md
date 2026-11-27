@@ -1,6 +1,6 @@
 # Roadmap propuesto de KronForge
 
-**Estado** Propuesta para revisión del owner. Detalla entregas candidatas bajo el [roadmap vigente](ROADMAP.md) y la [gobernanza](../GOVERNANCE.md). La numeración de ciclos indica dependencias. Las versiones se deciden cuando se conozca el cambio real de compatibilidad.
+**Estado** Histórico (propuesta anterior consolidada en [STRATEGIC_EVOLUTION_ROADMAP.md](STRATEGIC_EVOLUTION_ROADMAP.md) y [ADR-0012](adr/ADR-0012-universal-evolution-architecture.md)). Se conserva como trazabilidad de los pilotos C0–C2 bajo el [roadmap vigente](ROADMAP.md) y la [gobernanza](../GOVERNANCE.md).
 
 ## BLK-ENG-001 como primer Reference Pack
 
