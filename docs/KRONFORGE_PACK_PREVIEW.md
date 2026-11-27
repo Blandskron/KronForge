@@ -40,13 +40,23 @@ La proyección portable conserva `plugin.json` y el mismo `skills/synthetic-hand
 | Paridad de proyecciones | El payload manual, el contenido instalado mediante el tarball y la proyección portable tienen SHA-256 `3f193d15cd36b732df2f7aee705c19630c3322597f6fc3c40e86bb10cb1b4193`. |
 | Codex CLI `0.171.0-alpha.13.2` | Instaló el fixture portable desde marketplace local en una configuración aislada. La skill instalada conservó su SHA-256. |
 | Claude Code `2.1.220` | El validador del cliente requirió `.claude-plugin/plugin.json`. La proyección compatible pasó su validación y se instaló desde un marketplace local aislado. La skill instalada conservó su SHA-256. |
-| Ejecución del escenario por clientes y consumo externo | `NOT_RUN`. La instalación y la validación de manifiesto son evidencia de distribución local. |
+| Codex, sesión nativa del autor | `PASS`. Se descubrió la skill de proyecto con `skills/list` y se seleccionó mediante la entrada estructurada de la sesión efímera. La tarea `KF-SYNTHETIC` terminó con las dos líneas previstas, normalizando espacios al final de línea, sin fallos en la lectura. La instalación desde marketplace se probó por separado. |
+| Claude Code, sesión nativa del autor | Descubrimiento `PASS`. El inventario de sesión enumeró el comando de la skill del plugin. Resultado de la tarea `NOT_RUN` por OAuth vencido y respuesta 401 antes de inferencia. |
+| Consumo por equipos independientes | `NOT_RUN`. La instalación y las sesiones descritas corresponden al autor. |
+
+## Repetición del autor en dos mini proyectos
+
+El [ejercicio de integración](../scripts/exercise-external-trial.mjs) consume el ZIP sintético extraído, usa el ejecutor que viene dentro y crea dos repositorios desechables, uno de Node.js y otro de Python. Desde la raíz de KronForge, ejecuta `node scripts/exercise-external-trial.mjs <kit-extraído> <directorio-nuevo> <python>`. Verifica primero el digest del ZIP. El tercer argumento es opcional cuando `python` está en el PATH.
+
+El ZIP `kronforge-external-trial-v1.zip` con SHA-256 `927e936353ebc7d8db0983a960225bbf916d12170e2f963a4020f8d2818953fc` pasó en Windows con Node 24.15.0 y Python 3.12.14. Se invirtió el orden de las rutas. En ambos stacks pasaron las pruebas de la aplicación antes y después de cada ruta. Se verificaron la colisión sin sobreescritura, la repetición sin escrituras, el rechazo de deriva, la actualización a una segunda versión sintética, el rechazo del downgrade sin autorización, el rollback aprobado y el retiro. El diff de archivos rastreados quedó vacío y `AGENTS.md` conservó sus bytes.
+
+La puerta de navegador del repositorio pasó con Chromium 159 y axe en siete combinaciones de vista, tema o tamaño. El ensayo automatizado permite repetir el recorrido y detectar regresiones. Los tiempos locales del autor se conservan por separado de la medición de adopción de los dos equipos.
 
 ## Evidencia externa que falta
 
 La [guía para dos equipos](KRONFORGE_EXTERNAL_TRIAL.md) y su [plantilla de evidencia](KRONFORGE_EXTERNAL_TRIAL_EVIDENCE.md) fijan el escenario, el orden y los veredictos de la prueba. El [preparador del kit](../scripts/prepare-external-trial.ps1) genera un ZIP local con el fixture sintético, los dos marketplaces de prueba y el ejecutor genérico. Desde PowerShell se ejecuta con `./scripts/prepare-external-trial.ps1 -Destination <carpeta-nueva-fuera-del-checkout>`.
 
-Para C3, probar descubrimiento y ejecución en sesiones limpias de dos clientes de familias distintas. Usar el fixture público sintético, identificar el artefacto por digest y pedir la salida esperada para `KF-SYNTHETIC`. Registrar cómo se cargó la skill, el modelo o versión del host, la salida, el tiempo, las intervenciones y los controles aplicables. La prueba local conserva la ruta manual si el cliente requiere un adaptador.
+Para C3, completar la tarea en una sesión autenticada de Claude Code y repetir ambas rutas nativas con los revisores. Usar el fixture sintético, identificar el artefacto por digest y pedir la salida esperada para `KF-SYNTHETIC`. Registrar cómo se cargó la skill, el modelo o versión del host, la salida, el tiempo, las intervenciones y los controles aplicables. La prueba conserva la ruta manual si el cliente requiere un adaptador.
 
 Para C4, dos equipos independientes ejecutan la ruta manual y la declarativa en repositorios de stacks distintos. Antes de medir, congelar fixture, digest, rúbrica y tareas. Alternar qué ruta van a ejecutar primero. Registrar tiempo al primer resultado correcto, pasos, intervenciones, reproducibilidad y recuperación de colisiones. Exigir cero efectos fuera del alcance y todos los escenarios obligatorios correctos. Publicar solo resultados que los participantes puedan autorizar y declarar tamaño de muestra y límites. La adopción observada por el autor queda fuera del conjunto independiente.
 

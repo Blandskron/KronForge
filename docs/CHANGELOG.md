@@ -6,6 +6,8 @@ Todos los cambios notables en este proyecto serán documentados en este archivo.
 
 ## Sin publicar
 
+- Ensayo reproducible del kit externo en mini proyectos Node.js y Python, con evidencia del ciclo de vida del pack y del descubrimiento y la ejecución en los clientes probados.
+
 - Kit sintético para la prueba de dos equipos, con instrucciones de Codex CLI y Claude Code, rutas de adopción comparables y plantilla de evidencia.
 
 - [Prototipo local de packs](KRONFORGE_PACK_PREVIEW.md) con manifiestos fijados, plan revisable, estado por generación y pruebas de ciclo de vida. Ensayo npm offline para el código genérico y proyecciones sintéticas para verificar compatibilidad de instalación.
