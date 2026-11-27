@@ -4779,6 +4779,66 @@
         "Priorizar seguridad, arquitectura o memoria según la tarea solicitada"
       ],
       "path": "domains/context-engineering/patterns/token-budget-context-routing.pattern.md"
+    },
+    {
+      "id": "security.compliance-and-privacy-controls",
+      "title": "Controles técnicos de cumplimiento y privacidad",
+      "summary": "Mapear controles técnicos verificables hacia GDPR, Ley 21.719 (Chile), OWASP, NIST AI RMF e ISO 27001/42001 sin reclamar certificaciones.",
+      "type": "checklist",
+      "domain": "security",
+      "category": "validation",
+      "level": "intermediate",
+      "difficulty": "intermediate",
+      "status": "stable",
+      "version": "1.0.0",
+      "compatibility": "tool-agnostic",
+      "models": [
+        "any"
+      ],
+      "agents": [
+        "markdown-compatible"
+      ],
+      "projects": [
+        "any"
+      ],
+      "language": "es",
+      "author": "@Blandskron/contributors",
+      "license": "MIT",
+      "lastModified": "2026-11-27",
+      "tags": [
+        "compliance",
+        "privacy",
+        "gdpr",
+        "ley-21719",
+        "owasp",
+        "nist",
+        "iso-27001",
+        "iso-42001"
+      ],
+      "dependencies": [],
+      "related": [
+        "security.privacy-audit",
+        "security.security-audit",
+        "agent-supply-chain.owasp-agentic-skills-top-10",
+        "engineering-protocols.evidence-and-gates"
+      ],
+      "inputs": [
+        "Arquitectura del sistema, flujos de datos personales y uso de agentes IA",
+        "Jurisdicciones aplicables y política de seguridad del proyecto"
+      ],
+      "outputs": [
+        "Checklist técnico con controles verificables, brechas y evidencia requerida"
+      ],
+      "examples": [
+        "Revisar controles antes de desplegar un servicio con datos personales"
+      ],
+      "estimatedTime": 25,
+      "complexity": "medium",
+      "useCases": [
+        "Preparar una auditoría técnica de privacidad o seguridad",
+        "Definir controles mínimos antes de desplegar sistemas con datos personales o agentes IA"
+      ],
+      "path": "domains/security/checklists/compliance-and-privacy-controls.checklist.md"
     }
   ],
   "learningPaths": [

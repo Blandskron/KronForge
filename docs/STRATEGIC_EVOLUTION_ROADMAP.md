@@ -62,9 +62,9 @@
 
 | ID | Tarea | Prioridad | Dependencias | Estado |
 |---|---|---|---|---|
-| `C4-T1` | Governance as Code Validator (`kronforge validate <dir>`) | P1 | Ciclo 1, Ciclo 2 | `Pending` |
-| `C4-T2` | Compliance & Privacy Reference Pack (GDPR, Ley 21.719 Chile, OWASP, NIST AI RMF, ISO 27001/42001 — sin claims de certificación) | P1 | `C4-T1` | `Pending` |
-| `C4-T3` | Supply Chain Verification para packs y skills externas | P1 | `C4-T1` | `Pending` |
+| `C4-T1` | Governance as Code Validator (`kronforge validate <dir>`) | P1 | Ciclo 1, Ciclo 2 | `Completed` |
+| `C4-T2` | Compliance & Privacy Reference Pack (GDPR, Ley 21.719 Chile, OWASP, NIST AI RMF, ISO 27001/42001 — sin claims de certificación) | P1 | `C4-T1` | `Completed` |
+| `C4-T3` | Supply Chain Verification para packs y skills externas | P1 | `C4-T1` | `Completed` |
 
 ---
 

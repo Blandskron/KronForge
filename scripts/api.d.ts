@@ -141,3 +141,4 @@ export declare function rollbackInstall(targetDir?: string, options?: {dryRun?: 
 export declare function runDoctor(targetDir?: string): Promise<Record<string, unknown>>;
 export declare function discoverContext(targetDir?: string): Promise<Record<string, unknown>>;
 export declare function routeContext(targetDir?: string, options?: {task?: string; budget?: number}): Promise<Record<string, unknown>>;
+export declare function validateRepositoryGovernance(targetDir?: string): Promise<Record<string, unknown>>;

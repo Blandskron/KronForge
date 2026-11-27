@@ -130,6 +130,7 @@ Testing, QA, revisión y criterios verificables de cierre.
 
 AppSec, supply chain, secretos, identidad y autorización.
 
+- [Controles técnicos de cumplimiento y privacidad](https://blandskron.github.io/KronForge/library/domains/security/checklists/compliance-and-privacy-controls.checklist.md): checklist · Mapear controles técnicos verificables hacia GDPR, Ley 21.719 (Chile), OWASP, NIST AI RMF e ISO 27001/42001 sin reclamar certificaciones.
 - [Auditoría de vulnerabilidades en dependencias](https://blandskron.github.io/KronForge/library/domains/security/prompts/dependency-vulnerability-audit.prompt.md): prompt · Revisar manifiestos y lockfiles con herramientas verificadas del proyecto.
 - [Auditoría de seguridad de imágenes Docker](https://blandskron.github.io/KronForge/library/domains/security/prompts/docker-image-security-audit.prompt.md): prompt · Revisar Dockerfiles e imágenes sin inventar herramientas ni ejecutar explotación.
 - [Auditoría técnica de privacidad](https://blandskron.github.io/KronForge/library/domains/security/prompts/privacy-audit.prompt.md): prompt · Inventariar flujos de datos y priorizar brechas de privacidad con evidencia verificable.

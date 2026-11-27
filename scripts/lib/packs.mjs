@@ -238,6 +238,11 @@ export const ENGINEERING_PACKS = {
             },
             {
                 sourceType: 'asset',
+                assetId: 'security.compliance-and-privacy-controls',
+                target: '.kronforge/packs/data-privacy/compliance-and-privacy-controls.checklist.md'
+            },
+            {
+                sourceType: 'asset',
                 assetId: 'mcp-integration.mcp-security',
                 target: '.kronforge/packs/data-privacy/mcp-security.checklist.md'
             },

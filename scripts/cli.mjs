@@ -14,7 +14,8 @@ import {
     readMasterPrompt,
     rollbackInstall,
     routeContext,
-    runDoctor
+    runDoctor,
+    validateRepositoryGovernance
 } from './api.mjs';
 
 const args = process.argv.slice(2);
@@ -65,6 +66,7 @@ Uso — Operación sobre repositorios:
   kronforge uninstall <pack...> [--dir <dir>] [--dry-run] [--force] [--json]
   kronforge rollback [dir] [--dry-run] [--json]
   kronforge doctor [dir] [--json]                      Verifica integridad del lock y deriva local
+  kronforge validate [dir] [--json]                    Valida gobernanza, secretos, skills y lock SHA-256
 
 Opciones generales:
   kronforge --version                                  Muestra la versión instalada
@@ -228,6 +230,17 @@ try {
                 console.log(`  [WARN] ${warning.code}: ${warning.message}`);
             }
         }
+    } else if (command === 'validate') {
+        const dir = readFlag('--dir') || positionals[0] || process.cwd();
+        const report = await validateRepositoryGovernance(dir);
+        if (asJson) {
+            console.log(JSON.stringify(report, null, 2));
+        } else {
+            console.log(`KronForge validate · estado: ${report.status} · errores: ${report.summary.errors} · advertencias: ${report.summary.warnings}`);
+            for (const err of report.errors) console.error(`  [ERROR] ${err.code}: ${err.message}`);
+            for (const warn of report.warnings) console.log(`  [WARN]  ${warn.code}: ${warn.message}`);
+        }
+        if (report.status !== 'PASS') process.exitCode = 1;
     } else if (command === 'doctor') {
         const dir = readFlag('--dir') || positionals[0] || process.cwd();
         const report = await runDoctor(dir);
