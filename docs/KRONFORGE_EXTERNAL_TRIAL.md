@@ -5,14 +5,14 @@
 | ID | Cliente para la prueba nativa | Orden de las rutas de adopción |
 |---|---|---|
 | A | Codex CLI | Manual → declarativa |
-| B | Claude Code | Declarativa → manual |
+| B | Codex CLI | Declarativa → manual |
 
 Cada equipo trabaja con un repositorio desechable de un stack distinto, con archivos e instrucciones sintéticos o autorizados para la prueba. Usar dos copias equivalentes de ese repositorio para las rutas de adopción y un tercer repositorio vacío para la sesión nativa. La sesión nativa solo recibe `KF-SYNTHETIC` y los archivos sintéticos del plugin. Git y Node 24 cubren ambas rutas locales. Para la sesión nativa, usar una cuenta normal del cliente y un perfil de prueba que permita marketplaces locales. El kit se consume fuera del checkout productor.
 
 ## Integridad y preparación
 
 1. Comparar el SHA-256 del ZIP con el digest recibido por separado del coordinador. En PowerShell usa `Get-FileHash -Algorithm SHA256 <archivo.zip>`. En Linux usa `sha256sum <archivo.zip>`. En macOS usa `shasum -a 256 <archivo.zip>`. Si difiere, registrar el bloqueo.
-2. Extraer el ZIP en una carpeta nueva. Confirmar que están `request.json`, `retire.json`, `sample/`, `npm/`, `plugin/`, `claude-adapter/` y ambos índices de marketplace bajo sus directorios ocultos.
+2. Extraer el ZIP en una carpeta nueva. Confirmar que están `request.json`, `retire.json`, `sample/`, `npm/`, `plugin/` y el índice `.agents/plugins/marketplace.json`.
 3. Registrar fecha, SO, versiones de Node, Git y cliente, stack y estado inicial de las dos copias. Usar directorios sin efectos externos, ramas locales y reglas del consumidor como referencia para comprobar preservación. Congelar esas condiciones antes de medir.
 
 En los comandos siguientes, sustituir `<kit>` y `<repo>` por rutas absolutas. Para medir, iniciar el cronómetro al leer el primer paso de una ruta. Detenerlo al comprobar por primera vez la instalación correcta en esa ruta. Registrar después las pruebas de repetición, conflicto y recuperación por separado.
@@ -36,7 +36,7 @@ node "<kit>/npm/scripts/pack-preview.mjs" apply "<repo>" "<kit>/request.json" "<
 3. En esa copia desechable, añadir una línea sintética al archivo instalado y repetir `plan`. Debe fallar por deriva. Confirmar que `current.json` y las reglas del consumidor siguen iguales. Restaurar la skill desde el payload exacto, verificar el digest y volver a planificar.
 4. Planificar el retiro con `retire.json`. Usar su nuevo `planSha256` para aplicar el retiro. Verificar que el lock de la generación activa ya no lista la skill, y que las reglas del consumidor conservan sus bytes. Las generaciones anteriores quedan archivadas.
 
-## Equipo A · Sesión en Codex CLI
+## Ambos equipos · Sesión en Codex CLI
 
 Desde la carpeta extraída, revisar los índices y el manifest portable. Usar una configuración de prueba y un repositorio de sesión que no contenga la skill, el kit ni el contenido de las rutas anteriores.
 
@@ -47,20 +47,6 @@ codex plugin add kronforge-synthetic-handoff@kronforge-local-preview --json
 ```
 
 Verificar el SHA-256 de la skill dentro de `installedPath`. En el repositorio de sesión, inicia `codex --sandbox read-only`. En una sesión nueva, usa el selector nativo de skills para elegir `synthetic-handoff`, escribiendo `$` y seleccionando la entrada del plugin si aparece. Envía solo la tarea `KF-SYNTHETIC` con la skill seleccionada y registra qué mostró el selector o la sesión sobre su carga. Si la versión no ofrece la skill, registra ese bloqueo. [Empaquetado y marketplaces locales](https://developers.openai.com/plugins/build/plugins) · [Pruebas de Agent Skills en Codex](https://developers.openai.com/blog/eval-skills).
-
-## Equipo B · Sesión en Claude Code
-
-Desde la carpeta extraída, revisar el manifiesto de `claude-adapter/` y su índice. Usar una configuración de prueba y un repositorio de sesión que no contenga la skill, el kit ni el contenido de las rutas anteriores.
-
-```text
-claude --version
-claude plugin validate "<kit>/claude-adapter"
-claude plugin marketplace add "<kit>"
-claude plugin install kronforge-synthetic-handoff@kronforge-local-preview
-claude plugin details kronforge-synthetic-handoff
-```
-
-Verificar el SHA-256 de la skill en la ruta de instalación que reporta el cliente. Desde el repositorio de sesión, inicia `claude` y, en una sesión nueva, envía `/kronforge-synthetic-handoff:synthetic-handoff KF-SYNTHETIC`. Conserva la evidencia de que la skill aparece en el inventario y de qué ocurrió al invocarla. Si la versión carece del inventario o el comando no se resuelve, registra qué parte pudiste observar. [Marketplace local y prueba de skills](https://code.claude.com/docs/en/plugins/create-marketplace).
 
 ## Resultado y devolución
 

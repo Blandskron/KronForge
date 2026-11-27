@@ -86,24 +86,6 @@ try {
             category: 'Productivity'
         }]
     }));
-    const adapter = path.join(root, 'claude-adapter');
-    const adapterSkill = path.join(adapter, 'skills/synthetic-handoff');
-    const adapterMetadata = path.join(adapter, '.claude-plugin');
-    await mkdir(adapterSkill, {recursive: true});
-    await mkdir(adapterMetadata);
-    await writeFile(path.join(adapterSkill, 'SKILL.md'), body);
-    await writeFile(path.join(adapterMetadata, 'plugin.json'), jsonBytes({
-        name: 'kronforge-synthetic-handoff', version: '1.0.0',
-        description: 'Synthetic KronForge preview', author: {name: 'KronForge'}
-    }));
-    const adapterMarketplace = path.join(root, '.claude-plugin');
-    await mkdir(adapterMarketplace);
-    await writeFile(path.join(adapterMarketplace, 'marketplace.json'), jsonBytes({
-        name: 'kronforge-local-preview',
-        owner: {name: 'KronForge'},
-        plugins: [{name: 'kronforge-synthetic-handoff', source: './claude-adapter',
-            description: 'Synthetic KronForge preview'}]
-    }));
     console.log(JSON.stringify({root, manifestSha256: sha256(manifest), skillSha256: sha256(body)}, null, 2));
 } catch (error) {
     console.error(error.message);

@@ -6,6 +6,8 @@ Todos los cambios notables en este proyecto serán documentados en este archivo.
 
 ## Sin publicar
 
+- Guía visual de uso de KronForge en la portada y el README, con capturas reales de la biblioteca y el visor. El recorrido nativo y el kit sintético v2 se centran en Codex.
+
 - Ensayo reproducible del kit externo en mini proyectos Node.js y Python, con evidencia del ciclo de vida del pack y del descubrimiento y la ejecución en los clientes probados.
 
 - Kit sintético para la prueba de dos equipos, con instrucciones de Codex CLI y Claude Code, rutas de adopción comparables y plantilla de evidencia.

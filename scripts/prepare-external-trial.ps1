@@ -25,8 +25,9 @@ Copy-Item -LiteralPath (Join-Path $repo 'docs/KRONFORGE_EXTERNAL_TRIAL_EVIDENCE.
 '{"roots":[],"packs":[]}' | Set-Content -LiteralPath (Join-Path $contents 'retire.json') -Encoding ascii
 
 Add-Type -AssemblyName System.IO.Compression.FileSystem
-$archive = Join-Path $destination 'kronforge-external-trial-v1.zip'
+$archiveName = 'kronforge-external-trial-v2.zip'
+$archive = Join-Path $destination $archiveName
 [IO.Compression.ZipFile]::CreateFromDirectory($contents, $archive)
 $digest = (Get-FileHash -LiteralPath $archive -Algorithm SHA256).Hash.ToLowerInvariant()
-Set-Content -LiteralPath (Join-Path $destination 'SHA256SUMS.txt') -Value "$digest  kronforge-external-trial-v1.zip" -Encoding ascii
+Set-Content -LiteralPath (Join-Path $destination 'SHA256SUMS.txt') -Value "$digest  $archiveName" -Encoding ascii
 [pscustomobject]@{Archive = $archive; SHA256 = $digest}
