@@ -1,9 +1,53 @@
 {
   "name": "kronforge",
-  "version": "3.4.0",
-  "private": true,
+  "version": "3.4.1",
   "type": "module",
-  "description": "Controles de calidad sin dependencias para KronForge.",
+  "description": "KronForge: plataforma documental abierta de AI Engineering con catálogo v3, prompts, skills y protocolos reutilizables sin dependencias.",
+  "license": "MIT",
+  "author": "Blandskron",
+  "homepage": "https://blandskron.github.io/KronForge/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Blandskron/KronForge.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Blandskron/KronForge/issues"
+  },
+  "keywords": [
+    "kronforge",
+    "ai-engineering",
+    "agents-first",
+    "agents",
+    "prompts",
+    "skills",
+    "mcp",
+    "protocols",
+    "documentation"
+  ],
+  "exports": {
+    ".": "./scripts/api.mjs",
+    "./catalog": "./library/catalog.json",
+    "./schema": "./library/schema/catalog-v3.schema.json",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "kronforge": "./scripts/cli.mjs"
+  },
+  "files": [
+    "library/",
+    "prompts/",
+    "skills/",
+    "llms.txt",
+    "scripts/api.mjs",
+    "scripts/cli.mjs",
+    "README.md",
+    "LICENSE",
+    "AGENTS.md"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
   "scripts": {
     "validate": "node scripts/validate.mjs",
     "build:skills": "node scripts/build-skills.mjs",
@@ -12,7 +56,8 @@
     "test": "node --test",
     "smoke": "node scripts/smoke-site.mjs",
     "score": "node scripts/score.mjs",
-    "quality": "npm run validate && npm test && npm run smoke && npm run score"
+    "quality": "npm run validate && npm test && npm run smoke && npm run score",
+    "prepublishOnly": "npm run quality"
   },
   "engines": {
     "node": ">=24"

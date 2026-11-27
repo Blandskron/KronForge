@@ -32,6 +32,14 @@ Todos los cambios notables en este proyecto serán documentados en este archivo.
 - Acceso directo a skills, prompts, protocolos y referencias, con enlaces a arquitectura, gobernanza y calidad.
 - URL de descubrimiento y metadatos alineados con el subdirectorio actual de GitHub Pages.
 
+## [3.4.1] - 2026-11-27
+
+### Añadido
+
+- Distribución del paquete `kronforge` en npm sin dependencias externas (`exports` ES Modules para catálogo/activos y CLI `npx kronforge` en `scripts/api.mjs` y `scripts/cli.mjs`).
+- Workflow automatizado `.github/workflows/publish-npm.yml` que valida paridad de versión y ejecuta `npm run quality` antes de publicar en npm con `--provenance` y crear el GitHub Release al subir un tag `v*.*.*`.
+- Pruebas unitarias en `tests/package-api.test.mjs` para la API del paquete y el CLI.
+
 ## [3.4.0] - 2026-09-07
 
 ### Eliminado

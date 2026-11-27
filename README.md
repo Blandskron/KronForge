@@ -8,7 +8,7 @@ Anteriormente Agents First Framework. [Guía de marca](docs/BRAND_GUIDELINES.md)
 
 Plataforma documental abierta de AI Engineering para diseñar contexto, repositorios, agentes y software verificable mediante conocimiento reutilizable.
 
-KronForge 3.4.0 organiza el conocimiento en capas, con catálogo machine-readable, contratos editoriales, rutas de aprendizaje, gobierno OSS y controles de calidad reproducibles. La compatibilidad se apoya en Markdown e instrucciones explícitas y es agnóstica al modelo, proveedor y stack.
+KronForge 3.4.1 organiza el conocimiento en capas, con catálogo machine-readable, contratos editoriales, rutas de aprendizaje, gobierno OSS y controles de calidad reproducibles. La compatibilidad se apoya en Markdown e instrucciones explícitas y es agnóstica al modelo, proveedor y stack.
 
 El Markdown de `library/` es la fuente canónica de los activos. El [catálogo](library/catalog.json) se mantiene en paridad con sus metadatos. Las [skills distribuibles](skills/README.md), [`llms.txt`](llms.txt) y los [metadatos de aprendizaje](library/learning-guidance.json) se regeneran con `npm run build`. Las referencias declaradas se rigen por la [política de frescura](docs/SPEC_FRESHNESS.md).
 
@@ -54,6 +54,16 @@ Revisa el diagnóstico y autoriza el alcance. Al finalizar, conserva el diff, lo
 ### Prueba local de packs
 
 El [prototipo de packs](docs/KRONFORGE_PACK_PREVIEW.md) permite ensayar planificación, instalación, actualización y retiro con un repositorio desechable. La [guía del kit sintético](docs/KRONFORGE_EXTERNAL_TRIAL.md) incluye la prueba en Codex y qué evidencia devolver.
+
+### Desde npm (sin dependencias)
+
+```powershell
+npx kronforge prompt
+npx kronforge list --type protocol
+npx kronforge show <asset-id>
+```
+
+También puedes instalarlo como paquete (`npm install kronforge`) para importar el catálogo o leer activos Markdown desde Node.js (`>=24`).
 
 ## Dominios
 

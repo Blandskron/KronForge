@@ -1,0 +1,70 @@
+name: Publish to npm
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Run quality gate and npm pack dry-run without publishing'
+        required: false
+        default: true
+        type: boolean
+
+permissions:
+  contents: write
+  id-token: write
+
+concurrency:
+  group: publish-npm-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    name: Validate and publish to npm
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Use Node.js 24
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Verify tag and version parity
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: |
+          TAG_VERSION="${GITHUB_REF_NAME#v}"
+          PKG_VERSION="$(node -p "require('./package.json').version")"
+          CATALOG_VERSION="$(node -p "require('./library/catalog.json').frameworkVersion")"
+          echo "Tag: $TAG_VERSION | package.json: $PKG_VERSION | catalog.json: $CATALOG_VERSION"
+          if [ "$TAG_VERSION" != "$PKG_VERSION" ] || [ "$TAG_VERSION" != "$CATALOG_VERSION" ]; then
+            echo "::error::Version mismatch between tag ($TAG_VERSION), package.json ($PKG_VERSION), and catalog.json ($CATALOG_VERSION)"
+            exit 1
+          fi
+
+      - name: Run full quality gate
+        run: npm run quality
+
+      - name: Inspect package contents
+        run: npm pack --dry-run
+
+      - name: Publish package to npm
+        if: startsWith(github.ref, 'refs/tags/v') || inputs.dry_run == false
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish --provenance --access public
+
+      - name: Create GitHub Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if ! gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1; then
+            gh release create "$GITHUB_REF_NAME" --title "KronForge $GITHUB_REF_NAME" --generate-notes
+          fi
