@@ -1,7 +1,7 @@
 # Roadmap del Framework
 
-- **Fuente canónica:** este documento.
-- **Última revisión:** 2026-11-25.
+- **Fuente canónica:** este documento (con detalle operativo de ciclos en [STRATEGIC_EVOLUTION_ROADMAP.md](STRATEGIC_EVOLUTION_ROADMAP.md)).
+- **Última revisión:** 2026-11-27.
 - **Principio:** profundidad, calidad y evidencia antes que volumen.
 
 Los roadmaps incluidos en documentos estratégicos anteriores describen su momento de diseño. Cuando exista una diferencia, prevalece este archivo.
@@ -143,9 +143,9 @@ Ningún protocolo supera `experimental`. La evidencia proviene de un solo proyec
 - la retirada de un activo publicado queda registrada con su excepción a la política de deprecación en [ADR-0007](adr/ADR-0007-evidence-citation-not-dependency.md);
 - las madureces declaradas no cambian: la trazabilidad que AFP-000 exige sigue presente.
 
-## v3.5 — Aprendizaje y casos reales
+## v3.5 — Aprendizaje, plataforma operativa y evolución universal
 
-**Estado:** en curso. Las 14 rutas tienen nivel, prerrequisito, objetivo y entregable. Hay [siete prácticas iniciales](LEARNING_LABS.md), un [tutorial para cada uno de los 18 dominios](tutorials/README.md) y [siete casos reproducibles en KronForge](cases/README.md). Sigue pendiente obtener evidencia de proyectos independientes. [Auditoría de avance](audits/KRONFORGE_EVOLUTION.md)
+**Estado:** implementado y validado en rama de preparación (Ciclos 0–7 + Extensión ECC en [STRATEGIC_EVOLUTION_ROADMAP.md](STRATEGIC_EVOLUTION_ROADMAP.md), pendiente de cierre y publicación final como `3.5.0`). Incluye las 14 rutas con nivel/prerrequisito/objetivo/entregable, [siete prácticas iniciales](LEARNING_LABS.md), [18 tutoriales por dominio](tutorials/README.md), [siete casos reproducibles](cases/README.md), 77 activos canónicos, 7 Agent Skills proyectadas, CLI operativa zero-deps (`detect`, `init`, `install`, `update`, `uninstall`, `repair`, `rollback`, `doctor`, `context`, `memory`, `learn`, `validate`, `score`, `audit`, `report`, `skill new`, `pack build/verify`), Agent Config & MCP Shield, Dashboard estático client-side y CI multi-OS. Los protocolos `AFP-*` permanecen honestamente en `experimental` hasta obtener evidencia de proyectos externos independientes. [Auditoría de avance](audits/KRONFORGE_EVOLUTION.md)
 
 ### Objetivos
 

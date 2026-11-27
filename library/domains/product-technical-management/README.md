@@ -5,6 +5,7 @@ Discovery, planificación, RFC, riesgo, priorización y coordinación técnica.
 ## Estado
 
 - [Ficha de alcance y aceptación de un cambio](templates/change-brief.template.md)
+- [Especificación funcional y técnica trazable](templates/feature-spec.template.md)
 
 ## Límites
 

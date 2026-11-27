@@ -7,6 +7,7 @@ Diseño, validación y evolución de estructuras de software. Incluye decisiones
 - Prompt: [validación de arquitectura](prompts/architecture-validation.prompt.md)
 - Template: [ADR](templates/adr.template.md)
 - Template: [RFC](templates/rfc.template.md)
+- Template: [Constitución del proyecto](templates/project-constitution.template.md)
 
 ## Límites
 

@@ -37,8 +37,18 @@ if (!nextVersion || !/^\d+\.\d+\.\d+$/.test(nextVersion)) {
 }
 
 function run(command, commandArgs, options = {}) {
-    const executable = process.platform === 'win32' && command === 'npm' ? 'npm.cmd' : command;
-    const result = spawnSync(executable, commandArgs, {
+    let executable = command;
+    let finalArgs = commandArgs;
+    if (command === 'npm') {
+        if (process.env.npm_execpath && process.env.npm_execpath.endsWith('.js')) {
+            executable = process.execPath;
+            finalArgs = [process.env.npm_execpath, ...commandArgs];
+        } else if (process.platform === 'win32') {
+            executable = 'cmd.exe';
+            finalArgs = ['/d', '/s', '/c', 'npm.cmd', ...commandArgs];
+        }
+    }
+    const result = spawnSync(executable, finalArgs, {
         cwd: ROOT,
         stdio: options.capture ? 'pipe' : 'inherit',
         encoding: 'utf8'
@@ -105,6 +115,10 @@ await replaceInFile('assets/js/paths.js', (text) =>
     text.replace(new RegExp(`SITE_VERSION = '${escapedCurrent}'`), `SITE_VERSION = '${nextVersion}'`)
 );
 
+await replaceInFile('assets/js/app.js', (text) =>
+    text.replace(new RegExp(`\\?v=${escapedCurrent}`, 'g'), `?v=${nextVersion}`)
+);
+
 await replaceInFile('README.md', (text) =>
     text.replace(new RegExp(`KronForge ${escapedCurrent}`), `KronForge ${nextVersion}`)
 );
@@ -126,6 +140,7 @@ run('git', [
     'library/catalog.json',
     'index.html',
     'assets/js/paths.js',
+    'assets/js/app.js',
     'README.md',
     'docs/CHANGELOG.md',
     'llms.txt',

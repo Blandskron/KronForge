@@ -61,3 +61,29 @@ export async function readMasterPrompt() {
 export async function readLlmsTxt() {
     return readFile(LLMS_TXT_PATH, 'utf8');
 }
+
+export {detectRepository} from './lib/detector.mjs';
+export {discoverContext, routeContext} from './lib/context-discovery.mjs';
+export {validateRepositoryGovernance} from './lib/governance-validator.mjs';
+export {auditRepository, evaluateSkills, renderAssuranceMarkdown, scoreRepository} from './lib/assurance.mjs';
+export {buildPackManifest, scaffoldSkill, verifyPackManifest} from './lib/builders.mjs';
+export {listAvailablePacks, listAvailableProfiles, resolvePackFiles} from './lib/packs.mjs';
+export {listSupportedAdapters, renderAdapterFile, renderAgentsMarkdown} from './lib/context-generator.mjs';
+export {
+    applyInstall,
+    applyUninstall,
+    planInstall,
+    planUninstall,
+    repairInstall,
+    rollbackInstall,
+    runDoctor
+} from './lib/installer.mjs';
+export {
+    createCheckpoint,
+    initMemory,
+    listLearningCandidates,
+    promoteLearningCandidate,
+    recordLearningCandidate,
+    saveMemoryEntry,
+    searchMemory
+} from './lib/memory-store.mjs';

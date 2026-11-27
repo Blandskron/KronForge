@@ -34,6 +34,7 @@ Antes de aplicar cualquier activo: lee antes de modificar, no inventes comandos 
 
 Agentes, subagentes, evaluación, memoria, RAG e integración LLM.
 
+- [Roles de agentes y contratos de handoff](https://blandskron.github.io/KronForge/library/domains/ai-agent-engineering/patterns/agent-roles-and-handoffs.pattern.md): pattern · Definir roles especializados con fronteras de autoridad claras y traspasos verificables sin acoplarse a un runtime propietario.
 - [Checklist de conformidad Agent Skills](https://blandskron.github.io/KronForge/library/domains/ai-agent-engineering/checklists/agent-skills-conformance.checklist.md): checklist · Verificar que una skill cumple el formato abierto y es consumible por clientes reales.
 - [Preparar un repositorio agents-first](https://blandskron.github.io/KronForge/library/domains/ai-agent-engineering/playbooks/prepare-agents-first.playbook.md): playbook · Reducir incertidumbre para agentes sin perjudicar la experiencia humana.
 - [Actualización de prompt](https://blandskron.github.io/KronForge/library/domains/ai-agent-engineering/skills/prompt-update/SKILL.md): skill · Actualizar un prompt canónico sin degradar su contrato.
@@ -49,6 +50,8 @@ Fuentes, routing, compresión, retrieval y presupuestos de contexto.
 - [Recuperación bajo demanda](https://blandskron.github.io/KronForge/library/domains/context-engineering/patterns/just-in-time-retrieval.pattern.md): pattern · Cargar identificadores ligeros y resolver el contenido solo cuando la tarea lo exige.
 - [Notas persistentes](https://blandskron.github.io/KronForge/library/domains/context-engineering/patterns/persistent-notes.pattern.md): pattern · Escribir fuera de la ventana lo que debe sobrevivir a la compactación y a la sesión.
 - [Contexto progresivo](https://blandskron.github.io/KronForge/library/domains/context-engineering/patterns/progressive-context.pattern.md): pattern · Entregar contexto por capas a medida que la tarea demuestra necesitarlo.
+- [Memoria persistente del proyecto entre sesiones](https://blandskron.github.io/KronForge/library/domains/context-engineering/templates/project-memory.template.md): template · Registrar hechos verificados, decisiones activas y preguntas abiertas en Markdown versionado evitando duplicidad y obsolescencia.
+- [Enrutamiento de contexto por presupuesto de tokens](https://blandskron.github.io/KronForge/library/domains/context-engineering/patterns/token-budget-context-routing.pattern.md): pattern · Seleccionar y entregar solo el contexto relevante por niveles de divulgación progresiva para reducir consumo innecesario de tokens y ruido.
 
 ## Repository Engineering
 
@@ -91,13 +94,17 @@ Decisiones, estilos, modularidad y evolución de sistemas.
 
 - [Architecture Decision Record](https://blandskron.github.io/KronForge/library/domains/architecture/templates/adr.template.md): template · Registrar una decisión arquitectónica, su contexto y consecuencias.
 - [Validación de arquitectura](https://blandskron.github.io/KronForge/library/domains/architecture/prompts/architecture-validation.prompt.md): prompt · Contrastar la arquitectura declarada con la estructura y dependencias reales.
+- [Constitución del proyecto](https://blandskron.github.io/KronForge/library/domains/architecture/templates/project-constitution.template.md): template · Definir principios innegociables, fronteras técnicas, permisos y criterios de calidad que rigen toda especificación y cambio.
 - [Request for Comments](https://blandskron.github.io/KronForge/library/domains/architecture/templates/rfc.template.md): template · Abrir una pregunta de diseño antes de convertirla en decisión, con alternativas y preguntas sin resolver.
 
 ## Desarrollo de software
 
 Backend, frontend, APIs, integración y refactoring.
 
+- [Gestión de cambios incrementales en sistemas existentes (Brownfield)](https://blandskron.github.io/KronForge/library/domains/software-development/playbooks/brownfield-delta-change.playbook.md): playbook · Evolucionar bases de código existentes separando la verdad viva de propuestas de cambio aisladas con deltas, impacto y rollback.
 - [Compatibilidad en un cambio de interfaz](https://blandskron.github.io/KronForge/library/domains/software-development/checklists/consumer-compatibility.checklist.md): checklist · Comprobar qué consumidores pueden seguir usando una interfaz modificada.
+- [Refactoring seguro e incremental](https://blandskron.github.io/KronForge/library/domains/software-development/skills/safe-refactoring/SKILL.md): skill · Mejorar estructura interna sin alterar comportamiento externo mediante red de pruebas y pasos reversibles.
+- [Depuración sistemática por causa raíz](https://blandskron.github.io/KronForge/library/domains/software-development/skills/systematic-debugging/SKILL.md): skill · Reproducir fallos, validar hipótesis con evidencia y corregir la causa raíz con prueba de regresión.
 
 ## Datos
 
@@ -115,12 +122,15 @@ Testing, QA, revisión y criterios verificables de cierre.
 - [Tests de integración](https://blandskron.github.io/KronForge/library/domains/quality-engineering/prompts/integration-tests.prompt.md): prompt · Diseñar o mejorar pruebas entre módulos y servicios con evidencia local.
 - [Checklist antes del merge](https://blandskron.github.io/KronForge/library/domains/quality-engineering/checklists/pre-merge.checklist.md): checklist · Verificar evidencia mínima antes de integrar un cambio.
 - [QA de regresión](https://blandskron.github.io/KronForge/library/domains/quality-engineering/prompts/regression-qa.prompt.md): prompt · Mapear impacto y producir una validación de regresión basada en riesgo.
+- [Revisión estructurada de código](https://blandskron.github.io/KronForge/library/domains/quality-engineering/skills/structured-code-review/SKILL.md): skill · Auditar diffs por severidad técnica (seguridad, contratos, pruebas, mantenibilidad) con hallazgos accionables.
+- [Desarrollo guiado por pruebas (TDD)](https://blandskron.github.io/KronForge/library/domains/quality-engineering/skills/test-driven-development/SKILL.md): skill · Aplicar el ciclo Red-Green-Refactor con pruebas verificables antes de escribir código de producción.
 - [Tests unitarios](https://blandskron.github.io/KronForge/library/domains/quality-engineering/prompts/unit-tests.prompt.md): prompt · Diseñar o mejorar pruebas unitarias basadas en la lógica real del repositorio.
 
 ## Seguridad
 
 AppSec, supply chain, secretos, identidad y autorización.
 
+- [Controles técnicos de cumplimiento y privacidad](https://blandskron.github.io/KronForge/library/domains/security/checklists/compliance-and-privacy-controls.checklist.md): checklist · Mapear controles técnicos verificables hacia GDPR, Ley 21.719 (Chile), OWASP, NIST AI RMF e ISO 27001/42001 sin reclamar certificaciones.
 - [Auditoría de vulnerabilidades en dependencias](https://blandskron.github.io/KronForge/library/domains/security/prompts/dependency-vulnerability-audit.prompt.md): prompt · Revisar manifiestos y lockfiles con herramientas verificadas del proyecto.
 - [Auditoría de seguridad de imágenes Docker](https://blandskron.github.io/KronForge/library/domains/security/prompts/docker-image-security-audit.prompt.md): prompt · Revisar Dockerfiles e imágenes sin inventar herramientas ni ejecutar explotación.
 - [Auditoría técnica de privacidad](https://blandskron.github.io/KronForge/library/domains/security/prompts/privacy-audit.prompt.md): prompt · Inventariar flujos de datos y priorizar brechas de privacidad con evidencia verificable.
@@ -150,6 +160,7 @@ UX, UI, accesibilidad, SEO y arquitectura de información.
 Discovery, planificación, RFC, riesgo y liderazgo técnico.
 
 - [Ficha de alcance y aceptación de un cambio](https://blandskron.github.io/KronForge/library/domains/product-technical-management/templates/change-brief.template.md): template · Convertir una necesidad observada en un cambio acotado y comprobable.
+- [Especificación funcional y técnica trazable](https://blandskron.github.io/KronForge/library/domains/product-technical-management/templates/feature-spec.template.md): template · Definir requisitos, criterios de aceptación verificables, diseño acotado y matriz de trazabilidad hacia pruebas y evidencias.
 
 ## Documentación y conocimiento
 

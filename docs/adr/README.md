@@ -23,6 +23,10 @@ Este directorio registra decisiones estructurales reales del framework.
 | [ADR-0008](ADR-0008-kronforge-portal-identity.md) | accepted | Identidad y publicación de KronForge |
 | [ADR-0009](ADR-0009-pack-composition-and-distribution.md) | proposed | Composición de packs y distribución portable |
 | [ADR-0010](ADR-0010-pinned-installation-and-trust.md) | proposed | Instalación fijada, aprobada y recuperable |
+| [ADR-0011](ADR-0011-external-adoption-before-cli.md) | superseded | Adopción externa previa a CLI (evolucionada en ADR-0012) |
+| [ADR-0012](ADR-0012-universal-evolution-architecture.md) | accepted | Evolución hacia Universal Agents-First Engineering Framework y CLI progresiva zero-deps |
+| [ADR-0009](ADR-0009-pack-composition-and-distribution.md) | proposed | Composición de packs y distribución portable |
+| [ADR-0010](ADR-0010-pinned-installation-and-trust.md) | proposed | Instalación fijada, aprobada y recuperable |
 | [ADR-0011](ADR-0011-external-adoption-before-cli.md) | proposed | Adopción externa como condición para ampliar la automatización |
 
 Para una decisión nueva, usa la [plantilla ADR](../../library/domains/architecture/templates/adr.template.md), elimina instrucciones y actualiza este índice.

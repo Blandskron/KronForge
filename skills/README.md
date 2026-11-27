@@ -8,6 +8,10 @@ descubrir y cargar estas skills sin conocer la estructura interna del repositori
 | [`documentation-audit`](documentation-audit/SKILL.md) | [`library/domains/documentation-knowledge/skills/documentation-audit/SKILL.md`](../library/domains/documentation-knowledge/skills/documentation-audit/SKILL.md) |
 | [`github-pages-release`](github-pages-release/SKILL.md) | [`library/domains/delivery-platform/skills/github-pages-release/SKILL.md`](../library/domains/delivery-platform/skills/github-pages-release/SKILL.md) |
 | [`prompt-update`](prompt-update/SKILL.md) | [`library/domains/ai-agent-engineering/skills/prompt-update/SKILL.md`](../library/domains/ai-agent-engineering/skills/prompt-update/SKILL.md) |
+| [`safe-refactoring`](safe-refactoring/SKILL.md) | [`library/domains/software-development/skills/safe-refactoring/SKILL.md`](../library/domains/software-development/skills/safe-refactoring/SKILL.md) |
+| [`structured-code-review`](structured-code-review/SKILL.md) | [`library/domains/quality-engineering/skills/structured-code-review/SKILL.md`](../library/domains/quality-engineering/skills/structured-code-review/SKILL.md) |
+| [`systematic-debugging`](systematic-debugging/SKILL.md) | [`library/domains/software-development/skills/systematic-debugging/SKILL.md`](../library/domains/software-development/skills/systematic-debugging/SKILL.md) |
+| [`test-driven-development`](test-driven-development/SKILL.md) | [`library/domains/quality-engineering/skills/test-driven-development/SKILL.md`](../library/domains/quality-engineering/skills/test-driven-development/SKILL.md) |
 
 ## Contrato
 

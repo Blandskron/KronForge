@@ -88,3 +88,72 @@ export declare function getAsset(id: string): Promise<KronForgeDetailedAsset | n
 export declare function readAssetMarkdown(id: string): Promise<string>;
 export declare function readMasterPrompt(): Promise<string>;
 export declare function readLlmsTxt(): Promise<string>;
+
+export interface KronForgeDetectionReport {
+    root: string;
+    name: string;
+    isGitRepo: boolean;
+    languages: string[];
+    frameworks: string[];
+    packageManagers: string[];
+    commands: Record<string, string>;
+    ci: {githubActions: boolean; gitlabCi: boolean};
+    agentFiles: string[];
+    kronforge: {installed: boolean; profile: string | null; packs: string[]; previewStore: boolean};
+    signals: Record<string, boolean>;
+    recommendations: {profile: string; packs: string[]};
+}
+
+export interface KronForgePackSummary {
+    id: string;
+    title: string;
+    summary: string;
+    fileCount: number;
+}
+
+export interface KronForgeProfile {
+    id: string;
+    title: string;
+    summary: string;
+    packs: string[];
+    defaultAdapters: string[];
+}
+
+export interface KronForgeInstallOptions {
+    init?: boolean;
+    update?: boolean;
+    profile?: string;
+    packs?: string[];
+    adapters?: string[];
+    dryRun?: boolean;
+    force?: boolean;
+}
+
+export declare function detectRepository(targetDir?: string): Promise<KronForgeDetectionReport>;
+export declare function listAvailablePacks(): KronForgePackSummary[];
+export declare function listAvailableProfiles(): KronForgeProfile[];
+export declare function listSupportedAdapters(): Array<{id: string; target: string; title: string}>;
+export declare function planInstall(targetDir?: string, options?: KronForgeInstallOptions): Promise<Record<string, unknown>>;
+export declare function applyInstall(targetDir?: string, options?: KronForgeInstallOptions): Promise<Record<string, unknown>>;
+export declare function planUninstall(targetDir: string, packIds: string[], options?: {force?: boolean}): Promise<Record<string, unknown>>;
+export declare function applyUninstall(targetDir: string, packIds: string[], options?: {dryRun?: boolean; force?: boolean}): Promise<Record<string, unknown>>;
+export declare function rollbackInstall(targetDir?: string, options?: {dryRun?: boolean}): Promise<Record<string, unknown>>;
+export declare function repairInstall(targetDir?: string, options?: {dryRun?: boolean; force?: boolean}): Promise<Record<string, unknown>>;
+export declare function runDoctor(targetDir?: string): Promise<Record<string, unknown>>;
+export declare function initMemory(targetDir?: string): Promise<Record<string, unknown>>;
+export declare function saveMemoryEntry(targetDir?: string, options?: {title: string; content: string; tags?: string[]}): Promise<Record<string, unknown>>;
+export declare function searchMemory(targetDir?: string, query?: string): Promise<Record<string, unknown>>;
+export declare function createCheckpoint(targetDir?: string, options?: {label?: string; status?: string; notes?: string; evidence?: string[]}): Promise<Record<string, unknown>>;
+export declare function recordLearningCandidate(targetDir?: string, options?: {title: string; lesson: string; evidence?: string}): Promise<Record<string, unknown>>;
+export declare function listLearningCandidates(targetDir?: string): Promise<Record<string, unknown>>;
+export declare function promoteLearningCandidate(targetDir: string, candidateId: string, options: {approved: boolean}): Promise<Record<string, unknown>>;
+export declare function discoverContext(targetDir?: string): Promise<Record<string, unknown>>;
+export declare function routeContext(targetDir?: string, options?: {task?: string; budget?: number}): Promise<Record<string, unknown>>;
+export declare function validateRepositoryGovernance(targetDir?: string): Promise<Record<string, unknown>>;
+export declare function evaluateSkills(targetDir?: string): Promise<Record<string, unknown>>;
+export declare function scoreRepository(targetDir?: string): Promise<Record<string, unknown>>;
+export declare function auditRepository(targetDir?: string): Promise<Record<string, unknown>>;
+export declare function renderAssuranceMarkdown(audit: Record<string, unknown>): string;
+export declare function scaffoldSkill(targetDir?: string, options?: {name: string; title?: string; summary?: string}): Promise<Record<string, unknown>>;
+export declare function buildPackManifest(packDir: string, options: {id: string; version?: string; license?: string; sourceUri?: string; revision?: string; out?: string}): Promise<Record<string, unknown>>;
+export declare function verifyPackManifest(packDir: string, manifestPath?: string): Promise<Record<string, unknown>>;
