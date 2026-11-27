@@ -20,6 +20,7 @@ import { parsePortalHash } from './catalog-utils.js?v=3.4.0';
 // Módulos inicializados bajo demanda (lazy-loaded pages)
 import { bindTreeView } from './tree.js?v=3.4.0';
 import { bindModelTabs } from './models.js?v=3.4.0';
+import { bindAssuranceDashboard } from './dashboard.js?v=3.4.0';
 
 // Escuchar evento personalizado de navegación lazy
 document.addEventListener('page:loaded', (event) => {
@@ -31,6 +32,9 @@ document.addEventListener('page:loaded', (event) => {
             break;
         case 'welcome':
             syncHomeStats();
+            break;
+        case 'quickstart':
+            bindAssuranceDashboard();
             break;
         case 'domains':
             renderDomains();

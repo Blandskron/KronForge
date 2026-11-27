@@ -146,3 +146,6 @@ export declare function evaluateSkills(targetDir?: string): Promise<Record<strin
 export declare function scoreRepository(targetDir?: string): Promise<Record<string, unknown>>;
 export declare function auditRepository(targetDir?: string): Promise<Record<string, unknown>>;
 export declare function renderAssuranceMarkdown(audit: Record<string, unknown>): string;
+export declare function scaffoldSkill(targetDir?: string, options?: {name: string; title?: string; summary?: string}): Promise<Record<string, unknown>>;
+export declare function buildPackManifest(packDir: string, options: {id: string; version?: string; license?: string; sourceUri?: string; revision?: string; out?: string}): Promise<Record<string, unknown>>;
+export declare function verifyPackManifest(packDir: string, manifestPath?: string): Promise<Record<string, unknown>>;

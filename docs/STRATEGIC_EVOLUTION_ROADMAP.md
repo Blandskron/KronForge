@@ -82,9 +82,9 @@
 
 | ID | Tarea | Prioridad | Dependencias | Estado |
 |---|---|---|---|---|
-| `C6-T1` | Skill Builder & Pack Builder CLI (`skill new`, `pack build`, `pack verify`) | P2 | Ciclo 2, Ciclo 5 | `Pending` |
-| `C6-T2` | Community Registry Contract & Governance | P2 | `C6-T1` | `Pending` |
-| `C6-T3` | Static Engineering Dashboard en GitHub Pages (client-side JSON local, cero backend) | P2 | `C5-T1` | `Pending` |
+| `C6-T1` | Skill Builder & Pack Builder CLI (`skill new`, `pack build`, `pack verify`) | P2 | Ciclo 2, Ciclo 5 | `Completed` |
+| `C6-T2` | Community Registry Contract & Governance | P2 | `C6-T1` | `Completed` |
+| `C6-T3` | Static Engineering Dashboard en GitHub Pages (client-side JSON local, cero backend) | P2 | `C5-T1` | `Completed` |
 
 ---
 

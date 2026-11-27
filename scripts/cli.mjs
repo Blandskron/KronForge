@@ -4,6 +4,7 @@ import {
     applyInstall,
     applyUninstall,
     auditRepository,
+    buildPackManifest,
     detectRepository,
     discoverContext,
     listAssets,
@@ -18,8 +19,10 @@ import {
     rollbackInstall,
     routeContext,
     runDoctor,
+    scaffoldSkill,
     scoreRepository,
-    validateRepositoryGovernance
+    validateRepositoryGovernance,
+    verifyPackManifest
 } from './api.mjs';
 
 const args = process.argv.slice(2);
@@ -74,6 +77,11 @@ Uso — Operación sobre repositorios:
   kronforge score [dir] [--json]                       Calcula el Engineering Score universal (0-100)
   kronforge audit [dir] [--json]                       Ejecuta auditoría integral con evidencia AFP-004
   kronforge report [dir] [--format md|json] [--out f]  Genera reporte verificable de madurez y evidencia
+
+Uso — Ecosystem Builders:
+  kronforge skill new <name> [--dir <dir>] [--json]    Crea una Agent Skill conforme a agentskills.io
+  kronforge pack build <dir> --id <id> --version <v>   Genera pack-manifest.json con digests SHA-256
+  kronforge pack verify <dir> [--manifest <file>]      Verifica integridad SHA-256 de un pack local
 
 Opciones generales:
   kronforge --version                                  Muestra la versión instalada
@@ -282,6 +290,44 @@ try {
             console.log(`Reporte generado en ${outPath} (SHA-256: ${audit.digestSha256})`);
         } else {
             process.stdout.write(output);
+        }
+    } else if (command === 'skill') {
+        const sub = positionals[0];
+        const name = positionals[1];
+        if (sub !== 'new' || !name) {
+            console.error('Uso: kronforge skill new <name> [--dir <dir>] [--title "..."] [--summary "..."] [--json]');
+            process.exitCode = 1;
+        } else {
+            const res = await scaffoldSkill(readFlag('--dir') || process.cwd(), {
+                name,
+                title: readFlag('--title'),
+                summary: readFlag('--summary')
+            });
+            if (asJson) console.log(JSON.stringify(res, null, 2));
+            else console.log(`Skill creada: ${res.path} (SHA-256: ${res.sha256})`);
+        }
+    } else if (command === 'pack') {
+        const sub = positionals[0];
+        const dir = positionals[1] || readFlag('--dir') || process.cwd();
+        if (sub === 'build') {
+            const res = await buildPackManifest(dir, {
+                id: readFlag('--id'),
+                version: readFlag('--version') || '1.0.0',
+                license: readFlag('--license'),
+                sourceUri: readFlag('--source'),
+                revision: readFlag('--revision'),
+                out: readFlag('--out')
+            });
+            if (asJson) console.log(JSON.stringify(res, null, 2));
+            else console.log(`Manifiesto generado: ${res.manifestPath} (${res.fileCount} archivos · SHA-256: ${res.manifestSha256})`);
+        } else if (sub === 'verify') {
+            const res = await verifyPackManifest(dir, readFlag('--manifest'));
+            if (asJson) console.log(JSON.stringify(res, null, 2));
+            else console.log(`Pack ${res.id}@${res.version}: ${res.status} (${res.checkedFiles} archivos · ${res.errors.length} errores)`);
+            if (res.status !== 'PASS') process.exitCode = 1;
+        } else {
+            console.error('Uso: kronforge pack build|verify <dir> [--id <id>] [--version <v>] [--json]');
+            process.exitCode = 1;
         }
     } else if (command === 'doctor') {
         const dir = readFlag('--dir') || positionals[0] || process.cwd();
