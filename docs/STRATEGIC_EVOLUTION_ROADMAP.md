@@ -41,10 +41,10 @@
 
 | ID | Tarea | Prioridad | Dependencias | Estado |
 |---|---|---|---|---|
-| `C2-T1` | Specification Engineering (Project Constitution, specs trazables, criterios de aceptación) | P0 | Ciclo 1 | `Pending` |
-| `C2-T2` | Change Management Brownfield (`proposal → delta-spec → design → tasks → archive` + rollback) | P0 | `C2-T1` | `Pending` |
-| `C2-T3` | Skills ejecutables `agentskills.io` (TDD, debugging sistemático, code review, refactoring, Git Flow, incidentes) | P0 | Ciclo 1 | `Pending` |
-| `C2-T4` | Agent Roles & Handoff Contracts alineados a `AFP-002`, `AFP-003`, `AFP-005` | P1 | `C2-T1` | `Pending` |
+| `C2-T1` | Specification Engineering (Project Constitution, specs trazables, criterios de aceptación) | P0 | Ciclo 1 | `Completed` |
+| `C2-T2` | Change Management Brownfield (`proposal → delta-spec → design → tasks → archive` + rollback) | P0 | `C2-T1` | `Completed` |
+| `C2-T3` | Skills ejecutables `agentskills.io` (TDD, debugging sistemático, code review, refactoring, Git Flow, incidentes) | P0 | Ciclo 1 | `Completed` |
+| `C2-T4` | Agent Roles & Handoff Contracts alineados a `AFP-002`, `AFP-003`, `AFP-005` | P1 | `C2-T1` | `Completed` |
 
 ---
 

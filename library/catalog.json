@@ -4199,6 +4199,475 @@
         "Corte de una entrega incremental"
       ],
       "path": "domains/product-technical-management/templates/change-brief.template.md"
+    },
+    {
+      "id": "architecture.project-constitution",
+      "title": "Constitución del proyecto",
+      "summary": "Definir principios innegociables, fronteras técnicas, permisos y criterios de calidad que rigen toda especificación y cambio.",
+      "type": "template",
+      "domain": "architecture",
+      "category": "creation",
+      "level": "foundation",
+      "difficulty": "foundation",
+      "status": "stable",
+      "version": "1.0.0",
+      "compatibility": "tool-agnostic",
+      "models": [
+        "any"
+      ],
+      "agents": [
+        "markdown-compatible"
+      ],
+      "language": "es",
+      "author": "@Blandskron/contributors",
+      "license": "MIT",
+      "lastModified": "2026-11-27",
+      "tags": [
+        "constitution",
+        "spec-driven",
+        "governance",
+        "architecture"
+      ],
+      "dependencies": [],
+      "related": [
+        "architecture.adr",
+        "product-technical-management.feature-spec",
+        "engineering-protocols.evidence-and-gates"
+      ],
+      "inputs": [
+        "Propósito del producto o sistema",
+        "Restricciones legales, de seguridad y de arquitectura vigentes"
+      ],
+      "outputs": [
+        "Documento constitucional versionado que actúa como norma superior de specs y agentes"
+      ],
+      "examples": [
+        "Aplicar en un repositorio objetivo conservando evidencia verificable"
+      ],
+      "estimatedTime": 20,
+      "complexity": "low",
+      "useCases": [
+        "Establecer guardrails antes de usar Spec-Driven Development",
+        "Alinear personas y agentes sobre reglas que ninguna tarea puede relajar"
+      ],
+      "path": "domains/architecture/templates/project-constitution.template.md",
+      "projects": [
+        "any"
+      ]
+    },
+    {
+      "id": "product-technical-management.feature-spec",
+      "title": "Especificación funcional y técnica trazable",
+      "summary": "Definir requisitos, criterios de aceptación verificables, diseño acotado y matriz de trazabilidad hacia pruebas y evidencias.",
+      "type": "template",
+      "domain": "product-technical-management",
+      "category": "creation",
+      "level": "foundation",
+      "difficulty": "foundation",
+      "status": "stable",
+      "version": "1.0.0",
+      "compatibility": "tool-agnostic",
+      "models": [
+        "any"
+      ],
+      "agents": [
+        "markdown-compatible"
+      ],
+      "language": "es",
+      "author": "@Blandskron/contributors",
+      "license": "MIT",
+      "lastModified": "2026-11-27",
+      "tags": [
+        "spec-driven",
+        "requirements",
+        "acceptance-criteria",
+        "traceability"
+      ],
+      "dependencies": [],
+      "related": [
+        "architecture.project-constitution",
+        "product-technical-management.change-brief",
+        "engineering-protocols.evidence-and-gates"
+      ],
+      "inputs": [
+        "Problema o necesidad validada",
+        "Constitución del proyecto y restricciones existentes"
+      ],
+      "outputs": [
+        "Especificación versionada con IDs de requisitos, criterios de aceptación y trazabilidad a pruebas"
+      ],
+      "examples": [
+        "Aplicar en un repositorio objetivo conservando evidencia verificable"
+      ],
+      "estimatedTime": 20,
+      "complexity": "low",
+      "useCases": [
+        "Iniciar una funcionalidad nueva bajo Spec-Driven Development",
+        "Acotar alcance y criterios de aceptación antes de implementar"
+      ],
+      "path": "domains/product-technical-management/templates/feature-spec.template.md",
+      "projects": [
+        "any"
+      ]
+    },
+    {
+      "id": "software-development.brownfield-delta-change",
+      "title": "Gestión de cambios incrementales en sistemas existentes (Brownfield)",
+      "summary": "Evolucionar bases de código existentes separando la verdad viva de propuestas de cambio aisladas con deltas, impacto y rollback.",
+      "type": "playbook",
+      "domain": "software-development",
+      "category": "execution",
+      "level": "intermediate",
+      "difficulty": "intermediate",
+      "status": "stable",
+      "version": "1.0.0",
+      "compatibility": "tool-agnostic",
+      "models": [
+        "any"
+      ],
+      "agents": [
+        "markdown-compatible"
+      ],
+      "language": "es",
+      "author": "@Blandskron/contributors",
+      "license": "MIT",
+      "lastModified": "2026-11-27",
+      "tags": [
+        "brownfield",
+        "change-management",
+        "delta-spec",
+        "rollback"
+      ],
+      "dependencies": [],
+      "related": [
+        "product-technical-management.feature-spec",
+        "software-development.consumer-compatibility",
+        "software-development.safe-refactoring"
+      ],
+      "inputs": [
+        "Repositorio existente con comportamiento en producción",
+        "Necesidad de cambio o corrección"
+      ],
+      "outputs": [
+        "Propuesta de cambio con delta de especificación, análisis de impacto, pruebas y plan de rollback"
+      ],
+      "examples": [
+        "Aplicar en un repositorio objetivo conservando evidencia verificable"
+      ],
+      "estimatedTime": 20,
+      "complexity": "medium",
+      "useCases": [
+        "Modificar un sistema legado sin romper consumidores existentes",
+        "Coordinar cambios paralelos sin corromper la documentación viva"
+      ],
+      "path": "domains/software-development/playbooks/brownfield-delta-change.playbook.md",
+      "projects": [
+        "any"
+      ]
+    },
+    {
+      "id": "quality-engineering.test-driven-development",
+      "title": "Desarrollo guiado por pruebas (TDD)",
+      "summary": "Aplicar el ciclo Red-Green-Refactor con pruebas verificables antes de escribir código de producción.",
+      "type": "skill",
+      "domain": "quality-engineering",
+      "category": "execution",
+      "level": "intermediate",
+      "difficulty": "intermediate",
+      "status": "stable",
+      "version": "1.0.0",
+      "compatibility": "tool-agnostic",
+      "models": [
+        "any"
+      ],
+      "agents": [
+        "markdown-compatible"
+      ],
+      "language": "es",
+      "author": "@Blandskron/contributors",
+      "license": "MIT",
+      "lastModified": "2026-11-27",
+      "tags": [
+        "tdd",
+        "testing",
+        "quality",
+        "workflow"
+      ],
+      "dependencies": [],
+      "related": [
+        "quality-engineering.unit-tests",
+        "quality-engineering.pre-merge",
+        "software-development.safe-refactoring"
+      ],
+      "inputs": [
+        "Requisito o criterio de aceptación verificable",
+        "Comando real de pruebas del repositorio"
+      ],
+      "outputs": [
+        "Pruebas automatizadas que fallaron antes de implementar y pasan tras el cambio",
+        "Evidencia reproducible de la ejecución Red -> Green -> Refactor"
+      ],
+      "examples": [
+        "Aplicar en un repositorio objetivo conservando evidencia verificable"
+      ],
+      "estimatedTime": 20,
+      "complexity": "medium",
+      "useCases": [
+        "Implementar una funcionalidad con contrato claro",
+        "Corregir un defecto garantizando no regresión"
+      ],
+      "path": "domains/quality-engineering/skills/test-driven-development/SKILL.md",
+      "specRefs": [
+        {
+          "spec": "agent-skills",
+          "url": "https://agentskills.io/specification",
+          "verified": "2026-11-27"
+        }
+      ],
+      "projects": [
+        "any"
+      ]
+    },
+    {
+      "id": "software-development.systematic-debugging",
+      "title": "Depuración sistemática por causa raíz",
+      "summary": "Reproducir fallos, validar hipótesis con evidencia y corregir la causa raíz con prueba de regresión.",
+      "type": "skill",
+      "domain": "software-development",
+      "category": "execution",
+      "level": "intermediate",
+      "difficulty": "intermediate",
+      "status": "stable",
+      "version": "1.0.0",
+      "compatibility": "tool-agnostic",
+      "models": [
+        "any"
+      ],
+      "agents": [
+        "markdown-compatible"
+      ],
+      "language": "es",
+      "author": "@Blandskron/contributors",
+      "license": "MIT",
+      "lastModified": "2026-11-27",
+      "tags": [
+        "debugging",
+        "root-cause",
+        "troubleshooting",
+        "regression"
+      ],
+      "dependencies": [],
+      "related": [
+        "quality-engineering.test-driven-development",
+        "quality-engineering.regression-qa"
+      ],
+      "inputs": [
+        "Síntoma observado, traza de error o caso que falla",
+        "Acceso de lectura al código y entorno de ejecución"
+      ],
+      "outputs": [
+        "Causa raíz comprobada, corrección mínima y prueba de regresión en verde"
+      ],
+      "examples": [
+        "Aplicar en un repositorio objetivo conservando evidencia verificable"
+      ],
+      "estimatedTime": 20,
+      "complexity": "medium",
+      "useCases": [
+        "Investigar un bug reproducible o regresión de CI",
+        "Evitar parches superficiales que solo ocultan síntomas"
+      ],
+      "path": "domains/software-development/skills/systematic-debugging/SKILL.md",
+      "specRefs": [
+        {
+          "spec": "agent-skills",
+          "url": "https://agentskills.io/specification",
+          "verified": "2026-11-27"
+        }
+      ],
+      "projects": [
+        "any"
+      ]
+    },
+    {
+      "id": "quality-engineering.structured-code-review",
+      "title": "Revisión estructurada de código",
+      "summary": "Auditar diffs por severidad técnica (seguridad, contratos, pruebas, mantenibilidad) con hallazgos accionables.",
+      "type": "skill",
+      "domain": "quality-engineering",
+      "category": "execution",
+      "level": "intermediate",
+      "difficulty": "intermediate",
+      "status": "stable",
+      "version": "1.0.0",
+      "compatibility": "tool-agnostic",
+      "models": [
+        "any"
+      ],
+      "agents": [
+        "markdown-compatible"
+      ],
+      "language": "es",
+      "author": "@Blandskron/contributors",
+      "license": "MIT",
+      "lastModified": "2026-11-27",
+      "tags": [
+        "code-review",
+        "quality",
+        "security",
+        "verification"
+      ],
+      "dependencies": [],
+      "related": [
+        "quality-engineering.code-quality-review",
+        "quality-engineering.pre-merge",
+        "engineering-protocols.independent-review"
+      ],
+      "inputs": [
+        "Diff o lista de archivos modificados",
+        "Especificación, issue o contexto del cambio"
+      ],
+      "outputs": [
+        "Lista priorizada de hallazgos (Bloqueante / Importante / Sugerencia) con archivo, evidencia y propuesta"
+      ],
+      "examples": [
+        "Aplicar en un repositorio objetivo conservando evidencia verificable"
+      ],
+      "estimatedTime": 20,
+      "complexity": "medium",
+      "useCases": [
+        "Revisar un pull request antes del merge",
+        "Ejecutar una revisión independiente de cambios generados por otro agente"
+      ],
+      "path": "domains/quality-engineering/skills/structured-code-review/SKILL.md",
+      "specRefs": [
+        {
+          "spec": "agent-skills",
+          "url": "https://agentskills.io/specification",
+          "verified": "2026-11-27"
+        }
+      ],
+      "projects": [
+        "any"
+      ]
+    },
+    {
+      "id": "software-development.safe-refactoring",
+      "title": "Refactoring seguro e incremental",
+      "summary": "Mejorar estructura interna sin alterar comportamiento externo mediante red de pruebas y pasos reversibles.",
+      "type": "skill",
+      "domain": "software-development",
+      "category": "execution",
+      "level": "intermediate",
+      "difficulty": "intermediate",
+      "status": "stable",
+      "version": "1.0.0",
+      "compatibility": "tool-agnostic",
+      "models": [
+        "any"
+      ],
+      "agents": [
+        "markdown-compatible"
+      ],
+      "language": "es",
+      "author": "@Blandskron/contributors",
+      "license": "MIT",
+      "lastModified": "2026-11-27",
+      "tags": [
+        "refactoring",
+        "technical-debt",
+        "maintainability",
+        "brownfield"
+      ],
+      "dependencies": [],
+      "related": [
+        "software-development.brownfield-delta-change",
+        "quality-engineering.test-driven-development",
+        "software-development.consumer-compatibility"
+      ],
+      "inputs": [
+        "Módulo objetivo y razón concreta del refactoring",
+        "Suite de pruebas existente"
+      ],
+      "outputs": [
+        "Código simplificado con contratos preservados y pruebas en verde tras cada incremento"
+      ],
+      "examples": [
+        "Aplicar en un repositorio objetivo conservando evidencia verificable"
+      ],
+      "estimatedTime": 20,
+      "complexity": "medium",
+      "useCases": [
+        "Dividir un módulo monolítico en unidades cohesivas",
+        "Eliminar duplicación antes de añadir una nueva capacidad"
+      ],
+      "path": "domains/software-development/skills/safe-refactoring/SKILL.md",
+      "specRefs": [
+        {
+          "spec": "agent-skills",
+          "url": "https://agentskills.io/specification",
+          "verified": "2026-11-27"
+        }
+      ],
+      "projects": [
+        "any"
+      ]
+    },
+    {
+      "id": "ai-agent-engineering.agent-roles-and-handoffs",
+      "title": "Roles de agentes y contratos de handoff",
+      "summary": "Definir roles especializados con fronteras de autoridad claras y traspasos verificables sin acoplarse a un runtime propietario.",
+      "type": "pattern",
+      "domain": "ai-agent-engineering",
+      "category": "knowledge",
+      "level": "intermediate",
+      "difficulty": "intermediate",
+      "status": "stable",
+      "version": "1.0.0",
+      "compatibility": "tool-agnostic",
+      "models": [
+        "any"
+      ],
+      "agents": [
+        "markdown-compatible"
+      ],
+      "language": "es",
+      "author": "@Blandskron/contributors",
+      "license": "MIT",
+      "lastModified": "2026-11-27",
+      "tags": [
+        "agent-roles",
+        "handoffs",
+        "multi-agent",
+        "delegation"
+      ],
+      "dependencies": [],
+      "related": [
+        "ai-agent-engineering.subagent-contract",
+        "engineering-protocols.work-delegation",
+        "engineering-protocols.multi-agent-collaboration",
+        "engineering-protocols.independent-review"
+      ],
+      "inputs": [
+        "Objetivo de ingeniería que requiere múltiples perspectivas o etapas",
+        "Política de permisos del repositorio"
+      ],
+      "outputs": [
+        "Asignación clara de roles, alcance de escritura y contrato de traspaso entre agentes o humanos"
+      ],
+      "examples": [
+        "Aplicar en un repositorio objetivo conservando evidencia verificable"
+      ],
+      "estimatedTime": 20,
+      "complexity": "medium",
+      "useCases": [
+        "Separar implementación de revisión independiente",
+        "Coordinar arquitectura, código, pruebas y auditoría de seguridad en tareas complejas"
+      ],
+      "path": "domains/ai-agent-engineering/patterns/agent-roles-and-handoffs.pattern.md",
+      "projects": [
+        "any"
+      ]
     }
   ],
   "learningPaths": [

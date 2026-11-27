@@ -8,6 +8,7 @@ Agentes, subagentes, evaluación, memoria, RAG, integración LLM, prompts y lím
 - Playbook: [preparar un repositorio agents-first](playbooks/prepare-agents-first.playbook.md)
 - Architecture note: [sistemas de subagentes](architecture-notes/subagent-systems.architecture-note.md)
 - Pattern: [delegación por contrato](patterns/subagent-contract.pattern.md)
+- Pattern: [roles de agentes y contratos de handoff](patterns/agent-roles-and-handoffs.pattern.md)
 - Checklist: [conformidad Agent Skills](checklists/agent-skills-conformance.checklist.md)
 
 ## Mapa del dominio

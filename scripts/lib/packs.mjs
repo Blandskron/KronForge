@@ -48,6 +48,11 @@ export const ENGINEERING_PACKS = {
                 sourceType: 'asset',
                 assetId: 'documentation-knowledge.invented-commands',
                 target: '.kronforge/packs/agents-first/invented-commands.anti-pattern.md'
+            },
+            {
+                sourceType: 'asset',
+                assetId: 'ai-agent-engineering.agent-roles-and-handoffs',
+                target: '.kronforge/packs/agents-first/agent-roles-and-handoffs.pattern.md'
             }
         ]
     },
@@ -75,6 +80,26 @@ export const ENGINEERING_PACKS = {
                 sourceType: 'asset',
                 assetId: 'quality-engineering.definition-of-done-review',
                 target: '.kronforge/packs/testing/definition-of-done-review.prompt.md'
+            },
+            {
+                sourceType: 'asset',
+                assetId: 'quality-engineering.test-driven-development',
+                target: '.kronforge/packs/testing/test-driven-development.SKILL.md'
+            },
+            {
+                sourceType: 'asset',
+                assetId: 'quality-engineering.structured-code-review',
+                target: '.kronforge/packs/testing/structured-code-review.SKILL.md'
+            },
+            {
+                sourceType: 'asset',
+                assetId: 'software-development.systematic-debugging',
+                target: '.kronforge/packs/testing/systematic-debugging.SKILL.md'
+            },
+            {
+                sourceType: 'asset',
+                assetId: 'software-development.safe-refactoring',
+                target: '.kronforge/packs/testing/safe-refactoring.SKILL.md'
             }
         ]
     },
@@ -163,6 +188,21 @@ export const ENGINEERING_PACKS = {
                 sourceType: 'asset',
                 assetId: 'product-technical-management.change-brief',
                 target: '.kronforge/packs/spec-driven/change-brief.template.md'
+            },
+            {
+                sourceType: 'asset',
+                assetId: 'architecture.project-constitution',
+                target: '.kronforge/packs/spec-driven/project-constitution.template.md'
+            },
+            {
+                sourceType: 'asset',
+                assetId: 'product-technical-management.feature-spec',
+                target: '.kronforge/packs/spec-driven/feature-spec.template.md'
+            },
+            {
+                sourceType: 'asset',
+                assetId: 'software-development.brownfield-delta-change',
+                target: '.kronforge/packs/spec-driven/brownfield-delta-change.playbook.md'
             },
             {
                 sourceType: 'asset',

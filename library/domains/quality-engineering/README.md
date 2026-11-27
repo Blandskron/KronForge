@@ -15,6 +15,11 @@ Testing, QA, revisión de código, regresión y criterios verificables de cierre
 
 - [Antes del merge](checklists/pre-merge.checklist.md)
 
+## Skills
+
+- [Desarrollo guiado por pruebas (TDD)](skills/test-driven-development/SKILL.md)
+- [Revisión estructurada de código](skills/structured-code-review/SKILL.md)
+
 ## Límites
 
 Las auditorías de vulnerabilidades pertenecen a [seguridad](../security/README.md) y el rendimiento operativo a [confiabilidad y performance](../reliability-performance/README.md).
