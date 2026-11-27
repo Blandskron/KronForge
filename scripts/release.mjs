@@ -37,11 +37,11 @@ if (!nextVersion || !/^\d+\.\d+\.\d+$/.test(nextVersion)) {
 }
 
 function run(command, commandArgs, options = {}) {
-    const result = spawnSync(command, commandArgs, {
+    const executable = process.platform === 'win32' && command === 'npm' ? 'npm.cmd' : command;
+    const result = spawnSync(executable, commandArgs, {
         cwd: ROOT,
         stdio: options.capture ? 'pipe' : 'inherit',
-        encoding: 'utf8',
-        shell: process.platform === 'win32' && command === 'npm'
+        encoding: 'utf8'
     });
     if (result.status !== 0) {
         if (options.capture && result.stderr) console.error(result.stderr.trim());
