@@ -6,7 +6,7 @@
 
 La [ficha operativa de C0](KRONFORGE_C0_BLK_ENG_001.md) reúne la revisión de ADR, el alcance del piloto, sus pruebas de aceptación y los insumos para verificar procedencia antes de C1.
 
-El candidato **Git Flow & Agent Skills** permite probar un ciclo de ingeniería con una tarea de release que deja rastros inspeccionables. La ficha de C0 registra la revisión identificada y el permiso para el piloto interno A + R. El ensayo del autor pasó y la repetición independiente sigue pendiente. El inventario de abajo describe el alcance candidato para una evolución posterior. Cualquier redistribución de derivados requiere un permiso específico.
+El candidato **Git Flow & Agent Skills** permite probar un ciclo de ingeniería con una tarea de release que deja rastros inspeccionables. La ficha registra la revisión identificada y el cierre del piloto interno C1 para A + R, con el ensayo del autor y la excepción a la revisión independiente autorizada por el titular. El inventario de abajo describe el alcance candidato para una evolución posterior. Cualquier redistribución de derivados requiere un permiso específico.
 
 | Componente candidato | Reuso y diseño mínimo |
 |---|---|

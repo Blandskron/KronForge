@@ -1,6 +1,6 @@
 # C0 de KronForge — Piloto de BLK-ENG-001
 
-**Estado** C0 cerrado para el alcance interno del perfil A + R. C1 autorizado y en ejecución. El candidato local pasó el ensayo del autor. Queda pendiente la repetición independiente para cerrar C1. Los tres ADR conservan el estado `proposed`.
+**Estado** C0 cerrado. C1 cerrado para el piloto interno A + R de `c1-internal.1`, con excepción a la revisión independiente autorizada por el titular. Los tres ADR conservan el estado `proposed`.
 
 **Decisión del titular, 2026-11-27.** El usuario, en calidad de titular, autorizó por escrito en el chat el uso y la adaptación interna de **BLK-ENG-001 v1.0 + Anexo A.1** y aprobó C1 para el perfil A con extensión R. La autorización rige para la revisión fijada por el SHA-256 de esta ficha y para la preparación y las pruebas locales del candidato. La distribución pública de derivados queda fuera del permiso.
 
@@ -97,10 +97,16 @@ El candidato local incluye guía, inventario de procedencia y destinos, una skil
 | Bloqueo y squash simulados | `PASS` | El gate falló con código 1 y la referencia de `main` quedó intacta. Con código 0, los commits squash reprodujeron el árbol evaluado y pasaron el gate en destino. |
 | Release y hotfix | `PASS` | El SHA desplegado era distinto de la referencia del tronco. Se integró el parche en la línea soportada y se propagó a la propuesta de release del tronco. |
 | Rollback de artefacto y retiro de la adopción | `PASS` | Se restauró el digest del artefacto sintético saludable y se comprobó su contenido. Por separado, el retiro eliminó solo la skill y preservó las reglas y el trabajo local. |
-| Repetición independiente | `NOT_RUN` | El titular se designó por escrito como revisor independiente. Está pendiente su ejecución y el registro de resultados. El ensayo previo corresponde al autor. |
+| Repetición independiente | `NOT_RUN` | El titular autorizó cerrar C1 sin evidencia de repetición independiente para este candidato. La evidencia registrada procede del ensayo del autor. |
 | Controles de un proveedor y descubrimiento nativo | `NOT_RUN` | La revisión de integración y el despliegue se representaron localmente. No hubo PR/MR de plataforma, activación nativa ni publicación. |
 
-La adopción de las doce capacidades y los criterios completos A01–A05 requieren una decisión de alcance propia. El gate de cierre de este C1 interno exige repetir el ZIP exacto desde su guía y registrar por separado las simulaciones y los controles verificados.
+La adopción de las doce capacidades y los criterios completos A01–A05 requieren una decisión de alcance propia.
+
+### Decisión de cierre de C1
+
+El **2026-11-27**, el titular autorizó por escrito en el chat la excepción a la revisión independiente y el cierre del piloto interno A + R. La decisión se aplica únicamente a `c1-internal.1` y al SHA-256 del ZIP registrado en esta ficha. Cualquier otro candidato o alcance requiere su propia revisión.
+
+El autor reprodujo el ZIP exacto en un entorno limpio con `node exercise.mjs`. La ejecución terminó con código `0`. Se observó el bloqueo esperado con `gate=1` y `main` intacta, las dos integraciones squash con `gate=0`, la repetición sin cambios, el rollback simulado y el retiro preservando el trabajo del consumidor. La revisión independiente, los controles de plataforma y el descubrimiento nativo conservan el veredicto `NOT_RUN`. El ZIP, los logs y los derivados se conservan en local.
 
 ### Evidencia de revisión independiente
 
@@ -130,6 +136,6 @@ El mínimo para iniciar la verificación es **origen y ruta, revisión exacta y 
 | Registro de derechos | Permiso escrito para el piloto interno registrado en esta ficha. | Titular |
 | Línea base de calidad del framework | Registrada en la [auditoría](audits/KRONFORGE_EVOLUTION_AUDIT.md). Repetir al revisar la ficha. | Maintainer |
 | Autorización de C1 | Aprobada para perfil A + R y uso interno. | Owner |
-| Revisión independiente de C1 | Revisor designado. Evidencia de reproducción pendiente. | Titular, en rol de revisor |
+| Cierre de C1 | Cerrado con excepción a la revisión independiente para `c1-internal.1`. | Titular |
 
 Si un archivo carece de procedencia o permiso para el uso previsto, queda fuera de la selección y se evalúa si el pack todavía cumple el objetivo. Si afecta un componente esencial, el candidato queda en espera de aclaración o decisión de alcance.
