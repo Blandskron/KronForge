@@ -44,6 +44,8 @@ La proyección portable conserva `plugin.json` y el mismo `skills/synthetic-hand
 
 ## Evidencia externa que falta
 
+La [guía para dos equipos](KRONFORGE_EXTERNAL_TRIAL.md) y su [plantilla de evidencia](KRONFORGE_EXTERNAL_TRIAL_EVIDENCE.md) fijan el escenario, el orden y los veredictos de la prueba. El [preparador del kit](../scripts/prepare-external-trial.ps1) genera un ZIP local con el fixture sintético, los dos marketplaces de prueba y el ejecutor genérico. Desde PowerShell se ejecuta con `./scripts/prepare-external-trial.ps1 -Destination <carpeta-nueva-fuera-del-checkout>`.
+
 Para C3, probar descubrimiento y ejecución en sesiones limpias de dos clientes de familias distintas. Usar el fixture público sintético, identificar el artefacto por digest y pedir la salida esperada para `KF-SYNTHETIC`. Registrar cómo se cargó la skill, el modelo o versión del host, la salida, el tiempo, las intervenciones y los controles aplicables. La prueba local conserva la ruta manual si el cliente requiere un adaptador.
 
 Para C4, dos equipos independientes ejecutan la ruta manual y la declarativa en repositorios de stacks distintos. Antes de medir, congelar fixture, digest, rúbrica y tareas. Alternar qué ruta van a ejecutar primero. Registrar tiempo al primer resultado correcto, pasos, intervenciones, reproducibilidad y recuperación de colisiones. Exigir cero efectos fuera del alcance y todos los escenarios obligatorios correctos. Publicar solo resultados que los participantes puedan autorizar y declarar tamaño de muestra y límites. La adopción observada por el autor queda fuera del conjunto independiente.

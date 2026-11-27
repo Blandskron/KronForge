@@ -6,6 +6,8 @@ Todos los cambios notables en este proyecto serán documentados en este archivo.
 
 ## Sin publicar
 
+- Kit sintético para la prueba de dos equipos, con instrucciones de Codex CLI y Claude Code, rutas de adopción comparables y plantilla de evidencia.
+
 - [Prototipo local de packs](KRONFORGE_PACK_PREVIEW.md) con manifiestos fijados, plan revisable, estado por generación y pruebas de ciclo de vida. Ensayo npm offline para el código genérico y proyecciones sintéticas para verificar compatibilidad de instalación.
 
 - [Auditoría de evolución de KronForge](audits/KRONFORGE_EVOLUTION_AUDIT.md) con investigación de estándares y distribución, arquitectura objetivo, contratos para packs y roadmap por ciclos.
