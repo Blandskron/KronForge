@@ -2,8 +2,8 @@
   "platform": "win32",
   "browser": "159.0.8154.6",
   "images": {
-    "inicio-claro.png": "66af5462451d3254f2ba6741abcd02add854737f3f4d022e114673b361c3d327",
-    "inicio-movil.png": "02c0f3f698f1dc8decb23c103e940276b0a0b151acfed8546f5ecbb52d0c426d",
+    "inicio-claro.png": "130fa56395b8c801789e818b2a7ee51948488a14682e43487e7ff7685bf29523",
+    "inicio-movil.png": "e5e6059bd39c4d42adfe1e83076f10fb382788903b12dfcb04bc1dedc34ff755",
     "lectura.png": "fd131672616dd92affbde67ba55b155ce39a5f3b0c081b95ad64d7d738667416"
   }
 }

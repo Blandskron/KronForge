@@ -25,26 +25,27 @@ No publiques en un issue:
 - tokens, credenciales o datos personales;
 - rutas o instrucciones que faciliten abuso.
 
-El repositorio todavía no tiene un canal privado de seguridad confirmado. Para solicitar coordinación **sin detalles sensibles**, abre un [issue público mínimo](https://github.com/Blandskron/KronForge/issues/new) con el título `Solicitud de coordinación de seguridad` e incluye solo:
+Para comunicar una vulnerabilidad o una exposición de datos, abre [Advisories de KronForge](https://github.com/Blandskron/KronForge/security/advisories) y selecciona **Report a vulnerability**. Describe el alcance y el impacto con la evidencia mínima necesaria. Redacta los valores de secretos y los datos personales incluso en el reporte privado.
+
+Si la opción privada no aparece, solicita coordinación mediante un [issue público mínimo](https://github.com/Blandskron/KronForge/issues/new) con el título `Solicitud de coordinación de seguridad`. Incluye solo:
 
 - superficie general afectada;
 - si el problema sigue presente;
 - una forma pública y no sensible de continuar la coordinación, si dispones de ella.
 
-> [!IMPORTANT]
-> Está pendiente que el owner habilite GitHub Private Vulnerability Reporting o publique otro canal privado verificable. Hasta entonces, no envíes información confidencial a este repositorio. El issue público no es un canal seguro.
-
 ## Qué ocurrirá después
 
-Cuando exista un canal privado, el maintainer:
+El mantenedor:
 
 1. confirmará recepción;
 2. validará alcance e impacto sin ejecutar explotación innecesaria;
 3. acordará remediación y divulgación responsable;
 4. publicará un parche y notas suficientes cuando corresponda.
 
-No se promete un SLA hasta que exista un proceso privado operativo. Los reportes se priorizarán por impacto y posibilidad de exposición.
+Los reportes se priorizan por impacto y posibilidad de exposición. Consulta el [aviso de privacidad](docs/PRIVACY.md) para otras consultas sobre datos del portal.
 
 ## Divulgación
+
+Mientras la investigación esté pendiente, conserva los detalles técnicos en el reporte privado o en el canal acordado con el mantenedor. Al coordinar la divulgación, ambas partes acuerdan qué información puede publicarse.
 
 No se publicarán secretos, datos personales ni instrucciones ofensivas. Los créditos al reportante serán opcionales y requerirán su consentimiento.

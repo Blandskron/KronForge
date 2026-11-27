@@ -10,6 +10,7 @@ Este repositorio es mantenido como proyecto open source y no ofrece un SLA de re
 | Nuevo activo, mejora amplia o decisión estructural | Formulario **Propuesta de activo o RFC** |
 | Pregunta general no sensible | Issue público breve, después de buscar respuestas existentes |
 | Vulnerabilidad, secreto o dato personal | [SECURITY.md](SECURITY.md); nunca detalles públicos |
+| Consulta sobre datos usados al navegar o colaborar | [Aviso de privacidad](docs/PRIVACY.md) |
 | Incidente de conducta | [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) |
 | Contribución preparada | Pull request según [CONTRIBUTING.md](CONTRIBUTING.md) |
 

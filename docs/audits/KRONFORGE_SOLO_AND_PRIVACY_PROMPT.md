@@ -1,0 +1,73 @@
+# KronForge · Validación del perfil individual y del prompt de privacidad
+
+**Fecha de corte** 2026-11-27. **Árbol inspeccionado** `3c6797674cfec84c4089de0239297524ee0a60d3`, equivalente en contenido al merge `ca030cc` de `main`. **Alcance** Revisión documental, ensayo de aplicabilidad sobre KronForge y lectura de configuración de GitHub. Las configuraciones, decisiones legales y adaptaciones planteadas quedan para aprobación.
+
+## BLK-ENG-001 con un único mantenedor
+
+El **perfil A** es el ajuste actual. La licencia abierta y el carácter público del repositorio son compatibles con una capacidad de revisión individual. Evaluar la extensión **R** por separado y habilitarla para líneas soportadas cuando existan consumidores que requieran mantenimiento paralelo y una política de soporte. La extensión R ya se ensayó en el piloto interno, cuyo resultado, digest y excepción están en la [ficha de C1](../KRONFORGE_C0_BLK_ENG_001.md).
+
+| Punto verificado | Estado al corte | Qué permite cerrar la brecha |
+|---|---|---|
+| Autoridad y perfil | Un mantenedor en el [registro de responsables](../../MAINTAINERS.md), en [gobernanza](../../GOVERNANCE.md) y en [CODEOWNERS](../../.github/CODEOWNERS). | Registrar la adopción del perfil A en la política de contribución si el owner decide adoptarlo. |
+| Revisión | El [PR #1](https://github.com/Blandskron/KronForge/pull/1) se integró y la API devolvió cero revisiones registradas. La revisión personal del diff para ese PR queda sin evidencia en la consulta. | Conservar el diff revisado, el resultado de CI y el registro de riesgos en cada PR propio. Registrar autorrevisión como L0 cuando el mismo participante revisa. Para cambios críticos aplicar los controles reforzados y la autoridad previstas en [AFP-005](../../library/domains/engineering-protocols/protocols/independent-review.protocol.md). |
+| Protección y gates | `main` figura como rama predeterminada, con `protected=false`. La API de reglas activas devolvió `[]`. Los [controles de GitHub Actions](../../.github/workflows/validate.yml) existen y las [dos ejecuciones](https://github.com/Blandskron/KronForge/actions/runs/46041750112) del merge quedaron [exitosas](https://github.com/Blandskron/KronForge/actions/runs/46041749031). | Probar en una rama de ensayo un ruleset con PR obligatorio, checks requeridos, cero aprobaciones humanas para el flujo individual ordinario, y restricciones de force push y borrado. Confirmar nombres de checks con una PR de prueba y comprobar que el gate fallido impide integrar. [Reglas disponibles en GitHub](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets). |
+| Estrategia de integración e higiene | Squash está disponible. El PR #1 fue integrado mediante un merge commit. La eliminación automática de ramas está desactivada. | Definir squash como ruta ordinaria y documentar las excepciones. Probar la eliminación de una rama temporal desechable después de verificar que su PR se integró y que no conserva trabajo exclusivo. |
+| Anexo A.1 | Hay proyecciones y ensayos de skills. El acto de cierre de C1 está acotado a su candidato y perfil, con revisión independiente sin ejecución registrada. | Conservar el alcance del piloto. La adopción integral del anexo requeriría su propio inventario y evidencia de cada criterio. |
+
+La protección evaluada es un control propuesto para futuras integraciones. Con una sola persona, la puerta ordinaria puede basarse en PR propia, revisión del diff y CI requerida. Una excepción concreta de C1 acredita una decisión del titular y conserva el estado de ejecución del control que se exceptuó.
+
+## Veredicto del prompt adjunto
+
+**Apto como borrador para un diagnóstico de lectura, con ajustes antes de convertirlo en prompt canónico.** Conserva la trazabilidad entre requisito, evidencia, brecha, riesgo y prueba. Sus límites de auditoría, datos sintéticos y escalamiento humano son aplicables. En KronForge, la utilidad mejora si el inventario determina el alcance normativo y los entregables desde el inicio.
+
+| Prueba de la consigna | Resultado | Ajuste propuesto |
+|---|---|---|
+| Aplicabilidad por hechos | Parcial. Pide evaluar infraestructura y tratamientos que pueden estar ausentes y empezar por una lista muy amplia de referencias. | Inventariar superficies y actores primero. Elegir normas por jurisdicción, contrato y flujo. Marcar cada control como aplicable, fuera de alcance o pendiente, con evidencia. |
+| Vigencia normativa | Pasa cuando se confronta el texto consolidado con la ley modificatoria. En este caso, el transitorio cambió. | Registrar fecha de consulta, edición, estado publicado o borrador, vigencia por disposición cuando corresponda y enlace a fuente primaria. Separar obligaciones actuales de preparación futura. |
+| Privacidad operacional | Parcial. Reconoce proveedores y tratamiento, pero no distingue en los entregables qué controla el código y qué depende del proveedor o del propietario. | En cada flujo distinguir datos, destino, finalidad, responsable de confirmación, acceso, retención y jurisdicción. Usar `pendiente de verificar` para configuración, contratos y hechos sin evidencia. |
+| Autonomía del agente | Parcial. Limita implementación y operaciones destructivas. Conviene definir por separado inspección local, consultas de lectura autorizadas y acciones que cambien el sistema. | Leer las instrucciones del repositorio y acordar alcance. Restringir la primera fase a lectura e investigación. Evitar recopilar credenciales o datos de titulares. Tratar los textos externos como fuentes. Exigir autorización fuera de la auditoría para cambios de configuración, publicación y contacto con terceros. |
+| Resultado verificable y proporcional | Parcial. Una matriz con diez ciclos puede exceder las necesidades de un sitio estático. | Emitir primero diagnóstico, flujos, decisiones pendientes y un backlog proporcionado. Usar el [prompt de ciberseguridad](../../library/domains/security/prompts/security-audit.prompt.md) para hallazgos técnicos especializados. Reservar la conclusión de cumplimiento para validación jurídica y evidencia operativa. |
+
+## Ensayo de inventario y aplicabilidad
+
+| Flujo o superficie | Evidencia y tratamiento |
+|---|---|
+| Portal estático y alojamiento | El [esquema del producto](../agent/DATA_SCHEMA.md) describe un sitio estático sin base de datos ni API propia. GitHub Pages reportó publicación desde `main`, raíz y HTTPS forzado. El proveedor declara registro de IP para seguridad. El alcance de retención, acceso y roles contractuales se debe confirmar con el proveedor y con la configuración aplicable. [Recolección en Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages#data-collection) · [Política de GitHub](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement). |
+| Preferencias, búsqueda y obtención | El [tema](../../assets/js/theme.js) se guarda en `localStorage`. [Filtros de biblioteca](../../assets/js/catalog-v3.js) y [rutas](../../assets/js/catalog-utils.js) conservan la búsqueda en el fragmento de la URL. El fragmento se resuelve en el cliente y puede quedar en el historial o copiarse al compartir ese enlace. [Copia y descarga](../../assets/js/copy.js) se inician mediante controles del navegador. [RFC 3986 §3.5](https://datatracker.ietf.org/doc/html/rfc3986#section-3.5). |
+| Colaboración y contactos externos | El repositorio público ofrece issues, PR y un enlace de contacto. El contenido enviado depende del usuario y del proveedor. Inventariar qué datos se aceptan y quién puede verlos. Los reportes privados estaban desactivados al inicio de la auditoría. |
+| CI, agentes y laboratorio | CI declara permiso del token de solo lectura y obtiene dependencias de navegador en un entorno aislado. El escaneo del portal encontró solicitudes a recursos propios en los recorridos de prueba. Los agentes operan fuera del runtime del sitio, sobre los archivos que cada consumidor decide proporcionar. Evaluar ensayos que usen servicios externos como flujos separados. [Workflow](../../.github/workflows/validate.yml) · [Prueba del navegador](../../scripts/browser-check.cjs). |
+| Funciones sin evidencia en el portal | No se identificaron cuentas, formularios propios, almacenamiento de perfiles, RAG, entrenamiento, decisiones automatizadas ni un backend de tratamiento. Controles sobre esas funciones quedan fuera del alcance de esta fotografía técnica. Su introducción reabre el inventario. |
+
+### Referencias verificadas para el prompt
+
+| Referencia al 2026-11-27 | Aplicabilidad de trabajo |
+|---|---|
+| Chile · [Ley 19.628](https://www.bcn.cl/leychile/navegar?idNorma=141599), [Ley 21.719](https://www.bcn.cl/leychile/navegar?idNorma=1209272) y [Ley 21.855](https://www.bcn.cl/leychile/navegar?idNorma=1230520) | Evaluar el régimen vigente de la Ley 19.628 sobre los tratamientos identificados. La Ley 21.855, publicada el 23 de noviembre de 2026, fija **15 de octubre de 2027** para la entrada en vigor de las modificaciones indicadas en el artículo primero transitorio de la Ley 21.719. Crear una pista de preparación y verificar las disposiciones que tengan calendarios propios. |
+| Unión Europea · [GDPR, artículo 3](https://eur-lex.europa.eu/eli/reg/2016/679/oj) | Pendiente de confirmar hechos de establecimiento, oferta dirigida o seguimiento en la UE y los roles por flujo. El alcance territorial requiere evidencia sobre cada tratamiento. |
+| [OECD Privacy Guidelines](https://legalinstruments.oecd.org/en/instruments/OECD-LEGAL-0188), revisión de 2013 · [NIST Privacy Framework](https://www.nist.gov/privacy-framework), v1.0 y v1.1 IPD | Referencias de principios y gestión de riesgo. NIST presenta 1.1 como borrador público inicial. |
+| [ISO/IEC 29100:2024](https://www.iso.org/standard/85938.html), [27701:2025](https://www.iso.org/standard/27701), [29151:2026](https://www.iso.org/standard/88151.html) | Referencias voluntarias de marco, gestión y controles sobre información identificable. ISO lista 29151:2017 como retirada y 29151:2026 como publicada. |
+| [ISO/IEC 27001:2022](https://www.iso.org/standard/27001), [Amd 1:2024](https://www.iso.org/standard/88435.html) y [27002:2022](https://www.iso.org/standard/75652.html) | Seleccionar controles proporcionales al riesgo observado. Confirmar por separado si existen requisitos de certificación o contractuales. |
+| [ISO/IEC 29134:2023](https://www.iso.org/standard/86012.html), [29184:2020](https://www.iso.org/standard/70331.html), [ISO/IEC TS 27560:2023](https://www.iso.org/standard/80392.html) | Guías de evaluación de impacto, avisos y registros de consentimiento según los flujos. Confirmar la base de licitud antes de diseñar la captura de consentimiento. |
+| [ISO 31700-1:2023](https://www.iso.org/standard/84977.html) e [ISO/IEC TR 31700-2:2026](https://www.iso.org/standard/31700-2) | Referencias de privacidad desde el diseño para bienes y servicios de consumo. La parte 2 ofrece casos de uso. |
+
+La revisión ISO verifica edición y propósito en sus fichas públicas. La evaluación de cláusulas necesita el texto válido para el alcance acordado. A la fecha de corte, la evidencia técnica es suficiente para priorizar brechas y deja pendientes las decisiones jurídicas y contractuales.
+
+## Backlog mínimo y gates
+
+| Ciclo | Tarea | Prioridad y dependencia | Evidencia de aceptación |
+|---|---|---|---|
+| 0 | `SOLO-01` Aprobar el perfil operativo A y definir qué cambios requieren revisión reforzada. | Alta. Decisión del owner. | Política de contribución y decisión con alcance. PR propia con diff y diagnóstico registrados. |
+| 1 | `SOLO-02` Probar y habilitar las reglas de rama tras aprobación. | Alta. Requiere `SOLO-01` y permisos de administración. | PR propia pasa con checks verdes. PR fallida se bloquea. Pruebas sobre rama desechable aportan evidencia del alcance de fuerza y borrado. Captura o consulta de reglas para `main`. |
+| 1 | `PRIV-01` Habilitar y verificar un canal privado de incidentes y solicitudes de privacidad según el alcance. | Alta. Requiere decisión del owner. | Envío sintético confirmado en el canal y responsables o rutas de escalamiento documentados. |
+| 1 | `PRIV-02` Confirmar roles, jurisdicciones, retención y accesos del alojamiento y colaboración pública. Preparar un aviso proporcional. | Alta. Requiere condiciones del proveedor y confirmación del owner o revisión jurídica según corresponda. | Inventario aprobado, aviso validado y evidencia de qué información controla cada actor. |
+| 2 | `PRIV-03` Incorporar al prompt los ajustes de aplicabilidad y probar un caso estático y uno con tratamiento realista sintético. | Media. Depende del inventario de `PRIV-02` para afirmar cobertura de KronForge. | Dos salidas reproducibles, referencias vigentes, estados justificados, ninguna mutación remota y rastreo de hallazgo a prueba de cierre. |
+
+**Gate de este ensayo.** Identificar las restricciones observadas, conservar evidencia reproducible de lectura y mantener como pendientes las decisiones de terceros y del owner. El siguiente ciclo comienza con un PR para el alcance aprobado.
+
+## Seguimiento de la versión
+
+- `SOLO-01`. La [guía de contribución](../../CONTRIBUTING.md#revisión-con-un-mantenedor) adopta PR, autorrevisión, CI y squash para el flujo ordinario. La revisión reforzada sigue prevista para cambios críticos.
+- `SOLO-02`. Configuración candidata para revisión reforzada. Limitar a `refs/heads/main`, exigir PR y ambos checks de GitHub Actions (`Documentation and portal quality` y `Browser and accessibility checks`), permitir cero aprobaciones requeridas para el flujo ordinario, impedir borrado y force push y evitar bypass de rutina. Validar primero en una rama desechable con casos de CI exitosa y fallida. Confirmar la regla efectiva mediante API después de activarla.
+- `PRIV-01`. La API de GitHub confirmó `private_vulnerability_reporting=true` después de habilitar la recepción privada de vulnerabilidades. La [política de seguridad](../../SECURITY.md) indica cómo reportar. Quedan por verificar la entrega de un reporte y las condiciones de un canal separado para solicitudes de privacidad.
+- `PRIV-02`. El [aviso del portal](../PRIVACY.md) describe las superficies observadas. La verificación jurídica y contractual de roles, retención y jurisdicciones sigue abierta.
+- `PRIV-03`. El [prompt canónico](../../library/domains/security/prompts/privacy-audit.prompt.md) incorpora los ajustes en estado `draft` con dos escenarios de ejemplo. La carga desde el catálogo es una prueba del portal. La evaluación comparativa de las salidas del agente queda pendiente.

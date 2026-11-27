@@ -5,6 +5,7 @@ Seguridad de aplicaciones, dependencias, supply chain, secretos, identidad y aut
 ## Prompts
 
 - [Auditoría de ciberseguridad](prompts/security-audit.prompt.md)
+- [Auditoría técnica de privacidad](prompts/privacy-audit.prompt.md)
 - [Auditoría de vulnerabilidades en dependencias](prompts/dependency-vulnerability-audit.prompt.md)
 - [Auditoría de seguridad de imágenes Docker](prompts/docker-image-security-audit.prompt.md)
 

@@ -2,7 +2,7 @@
   "$schema": "schema/catalog-v3.schema.json",
   "schemaVersion": 3,
   "frameworkVersion": "3.4.0",
-  "lastUpdated": "2026-11-25",
+  "lastUpdated": "2026-11-27",
   "metadataDefaults": {
     "author": "@Blandskron/contributors",
     "license": "MIT",
@@ -1428,6 +1428,61 @@
         "Revisar riesgos de seguridad de aplicación mediante análisis defensivo"
       ],
       "path": "domains/security/prompts/security-audit.prompt.md"
+    },
+    {
+      "id": "security.privacy-audit",
+      "title": "Auditoría técnica de privacidad",
+      "summary": "Inventariar flujos de datos y priorizar brechas de privacidad con evidencia verificable.",
+      "type": "prompt",
+      "category": "execution",
+      "domain": "security",
+      "status": "draft",
+      "version": "0.1.0",
+      "level": "advanced",
+      "difficulty": "advanced",
+      "projects": [
+        "any"
+      ],
+      "compatibility": "model-agnostic",
+      "models": [
+        "any"
+      ],
+      "agents": [
+        "markdown-compatible"
+      ],
+      "language": "es",
+      "author": "@Blandskron/contributors",
+      "license": "MIT",
+      "lastModified": "2026-11-27",
+      "tags": [
+        "privacidad",
+        "datos",
+        "auditoria"
+      ],
+      "dependencies": [],
+      "related": [
+        "security.security-audit",
+        "engineering-protocols.evidence-and-gates"
+      ],
+      "inputs": [
+        "Repositorio autorizado, alcance y fecha de evaluación",
+        "Contexto de responsables, jurisdicciones y proveedores cuando esté disponible"
+      ],
+      "outputs": [
+        "Inventario de datos, flujos y responsables de confirmación",
+        "Matriz de aplicabilidad, brechas y pruebas de cierre",
+        "Backlog priorizado y decisiones pendientes de revisión humana"
+      ],
+      "examples": [
+        "Portal estático con preferencias locales y registros del proveedor",
+        "Servicio de cuentas con datos sintéticos y un proveedor de correo"
+      ],
+      "estimatedTime": null,
+      "complexity": null,
+      "useCases": [
+        "Priorizar controles de privacidad a partir de tratamientos observados"
+      ],
+      "path": "domains/security/prompts/privacy-audit.prompt.md"
     },
     {
       "id": "security.dependency-vulnerability-audit",

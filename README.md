@@ -153,6 +153,8 @@ Los agentes deben leer [AGENTS.md](AGENTS.md) antes de trabajar. La [matriz de c
 
 GitHub Pages sirve [`index.html`](index.html), [`assets/`](assets/), [`pages/`](pages/) y el Markdown canónico directamente desde la raíz. El portal ofrece búsqueda, filtros, URLs compartibles por activo, lectura Markdown, copia y descarga sin runtime ni build de producción.
 
+El [aviso de privacidad del portal](docs/PRIVACY.md) describe el alojamiento, las preferencias del navegador y la colaboración pública.
+
 ## Versionado y licencia
 
 Los activos siguen [versionado semántico y reglas de deprecación](PROMPT_VERSIONING.md). Los cambios notables se registran en [docs/CHANGELOG.md](docs/CHANGELOG.md).

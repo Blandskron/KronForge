@@ -89,6 +89,12 @@ const server = http.createServer(async (req, res) => {
         await page.locator('.portal-guide').screenshot({path:path.join(output,'guia-portada.png'), animations:'disabled'});
         assert.equal(await page.getByRole('link',{name:'Abrir el protocolo del ejemplo'}).getAttribute('href'),
             '#library/engineering-protocols.external-consumption-validation');
+        const privacyLink = page.getByRole('link', {name:'Privacidad', exact:true});
+        assert.equal(await privacyLink.getAttribute('href'),
+            'https://github.com/Blandskron/KronForge/blob/main/docs/PRIVACY.md');
+        const privacyResponse = await context.request.get(url + 'docs/PRIVACY.md');
+        assert.ok(privacyResponse.ok());
+        assert.match(await privacyResponse.text(), /^# Privacidad en KronForge/m);
         await audit('inicio', 'oscuro');
         await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }));
         const first = await page.screenshot({path:path.join(output,'inicio-oscuro.png'), animations:'disabled'});
@@ -182,6 +188,7 @@ const server = http.createServer(async (req, res) => {
             ['software-development.consumer-compatibility', 'Compatibilidad en un cambio de interfaz'],
             ['data.migration-rehearsal', 'Ensayar una migración de datos'],
             ['product-technical-management.change-brief', 'Ficha de alcance y aceptación de un cambio'],
+            ['security.privacy-audit', 'Auditoría técnica de privacidad'],
         ]) {
             await page.goto(url + '#library/' + id);
             await page.locator('#asset-viewer:not([hidden])').waitFor();
