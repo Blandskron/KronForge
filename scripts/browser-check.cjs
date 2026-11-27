@@ -8,7 +8,7 @@ const tools = process.env.KF_BROWSER_TOOLS;
 const load = name => require(tools ? path.resolve(tools, name) : name);
 const root = path.resolve(__dirname, '..');
 const output = process.env.KF_AUDIT_OUT || path.join(tmpdir(), 'kronforge-evidence');
-const types = { '.html':'text/html', '.js':'text/javascript', '.css':'text/css', '.svg':'image/svg+xml', '.md':'text/plain', '.json':'application/json', '.woff2':'font/woff2' };
+const types = { '.html':'text/html', '.js':'text/javascript', '.css':'text/css', '.svg':'image/svg+xml', '.png':'image/png', '.md':'text/plain', '.json':'application/json', '.woff2':'font/woff2' };
 const server = http.createServer(async (req, res) => {
     try {
         const url = new URL(req.url, 'http://127.0.0.1');
@@ -39,6 +39,27 @@ const server = http.createServer(async (req, res) => {
             await page.screenshot({path:path.join(root, 'assets/img/kronforge-social.png')});
             return;
         }
+        if (process.argv.includes('--guide-captures')) {
+            await page.setViewportSize({width:1280,height:800});
+            await page.goto(url + '#library?type=protocol');
+            await page.locator('#asset-grid button[data-asset-link]').first().waitFor();
+            await page.evaluate(async () => {
+                await document.fonts.ready;
+                document.querySelector('.library-discovery').scrollIntoView({block:'start', behavior:'instant'});
+            });
+            await page.screenshot({path:path.join(output,'guia-biblioteca.png'), animations:'disabled'});
+            await page.goto(url + '#library/engineering-protocols.external-consumption-validation');
+            await page.locator('#asset-viewer:not([hidden])').waitFor();
+            await page.waitForFunction(() => document.getElementById('asset-viewer-content')?.dataset.loadState === 'ready');
+            await page.getByRole('button',{name:'Modo lectura'}).click();
+            await page.waitForFunction(() => document.getElementById('asset-reading-mode')?.getAttribute('aria-pressed') === 'true');
+            await page.evaluate(async () => {
+                await document.fonts.ready;
+                document.getElementById('asset-viewer').scrollIntoView({block:'start', behavior:'instant'});
+            });
+            await page.screenshot({path:path.join(output,'guia-visor.png'), animations:'disabled'});
+            return;
+        }
         const result = [];
         const remote = [];
         context.on('request', req => { if (!req.url().startsWith(url) && !req.url().startsWith('data:')) remote.push(req.url()); });
@@ -61,6 +82,13 @@ const server = http.createServer(async (req, res) => {
         await page.keyboard.press('Enter');
         assert.equal(await page.evaluate(() => document.activeElement.id), 'main-content');
         await page.evaluate(() => document.activeElement.blur());
+        const guideImages = page.locator('.portal-guide img');
+        assert.equal(await guideImages.count(), 2);
+        await page.locator('.portal-guide').scrollIntoViewIfNeeded();
+        await guideImages.evaluateAll(images => Promise.all(images.map(image => image.decode())));
+        await page.locator('.portal-guide').screenshot({path:path.join(output,'guia-portada.png'), animations:'disabled'});
+        assert.equal(await page.getByRole('link',{name:'Abrir el protocolo del ejemplo'}).getAttribute('href'),
+            '#library/engineering-protocols.external-consumption-validation');
         await audit('inicio', 'oscuro');
         await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }));
         const first = await page.screenshot({path:path.join(output,'inicio-oscuro.png'), animations:'disabled'});
@@ -82,8 +110,9 @@ const server = http.createServer(async (req, res) => {
         await page.emulateMedia({colorScheme:'light'});
         await page.waitForFunction(() => document.documentElement.dataset.theme === 'light');
         await page.getByLabel('Tema', {exact:true}).selectOption('dark');
-        await page.locator('.forge-resource-grid a[href="#library?type=protocol"]').click();
+        await page.getByRole('link',{name:'Explorar protocolos',exact:true}).click();
         await page.locator('#library-search').waitFor();
+        assert.equal(await page.locator('.portal-guide').isVisible(), false);
         await page.waitForFunction(() => document.querySelector('#asset-grid button'));
         assert.match(page.url(), /type=protocol/);
         await audit('biblioteca', 'oscuro');
@@ -114,6 +143,9 @@ const server = http.createServer(async (req, res) => {
             assert.equal(await page.evaluate(() => document.documentElement.scrollWidth), width);
             await audit('inicio-' + width, 'oscuro');
             if (width === 360) {
+                await page.locator('.portal-guide').scrollIntoViewIfNeeded();
+                await guideImages.evaluateAll(images => Promise.all(images.map(image => image.decode())));
+                await page.evaluate(() => window.scrollTo({top:0, behavior:'instant'}));
                 await page.screenshot({path:path.join(output,'inicio-movil.png'), animations:'disabled',fullPage:true});
                 await page.getByRole('button',{name:'Abrir navegación'}).click();
                 await page.keyboard.press('Escape');

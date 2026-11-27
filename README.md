@@ -29,21 +29,31 @@ El flujo operativo se mantiene simple: **Copiar -> Pegar -> Auditar -> Aprobar -
 
 No es una colección masiva de prompts, un runtime ni una metodología prescriptiva. Organiza capacidades reutilizables y deja que cada activo se adapte a la evidencia del proyecto objetivo.
 
-## Inicio rápido
+## Cómo usar KronForge
 
-### Para auditar un repositorio
+### 1. Encuentra un activo para tu tarea
 
-1. Abre el [prompt maestro](prompts/agents-first-documentation-review.prompt.md).
-2. Copia su contenido en el agente que uses.
-3. Entrégale acceso al repositorio objetivo.
-4. Exige primero el diagnóstico y el plan.
-5. Revisa los cambios sensibles antes de autorizar su aplicación.
+Abre la [biblioteca](https://blandskron.github.io/KronForge/#library) y busca por objetivo, título o etiqueta. Usa los filtros de dominio, tipo y nivel para acotar los resultados. Para una auditoría completa de un repositorio, empieza con el [prompt maestro](prompts/agents-first-documentation-review.prompt.md).
 
-### Para una tarea especializada
+![Biblioteca de KronForge con el filtro de protocolos activo y tarjetas de resultados](assets/img/guia-biblioteca.png)
 
-1. Navega el [índice de dominios](library/README.md#dominios).
-2. Elige el activo por resultado y revisa sus entradas y restricciones.
-3. Sigue el activo y conserva la evidencia requerida.
+### 2. Revisa y obtén el Markdown
+
+Abre un resultado y comprueba su propósito, entradas, salidas y límites antes de aplicarlo. **Copiar** lleva el Markdown al portapapeles. **Descargar** guarda el archivo canónico para incorporarlo a un repositorio. **Fuente** permite consultar el original. El [protocolo AFP-006](https://blandskron.github.io/KronForge/#library/engineering-protocols.external-consumption-validation) muestra el visor y sus controles.
+
+![Visor del protocolo AFP-006 con las acciones Copiar, Descargar y Fuente](assets/img/guia-visor.png)
+
+### 3. Aplica el activo en Codex
+
+Abre en Codex el repositorio objetivo y pega el Markdown del activo o indica la ruta del archivo descargado. Añade el objetivo, el alcance y las restricciones del proyecto. Adapta esta instrucción a tu tarea.
+
+> Lee las reglas del repositorio y audita el alcance usando este activo. Entrega hallazgos, un plan de cambios y los controles que vas a ejecutar. Espera mi aprobación antes de aplicar el plan.
+
+Revisa el diagnóstico y autoriza el alcance. Al finalizar, conserva el diff, los comandos ejecutados y la evidencia de sus resultados. Puedes seguir el mismo flujo con cualquier agente que lea Markdown.
+
+### Prueba local de packs
+
+El [prototipo de packs](docs/KRONFORGE_PACK_PREVIEW.md) permite ensayar planificación, instalación, actualización y retiro con un repositorio desechable. La [guía del kit sintético](docs/KRONFORGE_EXTERNAL_TRIAL.md) incluye la prueba en Codex y qué evidencia devolver.
 
 ## Dominios
 
@@ -102,7 +112,7 @@ KronForge/
 `-- pages/
 ```
 
-Las seis capas —orientación, conocimiento, ejecución, gobierno, presentación y automatización— están descritas en la [arquitectura del framework](docs/architecture/FRAMEWORK_ARCHITECTURE.md). Las subcarpetas de activos se crean solo cuando contienen conocimiento real; el Markdown es la fuente canónica y el catálogo/portal son proyecciones.
+Las siete capas de orientación, protocolo, conocimiento, ejecución, gobernanza, presentación y automatización están descritas en la [arquitectura del framework](docs/architecture/FRAMEWORK_ARCHITECTURE.md). El Markdown es la fuente canónica de los activos. El catálogo y el portal permiten descubrirlos.
 
 ## Calidad reproducible
 
@@ -137,7 +147,7 @@ La [estrategia integral](docs/AI_ENGINEERING_FRAMEWORK_STRATEGY.md), el [plan de
 
 ## Uso con agentes
 
-Los agentes deben leer [AGENTS.md](AGENTS.md) antes de trabajar. La [matriz de compatibilidad](docs/AGENT_COMPATIBILITY.md) distingue soporte universal basado en Markdown de autodetección nativa. `CLAUDE.md`, `GEMINI.md` y `.github/copilot-instructions.md` son adaptadores opcionales; el conocimiento canónico no depende de ellos.
+Los agentes deben leer [AGENTS.md](AGENTS.md) antes de trabajar. La [matriz de compatibilidad](docs/AGENT_COMPATIBILITY.md) documenta el consumo de Markdown y el descubrimiento nativo según el cliente.
 
 ## Sitio estático
 

@@ -18,6 +18,8 @@ El candidato **Git Flow & Agent Skills** permite probar un ciclo de ingeniería 
 
 ## Secuencia de ciclos
 
+El [prototipo local de packs](KRONFORGE_PACK_PREVIEW.md) registra la implementación experimental de C2, el ensayo de distribución de C3 y la evidencia externa requerida para C4 y C5.
+
 | Ciclo y dependencia | Entrega y responsable propuesto | Gate y criterio de aceptación | Riesgo y tratamiento |
 |---|---|---|---|
 | C0. Diagnóstico y alcance. Independiente. Alineado con v3.5. | Maintainer revisa auditoría y ADR, confirma fuente y derechos de BLK-ENG-001, registra matriz de reuso y define entorno piloto. Programa la corrección editorial de versión y capas. | Owner aprueba alcance, fuente, licencia, responsables y escenarios del piloto. `npm run quality` con línea base archivada. Las advertencias se registran por separado. | Fuente ausente, licencias incompatibles o duplicación. Pausar el candidato y someter a decisión cualquier sustitución. |

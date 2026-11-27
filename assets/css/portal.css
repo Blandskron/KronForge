@@ -106,6 +106,52 @@ body.sidebar-collapsed .nav-label {
 .hero-copy > .forge-slogan { color: var(--text-primary); font-size: clamp(1.15rem, 3vw, 1.85rem); line-height: 1.28; font-weight: 650; }
 .forge-resources { display: grid; gap: 16px; margin-block: 32px; }
 .forge-resources h2 { font-size: clamp(1.2rem, 3vw, 1.7rem); }
+
+.portal-guide {
+    display: none;
+    gap: 14px;
+    margin-block: 8px 32px;
+}
+
+#welcome.active + .portal-guide { display: grid; }
+
+.portal-guide h2 { font-size: clamp(1.35rem, 3vw, 1.85rem); }
+.portal-guide p { color: var(--text-secondary); }
+.portal-guide > p { max-width: 78ch; }
+
+.portal-guide-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 390px), 1fr));
+    gap: 16px;
+}
+
+.portal-guide figure {
+    margin: 0;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-card);
+    background: var(--surface);
+}
+
+.portal-guide figure > a,
+.portal-guide img {
+    display: block;
+    width: 100%;
+}
+
+.portal-guide img { height: auto; }
+.portal-guide figure > a:focus-visible { outline-offset: -4px; }
+
+.portal-guide figcaption {
+    display: grid;
+    gap: 8px;
+    padding: 16px;
+}
+
+.portal-guide figcaption a {
+    justify-self: start;
+    color: var(--accent-strong);
+}
 .forge-resource-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 12px; }
 .forge-resource-grid a { display: grid; gap: 8px; padding: 20px; border: 1px solid var(--border-color); border-radius: var(--radius-card); color: var(--text-primary); background: var(--surface); text-decoration: none; transition: border-color var(--motion), background var(--motion); }
 .forge-resource-grid a:hover { background: var(--surface-muted); border-color: var(--accent); }
