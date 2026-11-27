@@ -45,6 +45,12 @@ Todos los cambios notables en este proyecto serán documentados en este archivo.
 - Acceso directo a skills, prompts, protocolos y referencias, con enlaces a arquitectura, gobernanza y calidad.
 - URL de descubrimiento y metadatos alineados con el subdirectorio actual de GitHub Pages.
 
+## [3.5.0] - 2026-11-27
+
+### Modificado
+
+- Release 3.5.0 preparada con `npm run release` y desplegada por npm Trusted Publishing (OIDC).
+
 ## [3.4.3] - 2026-11-27
 
 ### Modificado

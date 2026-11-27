@@ -1,6 +1,6 @@
 {
   "name": "kronforge",
-  "version": "3.4.3",
+  "version": "3.5.0",
   "type": "module",
   "description": "KronForge: plataforma documental abierta de AI Engineering con catálogo v3, prompts, skills y protocolos reutilizables sin dependencias.",
   "license": "MIT",

@@ -1,6 +1,6 @@
 # KronForge — Agents-First Engineering Framework
 
-> Plataforma documental abierta de AI Engineering para diseñar contexto, repositorios, agentes y software verificable. Markdown canónico, agnóstico al modelo y al stack, sin runtime. Versión 3.4.3, catálogo actualizado el 2026-11-27.
+> Plataforma documental abierta de AI Engineering para diseñar contexto, repositorios, agentes y software verificable. Markdown canónico, agnóstico al modelo y al stack, sin runtime. Versión 3.5.0, catálogo actualizado el 2026-11-27.
 
 El conocimiento vive en Markdown bajo `library/domains/`. El catálogo JSON y las carpetas `skills/` son proyecciones verificadas de esa fuente, no fuentes alternativas.
 
